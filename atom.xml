@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.hooyuhao.club/"/>
-  <updated>2020-03-09T15:13:33.708Z</updated>
+  <updated>2020-03-09T16:46:11.824Z</updated>
   <id>http://blog.hooyuhao.club/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>python install cmdb</title>
+    <link href="http://blog.hooyuhao.club/python-install-cmdb/"/>
+    <id>http://blog.hooyuhao.club/python-install-cmdb/</id>
+    <published>2020-03-09T16:44:34.000Z</published>
+    <updated>2020-03-09T16:46:11.824Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;利用Python 安装部署cmdb&lt;/p&gt;
+&lt;pre class=&quot;line-numbers language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Python" scheme="http://blog.hooyuhao.club/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="http://blog.hooyuhao.club/tags/Python/"/>
+    
+  </entry>
   
   <entry>
     <title>解决docker 容器内访问宿主机“No route to host”的问题</title>

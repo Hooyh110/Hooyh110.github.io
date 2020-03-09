@@ -4,14 +4,17 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="解决docker 容器内访问宿主机“No route to host”的问题, ECNU NLP DeepLearning AntNLP helen">
+    <meta name="keywords" content="python install cmdb, ECNU NLP DeepLearning AntNLP helen">
     <meta name="baidu-site-verification" content="PQuYZ68I8K">
     <meta name="google-site-verification" content="PQuYZ68I8K">
     <meta name="360-site-verification" content>
-    <meta name="description" content="解决docker 容器内访问宿主机“No route to host”的问题请顺序运行以下命令：
-nmcli connection modify docker0 connection.zone trusted
-
-systemctl stop">
+    <meta name="description" content="利用Python 安装部署cmdb
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+import os
+import subprocess
+import argparse
+import time">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -19,7 +22,7 @@ systemctl stop">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>解决docker 容器内访问宿主机“No route to host”的问题 | helen的博客</title>
+    <title>python install cmdb | helen的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -293,13 +296,13 @@ systemctl stop">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        解决docker 容器内访问宿主机“No route to host”的问题
+                        python install cmdb
                     </div>
                 </div>
             </div>
@@ -410,8 +413,8 @@ systemctl stop">
                     
                     <div class="article-tag">
                         
-                        <a href="/tags/docker/" target="_blank">
-                            <span class="chip bg-color">docker</span>
+                        <a href="/tags/Python/" target="_blank">
+                            <span class="chip bg-color">Python</span>
                         </a>
                         
                     </div>
@@ -422,8 +425,8 @@ systemctl stop">
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                        <a href="/categories/docker/" class="post-category" target="_blank">
-                            docker
+                        <a href="/categories/Python/" class="post-category" target="_blank">
+                            Python
                         </a>
                         
                     </div>
@@ -434,7 +437,7 @@ systemctl stop">
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-03-09
+                    2020-03-10
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -448,14 +451,14 @@ systemctl stop">
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    61
+                    556
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    3 分
                 </div>
                 
                 
@@ -471,18 +474,87 @@ systemctl stop">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="解决docker-容器内访问宿主机“No-route-to-host”的问题"><a href="#解决docker-容器内访问宿主机“No-route-to-host”的问题" class="headerlink" title="解决docker 容器内访问宿主机“No route to host”的问题"></a>解决docker 容器内访问宿主机“No route to host”的问题</h1><p>请顺序运行以下命令：</p>
-<pre class="line-numbers language-bash"><code class="language-bash">nmcli connection modify docker0 connection.zone trusted
+                <p>利用Python 安装部署cmdb</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#!/usr/bin/env python3</span>
+<span class="token comment" spellcheck="true"># -*- coding: utf-8 -*-</span>
+<span class="token keyword">import</span> os
+<span class="token keyword">import</span> subprocess
+<span class="token keyword">import</span> argparse
+<span class="token keyword">import</span> time
 
-systemctl stop NetworkManager.service
+<span class="token keyword">def</span> <span class="token function">base</span><span class="token punctuation">(</span>cmd<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> subprocess<span class="token punctuation">.</span>call<span class="token punctuation">(</span>cmd<span class="token punctuation">,</span> shell<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">raise</span> Exception<span class="token punctuation">(</span><span class="token string">"{} 执行失败"</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>cmd<span class="token punctuation">)</span><span class="token punctuation">)</span>
 
-firewall-cmd --permanent --zone<span class="token operator">=</span>trusted --change-interface<span class="token operator">=</span>docker0
+<span class="token keyword">def</span> <span class="token function">install_docker</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    base<span class="token punctuation">(</span><span class="token string">"sudo yum install -y yum-utils device-mapper-persistent-data lvm2"</span><span class="token punctuation">)</span>
+    base<span class="token punctuation">(</span><span class="token string">"sudo yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo"</span><span class="token punctuation">)</span>
+    base<span class="token punctuation">(</span><span class="token string">"sudo yum makecache fast"</span><span class="token punctuation">)</span>
+    base<span class="token punctuation">(</span><span class="token string">"sudo yum -y install docker-ce"</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">not</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>exists<span class="token punctuation">(</span><span class="token string">"/etc/docker"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        base<span class="token punctuation">(</span><span class="token string">"mkdir -p /etc/docker"</span><span class="token punctuation">)</span>
+    <span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">"/etc/docker/daemon.json"</span><span class="token punctuation">,</span> <span class="token string">"w"</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+        f<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">'{\n    "registry-mirrors": ["https://9f4w4icn.mirror.aliyuncs.com"] \n}'</span><span class="token punctuation">)</span>
+    base<span class="token punctuation">(</span><span class="token string">"sudo systemctl daemon-reload"</span><span class="token punctuation">)</span>
+    base<span class="token punctuation">(</span><span class="token string">"sudo systemctl start docker"</span><span class="token punctuation">)</span>
 
-systemctl start NetworkManager.service
+<span class="token keyword">def</span> <span class="token function">create_dir</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">not</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>exists<span class="token punctuation">(</span><span class="token string">"/var/cmdb/db"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        base<span class="token punctuation">(</span><span class="token string">"sudo mkdir -p /var/cmdb/db"</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">not</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>exists<span class="token punctuation">(</span><span class="token string">"/var/cmdb/es"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        base<span class="token punctuation">(</span><span class="token string">"sudo mkdir -p /var/cmdb/es"</span><span class="token punctuation">)</span>
 
-nmcli connection modify docker0 connection.zone trusted
+<span class="token keyword">def</span> <span class="token function">run_db_container</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    base<span class="token punctuation">(</span><span class="token string">"sudo docker run --name cmdb-db -d -e MYSQL_ROOT_PASSWORD=cmdbcmdb -v /var/cmdb/db:/var/lib/mysql mysql:5.7.21"</span><span class="token punctuation">)</span>
 
-systemctl restart docker.service<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token keyword">def</span> <span class="token function">run_es_container</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    base<span class="token punctuation">(</span><span class="token string">"sudo docker run --name cmdb-es -d -v /var/cmdb/es:/usr/share/elasticsearch/data elasticsearch:5.6.8"</span><span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">init_db</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    base<span class="token punctuation">(</span><span class="token string">"sudo docker run -it --rm --link cmdb-db -e DB_HOST=cmdb-db -e ENV=PRO -e DB_PORT=3306 -e DB_USERNAME=root -e DB_PASSWORD=cmdbcmdb -e DB_NAME=cmdb mingmingtang/cmdb init-db"</span><span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">run_cmdb_container</span><span class="token punctuation">(</span>site_url<span class="token punctuation">,</span> email_host<span class="token punctuation">,</span> email_port<span class="token punctuation">,</span> email_username<span class="token punctuation">,</span> email_password<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    base<span class="token punctuation">(</span><span class="token string">"sudo docker run -d --name cmdb --link cmdb-db --link cmdb-es -p 80:80 -e ENV=PRO -e SITE_URL={} -e DB_HOST=cmdb-db -e DB_PORT=3306 -e DB_USERNAME=root -e DB_PASSWORD=cmdbcmdb -e DB_NAME=cmdb -e ELASTICSEARCH_HOSTS=cmdb-es -e EMAIL_HOST={} -e EMAIL_PORT={} -e EMAIL_USERNAME={} -e EMAIL_PASSWORD={} mingmingtang/cmdb start"</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>site_url<span class="token punctuation">,</span> email_host<span class="token punctuation">,</span> email_port<span class="token punctuation">,</span> email_username<span class="token punctuation">,</span> email_password<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">input_para</span><span class="token punctuation">(</span>help<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    value <span class="token operator">=</span> <span class="token string">""</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token operator">not</span> value<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        value <span class="token operator">=</span> raw_input<span class="token punctuation">(</span>help<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> value
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>os<span class="token punctuation">.</span>geteuid<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">raise</span><span class="token punctuation">(</span><span class="token string">"请以root权限运行"</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># parser = argparse.ArgumentParser()</span>
+    <span class="token comment" spellcheck="true"># parser.add_argument("--siteurl", type=str, help="E.g: http://cmdb.xxx.com, http://172.17.100.1")</span>
+    <span class="token comment" spellcheck="true"># parser.add_argument("--emailhost", type=str, help="E.g: http://cmdb.xxx.com, http://172.17.100.1")</span>
+    <span class="token comment" spellcheck="true"># parser.add_argument("--emailport", type=str, help="E.g: http://cmdb.xxx.com, http://172.17.100.1")</span>
+    <span class="token comment" spellcheck="true"># parser.add_argument("--emailusername", type=str, help="E.g: http://cmdb.xxx.com, http://172.17.100.1")</span>
+    <span class="token comment" spellcheck="true"># parser.add_argument("--emailpassword", type=str, help="E.g: http://cmdb.xxx.com, http://172.17.100.1")</span>
+    <span class="token comment" spellcheck="true"># args = parser.parse_args()</span>
+    <span class="token comment" spellcheck="true"># SITE_URL = args.SITE_URL</span>
+
+    site_url <span class="token operator">=</span> input_para<span class="token punctuation">(</span><span class="token string">"请输入网站域名或IP（http://cmdb.xxx.com）："</span><span class="token punctuation">)</span>
+    email_host <span class="token operator">=</span> input_para<span class="token punctuation">(</span><span class="token string">"网站邮箱服务器（smtp.163.com）："</span><span class="token punctuation">)</span>
+    email_port <span class="token operator">=</span> input_para<span class="token punctuation">(</span><span class="token string">"邮箱服务器端口（25）："</span><span class="token punctuation">)</span>
+    email_username <span class="token operator">=</span> input_para<span class="token punctuation">(</span><span class="token string">"邮箱用户名（cmdb@163.com）："</span><span class="token punctuation">)</span>
+    email_password <span class="token operator">=</span> input_para<span class="token punctuation">(</span><span class="token string">"邮箱密码|独立授权码（P@ssw0rd）："</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"开始安装docker"</span><span class="token punctuation">)</span>
+    install_docker<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"开始创建目录"</span><span class="token punctuation">)</span>
+    create_dir<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"开始运行mysql容器"</span><span class="token punctuation">)</span>
+    run_db_container<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"开始运行elasticsearch容器"</span><span class="token punctuation">)</span>
+    run_es_container<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"等待数据库启动完成(10s)"</span><span class="token punctuation">)</span>
+    time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"开始初始化数据库"</span><span class="token punctuation">)</span>
+    init_db<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"开始运行cmdb"</span><span class="token punctuation">)</span>
+    run_cmdb_container<span class="token punctuation">(</span>site_url<span class="token punctuation">,</span> email_host<span class="token punctuation">,</span> email_port<span class="token punctuation">,</span> email_username<span class="token punctuation">,</span> email_password<span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"完成！"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr />
@@ -641,9 +713,9 @@ systemctl restart docker.service<span aria-hidden="true" class="line-numbers-row
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《解决docker 容器内访问宿主机“No route to host”的问题》
+                    《python install cmdb》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/jie-jue-docker-rong-qi-nei-fang-wen-su-zhu-ji-no-route-to-host-de-wen-ti/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/python-install-cmdb/" property="cc:attributionName"
                rel="cc:attributionURL">
                 helen
             </a> 采用
@@ -684,7 +756,7 @@ systemctl restart docker.service<span aria-hidden="true" class="line-numbers-row
         repo: 'Hooyh110.github.io',
         owner: 'Hooyh110',
         admin: "Hooyh110",
-        id: 'jie-jue-docker-rong-qi-nei-fang-wen-su-zhu-ji-no-route-to-host-de-wen-ti/',
+        id: 'python-install-cmdb/',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -967,9 +1039,10 @@ systemctl restart docker.service<span aria-hidden="true" class="line-numbers-row
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/python-install-cmdb/">
                     <div class="card-image">
@@ -987,9 +1060,9 @@ systemctl restart docker.service<span aria-hidden="true" class="line-numbers-row
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-10
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-10
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -1002,6 +1075,7 @@ systemctl restart docker.service<span aria-hidden="true" class="line-numbers-row
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1020,19 +1094,19 @@ systemctl restart docker.service<span aria-hidden="true" class="line-numbers-row
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/ding-yi-js-map-wen-jian-zhi-yun-xu-nei-wang-huo-zhe-zhi-ding-ip-fang-wen/">
+                <a href="/jie-jue-docker-rong-qi-nei-fang-wen-su-zhu-ji-no-route-to-host-de-wen-ti/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="定义js.map文件只允许内网或者指定IP访问">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="解决docker 容器内访问宿主机“No route to host”的问题">
                         
-                        <span class="card-title">定义js.map文件只允许内网或者指定IP访问</span>
+                        <span class="card-title">解决docker 容器内访问宿主机“No route to host”的问题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            定义js.map文件只允许访问内网或者指定IP访问
+                            利用nmcli 解决容器内访问宿主机
                         
                     </div>
                     <div class="publish-info">
@@ -1043,8 +1117,8 @@ systemctl restart docker.service<span aria-hidden="true" class="line-numbers-row
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/nginx/" class="post-category" target="_blank">
-                                    nginx
+                            <a href="/categories/docker/" class="post-category" target="_blank">
+                                    docker
                                 </a>
                             
                             
@@ -1054,8 +1128,8 @@ systemctl restart docker.service<span aria-hidden="true" class="line-numbers-row
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/nginx/" target="_blank">
-                        <span class="chip bg-color">nginx</span>
+                    <a href="/tags/docker/" target="_blank">
+                        <span class="chip bg-color">docker</span>
                     </a>
                     
                 </div>
