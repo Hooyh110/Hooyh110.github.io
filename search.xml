@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>bat脚本编写</title>
+      <link href="/bat-jiao-ben-bian-xie/"/>
+      <url>/bat-jiao-ben-bian-xie/</url>
+      
+        <content type="html"><![CDATA[<h1 id="强制获取管理员运行权限"><a href="#强制获取管理员运行权限" class="headerlink" title="强制获取管理员运行权限"></a>强制获取管理员运行权限</h1><pre><code>%1 mshta vbscript:CreateObject(&quot;Shell.Application&quot;).ShellExecute(&quot;cmd.exe&quot;,&quot;/c %~s0 ::&quot;,&quot;&quot;,&quot;runas&quot;,1)(window.close)&amp;&amp;exit</code></pre><h3 id="释放IP及重新获取IP"><a href="#释放IP及重新获取IP" class="headerlink" title="释放IP及重新获取IP"></a>释放IP及重新获取IP</h3><pre class="line-numbers language-bat"><code class="language-bat">@echo off%1 mshta vbscript:CreateObject("Shell.Application").ShellExecute("cmd.exe","/c %~s0 ::","","runas",1)(window.close)&&exitecho connect release toolsipconfig /releaseecho connection has been releasedecho please waitingecho connect renew toolsipconfig /renewecho connection has been renewpause<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="win7-关闭防火墙"><a href="#win7-关闭防火墙" class="headerlink" title="win7 关闭防火墙"></a>win7 关闭防火墙</h3><pre class="line-numbers language-bat"><code class="language-bat">@echo off(net start|find "Windows Firewall" >nul)&&(net stop MpsSvc>nul&sc config MpsSvc start= disabled>nul)||((sc qc mpssvc|find /i "START_TYPE"|find /i "DISABLED">nul)||sc config MpsSvc start= disabled>nul)echo 完成！&pause>nul<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><h3 id="win10-关闭防火墙"><a href="#win10-关闭防火墙" class="headerlink" title="win10 关闭防火墙"></a>win10 关闭防火墙</h3><pre class="line-numbers language-bat"><code class="language-bat">@echo off%1 mshta vbscript:CreateObject("Shell.Application").ShellExecute("cmd.exe","/c %~s0 ::","","runas",1)(window.close)&&exitreg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender" /v "DisableAntiSpyware" /d 1 /t REG_DWORDnetsh firewall set opmode mode = disableecho 完成！&pause>nul<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>### </p><pre class="line-numbers language-bat"><code class="language-bat">@echo off%1 mshta vbscript:CreateObject("Shell.Application").ShellExecute("cmd.exe","/c %~s0 ::","","runas",1)(window.close)&&exitnetsh firewall set opmode mode = enableecho 完成！&pause>nul<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> Windows </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Windows </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>docker run -m指定内存大小不生效</title>
       <link href="/docker-run-m-zhi-ding-nei-cun-da-xiao-bu-sheng-xiao/"/>
       <url>/docker-run-m-zhi-ding-nei-cun-da-xiao-bu-sheng-xiao/</url>

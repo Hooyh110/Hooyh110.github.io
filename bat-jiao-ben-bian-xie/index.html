@@ -4,16 +4,11 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="利用普罗米修斯监控ecs, ECNU NLP DeepLearning AntNLP helen">
+    <meta name="keywords" content="bat脚本编写, ECNU NLP DeepLearning AntNLP helen">
     <meta name="baidu-site-verification" content="PQuYZ68I8K">
     <meta name="google-site-verification" content="PQuYZ68I8K">
     <meta name="360-site-verification" content>
-    <meta name="description" content="
-
-利用脚本部署node_exporter
-#!/bin/bash
-
-#wget https://github.com/prometheus/node_exporter/releases/download/v0.17.0/node_expo">
+    <meta name="description" content="强制获取管理员运行权限%1 mshta vbscript:CreateObject(&amp;quot;Shell.Application&amp;quot;).ShellExecute(&amp;quot;cmd.exe&amp;quot;,&amp;quot;/c %~s0 ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -21,7 +16,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>利用普罗米修斯监控ecs | helen的博客</title>
+    <title>bat脚本编写 | helen的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -295,13 +290,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/27.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        利用普罗米修斯监控ecs
+                        bat脚本编写
                     </div>
                 </div>
             </div>
@@ -412,8 +407,8 @@
                     
                     <div class="article-tag">
                         
-                        <a href="/tags/monitor/" target="_blank">
-                            <span class="chip bg-color">monitor</span>
+                        <a href="/tags/Windows/" target="_blank">
+                            <span class="chip bg-color">Windows</span>
                         </a>
                         
                     </div>
@@ -424,8 +419,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                        <a href="/categories/monitor/" class="post-category" target="_blank">
-                            monitor
+                        <a href="/categories/Windows/" class="post-category" target="_blank">
+                            Windows
                         </a>
                         
                     </div>
@@ -450,7 +445,7 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    301
+                    213
                 </div>
                 
 
@@ -473,65 +468,29 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <div align="middle"><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=29717271&auto=1&height=66"></iframe></div>
-
-<p>利用脚本部署node_exporter</p>
-<pre class="line-numbers language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
-
-<span class="token comment" spellcheck="true">#wget https://github.com/prometheus/node_exporter/releases/download/v0.17.0/node_exporter-0.17.0.linux-amd64.tar.gz</span>
-<span class="token function">rsync</span> -avPLl helen@172.16.6.86:/Users/helen/hoo-pro/hoo-PRO/software/prometheus/node_exporter-0.17.0.linux-amd64.tar.gz ./
-<span class="token function">tar</span> zxf node_exporter-0.17.0.linux-amd64.tar.gz
-<span class="token function">mv</span> node_exporter-0.17.0.linux-amd64 /usr/local/node_exporter
-
-<span class="token function">cat</span> <span class="token operator">&lt;&lt;</span>EOF <span class="token operator">></span>/usr/lib/systemd/system/node_exporter.service
-<span class="token punctuation">[</span>Unit<span class="token punctuation">]</span>
-Description<span class="token operator">=</span>https://prometheus.io
-
-<span class="token punctuation">[</span>Service<span class="token punctuation">]</span>
-Restart<span class="token operator">=</span>on-failure
-ExecStart<span class="token operator">=</span>/usr/local/node_exporter/node_exporter --collector.systemd --collector.systemd.unit-whitelist<span class="token operator">=</span><span class="token punctuation">(</span>docker<span class="token operator">|</span>kubelet<span class="token operator">|</span>kube-proxy<span class="token operator">|</span>flanneld<span class="token punctuation">)</span>.service
-
-<span class="token punctuation">[</span>Install<span class="token punctuation">]</span>
-WantedBy<span class="token operator">=</span>multi-user.target
-EOF
-
-systemctl daemon-reload
-systemctl <span class="token function">enable</span> node_exporter
-systemctl restart node_exporter<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>在需要被普罗米修斯监控的ecs上执行此脚本</p>
-<pre><code>bash node_exporter.sh</code></pre><p>然后修改prometheus.yml文件</p>
-<pre class="line-numbers language-yml"><code class="language-yml"># my global config
-global:
-  scrape_interval:     15s # Set the scrape interval to every 15 seconds. Default is every 1 minute.
-  evaluation_interval: 15s # Evaluate rules every 15 seconds. The default is every 1 minute.
-  # scrape_timeout is set to the global default (10s).
-
-# Alertmanager configuration
-alerting:
-  alertmanagers:
-  - static_configs:
-    - targets:
-      # - alertmanager:9093
-
-# Load rules once and periodically evaluate them according to the global 'evaluation_interval'.
-rule_files:
-  # - "first_rules.yml"
-  # - "second_rules.yml"
-
-# A scrape configuration containing exactly one endpoint to scrape:
-# Here it's Prometheus itself.
-scrape_configs:
-  # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
-  - job_name: 'prometheus'
-
-    # metrics_path defaults to '/metrics'
-    # scheme defaults to 'http'.
-
-    static_configs:
-    - targets: ['localhost:9090','10.10.249.59:9100','10.10.249.60:9100','192.168.1.35:8080','192.168.1.35:9100','10.10.249.55:9100']
-    #  labels:
-    #    instance: k8s-node01<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>修改完成，重启普罗米修斯；</p>
+                <h1 id="强制获取管理员运行权限"><a href="#强制获取管理员运行权限" class="headerlink" title="强制获取管理员运行权限"></a>强制获取管理员运行权限</h1><pre><code>%1 mshta vbscript:CreateObject(&quot;Shell.Application&quot;).ShellExecute(&quot;cmd.exe&quot;,&quot;/c %~s0 ::&quot;,&quot;&quot;,&quot;runas&quot;,1)(window.close)&amp;&amp;exit</code></pre><h3 id="释放IP及重新获取IP"><a href="#释放IP及重新获取IP" class="headerlink" title="释放IP及重新获取IP"></a>释放IP及重新获取IP</h3><pre class="line-numbers language-bat"><code class="language-bat">@echo off
+%1 mshta vbscript:CreateObject("Shell.Application").ShellExecute("cmd.exe","/c %~s0 ::","","runas",1)(window.close)&&exit
+echo connect release tools
+ipconfig /release
+echo connection has been released
+echo please waiting
+echo connect renew tools
+ipconfig /renew
+echo connection has been renew
+pause<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="win7-关闭防火墙"><a href="#win7-关闭防火墙" class="headerlink" title="win7 关闭防火墙"></a>win7 关闭防火墙</h3><pre class="line-numbers language-bat"><code class="language-bat">@echo off
+(net start|find "Windows Firewall" >nul)&&(net stop MpsSvc>nul&sc config MpsSvc start= disabled>nul)||((sc qc mpssvc|find /i "START_TYPE"|find /i "DISABLED">nul)||sc config MpsSvc start= disabled>nul)
+echo 完成！&pause>nul<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h3 id="win10-关闭防火墙"><a href="#win10-关闭防火墙" class="headerlink" title="win10 关闭防火墙"></a>win10 关闭防火墙</h3><pre class="line-numbers language-bat"><code class="language-bat">@echo off
+%1 mshta vbscript:CreateObject("Shell.Application").ShellExecute("cmd.exe","/c %~s0 ::","","runas",1)(window.close)&&exit
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender" /v "DisableAntiSpyware" /d 1 /t REG_DWORD
+netsh firewall set opmode mode = disable
+echo 完成！&pause>nul<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>### </p>
+<pre class="line-numbers language-bat"><code class="language-bat">@echo off
+%1 mshta vbscript:CreateObject("Shell.Application").ShellExecute("cmd.exe","/c %~s0 ::","","runas",1)(window.close)&&exit
+netsh firewall set opmode mode = enable
+echo 完成！&pause>nul<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr />
@@ -690,9 +649,9 @@ scrape_configs:
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《利用普罗米修斯监控ecs》
+                    《bat脚本编写》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/li-yong-pu-luo-mi-xiu-si-jian-kong-ecs/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/bat-jiao-ben-bian-xie/" property="cc:attributionName"
                rel="cc:attributionURL">
                 helen
             </a> 采用
@@ -733,7 +692,7 @@ scrape_configs:
         repo: 'Hooyh110.github.io',
         owner: 'Hooyh110',
         admin: "Hooyh110",
-        id: 'li-yong-pu-luo-mi-xiu-si-jian-kong-ecs/',
+        id: 'bat-jiao-ben-bian-xie/',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -1016,9 +975,60 @@ scrape_configs:
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/bat-jiao-ben-bian-xie/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/27.jpg" class="responsive-img" alt="bat脚本编写">
+                        
+                        <span class="card-title">bat脚本编写</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Windows 脚本编写
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-09
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Windows/" class="post-category" target="_blank">
+                                    Windows
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Windows/" target="_blank">
+                        <span class="chip bg-color">Windows</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/docker-run-m-zhi-ding-nei-cun-da-xiao-bu-sheng-xiao/">
                     <div class="card-image">
@@ -1033,55 +1043,6 @@ scrape_configs:
                     <div class="summary block-with-text">
                         
                             解决docker 指定内存大小不生效的问题
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-09
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/docker/" class="post-category" target="_blank">
-                                    docker
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/docker/" target="_blank">
-                        <span class="chip bg-color">docker</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/docker-compose-build-seafile/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="docker-compose build seafile">
-                        
-                        <span class="card-title">docker-compose build seafile</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            利用docker-compose部署seafile个人网盘
                         
                     </div>
                     <div class="publish-info">
