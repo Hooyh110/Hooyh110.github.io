@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>解决docker 容器内访问宿主机“No route to host”的问题</title>
+      <link href="/jie-jue-docker-rong-qi-nei-fang-wen-su-zhu-ji-no-route-to-host-de-wen-ti/"/>
+      <url>/jie-jue-docker-rong-qi-nei-fang-wen-su-zhu-ji-no-route-to-host-de-wen-ti/</url>
+      
+        <content type="html"><![CDATA[<h1 id="解决docker-容器内访问宿主机“No-route-to-host”的问题"><a href="#解决docker-容器内访问宿主机“No-route-to-host”的问题" class="headerlink" title="解决docker 容器内访问宿主机“No route to host”的问题"></a>解决docker 容器内访问宿主机“No route to host”的问题</h1><p>请顺序运行以下命令：</p><pre class="line-numbers language-bash"><code class="language-bash">nmcli connection modify docker0 connection.zone trustedsystemctl stop NetworkManager.servicefirewall-cmd --permanent --zone<span class="token operator">=</span>trusted --change-interface<span class="token operator">=</span>docker0systemctl start NetworkManager.servicenmcli connection modify docker0 connection.zone trustedsystemctl restart docker.service<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> docker </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> docker </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>定义js.map文件只允许内网或者指定IP访问</title>
       <link href="/ding-yi-js-map-wen-jian-zhi-yun-xu-nei-wang-huo-zhe-zhi-ding-ip-fang-wen/"/>
       <url>/ding-yi-js-map-wen-jian-zhi-yun-xu-nei-wang-huo-zhe-zhi-ding-ip-fang-wen/</url>

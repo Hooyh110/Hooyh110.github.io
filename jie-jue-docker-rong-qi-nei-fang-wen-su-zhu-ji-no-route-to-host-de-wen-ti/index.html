@@ -4,11 +4,14 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="bat脚本编写, ECNU NLP DeepLearning AntNLP helen">
+    <meta name="keywords" content="解决docker 容器内访问宿主机“No route to host”的问题, ECNU NLP DeepLearning AntNLP helen">
     <meta name="baidu-site-verification" content="PQuYZ68I8K">
     <meta name="google-site-verification" content="PQuYZ68I8K">
     <meta name="360-site-verification" content>
-    <meta name="description" content="强制获取管理员运行权限%1 mshta vbscript:CreateObject(&amp;quot;Shell.Application&amp;quot;).ShellExecute(&amp;quot;cmd.exe&amp;quot;,&amp;quot;/c %~s0 ">
+    <meta name="description" content="解决docker 容器内访问宿主机“No route to host”的问题请顺序运行以下命令：
+nmcli connection modify docker0 connection.zone trusted
+
+systemctl stop">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +19,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>bat脚本编写 | helen的博客</title>
+    <title>解决docker 容器内访问宿主机“No route to host”的问题 | helen的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -290,13 +293,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/27.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        bat脚本编写
+                        解决docker 容器内访问宿主机“No route to host”的问题
                     </div>
                 </div>
             </div>
@@ -407,8 +410,8 @@
                     
                     <div class="article-tag">
                         
-                        <a href="/tags/Windows/" target="_blank">
-                            <span class="chip bg-color">Windows</span>
+                        <a href="/tags/docker/" target="_blank">
+                            <span class="chip bg-color">docker</span>
                         </a>
                         
                     </div>
@@ -419,8 +422,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                        <a href="/categories/Windows/" class="post-category" target="_blank">
-                            Windows
+                        <a href="/categories/docker/" class="post-category" target="_blank">
+                            docker
                         </a>
                         
                     </div>
@@ -445,7 +448,7 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    213
+                    61
                 </div>
                 
 
@@ -468,29 +471,18 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="强制获取管理员运行权限"><a href="#强制获取管理员运行权限" class="headerlink" title="强制获取管理员运行权限"></a>强制获取管理员运行权限</h1><pre><code>%1 mshta vbscript:CreateObject(&quot;Shell.Application&quot;).ShellExecute(&quot;cmd.exe&quot;,&quot;/c %~s0 ::&quot;,&quot;&quot;,&quot;runas&quot;,1)(window.close)&amp;&amp;exit</code></pre><h3 id="释放IP及重新获取IP"><a href="#释放IP及重新获取IP" class="headerlink" title="释放IP及重新获取IP"></a>释放IP及重新获取IP</h3><pre class="line-numbers language-bat"><code class="language-bat">@echo off
-%1 mshta vbscript:CreateObject("Shell.Application").ShellExecute("cmd.exe","/c %~s0 ::","","runas",1)(window.close)&&exit
-echo connect release tools
-ipconfig /release
-echo connection has been released
-echo please waiting
-echo connect renew tools
-ipconfig /renew
-echo connection has been renew
-pause<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="win7-关闭防火墙"><a href="#win7-关闭防火墙" class="headerlink" title="win7 关闭防火墙"></a>win7 关闭防火墙</h3><pre class="line-numbers language-bat"><code class="language-bat">@echo off
-(net start|find "Windows Firewall" >nul)&&(net stop MpsSvc>nul&sc config MpsSvc start= disabled>nul)||((sc qc mpssvc|find /i "START_TYPE"|find /i "DISABLED">nul)||sc config MpsSvc start= disabled>nul)
-echo 完成！&pause>nul<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<h3 id="win10-关闭防火墙"><a href="#win10-关闭防火墙" class="headerlink" title="win10 关闭防火墙"></a>win10 关闭防火墙</h3><pre class="line-numbers language-bat"><code class="language-bat">@echo off
-%1 mshta vbscript:CreateObject("Shell.Application").ShellExecute("cmd.exe","/c %~s0 ::","","runas",1)(window.close)&&exit
-reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender" /v "DisableAntiSpyware" /d 1 /t REG_DWORD
-netsh firewall set opmode mode = disable
-echo 完成！&pause>nul<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>### </p>
-<pre class="line-numbers language-bat"><code class="language-bat">@echo off
-%1 mshta vbscript:CreateObject("Shell.Application").ShellExecute("cmd.exe","/c %~s0 ::","","runas",1)(window.close)&&exit
-netsh firewall set opmode mode = enable
-echo 完成！&pause>nul<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+                <h1 id="解决docker-容器内访问宿主机“No-route-to-host”的问题"><a href="#解决docker-容器内访问宿主机“No-route-to-host”的问题" class="headerlink" title="解决docker 容器内访问宿主机“No route to host”的问题"></a>解决docker 容器内访问宿主机“No route to host”的问题</h1><p>请顺序运行以下命令：</p>
+<pre class="line-numbers language-bash"><code class="language-bash">nmcli connection modify docker0 connection.zone trusted
+
+systemctl stop NetworkManager.service
+
+firewall-cmd --permanent --zone<span class="token operator">=</span>trusted --change-interface<span class="token operator">=</span>docker0
+
+systemctl start NetworkManager.service
+
+nmcli connection modify docker0 connection.zone trusted
+
+systemctl restart docker.service<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr />
@@ -649,9 +641,9 @@ echo 完成！&pause>nul<span aria-hidden="true" class="line-numbers-rows"><span
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《bat脚本编写》
+                    《解决docker 容器内访问宿主机“No route to host”的问题》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/bat-jiao-ben-bian-xie/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/jie-jue-docker-rong-qi-nei-fang-wen-su-zhu-ji-no-route-to-host-de-wen-ti/" property="cc:attributionName"
                rel="cc:attributionURL">
                 helen
             </a> 采用
@@ -692,7 +684,7 @@ echo 完成！&pause>nul<span aria-hidden="true" class="line-numbers-rows"><span
         repo: 'Hooyh110.github.io',
         owner: 'Hooyh110',
         admin: "Hooyh110",
-        id: 'bat-jiao-ben-bian-xie/',
+        id: 'jie-jue-docker-rong-qi-nei-fang-wen-su-zhu-ji-no-route-to-host-de-wen-ti/',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -975,72 +967,24 @@ echo 完成！&pause>nul<span aria-hidden="true" class="line-numbers-rows"><span
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/ding-yi-js-map-wen-jian-zhi-yun-xu-nei-wang-huo-zhe-zhi-ding-ip-fang-wen/">
+                <a href="/jie-jue-docker-rong-qi-nei-fang-wen-su-zhu-ji-no-route-to-host-de-wen-ti/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="定义js.map文件只允许内网或者指定IP访问">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="解决docker 容器内访问宿主机“No route to host”的问题">
                         
-                        <span class="card-title">定义js.map文件只允许内网或者指定IP访问</span>
+                        <span class="card-title">解决docker 容器内访问宿主机“No route to host”的问题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            定义js.map文件只允许访问内网或者指定IP访问
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-09
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/nginx/" class="post-category" target="_blank">
-                                    nginx
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/nginx/" target="_blank">
-                        <span class="chip bg-color">nginx</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/docker-run-m-zhi-ding-nei-cun-da-xiao-bu-sheng-xiao/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="docker run -m指定内存大小不生效">
-                        
-                        <span class="card-title">docker run -m指定内存大小不生效</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            解决docker 指定内存大小不生效的问题
+                            利用nmcli 解决容器内访问宿主机
                         
                     </div>
                     <div class="publish-info">
@@ -1059,11 +1003,61 @@ echo 完成！&pause>nul<span aria-hidden="true" class="line-numbers-rows"><span
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
                     <a href="/tags/docker/" target="_blank">
                         <span class="chip bg-color">docker</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/ding-yi-js-map-wen-jian-zhi-yun-xu-nei-wang-huo-zhe-zhi-ding-ip-fang-wen/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="定义js.map文件只允许内网或者指定IP访问">
+                        
+                        <span class="card-title">定义js.map文件只允许内网或者指定IP访问</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            定义js.map文件只允许访问内网或者指定IP访问
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-09
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/nginx/" class="post-category" target="_blank">
+                                    nginx
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/nginx/" target="_blank">
+                        <span class="chip bg-color">nginx</span>
                     </a>
                     
                 </div>
