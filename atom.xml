@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.hooyuhao.club/"/>
-  <updated>2020-03-09T08:38:08.009Z</updated>
+  <updated>2020-03-09T08:47:51.373Z</updated>
   <id>http://blog.hooyuhao.club/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://blog.hooyuhao.club/2020/03/09/docker-compose-build-seafile/"/>
     <id>http://blog.hooyuhao.club/2020/03/09/docker-compose-build-seafile/</id>
     <published>2020-03-09T08:34:30.000Z</published>
-    <updated>2020-03-09T08:38:08.009Z</updated>
+    <updated>2020-03-09T08:47:51.373Z</updated>
     
     <summary type="html">
     
@@ -29,12 +29,16 @@
       
         
         
-          &lt;p&gt;利用docker-compose部署&lt;br&gt;以下是官方给出的安装方法，详情见&lt;a href=&quot;https://docs.seafile.com/published/seafile-manual-cn/extension/fuse.md&quot; target=&quot;_blank&quot;
+          &lt;div align=&quot;middle&quot;&gt;&lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=&quot;330&quot; height=&quot;86&quot; src=&quot;//
         
       
     
     </summary>
     
+      <category term="随笔" scheme="http://blog.hooyuhao.club/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+      <category term="随笔" scheme="http://blog.hooyuhao.club/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
