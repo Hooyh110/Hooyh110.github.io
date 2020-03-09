@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.hooyuhao.club/2020/03/09/docker-compose-build-seafile/</loc>
+    
+    <lastmod>2020-03-09T08:38:08.009Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.hooyuhao.club/about/index.html</loc>
     
     <lastmod>2020-03-09T07:24:45.394Z</lastmod>
