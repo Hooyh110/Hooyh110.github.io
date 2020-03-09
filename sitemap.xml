@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.hooyuhao.club/li-yong-pu-luo-mi-xiu-si-jian-kong-ecs/</loc>
+    
+    <lastmod>2020-03-09T10:03:35.576Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.hooyuhao.club/2017-conclusion/</loc>
     
     <lastmod>2020-03-09T10:01:04.728Z</lastmod>
@@ -44,14 +51,14 @@
   </url>
   
   <url>
-    <loc>http://blog.hooyuhao.club/categories/index.html</loc>
+    <loc>http://blog.hooyuhao.club/archives/index.html</loc>
     
     <lastmod>2019-09-25T14:13:10.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://blog.hooyuhao.club/archives/index.html</loc>
+    <loc>http://blog.hooyuhao.club/categories/index.html</loc>
     
     <lastmod>2019-09-25T14:13:10.000Z</lastmod>
     

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.hooyuhao.club/"/>
-  <updated>2020-03-09T09:14:04.421Z</updated>
+  <updated>2020-03-09T10:03:35.576Z</updated>
   <id>http://blog.hooyuhao.club/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>利用普罗米修斯监控ecs</title>
+    <link href="http://blog.hooyuhao.club/li-yong-pu-luo-mi-xiu-si-jian-kong-ecs/"/>
+    <id>http://blog.hooyuhao.club/li-yong-pu-luo-mi-xiu-si-jian-kong-ecs/</id>
+    <published>2020-03-09T10:02:02.000Z</published>
+    <updated>2020-03-09T10:03:35.576Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;div align=&quot;middle&quot;&gt;&lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=&quot;330&quot; height=&quot;86&quot;
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>docker-compose build seafile</title>

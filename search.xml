@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>利用普罗米修斯监控ecs</title>
+      <link href="/li-yong-pu-luo-mi-xiu-si-jian-kong-ecs/"/>
+      <url>/li-yong-pu-luo-mi-xiu-si-jian-kong-ecs/</url>
+      
+        <content type="html"><![CDATA[<div align="middle"><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=29717271&auto=1&height=66"></iframe></div><p>利用脚本部署node_exporter</p><pre><code>#!/bin/bash#wget https://github.com/prometheus/node_exporter/releases/download/v0.17.0/node_exporter-0.17.0.linux-amd64.tar.gzrsync -avPLl helen@172.16.6.86:/Users/helen/hoo-pro/hoo-PRO/software/prometheus/node_exporter-0.17.0.linux-amd64.tar.gz ./tar zxf node_exporter-0.17.0.linux-amd64.tar.gzmv node_exporter-0.17.0.linux-amd64 /usr/local/node_exportercat &lt;&lt;EOF &gt;/usr/lib/systemd/system/node_exporter.service[Unit]Description=https://prometheus.io[Service]Restart=on-failureExecStart=/usr/local/node_exporter/node_exporter --collector.systemd --collector.systemd.unit-whitelist=(docker|kubelet|kube-proxy|flanneld).service[Install]WantedBy=multi-user.targetEOFsystemctl daemon-reloadsystemctl enable node_exportersystemctl restart node_exporter</code></pre><p>在需要被普罗米修斯监控的ecs上执行此脚本</p><pre><code>bash node_exporter.sh</code></pre><p>然后修改prometheus.yml文件</p><pre><code># my global configglobal:  scrape_interval:     15s # Set the scrape interval to every 15 seconds. Default is every 1 minute.  evaluation_interval: 15s # Evaluate rules every 15 seconds. The default is every 1 minute.  # scrape_timeout is set to the global default (10s).# Alertmanager configurationalerting:  alertmanagers:  - static_configs:    - targets:      # - alertmanager:9093# Load rules once and periodically evaluate them according to the global &#39;evaluation_interval&#39;.rule_files:  # - &quot;first_rules.yml&quot;  # - &quot;second_rules.yml&quot;# A scrape configuration containing exactly one endpoint to scrape:# Here it&#39;s Prometheus itself.scrape_configs:  # The job name is added as a label `job=&lt;job_name&gt;` to any timeseries scraped from this config.  - job_name: &#39;prometheus&#39;    # metrics_path defaults to &#39;/metrics&#39;    # scheme defaults to &#39;http&#39;.    static_configs:    - targets: [&#39;localhost:9090&#39;,&#39;10.10.249.59:9100&#39;,&#39;10.10.249.60:9100&#39;,&#39;192.168.1.35:8080&#39;,&#39;192.168.1.35:9100&#39;,&#39;10.10.249.55:9100&#39;]    #  labels:    #    instance: k8s-node01</code></pre><p>修改完成，重启普罗米修斯；</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>docker-compose build seafile</title>
       <link href="/docker-compose-build-seafile/"/>
       <url>/docker-compose-build-seafile/</url>
