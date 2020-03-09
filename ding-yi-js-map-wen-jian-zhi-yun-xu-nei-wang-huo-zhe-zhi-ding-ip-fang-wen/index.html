@@ -11,9 +11,9 @@
     <meta name="description" content="案例配置：
 server {
         listen 443;
-        server_name h5-fat.maozhua4s.com;
+        server_name *****.com;
         ssl on;
-        ssl_certificate   s">
+        ssl_certificate   sslkey/****/">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -450,7 +450,7 @@ server {
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    320
+                    235
                 </div>
                 
 
@@ -476,22 +476,19 @@ server {
                 <h4 id="案例配置："><a href="#案例配置：" class="headerlink" title="案例配置："></a>案例配置：</h4><pre class="line-numbers language-nginx"><code class="language-nginx">
 <span class="token keyword">server</span> <span class="token punctuation">{</span>
         <span class="token keyword">listen</span> <span class="token number">443</span><span class="token punctuation">;</span>
-        <span class="token keyword">server_name</span> h5<span class="token operator">-</span>fat<span class="token punctuation">.</span>maozhua4s<span class="token punctuation">.</span>com<span class="token punctuation">;</span>
+        <span class="token keyword">server_name</span> <span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token punctuation">.</span>com<span class="token punctuation">;</span>
         <span class="token keyword">ssl</span> on<span class="token punctuation">;</span>
-        <span class="token keyword">ssl_certificate</span>   sslkey<span class="token operator">/</span>h5<span class="token operator">-</span>fat<span class="token punctuation">.</span>maozhua4s<span class="token punctuation">.</span>com<span class="token operator">/</span>h5<span class="token operator">-</span>fat<span class="token punctuation">.</span>maozhua4s<span class="token punctuation">.</span>com<span class="token punctuation">.</span>pem<span class="token punctuation">;</span>
-        <span class="token keyword">ssl_certificate_key</span>  sslkey<span class="token operator">/</span>h5<span class="token operator">-</span>fat<span class="token punctuation">.</span>maozhua4s<span class="token punctuation">.</span>com<span class="token operator">/</span>h5<span class="token operator">-</span>fat<span class="token punctuation">.</span>maozhua4s<span class="token punctuation">.</span>com<span class="token punctuation">.</span>key<span class="token punctuation">;</span>
+        <span class="token keyword">ssl_certificate</span>   sslkey<span class="token operator">/</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">/</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token punctuation">.</span>com<span class="token punctuation">.</span>pem<span class="token punctuation">;</span>
+        <span class="token keyword">ssl_certificate_key</span>  sslkey<span class="token operator">/</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">/</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token punctuation">.</span>com<span class="token punctuation">.</span>key<span class="token punctuation">;</span>
         <span class="token keyword">ssl_session_timeout</span> 5m<span class="token punctuation">;</span>
         <span class="token keyword">ssl_protocols</span> TLSv1 TLSv1<span class="token number">.1</span> TLSv1<span class="token number">.2</span><span class="token punctuation">;</span>
         <span class="token keyword">ssl_ciphers</span> AESGCM<span class="token punctuation">:</span>ALL<span class="token punctuation">:</span><span class="token operator">!</span>DH<span class="token punctuation">:</span><span class="token operator">!</span>EXPORT<span class="token punctuation">:</span><span class="token operator">!</span>RC4<span class="token punctuation">:</span><span class="token operator">+</span>HIGH<span class="token punctuation">:</span><span class="token operator">!</span>MEDIUM<span class="token punctuation">:</span><span class="token operator">!</span>LOW<span class="token punctuation">:</span><span class="token operator">!</span>aNULL<span class="token punctuation">:</span><span class="token operator">!</span>eNULL<span class="token punctuation">;</span>
         <span class="token keyword">ssl_prefer_server_ciphers</span> on<span class="token punctuation">;</span>
-        <span class="token keyword">include</span> czht<span class="token punctuation">.</span>conf<span class="token punctuation">;</span>
-        <span class="token keyword">location</span> <span class="token operator">/</span>MP_verify_NRwHYqVbPjQeno2m<span class="token punctuation">.</span>txt <span class="token punctuation">{</span>
-            <span class="token keyword">alias</span> <span class="token operator">/</span>usr<span class="token operator">/</span>share<span class="token operator">/</span>nginx<span class="token operator">/</span>html<span class="token operator">/</span>fat<span class="token operator">/</span>h5<span class="token operator">/</span>MP_verify_NRwHYqVbPjQeno2m<span class="token punctuation">.</span>txt<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">location</span>  <span class="token operator">/</span>mzh5<span class="token operator">/</span> <span class="token punctuation">{</span>
+        <span class="token keyword">include</span> <span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token punctuation">.</span>conf<span class="token punctuation">;</span>
+        <span class="token keyword">location</span>  <span class="token operator">/</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">/</span> <span class="token punctuation">{</span>
                 <span class="token keyword">index</span> <span class="token keyword">index</span><span class="token punctuation">.</span>html <span class="token keyword">index</span><span class="token punctuation">.</span>htm<span class="token punctuation">;</span>
-                <span class="token keyword">alias</span> <span class="token operator">/</span>data<span class="token operator">/</span>wwwroot<span class="token operator">/</span>h5<span class="token operator">-</span>fat<span class="token punctuation">.</span>maozhua4s<span class="token punctuation">.</span>com<span class="token operator">/</span>mzh5<span class="token operator">/</span><span class="token punctuation">;</span>
-                <span class="token keyword">try_files</span> <span class="token variable">$uri</span> <span class="token variable">$uri</span><span class="token operator">/</span> <span class="token operator">/</span>mzh5<span class="token operator">/</span><span class="token keyword">index</span><span class="token punctuation">.</span>html<span class="token punctuation">;</span>
+                <span class="token keyword">alias</span> <span class="token operator">/</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token punctuation">.</span>com<span class="token operator">/</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">/</span><span class="token punctuation">;</span>
+                <span class="token keyword">try_files</span> <span class="token variable">$uri</span> <span class="token variable">$uri</span><span class="token operator">/</span> <span class="token operator">/</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">/</span><span class="token keyword">index</span><span class="token punctuation">.</span>html<span class="token punctuation">;</span>
                 <span class="token comment" spellcheck="true">#判断是否是静态文件，如果是静态文件则不缓存</span>
                  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$request_filename</span> <span class="token operator">~</span> <span class="token punctuation">.</span><span class="token operator">*</span>\<span class="token punctuation">.</span><span class="token punctuation">(</span>htm<span class="token operator">|</span>html<span class="token punctuation">)</span>$<span class="token punctuation">)</span>
                 <span class="token punctuation">{</span>
@@ -499,33 +496,29 @@ server {
                 <span class="token punctuation">}</span>
             <span class="token comment" spellcheck="true">#匹配访问js.map文件的访问权限</span>
             <span class="token keyword">location</span> <span class="token operator">~</span> <span class="token punctuation">.</span><span class="token operator">*</span>\<span class="token punctuation">.</span><span class="token punctuation">(</span>js<span class="token punctuation">.</span><span class="token keyword">map</span><span class="token punctuation">)</span><span class="token operator">?</span>$ <span class="token punctuation">{</span>
-                    <span class="token keyword">set_real_ip_from</span> <span class="token number">223.223</span><span class="token punctuation">.</span><span class="token number">205.85</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">#定义可以访问的源IP</span>
+                    <span class="token keyword">set_real_ip_from</span> <span class="token punctuation">{</span>your IP<span class="token punctuation">}</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">#定义可以访问的源IP</span>
                     <span class="token keyword">real_ip_header</span>    X<span class="token operator">-</span>Forwarded<span class="token operator">-</span>For<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">#表示从哪个header属性中获取真实IP</span>
                     real_ip_recursive on<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">#递归检索真实IP，若从 X-Forwarded-For 中获取，则需递归检索；若像从X-Real-IP中获取，则无需递归。</span>
                     <span class="token keyword">proxy_set_header</span> X<span class="token operator">-</span>Forwarded<span class="token operator">-</span>For <span class="token variable">$remote_addr</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">#$remote_addr 是客户端真实IP</span>
-                    <span class="token comment" spellcheck="true">#判断访问源IP如果不是223.223.205.85则返回403</span>
-                    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$remote_addr</span> <span class="token operator">!=</span> <span class="token number">223.223</span><span class="token punctuation">.</span><span class="token number">205.85</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token comment" spellcheck="true">#判断访问源IP如果不是{your IP }}则返回403</span>
+                    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$remote_addr</span> <span class="token operator">!=</span> <span class="token punctuation">{</span>your IP<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
                         <span class="token keyword">return</span> <span class="token number">403</span><span class="token punctuation">;</span>
                         <span class="token punctuation">}</span>
                     <span class="token comment" spellcheck="true">#定义proxy1日志输出路径</span>
-                    <span class="token keyword">access_log</span> <span class="token operator">/</span>data<span class="token operator">/</span>nginx<span class="token operator">/</span>access<span class="token operator">/</span>h5<span class="token operator">-</span>fat<span class="token punctuation">.</span>maozhua4s<span class="token punctuation">.</span>com<span class="token punctuation">.</span>test<span class="token punctuation">.</span>log proxy1<span class="token punctuation">;</span>
+                    <span class="token keyword">access_log</span> <span class="token operator">/</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">/</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token punctuation">.</span>log proxy1<span class="token punctuation">;</span>
                     <span class="token punctuation">}</span>
         <span class="token punctuation">}</span>
         <span class="token keyword">location</span> <span class="token operator">=</span> <span class="token operator">/</span>favicon<span class="token punctuation">.</span>ico <span class="token punctuation">{</span>
             <span class="token keyword">log_not_found</span> off<span class="token punctuation">;</span>
        <span class="token punctuation">}</span>
 
-       <span class="token keyword">location</span> <span class="token operator">/</span>mzh5<span class="token operator">/</span>api<span class="token operator">/</span> <span class="token punctuation">{</span>
-                <span class="token keyword">proxy_pass</span> <span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>autosaas<span class="token operator">-</span>gateway<span class="token operator">-</span>fat<span class="token punctuation">.</span>xmcar<span class="token punctuation">.</span>com<span class="token punctuation">:</span><span class="token number">11001</span><span class="token operator">/</span>h5api<span class="token operator">/</span><span class="token punctuation">;</span>
-                <span class="token keyword">proxy_redirect</span> <span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>autosaas<span class="token operator">-</span>gateway<span class="token operator">-</span>fat<span class="token punctuation">.</span>xmcar<span class="token punctuation">.</span>com<span class="token punctuation">:</span><span class="token number">11001</span><span class="token operator">/</span>h5api<span class="token operator">/</span> <span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>h5<span class="token operator">-</span>fat<span class="token punctuation">.</span>maozhua4s<span class="token punctuation">.</span>com<span class="token operator">/</span>api<span class="token operator">/</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">access_log</span>  <span class="token operator">/</span>data<span class="token operator">/</span>nginx<span class="token operator">/</span>access<span class="token operator">/</span>h5<span class="token operator">-</span>fat<span class="token punctuation">.</span>maozhua4s<span class="token punctuation">.</span>com<span class="token punctuation">.</span>log  access<span class="token punctuation">;</span>
+        <span class="token keyword">access_log</span>  <span class="token operator">/</span>data<span class="token operator">/</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">/</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token punctuation">.</span>com<span class="token punctuation">.</span>log  access<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span class="token keyword">server</span> <span class="token punctuation">{</span>
         <span class="token keyword">listen</span> <span class="token number">80</span><span class="token punctuation">;</span>
-        <span class="token keyword">server_name</span> h5<span class="token operator">-</span>fat<span class="token punctuation">.</span>maozhua4s<span class="token punctuation">.</span>com<span class="token punctuation">;</span>
+        <span class="token keyword">server_name</span> <span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token punctuation">.</span>com<span class="token punctuation">;</span>
         <span class="token keyword">return</span> <span class="token number">307</span> <span class="token keyword">https</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span><span class="token variable">$host</span><span class="token variable">$request_uri</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr />
@@ -1262,7 +1255,7 @@ server {
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">1.2k</span>
+            <span class="white-color">1.1k</span>
             
 
             <br>
