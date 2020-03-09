@@ -4,14 +4,11 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="二零一七年终总结, ECNU NLP DeepLearning AntNLP helen">
+    <meta name="keywords" content="docker run -m指定内存大小不生效, ECNU NLP DeepLearning AntNLP helen">
     <meta name="baidu-site-verification" content="PQuYZ68I8K">
     <meta name="google-site-verification" content="PQuYZ68I8K">
     <meta name="360-site-verification" content>
-    <meta name="description" content="
-
-==韦阳博客：== https://godweiyang.com/2018/04/13/hexo-blog/
-">
+    <meta name="description" content="GRUB_CMDLINE_LINUX=&amp;quot;crashkernel=auto rd.lvm.lv=centos/root rd.lvm.lv=centos/swap rhgb quiet&amp;quot;执行docker run的时候，想要">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -19,7 +16,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>二零一七年终总结 | helen的博客</title>
+    <title>docker run -m指定内存大小不生效 | helen的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -293,13 +290,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        二零一七年终总结
+                        docker run -m指定内存大小不生效
                     </div>
                 </div>
             </div>
@@ -410,8 +407,8 @@
                     
                     <div class="article-tag">
                         
-                        <a href="/tags/随笔/" target="_blank">
-                            <span class="chip bg-color">随笔</span>
+                        <a href="/tags/docker/" target="_blank">
+                            <span class="chip bg-color">docker</span>
                         </a>
                         
                     </div>
@@ -422,8 +419,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                        <a href="/categories/随笔/" class="post-category" target="_blank">
-                            随笔
+                        <a href="/categories/docker/" class="post-category" target="_blank">
+                            docker
                         </a>
                         
                     </div>
@@ -434,7 +431,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2018-01-22
+                    2020-03-09
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -448,7 +445,7 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    12
+                    181
                 </div>
                 
 
@@ -471,9 +468,12 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <div align="middle"><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=407679465&auto=1&height=66"></iframe></div>
-
-<p>==<em>韦阳博客</em>：== <a href="https://godweiyang.com/2018/04/13/hexo-blog/" target="_blank" rel="noopener">https://godweiyang.com/2018/04/13/hexo-blog/</a></p>
+                <pre><code>GRUB_CMDLINE_LINUX=&quot;crashkernel=auto rd.lvm.lv=centos/root rd.lvm.lv=centos/swap rhgb quiet&quot;</code></pre><p>执行docker run的时候，想要指定一下内存大小，用了-m参数，报错如下</p>
+<p>#docker run -id -m 3g -p 7001:7001 197.3.16.51/sysmgr/mywebapptest_app_weblogic:20180820047<br>WARNING: Your kernel does not support swap limit capabilities or the cgroup is not mounted. Memory limited without swap.<br>52380a4896f3f916cd0f95f97e233b30d9406840e10c0c53484b3be9000d0321<br>然后发现虽然我设置堆大小为5G，容器还是创建出来了，3g的限制并没有生效。</p>
+<p>查阅资料发现这个报错是因为宿主机内核的相关功能没有打开。按照下面的设置就行。</p>
+<p>step 1：编辑/etc/default/grub文件<br>将GRUB_CMDLINE_LINUX一行改为</p>
+<pre><code>GRUB_CMDLINE_LINUX=&quot;cgroup_enable=memory swapaccount=1&quot;</code></pre><p>step 2：更新 GRUB，即执行$ </p>
+<pre><code>sudo update-grub</code></pre><p>step 3: 重启系统。</p>
 
             </div>
             <hr />
@@ -632,9 +632,9 @@
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《二零一七年终总结》
+                    《docker run -m指定内存大小不生效》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2017-conclusion/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/docker-run-m-zhi-ding-nei-cun-da-xiao-bu-sheng-xiao/" property="cc:attributionName"
                rel="cc:attributionURL">
                 helen
             </a> 采用
@@ -675,7 +675,7 @@
         repo: 'Hooyh110.github.io',
         owner: 'Hooyh110',
         admin: "Hooyh110",
-        id: '2017-conclusion/',
+        id: 'docker-run-m-zhi-ding-nei-cun-da-xiao-bu-sheng-xiao/',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -958,29 +958,30 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/docker-compose-build-seafile/">
+                <a href="/docker-run-m-zhi-ding-nei-cun-da-xiao-bu-sheng-xiao/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="docker-compose build seafile">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="docker run -m指定内存大小不生效">
                         
-                        <span class="card-title">docker-compose build seafile</span>
+                        <span class="card-title">docker run -m指定内存大小不生效</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            利用docker-compose部署seafile个人网盘
+                            解决docker 指定内存大小不生效的问题
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-09
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-09
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -993,6 +994,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1008,46 +1010,45 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="fa fa-dot-circle-o"></i>
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2017-conclusion/">
+                <a href="/li-yong-pu-luo-mi-xiu-si-jian-kong-ecs/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="二零一七年终总结">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="利用普罗米修斯监控ecs">
                         
-                        <span class="card-title">二零一七年终总结</span>
+                        <span class="card-title">利用普罗米修斯监控ecs</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            该文章转自godweiyang.com。
+                            利用prometheus监控手机ECS等集群信息
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-01-22
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-09
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/随笔/" class="post-category" target="_blank">
-                                    随笔
+                            <a href="/categories/monitor/" class="post-category" target="_blank">
+                                    monitor
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/随笔/" target="_blank">
-                        <span class="chip bg-color">随笔</span>
+                    <a href="/tags/monitor/" target="_blank">
+                        <span class="chip bg-color">monitor</span>
                     </a>
                     
                 </div>
@@ -1194,6 +1195,13 @@
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
     <footer class="page-footer bg-color">
     <div class="container row center-align">

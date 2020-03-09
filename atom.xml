@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.hooyuhao.club/"/>
-  <updated>2020-03-09T10:45:21.440Z</updated>
+  <updated>2020-03-09T10:56:27.335Z</updated>
   <id>http://blog.hooyuhao.club/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>docker run -m指定内存大小不生效</title>
+    <link href="http://blog.hooyuhao.club/docker-run-m-zhi-ding-nei-cun-da-xiao-bu-sheng-xiao/"/>
+    <id>http://blog.hooyuhao.club/docker-run-m-zhi-ding-nei-cun-da-xiao-bu-sheng-xiao/</id>
+    <published>2020-03-09T10:55:26.000Z</published>
+    <updated>2020-03-09T10:56:27.335Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;pre&gt;&lt;code&gt;GRUB_CMDLINE_LINUX=&amp;quot;crashkernel=auto rd.lvm.lv=centos/root rd.lvm.lv=centos/swap rhgb quiet&amp;quot;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;执行docker
+        
+      
+    
+    </summary>
+    
+      <category term="docker" scheme="http://blog.hooyuhao.club/categories/docker/"/>
+    
+    
+      <category term="docker" scheme="http://blog.hooyuhao.club/tags/docker/"/>
+    
+  </entry>
   
   <entry>
     <title>利用普罗米修斯监控ecs</title>
