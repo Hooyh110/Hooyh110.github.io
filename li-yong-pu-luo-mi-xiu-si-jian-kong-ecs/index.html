@@ -450,7 +450,7 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    329
+                    301
                 </div>
                 
 
@@ -476,30 +476,31 @@
                 <div align="middle"><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=29717271&auto=1&height=66"></iframe></div>
 
 <p>利用脚本部署node_exporter</p>
-<pre><code>#!/bin/bash
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
 
-#wget https://github.com/prometheus/node_exporter/releases/download/v0.17.0/node_exporter-0.17.0.linux-amd64.tar.gz
-rsync -avPLl helen@172.16.6.86:/Users/helen/hoo-pro/hoo-PRO/software/prometheus/node_exporter-0.17.0.linux-amd64.tar.gz ./
-tar zxf node_exporter-0.17.0.linux-amd64.tar.gz
-mv node_exporter-0.17.0.linux-amd64 /usr/local/node_exporter
+<span class="token comment" spellcheck="true">#wget https://github.com/prometheus/node_exporter/releases/download/v0.17.0/node_exporter-0.17.0.linux-amd64.tar.gz</span>
+<span class="token function">rsync</span> -avPLl helen@172.16.6.86:/Users/helen/hoo-pro/hoo-PRO/software/prometheus/node_exporter-0.17.0.linux-amd64.tar.gz ./
+<span class="token function">tar</span> zxf node_exporter-0.17.0.linux-amd64.tar.gz
+<span class="token function">mv</span> node_exporter-0.17.0.linux-amd64 /usr/local/node_exporter
 
-cat &lt;&lt;EOF &gt;/usr/lib/systemd/system/node_exporter.service
-[Unit]
-Description=https://prometheus.io
+<span class="token function">cat</span> <span class="token operator">&lt;&lt;</span>EOF <span class="token operator">></span>/usr/lib/systemd/system/node_exporter.service
+<span class="token punctuation">[</span>Unit<span class="token punctuation">]</span>
+Description<span class="token operator">=</span>https://prometheus.io
 
-[Service]
-Restart=on-failure
-ExecStart=/usr/local/node_exporter/node_exporter --collector.systemd --collector.systemd.unit-whitelist=(docker|kubelet|kube-proxy|flanneld).service
+<span class="token punctuation">[</span>Service<span class="token punctuation">]</span>
+Restart<span class="token operator">=</span>on-failure
+ExecStart<span class="token operator">=</span>/usr/local/node_exporter/node_exporter --collector.systemd --collector.systemd.unit-whitelist<span class="token operator">=</span><span class="token punctuation">(</span>docker<span class="token operator">|</span>kubelet<span class="token operator">|</span>kube-proxy<span class="token operator">|</span>flanneld<span class="token punctuation">)</span>.service
 
-[Install]
-WantedBy=multi-user.target
+<span class="token punctuation">[</span>Install<span class="token punctuation">]</span>
+WantedBy<span class="token operator">=</span>multi-user.target
 EOF
 
 systemctl daemon-reload
-systemctl enable node_exporter
-systemctl restart node_exporter</code></pre><p>在需要被普罗米修斯监控的ecs上执行此脚本</p>
+systemctl <span class="token function">enable</span> node_exporter
+systemctl restart node_exporter<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>在需要被普罗米修斯监控的ecs上执行此脚本</p>
 <pre><code>bash node_exporter.sh</code></pre><p>然后修改prometheus.yml文件</p>
-<pre><code># my global config
+<pre class="line-numbers language-yml"><code class="language-yml"># my global config
 global:
   scrape_interval:     15s # Set the scrape interval to every 15 seconds. Default is every 1 minute.
   evaluation_interval: 15s # Evaluate rules every 15 seconds. The default is every 1 minute.
@@ -512,24 +513,25 @@ alerting:
     - targets:
       # - alertmanager:9093
 
-# Load rules once and periodically evaluate them according to the global &#39;evaluation_interval&#39;.
+# Load rules once and periodically evaluate them according to the global 'evaluation_interval'.
 rule_files:
-  # - &quot;first_rules.yml&quot;
-  # - &quot;second_rules.yml&quot;
+  # - "first_rules.yml"
+  # - "second_rules.yml"
 
 # A scrape configuration containing exactly one endpoint to scrape:
-# Here it&#39;s Prometheus itself.
+# Here it's Prometheus itself.
 scrape_configs:
-  # The job name is added as a label `job=&lt;job_name&gt;` to any timeseries scraped from this config.
-  - job_name: &#39;prometheus&#39;
+  # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
+  - job_name: 'prometheus'
 
-    # metrics_path defaults to &#39;/metrics&#39;
-    # scheme defaults to &#39;http&#39;.
+    # metrics_path defaults to '/metrics'
+    # scheme defaults to 'http'.
 
     static_configs:
-    - targets: [&#39;localhost:9090&#39;,&#39;10.10.249.59:9100&#39;,&#39;10.10.249.60:9100&#39;,&#39;192.168.1.35:8080&#39;,&#39;192.168.1.35:9100&#39;,&#39;10.10.249.55:9100&#39;]
+    - targets: ['localhost:9090','10.10.249.59:9100','10.10.249.60:9100','192.168.1.35:8080','192.168.1.35:9100','10.10.249.55:9100']
     #  labels:
-    #    instance: k8s-node01</code></pre><p>修改完成，重启普罗米修斯；</p>
+    #    instance: k8s-node01<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>修改完成，重启普罗米修斯；</p>
 
             </div>
             <hr />
@@ -1274,7 +1276,7 @@ services:
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">531</span>
+            <span class="white-color">503</span>
             
 
             <br>
