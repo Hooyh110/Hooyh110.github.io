@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.hooyuhao.club/"/>
-  <updated>2020-03-10T00:52:18.348Z</updated>
+  <updated>2020-03-11T02:45:10.211Z</updated>
   <id>http://blog.hooyuhao.club/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>docker容器日志清理</title>
+    <link href="http://blog.hooyuhao.club/docker-rong-qi-ri-zhi-qing-li/"/>
+    <id>http://blog.hooyuhao.club/docker-rong-qi-ri-zhi-qing-li/</id>
+    <published>2020-03-11T01:15:01.000Z</published>
+    <updated>2020-03-11T02:45:10.211Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;font face=&quot;黑体&quot; color=&quot;green&quot; size=&quot;6&quot;&gt;设置一个容器服务的日志大小上限&lt;/font&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;在启动容器的时候增加一个参数设置该容器的日志大小，及日志驱动&lt;/p&gt;
+&lt;p&gt;
+        
+      
+    
+    </summary>
+    
+      <category term="docker" scheme="http://blog.hooyuhao.club/categories/docker/"/>
+    
+    
+      <category term="docker" scheme="http://blog.hooyuhao.club/tags/docker/"/>
+    
+  </entry>
   
   <entry>
     <title>python install cmdb</title>

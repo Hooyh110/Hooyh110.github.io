@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>docker容器日志清理</title>
+      <link href="/docker-rong-qi-ri-zhi-qing-li/"/>
+      <url>/docker-rong-qi-ri-zhi-qing-li/</url>
+      
+        <content type="html"><![CDATA[<ul><li><p><font face="黑体" color="green" size="6">设置一个容器服务的日志大小上限</font></p></li><li><p>在启动容器的时候增加一个参数设置该容器的日志大小，及日志驱动</p><p> –log-driver json-file  #日志驱动<br> –log-opt max-size=[0-9+][k|m|g] #文件的大小<br> –log-opt max-file=[0-9+] #文件数量</p></li><li><p>全局设置<br>编辑文件/etc/docker/daemon.json, 增加以下日志的配置</p><pre class="line-numbers language-json"><code class="language-json"><span class="token property">"log-driver"</span><span class="token operator">:</span><span class="token string">"json-file"</span><span class="token punctuation">,</span><span class="token property">"log-opts"</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token property">"max-size"</span><span class="token operator">:</span><span class="token string">"500m"</span><span class="token punctuation">,</span> <span class="token property">"max-file"</span><span class="token operator">:</span><span class="token string">"3"</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p>  max-size=500m，意味着一个容器日志大小上限是500M，<br>  max-file=3，意味着一个容器有三个日志，分别是id+.json、id+1.json、id+2.json。</p></li><li><p>重启docker守护进程</p><pre class="line-numbers language-shell"><code class="language-shell">systemctl daemon-reloadsystemctl restart docker<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li></ul><blockquote><table><tr><td bgcolor="yellow"> 注意：设置的日志大小，只对新建的容器有效。</td></tr></table></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> docker </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> docker </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>python install cmdb</title>
       <link href="/python-install-cmdb/"/>
       <url>/python-install-cmdb/</url>

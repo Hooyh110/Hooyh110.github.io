@@ -4,16 +4,15 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="定义js.map文件只允许内网或者指定IP访问, ECNU NLP DeepLearning AntNLP helen">
+    <meta name="keywords" content="docker容器日志清理, ECNU NLP DeepLearning AntNLP helen">
     <meta name="baidu-site-verification" content="PQuYZ68I8K">
     <meta name="google-site-verification" content="PQuYZ68I8K">
     <meta name="360-site-verification" content>
-    <meta name="description" content="案例配置：
-server {
-        listen 443;
-        server_name *****.com;
-        ssl on;
-        ssl_certificate   sslkey/****/">
+    <meta name="description" content="
+设置一个容器服务的日志大小上限
+
+在启动容器的时候增加一个参数设置该容器的日志大小，及日志驱动
+ –log-driver json-file  #日志驱动 –log-opt max-size=[0-9+][k|m|g] #文件的大小 –l">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -21,7 +20,7 @@ server {
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>定义js.map文件只允许内网或者指定IP访问 | helen的博客</title>
+    <title>docker容器日志清理 | helen的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -311,13 +310,13 @@ server {
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        定义js.map文件只允许内网或者指定IP访问
+                        docker容器日志清理
                     </div>
                 </div>
             </div>
@@ -428,8 +427,8 @@ server {
                     
                     <div class="article-tag">
                         
-                        <a href="/tags/nginx/" target="_blank">
-                            <span class="chip bg-color">nginx</span>
+                        <a href="/tags/docker/" target="_blank">
+                            <span class="chip bg-color">docker</span>
                         </a>
                         
                     </div>
@@ -440,8 +439,8 @@ server {
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                        <a href="/categories/nginx/" class="post-category" target="_blank">
-                            nginx
+                        <a href="/categories/docker/" class="post-category" target="_blank">
+                            docker
                         </a>
                         
                     </div>
@@ -452,7 +451,7 @@ server {
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-03-09
+                    2020-03-11
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -466,7 +465,7 @@ server {
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    235
+                    184
                 </div>
                 
 
@@ -489,52 +488,25 @@ server {
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="案例配置："><a href="#案例配置：" class="headerlink" title="案例配置："></a>案例配置：</h4><pre class="line-numbers language-nginx"><code class="language-nginx">
-<span class="token keyword">server</span> <span class="token punctuation">{</span>
-        <span class="token keyword">listen</span> <span class="token number">443</span><span class="token punctuation">;</span>
-        <span class="token keyword">server_name</span> <span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token punctuation">.</span>com<span class="token punctuation">;</span>
-        <span class="token keyword">ssl</span> on<span class="token punctuation">;</span>
-        <span class="token keyword">ssl_certificate</span>   sslkey<span class="token operator">/</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">/</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token punctuation">.</span>com<span class="token punctuation">.</span>pem<span class="token punctuation">;</span>
-        <span class="token keyword">ssl_certificate_key</span>  sslkey<span class="token operator">/</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">/</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token punctuation">.</span>com<span class="token punctuation">.</span>key<span class="token punctuation">;</span>
-        <span class="token keyword">ssl_session_timeout</span> 5m<span class="token punctuation">;</span>
-        <span class="token keyword">ssl_protocols</span> TLSv1 TLSv1<span class="token number">.1</span> TLSv1<span class="token number">.2</span><span class="token punctuation">;</span>
-        <span class="token keyword">ssl_ciphers</span> AESGCM<span class="token punctuation">:</span>ALL<span class="token punctuation">:</span><span class="token operator">!</span>DH<span class="token punctuation">:</span><span class="token operator">!</span>EXPORT<span class="token punctuation">:</span><span class="token operator">!</span>RC4<span class="token punctuation">:</span><span class="token operator">+</span>HIGH<span class="token punctuation">:</span><span class="token operator">!</span>MEDIUM<span class="token punctuation">:</span><span class="token operator">!</span>LOW<span class="token punctuation">:</span><span class="token operator">!</span>aNULL<span class="token punctuation">:</span><span class="token operator">!</span>eNULL<span class="token punctuation">;</span>
-        <span class="token keyword">ssl_prefer_server_ciphers</span> on<span class="token punctuation">;</span>
-        <span class="token keyword">include</span> <span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token punctuation">.</span>conf<span class="token punctuation">;</span>
-        <span class="token keyword">location</span>  <span class="token operator">/</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">/</span> <span class="token punctuation">{</span>
-                <span class="token keyword">index</span> <span class="token keyword">index</span><span class="token punctuation">.</span>html <span class="token keyword">index</span><span class="token punctuation">.</span>htm<span class="token punctuation">;</span>
-                <span class="token keyword">alias</span> <span class="token operator">/</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token punctuation">.</span>com<span class="token operator">/</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">/</span><span class="token punctuation">;</span>
-                <span class="token keyword">try_files</span> <span class="token variable">$uri</span> <span class="token variable">$uri</span><span class="token operator">/</span> <span class="token operator">/</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">/</span><span class="token keyword">index</span><span class="token punctuation">.</span>html<span class="token punctuation">;</span>
-                <span class="token comment" spellcheck="true">#判断是否是静态文件，如果是静态文件则不缓存</span>
-                 <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$request_filename</span> <span class="token operator">~</span> <span class="token punctuation">.</span><span class="token operator">*</span>\<span class="token punctuation">.</span><span class="token punctuation">(</span>htm<span class="token operator">|</span>html<span class="token punctuation">)</span>$<span class="token punctuation">)</span>
-                <span class="token punctuation">{</span>
-                <span class="token keyword">add_header</span> Cache<span class="token operator">-</span>Control <span class="token string">"no-cache, no-store"</span><span class="token punctuation">;</span>
-                <span class="token punctuation">}</span>
-            <span class="token comment" spellcheck="true">#匹配访问js.map文件的访问权限</span>
-            <span class="token keyword">location</span> <span class="token operator">~</span> <span class="token punctuation">.</span><span class="token operator">*</span>\<span class="token punctuation">.</span><span class="token punctuation">(</span>js<span class="token punctuation">.</span><span class="token keyword">map</span><span class="token punctuation">)</span><span class="token operator">?</span>$ <span class="token punctuation">{</span>
-                    <span class="token keyword">set_real_ip_from</span> <span class="token punctuation">{</span>your IP<span class="token punctuation">}</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">#定义可以访问的源IP</span>
-                    <span class="token keyword">real_ip_header</span>    X<span class="token operator">-</span>Forwarded<span class="token operator">-</span>For<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">#表示从哪个header属性中获取真实IP</span>
-                    real_ip_recursive on<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">#递归检索真实IP，若从 X-Forwarded-For 中获取，则需递归检索；若像从X-Real-IP中获取，则无需递归。</span>
-                    <span class="token keyword">proxy_set_header</span> X<span class="token operator">-</span>Forwarded<span class="token operator">-</span>For <span class="token variable">$remote_addr</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">#$remote_addr 是客户端真实IP</span>
-                    <span class="token comment" spellcheck="true">#判断访问源IP如果不是{your IP }}则返回403</span>
-                    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$remote_addr</span> <span class="token operator">!=</span> <span class="token punctuation">{</span>your IP<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                        <span class="token keyword">return</span> <span class="token number">403</span><span class="token punctuation">;</span>
-                        <span class="token punctuation">}</span>
-                    <span class="token comment" spellcheck="true">#定义proxy1日志输出路径</span>
-                    <span class="token keyword">access_log</span> <span class="token operator">/</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">/</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token punctuation">.</span>log proxy1<span class="token punctuation">;</span>
-                    <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">location</span> <span class="token operator">=</span> <span class="token operator">/</span>favicon<span class="token punctuation">.</span>ico <span class="token punctuation">{</span>
-            <span class="token keyword">log_not_found</span> off<span class="token punctuation">;</span>
-       <span class="token punctuation">}</span>
-
-        <span class="token keyword">access_log</span>  <span class="token operator">/</span>data<span class="token operator">/</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">/</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token punctuation">.</span>com<span class="token punctuation">.</span>log  access<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token keyword">server</span> <span class="token punctuation">{</span>
-        <span class="token keyword">listen</span> <span class="token number">80</span><span class="token punctuation">;</span>
-        <span class="token keyword">server_name</span> <span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token punctuation">.</span>com<span class="token punctuation">;</span>
-        <span class="token keyword">return</span> <span class="token number">307</span> <span class="token keyword">https</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span><span class="token variable">$host</span><span class="token variable">$request_uri</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+                <ul>
+<li><p><font face="黑体" color="green" size="6">设置一个容器服务的日志大小上限</font></p>
+</li>
+<li><p>在启动容器的时候增加一个参数设置该容器的日志大小，及日志驱动</p>
+<p> –log-driver json-file  #日志驱动<br> –log-opt max-size=[0-9+][k|m|g] #文件的大小<br> –log-opt max-file=[0-9+] #文件数量</p>
+</li>
+<li><p>全局设置<br>编辑文件/etc/docker/daemon.json, 增加以下日志的配置</p>
+<pre class="line-numbers language-json"><code class="language-json"><span class="token property">"log-driver"</span><span class="token operator">:</span><span class="token string">"json-file"</span><span class="token punctuation">,</span>
+<span class="token property">"log-opts"</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token property">"max-size"</span><span class="token operator">:</span><span class="token string">"500m"</span><span class="token punctuation">,</span> <span class="token property">"max-file"</span><span class="token operator">:</span><span class="token string">"3"</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>  max-size=500m，意味着一个容器日志大小上限是500M，<br>  max-file=3，意味着一个容器有三个日志，分别是id+.json、id+1.json、id+2.json。</p>
+</li>
+<li><p>重启docker守护进程</p>
+<pre class="line-numbers language-shell"><code class="language-shell">systemctl daemon-reload
+systemctl restart docker<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
+</ul>
+<blockquote>
+<table><tr><td bgcolor="yellow"> 注意：设置的日志大小，只对新建的容器有效。</td></tr></table>
+</blockquote>
 
             </div>
             <hr />
@@ -693,9 +665,9 @@ server {
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《定义js.map文件只允许内网或者指定IP访问》
+                    《docker容器日志清理》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/ding-yi-js-map-wen-jian-zhi-yun-xu-nei-wang-huo-zhe-zhi-ding-ip-fang-wen/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/docker-rong-qi-ri-zhi-qing-li/" property="cc:attributionName"
                rel="cc:attributionURL">
                 helen
             </a> 采用
@@ -736,7 +708,7 @@ server {
         repo: 'Hooyh110.github.io',
         owner: 'Hooyh110',
         admin: "Hooyh110",
-        id: 'ding-yi-js-map-wen-jian-zhi-yun-xu-nei-wang-huo-zhe-zhi-ding-ip-fang-wen/',
+        id: 'docker-rong-qi-ri-zhi-qing-li/',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -1019,29 +991,30 @@ server {
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/jie-jue-docker-rong-qi-nei-fang-wen-su-zhu-ji-no-route-to-host-de-wen-ti/">
+                <a href="/docker-rong-qi-ri-zhi-qing-li/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="解决docker 容器内访问宿主机“No route to host”的问题">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="docker容器日志清理">
                         
-                        <span class="card-title">解决docker 容器内访问宿主机“No route to host”的问题</span>
+                        <span class="card-title">docker容器日志清理</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            利用nmcli 解决容器内访问宿主机
+                            docker 容器日志清理方案
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-09
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-11
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -1054,6 +1027,7 @@ server {
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1072,31 +1046,31 @@ server {
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/bat-jiao-ben-bian-xie/">
+                <a href="/python-install-cmdb/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="bat脚本编写">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="python install cmdb">
                         
-                        <span class="card-title">bat脚本编写</span>
+                        <span class="card-title">python install cmdb</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Windows 脚本编写
+                            利用Python脚本部署cmdb
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-09
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-10
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Windows/" class="post-category" target="_blank">
-                                    Windows
+                            <a href="/categories/Python/" class="post-category" target="_blank">
+                                    Python
                                 </a>
                             
                             
@@ -1106,8 +1080,8 @@ server {
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Windows/" target="_blank">
-                        <span class="chip bg-color">Windows</span>
+                    <a href="/tags/Python/" target="_blank">
+                        <span class="chip bg-color">Python</span>
                     </a>
                     
                 </div>
