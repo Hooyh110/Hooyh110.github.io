@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.hooyuhao.club/2017-conclusion/</loc>
+    
+    <lastmod>2020-03-11T11:46:26.459Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.hooyuhao.club/install-gitlab-runner/</loc>
     
     <lastmod>2020-03-11T10:51:06.641Z</lastmod>
@@ -75,13 +82,6 @@
     <loc>http://blog.hooyuhao.club/li-yong-pu-luo-mi-xiu-si-jian-kong-ecs/</loc>
     
     <lastmod>2020-03-09T10:45:21.440Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.hooyuhao.club/2017-conclusion/</loc>
-    
-    <lastmod>2020-03-09T10:23:01.977Z</lastmod>
     
   </url>
   

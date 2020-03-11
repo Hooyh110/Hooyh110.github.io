@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://blog.hooyuhao.club/2017-conclusion/</loc>
+    <lastmod>2020-03-11</lastmod>
+  </url>  <url>
     <loc>http://blog.hooyuhao.club/install-gitlab-runner/</loc>
     <lastmod>2020-03-11</lastmod>
   </url>  <url>
@@ -32,9 +35,6 @@
     <lastmod>2020-03-09</lastmod>
   </url>  <url>
     <loc>http://blog.hooyuhao.club/li-yong-pu-luo-mi-xiu-si-jian-kong-ecs/</loc>
-    <lastmod>2020-03-09</lastmod>
-  </url>  <url>
-    <loc>http://blog.hooyuhao.club/2017-conclusion/</loc>
     <lastmod>2020-03-09</lastmod>
   </url>
 </urlset>
