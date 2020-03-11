@@ -4,12 +4,26 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="install gitlab runner, ECNU NLP DeepLearning AntNLP helen">
+    <meta name="keywords" content="Markdown常用字体颜色列表, ECNU NLP DeepLearning AntNLP helen">
     <meta name="baidu-site-verification" content="PQuYZ68I8K">
     <meta name="google-site-verification" content="PQuYZ68I8K">
     <meta name="360-site-verification" content>
-    <meta name="description" content="Install GitLab Runner
-1、docker installhttps://docs.docker.com/install/linux/docker-ce/centos/#install-using-the-convenie">
+    <meta name="description" content="Markdown 通过简单标记语法，使普通文本内容具有一定格式。但它本身不支持修改字体、字号与颜色等功能的。
+颜色列表
+
+
+颜色名
+十六进制颜色值
+颜色
+
+
+
+AliceBlue
+#F0F8FF
+rgb(240, 248, 255)
+
+
+A">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +31,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>install gitlab runner | helen的博客</title>
+    <title>Markdown常用字体颜色列表 | helen的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -307,13 +321,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        install gitlab runner
+                        Markdown常用字体颜色列表
                     </div>
                 </div>
             </div>
@@ -424,8 +438,8 @@
                     
                     <div class="article-tag">
                         
-                        <a href="/tags/docker/" target="_blank">
-                            <span class="chip bg-color">docker</span>
+                        <a href="/tags/Markdown/" target="_blank">
+                            <span class="chip bg-color">Markdown</span>
                         </a>
                         
                     </div>
@@ -436,8 +450,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                        <a href="/categories/docker/" class="post-category" target="_blank">
-                            docker
+                        <a href="/categories/Markdown/" class="post-category" target="_blank">
+                            Markdown
                         </a>
                         
                     </div>
@@ -462,14 +476,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    504
+                    947
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    5 分
                 </div>
                 
                 
@@ -485,127 +499,732 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Install-GitLab-Runner"><a href="#Install-GitLab-Runner" class="headerlink" title="Install GitLab Runner"></a><font face="黑体" color="green" size="6">Install GitLab Runner</font></h1><hr>
-<h4 id="1、docker-install"><a href="#1、docker-install" class="headerlink" title="1、docker install"></a>1、docker install</h4><p><a href="https://docs.docker.com/install/linux/docker-ce/centos/#install-using-the-convenience-script" target="_blank" rel="noopener">https://docs.docker.com/install/linux/docker-ce/centos/#install-using-the-convenience-script</a></p>
-<h4 id="2、runner-install"><a href="#2、runner-install" class="headerlink" title="2、runner install"></a>2、runner install</h4><p><a href="https://docs.gitlab.com/runner/install/linux-repository.html#installing-the-runner" target="_blank" rel="noopener">https://docs.gitlab.com/runner/install/linux-repository.html#installing-the-runner</a></p>
-<p>gitlab-ce-中文版镜像：</p>
-<blockquote>
-<p>docker pull twang2218/gitlab-ce-zh:latest</p>
-</blockquote>
-<h3 id="gitlab-rb文件配置"><a href="#gitlab-rb文件配置" class="headerlink" title="gitlab.rb文件配置"></a>gitlab.rb文件配置</h3><pre class="line-numbers language-rb"><code class="language-rb">external_url 'http://git.****.com'
-#配置gitlab访问的URL地址
-gitlab_pages['inplace_chroot'] = true
-pages_external_url "http://io.****.com"
-#配置pages相关信息
-unicorn['port'] = 8084
-#默认配置<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="启动docker-容器"><a href="#启动docker-容器" class="headerlink" title="启动docker 容器"></a>启动docker 容器</h3><pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true">#gitlab-ce运行：</span>
-docker run -dit \
-  -p 443:443 -p 80:80 -p 22:22 \
-  --name gitlab \
-  -v /****/gitlab/config/:/etc/gitlab \
-  -v /****/gitlab/logs:/var/log/gitlab \
-  -v /****/gitlab/data:/var/opt/gitlab gitlab/gitlab-ce
-
-<span class="token comment" spellcheck="true">#gitlab-ci gitlab-runner01运行</span>
-docker run -dit \
-  --name gitlab-runner --restart always \
-  -v /****/gitlab-runner/config:/etc/gitlab-runner \
-  -v /var/run/docker.sock:/var/run/docker.sock gitlab/gitlab-runner:latest
-
-<span class="token comment" spellcheck="true">#gitlab-runner02 运行</span>
-
-docker run -dit \
-  --name gitlab-runner \
-  --restart always \
-  -v /****/gitlab-runner/gitlab-runner02-config:/etc/gitlab-runner \
-  -v /var/run/docker.sock:/var/run/docker.sock registry.cn-beijing.aliyuncs.com/***/gitlab-runner:v1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="token-查看"><a href="#token-查看" class="headerlink" title="token 查看"></a>token 查看</h3><p><a href="http://git.sys.****.com/admin/runners" target="_blank" rel="noopener">http://git.sys.****.com/admin/runners</a></p>
-<p>vi /etc/gitlab-runner/config.toml</p>
-<blockquote>
-<p>privileged = true</p>
-</blockquote>
-<blockquote>
-<p><a href="https://gitlab.com/" target="_blank" rel="noopener">https://gitlab.com/</a></p>
-</blockquote>
-<blockquote>
-<p>Exf<strong>**</strong></p>
-</blockquote>
-<h3 id="配置runner"><a href="#配置runner" class="headerlink" title="配置runner"></a>配置runner</h3><pre class="line-numbers language-bash"><code class="language-bash">docker <span class="token function">exec</span> -it gitlab-runner gitlab-ci-multi-runner register --locked<span class="token operator">=</span><span class="token string">"false"</span> --run-untagged<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<ul>
-<li>runner信息输出：</li>
-</ul>
-<pre class="line-numbers language-shell"><code class="language-shell">[root@gitlab-ce-local config]# docker exec -it gitlab-runner gitlab-ci-multi-runner register --locked="false" --run-untagged
-
-  Runtime platform                                    arch=amd64 os=linux pid=12 revision=a8a019e0  version=12.3.0
-  Running in system-mode.
-
-  Please enter the gitlab-ci coordinator URL (e.g. https://gitlab.com/):
-  http://git.****.com/
-  Please enter the gitlab-ci token for this runner:
-  Geoy-M******
-  Please enter the gitlab-ci description for this runner:
-  [6990c9803207]:
-  Please enter the gitlab-ci tags for this runner (comma separated):
-  node,maven,docker
-  Registering runner... succeeded                     runner=Geoy-Mk7
-  Please enter the executor: docker-ssh, ssh, docker+machine, docker-ssh+machine, custom, parallels, shell, virtualbox, kubernetes, docker:
-  docker
-  Please enter the default Docker image (e.g. ruby:2.6):
-  alpine:latest
-  Runner registered successfully. Feel free to start it, but if it's running already the config should be automatically reloaded!<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<ul>
-<li>runner-配置文件:<br>[root@gitlab-ce-local config]# cat config.toml</li>
-</ul>
-<pre class="line-numbers language-json"><code class="language-json">concurrent = <span class="token number">3</span>
-check_interval = <span class="token number">0</span>
-
-<span class="token punctuation">[</span>session_server<span class="token punctuation">]</span>
-  session_timeout = <span class="token number">1800</span>
-
-<span class="token punctuation">[</span><span class="token punctuation">[</span>runners<span class="token punctuation">]</span><span class="token punctuation">]</span>
-  name = <span class="token string">"6990c9803207"</span>
-  url = <span class="token string">"http://git.*****.com/"</span>
-  token = <span class="token string">"o******"</span>
-  executor = <span class="token string">"docker"</span>
-  <span class="token punctuation">[</span>runners.custom_build_dir<span class="token punctuation">]</span>
-  <span class="token punctuation">[</span>runners.docker<span class="token punctuation">]</span>
-    tls_verify = <span class="token boolean">false</span>
-    image = <span class="token string">"alpine:latest"</span>
-    privileged = <span class="token boolean">true</span>
-    disable_entrypoint_overwrite = <span class="token boolean">false</span>
-    oom_kill_disable = <span class="token boolean">false</span>
-    disable_cache = <span class="token boolean">false</span>
-    volumes = <span class="token punctuation">[</span><span class="token string">"/var/run/docker.sock:/var/run/docker.sock"</span><span class="token punctuation">,</span> <span class="token string">"/cache"</span><span class="token punctuation">]</span>
-    shm_size = <span class="token number">0</span>
-  <span class="token punctuation">[</span>runners.cache<span class="token punctuation">]</span>
-    <span class="token punctuation">[</span>runners.cache.s3<span class="token punctuation">]</span>
-    <span class="token punctuation">[</span>runners.cache.gcs<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="配置pages"><a href="#配置pages" class="headerlink" title="配置pages"></a>配置pages</h3><p>vim /etc/gitlab/gitlab.rb</p>
-<p>中增加如下信息：</p>
-<pre class="line-numbers language-rb"><code class="language-rb">pages_external_url "http://io.*******.com"<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h2 id="DNS-解析"><a href="#DNS-解析" class="headerlink" title="DNS 解析"></a>DNS 解析</h2><table>
+                <p>Markdown 通过简单标记语法，使普通文本内容具有一定格式。但它本身不支持修改字体、字号与颜色等功能的。</p>
+<h1 id="颜色列表"><a href="#颜色列表" class="headerlink" title="颜色列表"></a><font face="黑体" color="green" size="6">颜色列表</font></h1><table>
 <thead>
 <tr>
-<th>主机记录</th>
-<th>记录类型</th>
-<th>解析线路</th>
-<th>记录值</th>
+<th align="center">颜色名</th>
+<th align="center">十六进制颜色值</th>
+<th align="center">颜色</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>*.io</td>
-<td>A</td>
-<td>默认</td>
-<td>10.4.<strong>.</strong></td>
+<td align="center">AliceBlue</td>
+<td align="center">#F0F8FF</td>
+<td align="center">rgb(240, 248, 255)</td>
 </tr>
 <tr>
-<td>git.sys</td>
-<td>A</td>
-<td>默认</td>
-<td>10.4.<strong>.</strong></td>
+<td align="center">AntiqueWhite</td>
+<td align="center">#FAEBD7</td>
+<td align="center">rgb(250, 235, 215)</td>
+</tr>
+<tr>
+<td align="center">Aqua</td>
+<td align="center">#00FFFF</td>
+<td align="center">rgb(0, 255, 255)</td>
+</tr>
+<tr>
+<td align="center">Aquamarine</td>
+<td align="center">#7FFFD4</td>
+<td align="center">rgb(127, 255, 212)</td>
+</tr>
+<tr>
+<td align="center">Azure</td>
+<td align="center">#F0FFFF</td>
+<td align="center">rgb(240, 255, 255)</td>
+</tr>
+<tr>
+<td align="center">Beige</td>
+<td align="center">#F5F5DC</td>
+<td align="center">rgb(245, 245, 220)</td>
+</tr>
+<tr>
+<td align="center">Bisque</td>
+<td align="center">#FFE4C4</td>
+<td align="center">rgb(255, 228, 196)</td>
+</tr>
+<tr>
+<td align="center">Black</td>
+<td align="center">#000000</td>
+<td align="center">rgb(0, 0, 0)</td>
+</tr>
+<tr>
+<td align="center">BlanchedAlmond</td>
+<td align="center">#FFEBCD</td>
+<td align="center">rgb(255, 235, 205)</td>
+</tr>
+<tr>
+<td align="center">Blue</td>
+<td align="center">#0000FF</td>
+<td align="center">rgb(0, 0, 255)</td>
+</tr>
+<tr>
+<td align="center">BlueViolet</td>
+<td align="center">#8A2BE2</td>
+<td align="center">rgb(138, 43, 226)</td>
+</tr>
+<tr>
+<td align="center">Brown</td>
+<td align="center">#A52A2A</td>
+<td align="center">rgb(165, 42, 42)</td>
+</tr>
+<tr>
+<td align="center">BurlyWood</td>
+<td align="center">#DEB887</td>
+<td align="center">rgb(222, 184, 135)</td>
+</tr>
+<tr>
+<td align="center">CadetBlue</td>
+<td align="center">#5F9EA0</td>
+<td align="center">rgb(95, 158, 160)</td>
+</tr>
+<tr>
+<td align="center">Chartreuse</td>
+<td align="center">#7FFF00</td>
+<td align="center">rgb(127, 255, 0)</td>
+</tr>
+<tr>
+<td align="center">Chocolate</td>
+<td align="center">#D2691E</td>
+<td align="center">rgb(210, 105, 30)</td>
+</tr>
+<tr>
+<td align="center">Coral</td>
+<td align="center">#FF7F50</td>
+<td align="center">rgb(255, 127, 80)</td>
+</tr>
+<tr>
+<td align="center">CornflowerBlue</td>
+<td align="center">#6495ED</td>
+<td align="center">rgb(100, 149, 237)</td>
+</tr>
+<tr>
+<td align="center">Cornsilk</td>
+<td align="center">#FFF8DC</td>
+<td align="center">rgb(255, 248, 220)</td>
+</tr>
+<tr>
+<td align="center">Crimson</td>
+<td align="center">#DC143C</td>
+<td align="center">rgb(220, 20, 60)</td>
+</tr>
+<tr>
+<td align="center">Cyan</td>
+<td align="center">#00FFFF</td>
+<td align="center">rgb(0, 255, 255)</td>
+</tr>
+<tr>
+<td align="center">DarkBlue</td>
+<td align="center">#00008B</td>
+<td align="center">rgb(0, 0, 139)</td>
+</tr>
+<tr>
+<td align="center">DarkCyan</td>
+<td align="center">#008B8B</td>
+<td align="center">rgb(0, 139, 139)</td>
+</tr>
+<tr>
+<td align="center">DarkGoldenRod</td>
+<td align="center">#B8860B</td>
+<td align="center">rgb(184, 134, 11)</td>
+</tr>
+<tr>
+<td align="center">DarkGray</td>
+<td align="center">#A9A9A9</td>
+<td align="center">rgb(169, 169, 169)</td>
+</tr>
+<tr>
+<td align="center">DarkGreen</td>
+<td align="center">#006400</td>
+<td align="center">rgb(0, 100, 0)</td>
+</tr>
+<tr>
+<td align="center">DarkKhaki</td>
+<td align="center">#BDB76B</td>
+<td align="center">rgb(189, 183, 107)</td>
+</tr>
+<tr>
+<td align="center">DarkMagenta</td>
+<td align="center">#8B008B</td>
+<td align="center">rgb(139, 0, 139)</td>
+</tr>
+<tr>
+<td align="center">DarkOliveGreen</td>
+<td align="center">#556B2F</td>
+<td align="center">rgb(85, 107, 47)</td>
+</tr>
+<tr>
+<td align="center">Darkorange</td>
+<td align="center">#FF8C00</td>
+<td align="center">rgb(255, 140, 0)</td>
+</tr>
+<tr>
+<td align="center">DarkOrchid</td>
+<td align="center">#9932CC</td>
+<td align="center">rgb(153, 50, 204)</td>
+</tr>
+<tr>
+<td align="center">DarkRed</td>
+<td align="center">#8B0000</td>
+<td align="center">rgb(139, 0, 0)</td>
+</tr>
+<tr>
+<td align="center">DarkSalmon</td>
+<td align="center">#E9967A</td>
+<td align="center">rgb(233, 150, 122)</td>
+</tr>
+<tr>
+<td align="center">DarkSeaGreen</td>
+<td align="center">#8FBC8F</td>
+<td align="center">rgb(143, 188, 143)</td>
+</tr>
+<tr>
+<td align="center">DarkSlateBlue</td>
+<td align="center">#483D8B</td>
+<td align="center">rgb(72, 61, 139)</td>
+</tr>
+<tr>
+<td align="center">DarkSlateGray</td>
+<td align="center">#2F4F4F</td>
+<td align="center">rgb(47, 79, 79)</td>
+</tr>
+<tr>
+<td align="center">DarkTurquoise</td>
+<td align="center">#00CED1</td>
+<td align="center">rgb(0, 206, 209)</td>
+</tr>
+<tr>
+<td align="center">DarkViolet</td>
+<td align="center">#9400D3</td>
+<td align="center">rgb(148, 0, 211)</td>
+</tr>
+<tr>
+<td align="center">DeepPink</td>
+<td align="center">#FF1493</td>
+<td align="center">rgb(255, 20, 147)</td>
+</tr>
+<tr>
+<td align="center">DeepSkyBlue</td>
+<td align="center">#00BFFF</td>
+<td align="center">rgb(0, 191, 255)</td>
+</tr>
+<tr>
+<td align="center">DimGray</td>
+<td align="center">#696969</td>
+<td align="center">rgb(105, 105, 105)</td>
+</tr>
+<tr>
+<td align="center">DodgerBlue</td>
+<td align="center">#1E90FF</td>
+<td align="center">rgb(30, 144, 255)</td>
+</tr>
+<tr>
+<td align="center">Feldspar</td>
+<td align="center">#D19275</td>
+<td align="center">rgb(209, 146, 117)</td>
+</tr>
+<tr>
+<td align="center">FireBrick</td>
+<td align="center">#B22222</td>
+<td align="center">rgb(178, 34, 34)</td>
+</tr>
+<tr>
+<td align="center">FloralWhite</td>
+<td align="center">#FFFAF0</td>
+<td align="center">rgb(255, 250, 240)</td>
+</tr>
+<tr>
+<td align="center">ForestGreen</td>
+<td align="center">#228B22</td>
+<td align="center">rgb(34, 139, 34)</td>
+</tr>
+<tr>
+<td align="center">Fuchsia</td>
+<td align="center">#FF00FF</td>
+<td align="center">rgb(255, 0, 255)</td>
+</tr>
+<tr>
+<td align="center">Gainsboro</td>
+<td align="center">#DCDCDC</td>
+<td align="center">rgb(220, 220, 220)</td>
+</tr>
+<tr>
+<td align="center">GhostWhite</td>
+<td align="center">#F8F8FF</td>
+<td align="center">rgb(248, 248, 255)</td>
+</tr>
+<tr>
+<td align="center">Gold</td>
+<td align="center">#FFD700</td>
+<td align="center">rgb(255, 215, 0)</td>
+</tr>
+<tr>
+<td align="center">GoldenRod</td>
+<td align="center">#DAA520</td>
+<td align="center">rgb(218, 165, 32)</td>
+</tr>
+<tr>
+<td align="center">Gray</td>
+<td align="center">#808080</td>
+<td align="center">rgb(128, 128, 128)</td>
+</tr>
+<tr>
+<td align="center">Green</td>
+<td align="center">#008000</td>
+<td align="center">rgb(0, 128, 0)</td>
+</tr>
+<tr>
+<td align="center">GreenYellow</td>
+<td align="center">#ADFF2F</td>
+<td align="center">rgb(173, 255, 47)</td>
+</tr>
+<tr>
+<td align="center">HoneyDew</td>
+<td align="center">#F0FFF0</td>
+<td align="center">rgb(240, 255, 240)</td>
+</tr>
+<tr>
+<td align="center">HotPink</td>
+<td align="center">#FF69B4</td>
+<td align="center">rgb(255, 105, 180)</td>
+</tr>
+<tr>
+<td align="center">IndianRed</td>
+<td align="center">#CD5C5C</td>
+<td align="center">rgb(205, 92, 92)</td>
+</tr>
+<tr>
+<td align="center">Indigo</td>
+<td align="center">#4B0082</td>
+<td align="center">rgb(75, 0, 130)</td>
+</tr>
+<tr>
+<td align="center">Ivory</td>
+<td align="center">#FFFFF0</td>
+<td align="center">rgb(255, 255, 240)</td>
+</tr>
+<tr>
+<td align="center">Khaki</td>
+<td align="center">#F0E68C</td>
+<td align="center">rgb(240, 230, 140)</td>
+</tr>
+<tr>
+<td align="center">Lavender</td>
+<td align="center">#E6E6FA</td>
+<td align="center">rgb(230, 230, 250)</td>
+</tr>
+<tr>
+<td align="center">LavenderBlush</td>
+<td align="center">#FFF0F5</td>
+<td align="center">rgb(255, 240, 245)</td>
+</tr>
+<tr>
+<td align="center">LawnGreen</td>
+<td align="center">#7CFC00</td>
+<td align="center">rgb(124, 252, 0)</td>
+</tr>
+<tr>
+<td align="center">LemonChiffon</td>
+<td align="center">#FFFACD</td>
+<td align="center">rgb(255, 250, 205)</td>
+</tr>
+<tr>
+<td align="center">LightBlue</td>
+<td align="center">#ADD8E6</td>
+<td align="center">rgb(173, 216, 230)</td>
+</tr>
+<tr>
+<td align="center">LightCoral</td>
+<td align="center">#F08080</td>
+<td align="center">rgb(240, 128, 128)</td>
+</tr>
+<tr>
+<td align="center">LightCyan</td>
+<td align="center">#E0FFFF</td>
+<td align="center">rgb(224, 255, 255)</td>
+</tr>
+<tr>
+<td align="center">LightGoldenRodYellow</td>
+<td align="center">#FAFAD2</td>
+<td align="center">rgb(250, 250, 210)</td>
+</tr>
+<tr>
+<td align="center">LightGrey</td>
+<td align="center">#D3D3D3</td>
+<td align="center">rgb(211, 211, 211)</td>
+</tr>
+<tr>
+<td align="center">LightGreen</td>
+<td align="center">#90EE90</td>
+<td align="center">rgb(144, 238, 144)</td>
+</tr>
+<tr>
+<td align="center">LightPink</td>
+<td align="center">#FFB6C1</td>
+<td align="center">rgb(255, 182, 193)</td>
+</tr>
+<tr>
+<td align="center">LightSalmon</td>
+<td align="center">#FFA07A</td>
+<td align="center">rgb(255, 160, 122)</td>
+</tr>
+<tr>
+<td align="center">LightSeaGreen</td>
+<td align="center">#20B2AA</td>
+<td align="center">rgb(32, 178, 170)</td>
+</tr>
+<tr>
+<td align="center">LightSkyBlue</td>
+<td align="center">#87CEFA</td>
+<td align="center">rgb(135, 206, 250)</td>
+</tr>
+<tr>
+<td align="center">LightSlateBlue</td>
+<td align="center">#8470FF</td>
+<td align="center">rgb(132, 112, 255)</td>
+</tr>
+<tr>
+<td align="center">LightSlateGray</td>
+<td align="center">#778899</td>
+<td align="center">rgb(119, 136, 153)</td>
+</tr>
+<tr>
+<td align="center">LightSteelBlue</td>
+<td align="center">#B0C4DE</td>
+<td align="center">rgb(176, 196, 222)</td>
+</tr>
+<tr>
+<td align="center">LightYellow</td>
+<td align="center">#FFFFE0</td>
+<td align="center">rgb(255, 255, 224)</td>
+</tr>
+<tr>
+<td align="center">Lime</td>
+<td align="center">#00FF00</td>
+<td align="center">rgb(0, 255, 0)</td>
+</tr>
+<tr>
+<td align="center">LimeGreen</td>
+<td align="center">#32CD32</td>
+<td align="center">rgb(50, 205, 50)</td>
+</tr>
+<tr>
+<td align="center">Linen</td>
+<td align="center">#FAF0E6</td>
+<td align="center">rgb(250, 240, 230)</td>
+</tr>
+<tr>
+<td align="center">Magenta</td>
+<td align="center">#FF00FF</td>
+<td align="center">rgb(255, 0, 255)</td>
+</tr>
+<tr>
+<td align="center">Maroon</td>
+<td align="center">#800000</td>
+<td align="center">rgb(128, 0, 0)</td>
+</tr>
+<tr>
+<td align="center">MediumAquaMarine</td>
+<td align="center">#66CDAA</td>
+<td align="center">rgb(102, 205, 170)</td>
+</tr>
+<tr>
+<td align="center">MediumBlue</td>
+<td align="center">#0000CD</td>
+<td align="center">rgb(0, 0, 205)</td>
+</tr>
+<tr>
+<td align="center">MediumOrchid</td>
+<td align="center">#BA55D3</td>
+<td align="center">rgb(186, 85, 211)</td>
+</tr>
+<tr>
+<td align="center">MediumPurple</td>
+<td align="center">#9370D8</td>
+<td align="center">rgb(147, 112, 216)</td>
+</tr>
+<tr>
+<td align="center">MediumSeaGreen</td>
+<td align="center">#3CB371</td>
+<td align="center">rgb(60, 179, 113)</td>
+</tr>
+<tr>
+<td align="center">MediumSlateBlue</td>
+<td align="center">#7B68EE</td>
+<td align="center">rgb(123, 104, 238)</td>
+</tr>
+<tr>
+<td align="center">MediumSpringGreen</td>
+<td align="center">#00FA9A</td>
+<td align="center">rgb(0, 250, 154)</td>
+</tr>
+<tr>
+<td align="center">MediumTurquoise</td>
+<td align="center">#48D1CC</td>
+<td align="center">rgb(72, 209, 204)</td>
+</tr>
+<tr>
+<td align="center">MediumVioletRed</td>
+<td align="center">#C71585</td>
+<td align="center">rgb(199, 21, 133)</td>
+</tr>
+<tr>
+<td align="center">MidnightBlue</td>
+<td align="center">#191970</td>
+<td align="center">rgb(25, 25, 112)</td>
+</tr>
+<tr>
+<td align="center">MintCream</td>
+<td align="center">#F5FFFA</td>
+<td align="center">rgb(245, 255, 250)</td>
+</tr>
+<tr>
+<td align="center">MistyRose</td>
+<td align="center">#FFE4E1</td>
+<td align="center">rgb(255, 228, 225)</td>
+</tr>
+<tr>
+<td align="center">Moccasin</td>
+<td align="center">#FFE4B5</td>
+<td align="center">rgb(255, 228, 181)</td>
+</tr>
+<tr>
+<td align="center">NavajoWhite</td>
+<td align="center">#FFDEAD</td>
+<td align="center">rgb(255, 222, 173)</td>
+</tr>
+<tr>
+<td align="center">Navy</td>
+<td align="center">#000080</td>
+<td align="center">rgb(0, 0, 128)</td>
+</tr>
+<tr>
+<td align="center">OldLace</td>
+<td align="center">#FDF5E6</td>
+<td align="center">rgb(253, 245, 230)</td>
+</tr>
+<tr>
+<td align="center">Olive</td>
+<td align="center">#808000</td>
+<td align="center">rgb(128, 128, 0)</td>
+</tr>
+<tr>
+<td align="center">OliveDrab</td>
+<td align="center">#6B8E23</td>
+<td align="center">rgb(107, 142, 35)</td>
+</tr>
+<tr>
+<td align="center">Orange</td>
+<td align="center">#FFA500</td>
+<td align="center">rgb(255, 165, 0)</td>
+</tr>
+<tr>
+<td align="center">OrangeRed</td>
+<td align="center">#FF4500</td>
+<td align="center">rgb(255, 69, 0)</td>
+</tr>
+<tr>
+<td align="center">Orchid</td>
+<td align="center">#DA70D6</td>
+<td align="center">rgb(218, 112, 214)</td>
+</tr>
+<tr>
+<td align="center">PaleGoldenRod</td>
+<td align="center">#EEE8AA</td>
+<td align="center">rgb(238, 232, 170)</td>
+</tr>
+<tr>
+<td align="center">PaleGreen</td>
+<td align="center">#98FB98</td>
+<td align="center">rgb(152, 251, 152)</td>
+</tr>
+<tr>
+<td align="center">PaleTurquoise</td>
+<td align="center">#AFEEEE</td>
+<td align="center">rgb(175, 238, 238)</td>
+</tr>
+<tr>
+<td align="center">PaleVioletRed</td>
+<td align="center">#D87093</td>
+<td align="center">rgb(216, 112, 147)</td>
+</tr>
+<tr>
+<td align="center">PapayaWhip</td>
+<td align="center">#FFEFD5</td>
+<td align="center">rgb(255, 239, 213)</td>
+</tr>
+<tr>
+<td align="center">PeachPuff</td>
+<td align="center">#FFDAB9</td>
+<td align="center">rgb(255, 218, 185)</td>
+</tr>
+<tr>
+<td align="center">Peru</td>
+<td align="center">#CD853F</td>
+<td align="center">rgb(205, 133, 63)</td>
+</tr>
+<tr>
+<td align="center">Pink</td>
+<td align="center">#FFC0CB</td>
+<td align="center">rgb(255, 192, 203)</td>
+</tr>
+<tr>
+<td align="center">Plum</td>
+<td align="center">#DDA0DD</td>
+<td align="center">rgb(221, 160, 221)</td>
+</tr>
+<tr>
+<td align="center">PowderBlue</td>
+<td align="center">#B0E0E6</td>
+<td align="center">rgb(176, 224, 230)</td>
+</tr>
+<tr>
+<td align="center">Purple</td>
+<td align="center">#800080</td>
+<td align="center">rgb(128, 0, 128)</td>
+</tr>
+<tr>
+<td align="center">Red</td>
+<td align="center">#FF0000</td>
+<td align="center">rgb(255, 0, 0)</td>
+</tr>
+<tr>
+<td align="center">RosyBrown</td>
+<td align="center">#BC8F8F</td>
+<td align="center">rgb(188, 143, 143)</td>
+</tr>
+<tr>
+<td align="center">RoyalBlue</td>
+<td align="center">#4169E1</td>
+<td align="center">rgb(65, 105, 225)</td>
+</tr>
+<tr>
+<td align="center">SaddleBrown</td>
+<td align="center">#8B4513</td>
+<td align="center">rgb(139, 69, 19)</td>
+</tr>
+<tr>
+<td align="center">Salmon</td>
+<td align="center">#FA8072</td>
+<td align="center">rgb(250, 128, 114)</td>
+</tr>
+<tr>
+<td align="center">SandyBrown</td>
+<td align="center">#F4A460</td>
+<td align="center">rgb(244, 164, 96)</td>
+</tr>
+<tr>
+<td align="center">SeaGreen</td>
+<td align="center">#2E8B57</td>
+<td align="center">rgb(46, 139, 87)</td>
+</tr>
+<tr>
+<td align="center">SeaShell</td>
+<td align="center">#FFF5EE</td>
+<td align="center">rgb(255, 245, 238)</td>
+</tr>
+<tr>
+<td align="center">Sienna</td>
+<td align="center">#A0522D</td>
+<td align="center">rgb(160, 82, 45)</td>
+</tr>
+<tr>
+<td align="center">Silver</td>
+<td align="center">#C0C0C0</td>
+<td align="center">rgb(192, 192, 192)</td>
+</tr>
+<tr>
+<td align="center">SkyBlue</td>
+<td align="center">#87CEEB</td>
+<td align="center">rgb(135, 206, 235)</td>
+</tr>
+<tr>
+<td align="center">SlateBlue</td>
+<td align="center">#6A5ACD</td>
+<td align="center">rgb(106, 90, 205)</td>
+</tr>
+<tr>
+<td align="center">SlateGray</td>
+<td align="center">#708090</td>
+<td align="center">rgb(112, 128, 144)</td>
+</tr>
+<tr>
+<td align="center">Snow</td>
+<td align="center">#FFFAFA</td>
+<td align="center">rgb(255, 250, 250)</td>
+</tr>
+<tr>
+<td align="center">SpringGreen</td>
+<td align="center">#00FF7F</td>
+<td align="center">rgb(0, 255, 127)</td>
+</tr>
+<tr>
+<td align="center">SteelBlue</td>
+<td align="center">#4682B4</td>
+<td align="center">rgb(70, 130, 180)</td>
+</tr>
+<tr>
+<td align="center">Tan</td>
+<td align="center">#D2B48C</td>
+<td align="center">rgb(210, 180, 140)</td>
+</tr>
+<tr>
+<td align="center">Teal</td>
+<td align="center">#008080</td>
+<td align="center">rgb(0, 128, 128)</td>
+</tr>
+<tr>
+<td align="center">Thistle</td>
+<td align="center">#D8BFD8</td>
+<td align="center">rgb(216, 191, 216)</td>
+</tr>
+<tr>
+<td align="center">Tomato</td>
+<td align="center">#FF6347</td>
+<td align="center">rgb(255, 99, 71)</td>
+</tr>
+<tr>
+<td align="center">Turquoise</td>
+<td align="center">#40E0D0</td>
+<td align="center">rgb(64, 224, 208)</td>
+</tr>
+<tr>
+<td align="center">Violet</td>
+<td align="center">#EE82EE</td>
+<td align="center">rgb(238, 130, 238)</td>
+</tr>
+<tr>
+<td align="center">VioletRed</td>
+<td align="center">#D02090</td>
+<td align="center">rgb(208, 32, 144)</td>
+</tr>
+<tr>
+<td align="center">Wheat</td>
+<td align="center">#F5DEB3</td>
+<td align="center">rgb(245, 222, 179)</td>
+</tr>
+<tr>
+<td align="center">White</td>
+<td align="center">#FFFFFF</td>
+<td align="center">rgb(255, 255, 255)</td>
+</tr>
+<tr>
+<td align="center">WhiteSmoke</td>
+<td align="center">#F5F5F5</td>
+<td align="center">rgb(245, 245, 245)</td>
+</tr>
+<tr>
+<td align="center">Yellow</td>
+<td align="center">#FFFF00</td>
+<td align="center">rgb(255, 255, 0)</td>
+</tr>
+<tr>
+<td align="center">YellowGreen</td>
+<td align="center">#9ACD32</td>
+<td align="center">rgb(154, 205, 50)</td>
 </tr>
 </tbody></table>
+<h1 id="常用颜色"><a href="#常用颜色" class="headerlink" title="常用颜色"></a><font face="黑体" color="green" size="6">常用颜色</font></h1><p>color=maroon<br>color=grey<br>color=silver<br>color=lightgrey<br>color=HotPink<br>color=DeepPink<br>color=VioletRed<br>color=Purple<br>color=navy<br>color=Blue<br>color=DeepSkyBlue<br>color=LightSkyBlue<br>color=aqua<br>color=DarkTurquoise（#00CED1）<br>color=LightSeaGreen<br>color=YellowGreen<br>color=LawnGreen<br>color=GreenYellow<br>color=Yellow<br>color=Tomato<br>color=red<br>color=fuchsia<br>color=MediumOrchid<br>color=DarkViolet</p>
 
             </div>
             <hr />
@@ -764,9 +1383,9 @@ check_interval = <span class="token number">0</span>
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《install gitlab runner》
+                    《Markdown常用字体颜色列表》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/install-gitlab-runner/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/markdown-chang-yong-zi-ti-yan-se-lie-biao/" property="cc:attributionName"
                rel="cc:attributionURL">
                 helen
             </a> 采用
@@ -807,7 +1426,7 @@ check_interval = <span class="token number">0</span>
         repo: 'Hooyh110.github.io',
         owner: 'Hooyh110',
         admin: "Hooyh110",
-        id: 'install-gitlab-runner/',
+        id: 'markdown-chang-yong-zi-ti-yan-se-lie-biao/',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -1090,9 +1709,60 @@ check_interval = <span class="token number">0</span>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/markdown-chang-yong-zi-ti-yan-se-lie-biao/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="Markdown常用字体颜色列表">
+                        
+                        <span class="card-title">Markdown常用字体颜色列表</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            字体颜色列表
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-11
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Markdown/" class="post-category" target="_blank">
+                                    Markdown
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Markdown/" target="_blank">
+                        <span class="chip bg-color">Markdown</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/shell-xia-huo-qu-wen-jian-quan-lu-jing-de-fang-fa/">
                     <div class="card-image">
@@ -1107,55 +1777,6 @@ check_interval = <span class="token number">0</span>
                     <div class="summary block-with-text">
                         
                             shell 获取文件夹全文绝对路径
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-11
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/shell/" class="post-category" target="_blank">
-                                    shell
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/shell/" target="_blank">
-                        <span class="chip bg-color">shell</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/shell-ls-shu-chu-xian-shi-1-lie/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="shell ls 输出显示1列">
-                        
-                        <span class="card-title">shell ls 输出显示1列</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            linux shell ls -1 列显示文件
                         
                     </div>
                     <div class="publish-info">
