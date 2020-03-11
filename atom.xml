@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.hooyuhao.club/"/>
-  <updated>2020-03-11T02:45:10.211Z</updated>
+  <updated>2020-03-11T10:51:06.641Z</updated>
   <id>http://blog.hooyuhao.club/</id>
   
   <author>
@@ -15,6 +15,58 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>install gitlab runner</title>
+    <link href="http://blog.hooyuhao.club/install-gitlab-runner/"/>
+    <id>http://blog.hooyuhao.club/install-gitlab-runner/</id>
+    <published>2020-03-11T09:15:43.000Z</published>
+    <updated>2020-03-11T10:51:06.641Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Install-GitLab-Runner&quot;&gt;&lt;a href=&quot;#Install-GitLab-Runner&quot; class=&quot;headerlink&quot; title=&quot;Install GitLab Runner&quot;&gt;&lt;/a&gt;&lt;font face=&quot;黑体&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="docker" scheme="http://blog.hooyuhao.club/categories/docker/"/>
+    
+    
+      <category term="docker" scheme="http://blog.hooyuhao.club/tags/docker/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>shell ls 输出显示1列</title>
+    <link href="http://blog.hooyuhao.club/shell-ls-shu-chu-xian-shi-1-lie/"/>
+    <id>http://blog.hooyuhao.club/shell-ls-shu-chu-xian-shi-1-lie/</id>
+    <published>2020-03-11T08:55:40.000Z</published>
+    <updated>2020-03-11T09:14:36.989Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;linux-shell-ls-1-列显示文件&quot;&gt;&lt;a href=&quot;#linux-shell-ls-1-列显示文件&quot; class=&quot;headerlink&quot; title=&quot;linux shell ls -1 列显示文件&quot;&gt;&lt;/a&gt;&lt;font face=&quot;黑体&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="shell" scheme="http://blog.hooyuhao.club/categories/shell/"/>
+    
+    
+      <category term="shell" scheme="http://blog.hooyuhao.club/tags/shell/"/>
+    
+  </entry>
   
   <entry>
     <title>docker容器日志清理</title>

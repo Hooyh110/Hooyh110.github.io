@@ -4,16 +4,12 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="利用普罗米修斯监控ecs, ECNU NLP DeepLearning AntNLP helen">
+    <meta name="keywords" content="install gitlab runner, ECNU NLP DeepLearning AntNLP helen">
     <meta name="baidu-site-verification" content="PQuYZ68I8K">
     <meta name="google-site-verification" content="PQuYZ68I8K">
     <meta name="360-site-verification" content>
-    <meta name="description" content="
-
-利用脚本部署node_exporter
-#!/bin/bash
-
-#wget https://github.com/prometheus/node_exporter/releases/download/v0.17.0/node_expo">
+    <meta name="description" content="Install GitLab Runner
+1、docker installhttps://docs.docker.com/install/linux/docker-ce/centos/#install-using-the-convenie">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -21,7 +17,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>利用普罗米修斯监控ecs | helen的博客</title>
+    <title>install gitlab runner | helen的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -311,13 +307,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        利用普罗米修斯监控ecs
+                        install gitlab runner
                     </div>
                 </div>
             </div>
@@ -428,8 +424,8 @@
                     
                     <div class="article-tag">
                         
-                        <a href="/tags/monitor/" target="_blank">
-                            <span class="chip bg-color">monitor</span>
+                        <a href="/tags/docker/" target="_blank">
+                            <span class="chip bg-color">docker</span>
                         </a>
                         
                     </div>
@@ -440,8 +436,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                        <a href="/categories/monitor/" class="post-category" target="_blank">
-                            monitor
+                        <a href="/categories/docker/" class="post-category" target="_blank">
+                            docker
                         </a>
                         
                     </div>
@@ -452,7 +448,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-03-09
+                    2020-03-11
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -466,14 +462,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    301
+                    504
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
                 
@@ -489,65 +485,127 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <div align="middle"><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=29717271&auto=1&height=66"></iframe></div>
+                <h1 id="Install-GitLab-Runner"><a href="#Install-GitLab-Runner" class="headerlink" title="Install GitLab Runner"></a><font face="黑体" color="green" size="6">Install GitLab Runner</font></h1><hr>
+<h4 id="1、docker-install"><a href="#1、docker-install" class="headerlink" title="1、docker install"></a>1、docker install</h4><p><a href="https://docs.docker.com/install/linux/docker-ce/centos/#install-using-the-convenience-script" target="_blank" rel="noopener">https://docs.docker.com/install/linux/docker-ce/centos/#install-using-the-convenience-script</a></p>
+<h4 id="2、runner-install"><a href="#2、runner-install" class="headerlink" title="2、runner install"></a>2、runner install</h4><p><a href="https://docs.gitlab.com/runner/install/linux-repository.html#installing-the-runner" target="_blank" rel="noopener">https://docs.gitlab.com/runner/install/linux-repository.html#installing-the-runner</a></p>
+<p>gitlab-ce-中文版镜像：</p>
+<blockquote>
+<p>docker pull twang2218/gitlab-ce-zh:latest</p>
+</blockquote>
+<h3 id="gitlab-rb文件配置"><a href="#gitlab-rb文件配置" class="headerlink" title="gitlab.rb文件配置"></a>gitlab.rb文件配置</h3><pre class="line-numbers language-rb"><code class="language-rb">external_url 'http://git.****.com'
+#配置gitlab访问的URL地址
+gitlab_pages['inplace_chroot'] = true
+pages_external_url "http://io.****.com"
+#配置pages相关信息
+unicorn['port'] = 8084
+#默认配置<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="启动docker-容器"><a href="#启动docker-容器" class="headerlink" title="启动docker 容器"></a>启动docker 容器</h3><pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true">#gitlab-ce运行：</span>
+docker run -dit \
+  -p 443:443 -p 80:80 -p 22:22 \
+  --name gitlab \
+  -v /****/gitlab/config/:/etc/gitlab \
+  -v /****/gitlab/logs:/var/log/gitlab \
+  -v /****/gitlab/data:/var/opt/gitlab gitlab/gitlab-ce
 
-<p>利用脚本部署node_exporter</p>
-<pre class="line-numbers language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+<span class="token comment" spellcheck="true">#gitlab-ci gitlab-runner01运行</span>
+docker run -dit \
+  --name gitlab-runner --restart always \
+  -v /****/gitlab-runner/config:/etc/gitlab-runner \
+  -v /var/run/docker.sock:/var/run/docker.sock gitlab/gitlab-runner:latest
 
-<span class="token comment" spellcheck="true">#wget https://github.com/prometheus/node_exporter/releases/download/v0.17.0/node_exporter-0.17.0.linux-amd64.tar.gz</span>
-<span class="token function">rsync</span> -avPLl helen@172.16.6.86:/Users/helen/hoo-pro/hoo-PRO/software/prometheus/node_exporter-0.17.0.linux-amd64.tar.gz ./
-<span class="token function">tar</span> zxf node_exporter-0.17.0.linux-amd64.tar.gz
-<span class="token function">mv</span> node_exporter-0.17.0.linux-amd64 /usr/local/node_exporter
+<span class="token comment" spellcheck="true">#gitlab-runner02 运行</span>
 
-<span class="token function">cat</span> <span class="token operator">&lt;&lt;</span>EOF <span class="token operator">></span>/usr/lib/systemd/system/node_exporter.service
-<span class="token punctuation">[</span>Unit<span class="token punctuation">]</span>
-Description<span class="token operator">=</span>https://prometheus.io
+docker run -dit \
+  --name gitlab-runner \
+  --restart always \
+  -v /****/gitlab-runner/gitlab-runner02-config:/etc/gitlab-runner \
+  -v /var/run/docker.sock:/var/run/docker.sock registry.cn-beijing.aliyuncs.com/***/gitlab-runner:v1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="token-查看"><a href="#token-查看" class="headerlink" title="token 查看"></a>token 查看</h3><p><a href="http://git.sys.****.com/admin/runners" target="_blank" rel="noopener">http://git.sys.****.com/admin/runners</a></p>
+<p>vi /etc/gitlab-runner/config.toml</p>
+<blockquote>
+<p>privileged = true</p>
+</blockquote>
+<blockquote>
+<p><a href="https://gitlab.com/" target="_blank" rel="noopener">https://gitlab.com/</a></p>
+</blockquote>
+<blockquote>
+<p>Exf<strong>**</strong></p>
+</blockquote>
+<h3 id="配置runner"><a href="#配置runner" class="headerlink" title="配置runner"></a>配置runner</h3><pre class="line-numbers language-bash"><code class="language-bash">docker <span class="token function">exec</span> -it gitlab-runner gitlab-ci-multi-runner register --locked<span class="token operator">=</span><span class="token string">"false"</span> --run-untagged<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<ul>
+<li>runner信息输出：</li>
+</ul>
+<pre class="line-numbers language-shell"><code class="language-shell">[root@gitlab-ce-local config]# docker exec -it gitlab-runner gitlab-ci-multi-runner register --locked="false" --run-untagged
 
-<span class="token punctuation">[</span>Service<span class="token punctuation">]</span>
-Restart<span class="token operator">=</span>on-failure
-ExecStart<span class="token operator">=</span>/usr/local/node_exporter/node_exporter --collector.systemd --collector.systemd.unit-whitelist<span class="token operator">=</span><span class="token punctuation">(</span>docker<span class="token operator">|</span>kubelet<span class="token operator">|</span>kube-proxy<span class="token operator">|</span>flanneld<span class="token punctuation">)</span>.service
+  Runtime platform                                    arch=amd64 os=linux pid=12 revision=a8a019e0  version=12.3.0
+  Running in system-mode.
 
-<span class="token punctuation">[</span>Install<span class="token punctuation">]</span>
-WantedBy<span class="token operator">=</span>multi-user.target
-EOF
+  Please enter the gitlab-ci coordinator URL (e.g. https://gitlab.com/):
+  http://git.****.com/
+  Please enter the gitlab-ci token for this runner:
+  Geoy-M******
+  Please enter the gitlab-ci description for this runner:
+  [6990c9803207]:
+  Please enter the gitlab-ci tags for this runner (comma separated):
+  node,maven,docker
+  Registering runner... succeeded                     runner=Geoy-Mk7
+  Please enter the executor: docker-ssh, ssh, docker+machine, docker-ssh+machine, custom, parallels, shell, virtualbox, kubernetes, docker:
+  docker
+  Please enter the default Docker image (e.g. ruby:2.6):
+  alpine:latest
+  Runner registered successfully. Feel free to start it, but if it's running already the config should be automatically reloaded!<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>runner-配置文件:<br>[root@gitlab-ce-local config]# cat config.toml</li>
+</ul>
+<pre class="line-numbers language-json"><code class="language-json">concurrent = <span class="token number">3</span>
+check_interval = <span class="token number">0</span>
 
-systemctl daemon-reload
-systemctl <span class="token function">enable</span> node_exporter
-systemctl restart node_exporter<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>在需要被普罗米修斯监控的ecs上执行此脚本</p>
-<pre><code>bash node_exporter.sh</code></pre><p>然后修改prometheus.yml文件</p>
-<pre class="line-numbers language-yml"><code class="language-yml"># my global config
-global:
-  scrape_interval:     15s # Set the scrape interval to every 15 seconds. Default is every 1 minute.
-  evaluation_interval: 15s # Evaluate rules every 15 seconds. The default is every 1 minute.
-  # scrape_timeout is set to the global default (10s).
+<span class="token punctuation">[</span>session_server<span class="token punctuation">]</span>
+  session_timeout = <span class="token number">1800</span>
 
-# Alertmanager configuration
-alerting:
-  alertmanagers:
-  - static_configs:
-    - targets:
-      # - alertmanager:9093
-
-# Load rules once and periodically evaluate them according to the global 'evaluation_interval'.
-rule_files:
-  # - "first_rules.yml"
-  # - "second_rules.yml"
-
-# A scrape configuration containing exactly one endpoint to scrape:
-# Here it's Prometheus itself.
-scrape_configs:
-  # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
-  - job_name: 'prometheus'
-
-    # metrics_path defaults to '/metrics'
-    # scheme defaults to 'http'.
-
-    static_configs:
-    - targets: ['localhost:9090','10.10.249.59:9100','10.10.249.60:9100','192.168.1.35:8080','192.168.1.35:9100','10.10.249.55:9100']
-    #  labels:
-    #    instance: k8s-node01<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>修改完成，重启普罗米修斯；</p>
+<span class="token punctuation">[</span><span class="token punctuation">[</span>runners<span class="token punctuation">]</span><span class="token punctuation">]</span>
+  name = <span class="token string">"6990c9803207"</span>
+  url = <span class="token string">"http://git.*****.com/"</span>
+  token = <span class="token string">"o******"</span>
+  executor = <span class="token string">"docker"</span>
+  <span class="token punctuation">[</span>runners.custom_build_dir<span class="token punctuation">]</span>
+  <span class="token punctuation">[</span>runners.docker<span class="token punctuation">]</span>
+    tls_verify = <span class="token boolean">false</span>
+    image = <span class="token string">"alpine:latest"</span>
+    privileged = <span class="token boolean">true</span>
+    disable_entrypoint_overwrite = <span class="token boolean">false</span>
+    oom_kill_disable = <span class="token boolean">false</span>
+    disable_cache = <span class="token boolean">false</span>
+    volumes = <span class="token punctuation">[</span><span class="token string">"/var/run/docker.sock:/var/run/docker.sock"</span><span class="token punctuation">,</span> <span class="token string">"/cache"</span><span class="token punctuation">]</span>
+    shm_size = <span class="token number">0</span>
+  <span class="token punctuation">[</span>runners.cache<span class="token punctuation">]</span>
+    <span class="token punctuation">[</span>runners.cache.s3<span class="token punctuation">]</span>
+    <span class="token punctuation">[</span>runners.cache.gcs<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="配置pages"><a href="#配置pages" class="headerlink" title="配置pages"></a>配置pages</h3><p>vim /etc/gitlab/gitlab.rb</p>
+<p>中增加如下信息：</p>
+<pre class="line-numbers language-rb"><code class="language-rb">pages_external_url "http://io.*******.com"<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="DNS-解析"><a href="#DNS-解析" class="headerlink" title="DNS 解析"></a>DNS 解析</h2><table>
+<thead>
+<tr>
+<th>主机记录</th>
+<th>记录类型</th>
+<th>解析线路</th>
+<th>记录值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>*.io</td>
+<td>A</td>
+<td>默认</td>
+<td>10.4.<strong>.</strong></td>
+</tr>
+<tr>
+<td>git.sys</td>
+<td>A</td>
+<td>默认</td>
+<td>10.4.<strong>.</strong></td>
+</tr>
+</tbody></table>
 
             </div>
             <hr />
@@ -706,9 +764,9 @@ scrape_configs:
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《利用普罗米修斯监控ecs》
+                    《install gitlab runner》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/li-yong-pu-luo-mi-xiu-si-jian-kong-ecs/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/install-gitlab-runner/" property="cc:attributionName"
                rel="cc:attributionURL">
                 helen
             </a> 采用
@@ -749,7 +807,7 @@ scrape_configs:
         repo: 'Hooyh110.github.io',
         owner: 'Hooyh110',
         admin: "Hooyh110",
-        id: 'li-yong-pu-luo-mi-xiu-si-jian-kong-ecs/',
+        id: 'install-gitlab-runner/',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -1032,29 +1090,30 @@ scrape_configs:
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/docker-run-m-zhi-ding-nei-cun-da-xiao-bu-sheng-xiao/">
+                <a href="/install-gitlab-runner/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="docker run -m指定内存大小不生效">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="install gitlab runner">
                         
-                        <span class="card-title">docker run -m指定内存大小不生效</span>
+                        <span class="card-title">install gitlab runner</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            解决docker 指定内存大小不生效的问题
+                            安装gitlab-runner ，并设置CI
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-09
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-11
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -1067,6 +1126,7 @@ scrape_configs:
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1085,31 +1145,31 @@ scrape_configs:
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/docker-compose-build-seafile/">
+                <a href="/shell-ls-shu-chu-xian-shi-1-lie/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="docker-compose build seafile">
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="shell ls 输出显示1列">
                         
-                        <span class="card-title">docker-compose build seafile</span>
+                        <span class="card-title">shell ls 输出显示1列</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            利用docker-compose部署seafile个人网盘
+                            linux shell ls -1 列显示文件
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-09
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-11
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/docker/" class="post-category" target="_blank">
-                                    docker
+                            <a href="/categories/shell/" class="post-category" target="_blank">
+                                    shell
                                 </a>
                             
                             
@@ -1119,8 +1179,8 @@ scrape_configs:
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/docker/" target="_blank">
-                        <span class="chip bg-color">docker</span>
+                    <a href="/tags/shell/" target="_blank">
+                        <span class="chip bg-color">shell</span>
                     </a>
                     
                 </div>

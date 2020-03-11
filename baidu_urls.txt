@@ -1,3 +1,5 @@
+http://blog.hooyuhao.club/install-gitlab-runner/
+http://blog.hooyuhao.club/shell-ls-shu-chu-xian-shi-1-lie/
 http://blog.hooyuhao.club/docker-rong-qi-ri-zhi-qing-li/
 http://blog.hooyuhao.club/python-install-cmdb/
 http://blog.hooyuhao.club/jie-jue-docker-rong-qi-nei-fang-wen-su-zhu-ji-no-route-to-host-de-wen-ti/

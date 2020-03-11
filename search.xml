@@ -4,6 +4,56 @@
   
     
     <entry>
+      <title>install gitlab runner</title>
+      <link href="/install-gitlab-runner/"/>
+      <url>/install-gitlab-runner/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Install-GitLab-Runner"><a href="#Install-GitLab-Runner" class="headerlink" title="Install GitLab Runner"></a><font face="黑体" color="green" size="6">Install GitLab Runner</font></h1><hr><h4 id="1、docker-install"><a href="#1、docker-install" class="headerlink" title="1、docker install"></a>1、docker install</h4><p><a href="https://docs.docker.com/install/linux/docker-ce/centos/#install-using-the-convenience-script" target="_blank" rel="noopener">https://docs.docker.com/install/linux/docker-ce/centos/#install-using-the-convenience-script</a></p><h4 id="2、runner-install"><a href="#2、runner-install" class="headerlink" title="2、runner install"></a>2、runner install</h4><p><a href="https://docs.gitlab.com/runner/install/linux-repository.html#installing-the-runner" target="_blank" rel="noopener">https://docs.gitlab.com/runner/install/linux-repository.html#installing-the-runner</a></p><p>gitlab-ce-中文版镜像：</p><blockquote><p>docker pull twang2218/gitlab-ce-zh:latest</p></blockquote><h3 id="gitlab-rb文件配置"><a href="#gitlab-rb文件配置" class="headerlink" title="gitlab.rb文件配置"></a>gitlab.rb文件配置</h3><pre class="line-numbers language-rb"><code class="language-rb">external_url 'http://git.****.com'#配置gitlab访问的URL地址gitlab_pages['inplace_chroot'] = truepages_external_url "http://io.****.com"#配置pages相关信息unicorn['port'] = 8084#默认配置<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="启动docker-容器"><a href="#启动docker-容器" class="headerlink" title="启动docker 容器"></a>启动docker 容器</h3><pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true">#gitlab-ce运行：</span>docker run -dit \  -p 443:443 -p 80:80 -p 22:22 \  --name gitlab \  -v /****/gitlab/config/:/etc/gitlab \  -v /****/gitlab/logs:/var/log/gitlab \  -v /****/gitlab/data:/var/opt/gitlab gitlab/gitlab-ce<span class="token comment" spellcheck="true">#gitlab-ci gitlab-runner01运行</span>docker run -dit \  --name gitlab-runner --restart always \  -v /****/gitlab-runner/config:/etc/gitlab-runner \  -v /var/run/docker.sock:/var/run/docker.sock gitlab/gitlab-runner:latest<span class="token comment" spellcheck="true">#gitlab-runner02 运行</span>docker run -dit \  --name gitlab-runner \  --restart always \  -v /****/gitlab-runner/gitlab-runner02-config:/etc/gitlab-runner \  -v /var/run/docker.sock:/var/run/docker.sock registry.cn-beijing.aliyuncs.com/***/gitlab-runner:v1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="token-查看"><a href="#token-查看" class="headerlink" title="token 查看"></a>token 查看</h3><p><a href="http://git.sys.****.com/admin/runners" target="_blank" rel="noopener">http://git.sys.****.com/admin/runners</a></p><p>vi /etc/gitlab-runner/config.toml</p><blockquote><p>privileged = true</p></blockquote><blockquote><p><a href="https://gitlab.com/" target="_blank" rel="noopener">https://gitlab.com/</a></p></blockquote><blockquote><p>Exf<strong>**</strong></p></blockquote><h3 id="配置runner"><a href="#配置runner" class="headerlink" title="配置runner"></a>配置runner</h3><pre class="line-numbers language-bash"><code class="language-bash">docker <span class="token function">exec</span> -it gitlab-runner gitlab-ci-multi-runner register --locked<span class="token operator">=</span><span class="token string">"false"</span> --run-untagged<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><ul><li>runner信息输出：</li></ul><pre class="line-numbers language-shell"><code class="language-shell">[root@gitlab-ce-local config]# docker exec -it gitlab-runner gitlab-ci-multi-runner register --locked="false" --run-untagged  Runtime platform                                    arch=amd64 os=linux pid=12 revision=a8a019e0  version=12.3.0  Running in system-mode.  Please enter the gitlab-ci coordinator URL (e.g. https://gitlab.com/):  http://git.****.com/  Please enter the gitlab-ci token for this runner:  Geoy-M******  Please enter the gitlab-ci description for this runner:  [6990c9803207]:  Please enter the gitlab-ci tags for this runner (comma separated):  node,maven,docker  Registering runner... succeeded                     runner=Geoy-Mk7  Please enter the executor: docker-ssh, ssh, docker+machine, docker-ssh+machine, custom, parallels, shell, virtualbox, kubernetes, docker:  docker  Please enter the default Docker image (e.g. ruby:2.6):  alpine:latest  Runner registered successfully. Feel free to start it, but if it's running already the config should be automatically reloaded!<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><ul><li>runner-配置文件:<br>[root@gitlab-ce-local config]# cat config.toml</li></ul><pre class="line-numbers language-json"><code class="language-json">concurrent = <span class="token number">3</span>check_interval = <span class="token number">0</span><span class="token punctuation">[</span>session_server<span class="token punctuation">]</span>  session_timeout = <span class="token number">1800</span><span class="token punctuation">[</span><span class="token punctuation">[</span>runners<span class="token punctuation">]</span><span class="token punctuation">]</span>  name = <span class="token string">"6990c9803207"</span>  url = <span class="token string">"http://git.*****.com/"</span>  token = <span class="token string">"o******"</span>  executor = <span class="token string">"docker"</span>  <span class="token punctuation">[</span>runners.custom_build_dir<span class="token punctuation">]</span>  <span class="token punctuation">[</span>runners.docker<span class="token punctuation">]</span>    tls_verify = <span class="token boolean">false</span>    image = <span class="token string">"alpine:latest"</span>    privileged = <span class="token boolean">true</span>    disable_entrypoint_overwrite = <span class="token boolean">false</span>    oom_kill_disable = <span class="token boolean">false</span>    disable_cache = <span class="token boolean">false</span>    volumes = <span class="token punctuation">[</span><span class="token string">"/var/run/docker.sock:/var/run/docker.sock"</span><span class="token punctuation">,</span> <span class="token string">"/cache"</span><span class="token punctuation">]</span>    shm_size = <span class="token number">0</span>  <span class="token punctuation">[</span>runners.cache<span class="token punctuation">]</span>    <span class="token punctuation">[</span>runners.cache.s3<span class="token punctuation">]</span>    <span class="token punctuation">[</span>runners.cache.gcs<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="配置pages"><a href="#配置pages" class="headerlink" title="配置pages"></a>配置pages</h3><p>vim /etc/gitlab/gitlab.rb</p><p>中增加如下信息：</p><pre class="line-numbers language-rb"><code class="language-rb">pages_external_url "http://io.*******.com"<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h2 id="DNS-解析"><a href="#DNS-解析" class="headerlink" title="DNS 解析"></a>DNS 解析</h2><table><thead><tr><th>主机记录</th><th>记录类型</th><th>解析线路</th><th>记录值</th></tr></thead><tbody><tr><td>*.io</td><td>A</td><td>默认</td><td>10.4.<strong>.</strong></td></tr><tr><td>git.sys</td><td>A</td><td>默认</td><td>10.4.<strong>.</strong></td></tr></tbody></table>]]></content>
+      
+      
+      <categories>
+          
+          <category> docker </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> docker </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>shell ls 输出显示1列</title>
+      <link href="/shell-ls-shu-chu-xian-shi-1-lie/"/>
+      <url>/shell-ls-shu-chu-xian-shi-1-lie/</url>
+      
+        <content type="html"><![CDATA[<h1 id="linux-shell-ls-1-列显示文件"><a href="#linux-shell-ls-1-列显示文件" class="headerlink" title="linux shell ls -1 列显示文件"></a><font face="黑体" color="blue" size="6">linux shell ls -1 列显示文件</font></h1><ul><li>说明：<br>   有时候写shell脚本的时候，经常需要将文件以一列的形式列出来，然后再进行<br>for迭代，之前一般用ls+awk来做，其实ls本身就提供这个功能。</li></ul><ul><li>示例如下：<pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@nginx-service001 data<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># ls</span>  autosaas  check  logs  nginx  script  software  windows_251  wwwroot  <span class="token punctuation">[</span>root@nginx-service001 data<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># ls -1</span>  autosaas  check  logs  nginx  script  software  windows_251  wwwroot<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> shell </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> shell </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>docker容器日志清理</title>
       <link href="/docker-rong-qi-ri-zhi-qing-li/"/>
       <url>/docker-rong-qi-ri-zhi-qing-li/</url>

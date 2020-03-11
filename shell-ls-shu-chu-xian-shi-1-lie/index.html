@@ -4,16 +4,15 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="利用普罗米修斯监控ecs, ECNU NLP DeepLearning AntNLP helen">
+    <meta name="keywords" content="shell ls 输出显示1列, ECNU NLP DeepLearning AntNLP helen">
     <meta name="baidu-site-verification" content="PQuYZ68I8K">
     <meta name="google-site-verification" content="PQuYZ68I8K">
     <meta name="360-site-verification" content>
-    <meta name="description" content="
+    <meta name="description" content="linux shell ls -1 列显示文件
+说明：   有时候写shell脚本的时候，经常需要将文件以一列的形式列出来，然后再进行for迭代，之前一般用ls+awk来做，其实ls本身就提供这个功能。
 
-利用脚本部署node_exporter
-#!/bin/bash
 
-#wget https://github.com/prometheus/node_exporter/releases/download/v0.17.0/node_expo">
+示例如下：[root@nginx">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -21,7 +20,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>利用普罗米修斯监控ecs | helen的博客</title>
+    <title>shell ls 输出显示1列 | helen的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -311,13 +310,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        利用普罗米修斯监控ecs
+                        shell ls 输出显示1列
                     </div>
                 </div>
             </div>
@@ -428,8 +427,8 @@
                     
                     <div class="article-tag">
                         
-                        <a href="/tags/monitor/" target="_blank">
-                            <span class="chip bg-color">monitor</span>
+                        <a href="/tags/shell/" target="_blank">
+                            <span class="chip bg-color">shell</span>
                         </a>
                         
                     </div>
@@ -440,8 +439,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                        <a href="/categories/monitor/" class="post-category" target="_blank">
-                            monitor
+                        <a href="/categories/shell/" class="post-category" target="_blank">
+                            shell
                         </a>
                         
                     </div>
@@ -452,7 +451,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-03-09
+                    2020-03-11
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -466,7 +465,7 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    301
+                    97
                 </div>
                 
 
@@ -489,65 +488,23 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <div align="middle"><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=29717271&auto=1&height=66"></iframe></div>
-
-<p>利用脚本部署node_exporter</p>
-<pre class="line-numbers language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
-
-<span class="token comment" spellcheck="true">#wget https://github.com/prometheus/node_exporter/releases/download/v0.17.0/node_exporter-0.17.0.linux-amd64.tar.gz</span>
-<span class="token function">rsync</span> -avPLl helen@172.16.6.86:/Users/helen/hoo-pro/hoo-PRO/software/prometheus/node_exporter-0.17.0.linux-amd64.tar.gz ./
-<span class="token function">tar</span> zxf node_exporter-0.17.0.linux-amd64.tar.gz
-<span class="token function">mv</span> node_exporter-0.17.0.linux-amd64 /usr/local/node_exporter
-
-<span class="token function">cat</span> <span class="token operator">&lt;&lt;</span>EOF <span class="token operator">></span>/usr/lib/systemd/system/node_exporter.service
-<span class="token punctuation">[</span>Unit<span class="token punctuation">]</span>
-Description<span class="token operator">=</span>https://prometheus.io
-
-<span class="token punctuation">[</span>Service<span class="token punctuation">]</span>
-Restart<span class="token operator">=</span>on-failure
-ExecStart<span class="token operator">=</span>/usr/local/node_exporter/node_exporter --collector.systemd --collector.systemd.unit-whitelist<span class="token operator">=</span><span class="token punctuation">(</span>docker<span class="token operator">|</span>kubelet<span class="token operator">|</span>kube-proxy<span class="token operator">|</span>flanneld<span class="token punctuation">)</span>.service
-
-<span class="token punctuation">[</span>Install<span class="token punctuation">]</span>
-WantedBy<span class="token operator">=</span>multi-user.target
-EOF
-
-systemctl daemon-reload
-systemctl <span class="token function">enable</span> node_exporter
-systemctl restart node_exporter<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>在需要被普罗米修斯监控的ecs上执行此脚本</p>
-<pre><code>bash node_exporter.sh</code></pre><p>然后修改prometheus.yml文件</p>
-<pre class="line-numbers language-yml"><code class="language-yml"># my global config
-global:
-  scrape_interval:     15s # Set the scrape interval to every 15 seconds. Default is every 1 minute.
-  evaluation_interval: 15s # Evaluate rules every 15 seconds. The default is every 1 minute.
-  # scrape_timeout is set to the global default (10s).
-
-# Alertmanager configuration
-alerting:
-  alertmanagers:
-  - static_configs:
-    - targets:
-      # - alertmanager:9093
-
-# Load rules once and periodically evaluate them according to the global 'evaluation_interval'.
-rule_files:
-  # - "first_rules.yml"
-  # - "second_rules.yml"
-
-# A scrape configuration containing exactly one endpoint to scrape:
-# Here it's Prometheus itself.
-scrape_configs:
-  # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
-  - job_name: 'prometheus'
-
-    # metrics_path defaults to '/metrics'
-    # scheme defaults to 'http'.
-
-    static_configs:
-    - targets: ['localhost:9090','10.10.249.59:9100','10.10.249.60:9100','192.168.1.35:8080','192.168.1.35:9100','10.10.249.55:9100']
-    #  labels:
-    #    instance: k8s-node01<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>修改完成，重启普罗米修斯；</p>
+                <h1 id="linux-shell-ls-1-列显示文件"><a href="#linux-shell-ls-1-列显示文件" class="headerlink" title="linux shell ls -1 列显示文件"></a><font face="黑体" color="blue" size="6">linux shell ls -1 列显示文件</font></h1><ul>
+<li>说明：<br>   有时候写shell脚本的时候，经常需要将文件以一列的形式列出来，然后再进行<br>for迭代，之前一般用ls+awk来做，其实ls本身就提供这个功能。</li>
+</ul>
+<ul>
+<li>示例如下：<pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@nginx-service001 data<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># ls</span>
+  autosaas  check  logs  nginx  script  software  windows_251  wwwroot
+  <span class="token punctuation">[</span>root@nginx-service001 data<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># ls -1</span>
+  autosaas
+  check
+  logs
+  nginx
+  script
+  software
+  windows_251
+  wwwroot<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+</ul>
 
             </div>
             <hr />
@@ -706,9 +663,9 @@ scrape_configs:
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《利用普罗米修斯监控ecs》
+                    《shell ls 输出显示1列》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/li-yong-pu-luo-mi-xiu-si-jian-kong-ecs/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/shell-ls-shu-chu-xian-shi-1-lie/" property="cc:attributionName"
                rel="cc:attributionURL">
                 helen
             </a> 采用
@@ -749,7 +706,7 @@ scrape_configs:
         repo: 'Hooyh110.github.io',
         owner: 'Hooyh110',
         admin: "Hooyh110",
-        id: 'li-yong-pu-luo-mi-xiu-si-jian-kong-ecs/',
+        id: 'shell-ls-shu-chu-xian-shi-1-lie/',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -1036,24 +993,24 @@ scrape_configs:
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/docker-run-m-zhi-ding-nei-cun-da-xiao-bu-sheng-xiao/">
+                <a href="/install-gitlab-runner/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="docker run -m指定内存大小不生效">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="install gitlab runner">
                         
-                        <span class="card-title">docker run -m指定内存大小不生效</span>
+                        <span class="card-title">install gitlab runner</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            解决docker 指定内存大小不生效的问题
+                            安装gitlab-runner ，并设置CI
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-09
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-11
                         </span>
                         <span class="publish-author">
                             
@@ -1085,24 +1042,24 @@ scrape_configs:
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/docker-compose-build-seafile/">
+                <a href="/docker-rong-qi-ri-zhi-qing-li/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="docker-compose build seafile">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="docker容器日志清理">
                         
-                        <span class="card-title">docker-compose build seafile</span>
+                        <span class="card-title">docker容器日志清理</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            利用docker-compose部署seafile个人网盘
+                            docker 容器日志清理方案
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-09
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-11
                             </span>
                         <span class="publish-author">
                             
