@@ -8,4 +8,3 @@ http://blog.hooyuhao.club/bat-jiao-ben-bian-xie/
 http://blog.hooyuhao.club/docker-run-m-zhi-ding-nei-cun-da-xiao-bu-sheng-xiao/
 http://blog.hooyuhao.club/li-yong-pu-luo-mi-xiu-si-jian-kong-ecs/
 http://blog.hooyuhao.club/docker-compose-build-seafile/
-http://blog.hooyuhao.club/2017-conclusion/
