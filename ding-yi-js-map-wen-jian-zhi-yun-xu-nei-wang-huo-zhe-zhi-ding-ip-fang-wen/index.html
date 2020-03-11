@@ -516,8 +516,8 @@ server {
                     <span class="token keyword">real_ip_header</span>    X<span class="token operator">-</span>Forwarded<span class="token operator">-</span>For<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">#表示从哪个header属性中获取真实IP</span>
                     real_ip_recursive on<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">#递归检索真实IP，若从 X-Forwarded-For 中获取，则需递归检索；若像从X-Real-IP中获取，则无需递归。</span>
                     <span class="token keyword">proxy_set_header</span> X<span class="token operator">-</span>Forwarded<span class="token operator">-</span>For <span class="token variable">$remote_addr</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">#$remote_addr 是客户端真实IP</span>
-                    <span class="token comment" spellcheck="true">#判断访问源IP如果不是{your IP }}则返回403</span>
-                    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$remote_addr</span> <span class="token operator">!=</span> <span class="token punctuation">{</span>your IP<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token comment" spellcheck="true">#判断访问源IP如果不是{your IP}则返回403</span>
+                    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$remote_addr</span> <span class="token operator">!=</span> your IP<span class="token punctuation">)</span> <span class="token punctuation">{</span>
                         <span class="token keyword">return</span> <span class="token number">403</span><span class="token punctuation">;</span>
                         <span class="token punctuation">}</span>
                     <span class="token comment" spellcheck="true">#定义proxy1日志输出路径</span>

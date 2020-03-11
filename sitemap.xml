@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.hooyuhao.club/ding-yi-js-map-wen-jian-zhi-yun-xu-nei-wang-huo-zhe-zhi-ding-ip-fang-wen/</loc>
+    
+    <lastmod>2020-03-11T11:55:40.862Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.hooyuhao.club/install-gitlab-runner/</loc>
     
     <lastmod>2020-03-11T10:51:06.641Z</lastmod>
@@ -40,13 +47,6 @@
     <loc>http://blog.hooyuhao.club/jie-jue-docker-rong-qi-nei-fang-wen-su-zhu-ji-no-route-to-host-de-wen-ti/</loc>
     
     <lastmod>2020-03-09T15:13:33.708Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.hooyuhao.club/ding-yi-js-map-wen-jian-zhi-yun-xu-nei-wang-huo-zhe-zhi-ding-ip-fang-wen/</loc>
-    
-    <lastmod>2020-03-09T15:03:40.553Z</lastmod>
     
   </url>
   
@@ -114,14 +114,14 @@
   </url>
   
   <url>
-    <loc>http://blog.hooyuhao.club/categories/index.html</loc>
+    <loc>http://blog.hooyuhao.club/tags/index.html</loc>
     
     <lastmod>2019-09-25T14:13:10.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://blog.hooyuhao.club/tags/index.html</loc>
+    <loc>http://blog.hooyuhao.club/categories/index.html</loc>
     
     <lastmod>2019-09-25T14:13:10.000Z</lastmod>
     
