@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.hooyuhao.club/install-gitlab-runner/</loc>
+    
+    <lastmod>2020-03-11T14:08:36.020Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.hooyuhao.club/shell-xia-huo-qu-wen-jian-quan-lu-jing-de-fang-fa/</loc>
     
-    <lastmod>2020-03-11T13:41:12.999Z</lastmod>
+    <lastmod>2020-03-11T14:07:52.002Z</lastmod>
     
   </url>
   
@@ -19,13 +26,6 @@
     <loc>http://blog.hooyuhao.club/ding-yi-js-map-wen-jian-zhi-yun-xu-nei-wang-huo-zhe-zhi-ding-ip-fang-wen/</loc>
     
     <lastmod>2020-03-11T11:55:40.862Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.hooyuhao.club/install-gitlab-runner/</loc>
-    
-    <lastmod>2020-03-11T10:51:06.641Z</lastmod>
     
   </url>
   

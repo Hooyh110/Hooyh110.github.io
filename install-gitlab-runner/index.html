@@ -514,12 +514,12 @@ docker run -dit \
   -v /var/run/docker.sock:/var/run/docker.sock gitlab/gitlab-runner:latest
 
 <span class="token comment" spellcheck="true">#gitlab-runner02 运行</span>
-
 docker run -dit \
   --name gitlab-runner \
   --restart always \
   -v /****/gitlab-runner/gitlab-runner02-config:/etc/gitlab-runner \
-  -v /var/run/docker.sock:/var/run/docker.sock registry.cn-beijing.aliyuncs.com/***/gitlab-runner:v1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+  -v /var/run/docker.sock:/var/run/docker.sock registry.cn-beijing.aliyuncs.com/***/gitlab-runner:v1
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="token-查看"><a href="#token-查看" class="headerlink" title="token 查看"></a>token 查看</h3><p><a href="http://git.sys.****.com/admin/runners" target="_blank" rel="noopener">http://git.sys.****.com/admin/runners</a></p>
 <p>vi /etc/gitlab-runner/config.toml</p>
 <blockquote>
