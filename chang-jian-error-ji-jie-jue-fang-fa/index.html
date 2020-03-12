@@ -4,18 +4,18 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="hexo 博客编写, ECNU NLP DeepLearning AntNLP helen">
+    <meta name="keywords" content="常见error及解决方法, ECNU NLP DeepLearning AntNLP helen">
     <meta name="baidu-site-verification" content="PQuYZ68I8K">
     <meta name="google-site-verification" content="PQuYZ68I8K">
     <meta name="360-site-verification" content>
-    <meta name="description" content="修改title显示
-修改主题中layout.ejs文件
-
-文件路径：themes/matery/layout/layout.ejs
+    <meta name="description" content="Python 系列： 
+使用execjs 解析抓取的网页数据时错误：Could not find an available JavaScript runtime 
 
 
+解决方法：
 
-修改如下内容：document.title = “welcome to helen blog”  双引">
+pip3 install PyExecJS
+yum ins">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -23,7 +23,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>hexo 博客编写 | helen的博客</title>
+    <title>常见error及解决方法 | helen的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -313,13 +313,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        hexo 博客编写
+                        常见error及解决方法
                     </div>
                 </div>
             </div>
@@ -430,8 +430,8 @@
                     
                     <div class="article-tag">
                         
-                        <a href="/tags/hexo/" target="_blank">
-                            <span class="chip bg-color">hexo</span>
+                        <a href="/tags/Error/" target="_blank">
+                            <span class="chip bg-color">Error</span>
                         </a>
                         
                     </div>
@@ -442,8 +442,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                        <a href="/categories/hexo/" class="post-category" target="_blank">
-                            hexo
+                        <a href="/categories/Error/" class="post-category" target="_blank">
+                            Error
                         </a>
                         
                     </div>
@@ -468,7 +468,7 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    283
+                    148
                 </div>
                 
 
@@ -491,50 +491,30 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="修改title显示"><a href="#修改title显示" class="headerlink" title="修改title显示"></a><font face="黑体" color="blue" size="6">修改title显示</font></h1><ul>
-<li>修改主题中layout.ejs文件</li>
-<li><ul>
-<li>文件路径：<font color="GoldenRod">themes/matery/layout/layout.ejs</font></li>
-</ul>
-</li>
-</ul>
-<p>修改如下内容：<br><font color="GoldenRod">document.title = “welcome to helen blog” </font> 双引号中的内容替换成你自己想要的</p>
-<pre class="line-numbers language-js"><code class="language-js">    <span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">"text/javascript"</span><span class="token operator">></span> <span class="token keyword">var</span> OriginTitile <span class="token operator">=</span> document<span class="token punctuation">.</span>title<span class="token punctuation">,</span> st<span class="token punctuation">;</span> document<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">"visibilitychange"</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> document<span class="token punctuation">.</span>hidden <span class="token operator">?</span> <span class="token punctuation">(</span>document<span class="token punctuation">.</span>title <span class="token operator">=</span> <span class="token string">"welcome to helen blog"</span><span class="token punctuation">,</span> <span class="token function">clearTimeout</span><span class="token punctuation">(</span>st<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token punctuation">(</span>document<span class="token punctuation">.</span>title <span class="token operator">=</span> <span class="token string">"Angel of justice"</span><span class="token punctuation">,</span> st <span class="token operator">=</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> document<span class="token punctuation">.</span>title <span class="token operator">=</span> OriginTitile <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">3e3</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
-    <span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p><strong>效果</strong><br><img src="img/title.png"></p>
-<h1 id="博客增加音乐"><a href="#博客增加音乐" class="headerlink" title="博客增加音乐"></a><font face="黑体" color="green" size="6">博客增加音乐</font></h1><h2 id="修改主页音乐播放器音乐"><a href="#修改主页音乐播放器音乐" class="headerlink" title="修改主页音乐播放器音乐"></a>修改主页音乐播放器音乐</h2><ul>
-<li>修改 <font color="GoldenRod">source/_data/musics.json</font>文件，根据以下内容修改成你自己的</li>
-<li><font color="red">注意：音乐文件需要提前下载并放入到/medias/music/目录下</font></li>
-</ul>
-<pre class="line-numbers language-json"><code class="language-json"><span class="token punctuation">[</span>
-    <span class="token punctuation">{</span>
-        <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"GO Time"</span><span class="token punctuation">,</span>
-        <span class="token property">"artist"</span><span class="token operator">:</span> <span class="token string">"Mark petrie"</span><span class="token punctuation">,</span>
-        <span class="token property">"url"</span><span class="token operator">:</span> <span class="token string">"/medias/music/gotime.mp3"</span><span class="token punctuation">,</span>
-        <span class="token property">"cover"</span><span class="token operator">:</span> <span class="token string">"/medias/music/avatars/yequ.jpg"</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token punctuation">{</span>
-        <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"风的季节"</span><span class="token punctuation">,</span>
-        <span class="token property">"artist"</span><span class="token operator">:</span> <span class="token string">"Soler"</span><span class="token punctuation">,</span>
-        <span class="token property">"url"</span><span class="token operator">:</span> <span class="token string">"/medias/music/soler.mp3"</span><span class="token punctuation">,</span>
-        <span class="token property">"cover"</span><span class="token operator">:</span> <span class="token string">"/medias/music/avatars/yequ.jpg"</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+                <h1 id="Python-系列："><a href="#Python-系列：" class="headerlink" title="Python 系列： "></a><font color="blue">Python 系列： </font></h1><ol>
+<li>使用execjs 解析抓取的网页数据时<font color="red"><strong>错误：</strong>Could not find an available JavaScript runtime </font></li>
+</ol>
 <ul>
-<li><strong>效果</strong><img src="img/homepage.png">
-
+<li>解决方法：</li>
+</ul>
+<pre class="line-numbers language-bash"><code class="language-bash">pip3 <span class="token function">install</span> PyExecJS
+yum <span class="token function">install</span> -y nodejs<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h1 id="Linux-系列："><a href="#Linux-系列：" class="headerlink" title="Linux 系列： "></a><font color="blue">Linux 系列： </font></h1><h1 id="docker-系列："><a href="#docker-系列：" class="headerlink" title="docker 系列： "></a><font color="blue">docker 系列： </font></h1><h1 id="nginx-系列："><a href="#nginx-系列：" class="headerlink" title="nginx 系列： "></a><font color="blue">nginx 系列： </font></h1><h1 id="mysql-系列："><a href="#mysql-系列：" class="headerlink" title="mysql 系列： "></a><font color="blue">mysql 系列： </font></h1><ol>
+<li><p>mysql远程连接报错 <font color="red">ERROR 1129 (HY000): Host ‘192.168.7.210’ is blocked because of many connection errors; unblock with ‘mysqladmin flush-hosts’</font></p>
+<ul>
+<li><p>问题原因<br>一般<font color="Orange">max_connect_errors = 10</font>，要调高错误连接的数量</p>
+</li>
+<li><p>解决方法</p>
 </li>
 </ul>
-<h2 id="添加网易云音乐BGM"><a href="#添加网易云音乐BGM" class="headerlink" title="添加网易云音乐BGM"></a><font color="green">添加网易云音乐BGM</font></h2><p>写文章的时候，想插入一段BGM怎么办？</p>
-<p>首先打开网易云网页版，找到想听的歌曲，然后点击生成外链：</p>
-<img src="img/music01.png">
-
-<p>复制如下代码：</p>
-<img src="img/music02.png">
-
-<p>粘贴到文章里就行了，为了美观，设置一下居中，具体代码如下：</p>
-<pre class="line-numbers language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">align</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>middle<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>这里粘贴刚刚复制的代码<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
+</li>
+</ol>
+<p>登录到要连接的数据中，进行如下配置</p>
+<pre class="line-numbers language-mysql"><code class="language-mysql">mysql> show variables like 'max_connect_errors';
+mysql> set global max_connect_errors = 1000;# 如果想长期生效，并修改my.cnf配置文件
+mysql> flush hosts;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h1 id="redis-系列："><a href="#redis-系列：" class="headerlink" title="redis 系列： "></a><font color="blue">redis 系列： </font></h1><h1 id="hadoop-系列："><a href="#hadoop-系列：" class="headerlink" title="hadoop 系列： "></a><font color="blue">hadoop 系列： </font></h1>
             </div>
             <hr />
 
@@ -692,9 +672,9 @@
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《hexo 博客编写》
+                    《常见error及解决方法》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/hexo-bo-ke-bian-xie/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/chang-jian-error-ji-jie-jue-fang-fa/" property="cc:attributionName"
                rel="cc:attributionURL">
                 helen
             </a> 采用
@@ -735,7 +715,7 @@
         repo: 'Hooyh110.github.io',
         owner: 'Hooyh110',
         admin: "Hooyh110",
-        id: 'hexo-bo-ke-bian-xie/',
+        id: 'chang-jian-error-ji-jie-jue-fang-fa/',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -1018,9 +998,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/chang-jian-error-ji-jie-jue-fang-fa/">
                     <div class="card-image">
@@ -1038,9 +1019,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-12
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-12
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -1053,6 +1034,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1071,31 +1053,31 @@
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/markdown-chang-yong-zi-ti-yan-se-lie-biao/">
+                <a href="/hexo-bo-ke-bian-xie/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/25.jpg" class="responsive-img" alt="Markdown常用方法">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="hexo 博客编写">
                         
-                        <span class="card-title">Markdown常用方法</span>
+                        <span class="card-title">hexo 博客编写</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            写作常用方法
+                            利用hexo 编写博客，博客中修改相关内容方法
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-11
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-12
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Markdown/" class="post-category" target="_blank">
-                                    Markdown
+                            <a href="/categories/hexo/" class="post-category" target="_blank">
+                                    hexo
                                 </a>
                             
                             
@@ -1105,8 +1087,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Markdown/" target="_blank">
-                        <span class="chip bg-color">Markdown</span>
+                    <a href="/tags/hexo/" target="_blank">
+                        <span class="chip bg-color">hexo</span>
                     </a>
                     
                 </div>
