@@ -559,8 +559,9 @@ registry.cn-beijing.aliyuncs.com/hooyh_public/archer<span aria-hidden="true" cla
 yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
 yum makecache fast
 yum -y <span class="token function">install</span> docker-ce
-<span class="token function">service</span> docker start
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token comment" spellcheck="true">#启动服务并设置开机启动</span>
+systemctl <span class="token function">enable</span> docker <span class="token operator">&amp;&amp;</span> systemctl start docker
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ol start="2">
 <li>pull所需镜像</li>
 </ol>
