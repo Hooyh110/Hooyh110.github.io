@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.hooyuhao.club/"/>
-  <updated>2020-03-12T02:17:22.243Z</updated>
+  <updated>2020-03-12T06:06:06.431Z</updated>
   <id>http://blog.hooyuhao.club/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hexo 博客编写</title>
+    <link href="http://blog.hooyuhao.club/hexo-bo-ke-bian-xie/"/>
+    <id>http://blog.hooyuhao.club/hexo-bo-ke-bian-xie/</id>
+    <published>2020-03-12T02:29:50.000Z</published>
+    <updated>2020-03-12T06:06:06.431Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;修改title显示&quot;&gt;&lt;a href=&quot;#修改title显示&quot; class=&quot;headerlink&quot; title=&quot;修改title显示&quot;&gt;&lt;/a&gt;&lt;font face=&quot;黑体&quot; color=&quot;blue&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="hexo" scheme="http://blog.hooyuhao.club/categories/hexo/"/>
+    
+    
+      <category term="hexo" scheme="http://blog.hooyuhao.club/tags/hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>Markdown常用方法</title>
