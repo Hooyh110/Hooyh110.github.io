@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.hooyuhao.club/"/>
-  <updated>2020-03-12T10:37:55.135Z</updated>
+  <updated>2020-03-12T11:14:48.175Z</updated>
   <id>http://blog.hooyuhao.club/</id>
   
   <author>
@@ -17,11 +17,38 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>分布式系统 - 雪崩效应</title>
+    <link href="http://blog.hooyuhao.club/fen-bu-shi-xi-tong-xue-beng-xiao-ying/"/>
+    <id>http://blog.hooyuhao.club/fen-bu-shi-xi-tong-xue-beng-xiao-ying/</id>
+    <published>2020-03-12T10:41:47.000Z</published>
+    <updated>2020-03-12T11:14:48.175Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;雪崩效应现象&quot;&gt;&lt;a href=&quot;#雪崩效应现象&quot; class=&quot;headerlink&quot; title=&quot; 雪崩效应现象&quot;&gt;&lt;/a&gt;&lt;font color=&quot;blue&quot;&gt; 雪崩效应现象&lt;/font&gt;&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;参考资料：&lt;br&gt;   
+        
+      
+    
+    </summary>
+    
+      <category term="news" scheme="http://blog.hooyuhao.club/categories/news/"/>
+    
+    
+      <category term="news" scheme="http://blog.hooyuhao.club/tags/news/"/>
+    
+  </entry>
+  
+  <entry>
     <title>常见error及解决方法</title>
     <link href="http://blog.hooyuhao.club/chang-jian-error-ji-jie-jue-fang-fa/"/>
     <id>http://blog.hooyuhao.club/chang-jian-error-ji-jie-jue-fang-fa/</id>
     <published>2020-03-12T10:19:23.000Z</published>
-    <updated>2020-03-12T10:37:55.135Z</updated>
+    <updated>2020-03-12T10:41:54.099Z</updated>
     
     <summary type="html">
     
@@ -73,7 +100,7 @@
     <link href="http://blog.hooyuhao.club/markdown-chang-yong-zi-ti-yan-se-lie-biao/"/>
     <id>http://blog.hooyuhao.club/markdown-chang-yong-zi-ti-yan-se-lie-biao/</id>
     <published>2020-03-11T13:12:49.000Z</published>
-    <updated>2020-03-12T02:17:22.243Z</updated>
+    <updated>2020-03-12T10:57:46.438Z</updated>
     
     <summary type="html">
     
