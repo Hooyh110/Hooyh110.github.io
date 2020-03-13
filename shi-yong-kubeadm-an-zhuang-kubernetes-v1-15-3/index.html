@@ -4,39 +4,14 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="mysql自动化运维工具, ECNU NLP DeepLearning AntNLP helen">
+    <meta name="keywords" content="使用 kubeadm 安装 kubernetes v1.15.3, ECNU NLP DeepLearning AntNLP helen">
     <meta name="baidu-site-verification" content="PQuYZ68I8K">
     <meta name="google-site-verification" content="PQuYZ68I8K">
     <meta name="360-site-verification" content>
-    <meta name="description" content="一、简述信息
+    <meta name="description" content="配置要求
+对于 Kubernetes 初学者，推荐在阿里云采购如下配置：（您也可以使用自己的虚拟机、私有云等您最容易获得的 Linux 环境） 
 
-体验地址：http://192.168.1.48:9123/
-用户信息
-
-
-
-
-角色
-账号
-密码
-
-
-
-管理员
-admin
-admin
-
-
-工程师
-engineer
-archer
-
-
-审核人
-auditor
-archer
-
-">
+3台 2核4G 的ECS（突发性能实例 t5 ecs.t5-c1m2.large或同等配置，">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -44,7 +19,7 @@ archer
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>mysql自动化运维工具 | helen的博客</title>
+    <title>使用 kubeadm 安装 kubernetes v1.15.3 | helen的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -334,13 +309,13 @@ archer
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        mysql自动化运维工具
+                        使用 kubeadm 安装 kubernetes v1.15.3
                     </div>
                 </div>
             </div>
@@ -451,8 +426,8 @@ archer
                     
                     <div class="article-tag">
                         
-                        <a href="/tags/mysql/" target="_blank">
-                            <span class="chip bg-color">mysql</span>
+                        <a href="/tags/docker/" target="_blank">
+                            <span class="chip bg-color">docker</span>
                         </a>
                         
                     </div>
@@ -463,8 +438,8 @@ archer
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                        <a href="/categories/mysql/" class="post-category" target="_blank">
-                            mysql
+                        <a href="/categories/docker/" class="post-category" target="_blank">
+                            docker
                         </a>
                         
                     </div>
@@ -475,7 +450,7 @@ archer
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-03-12
+                    2020-03-13
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -489,14 +464,14 @@ archer
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.2k
+                    2.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    13 分
                 </div>
                 
                 
@@ -512,250 +487,472 @@ archer
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="一、简述信息"><a href="#一、简述信息" class="headerlink" title="一、简述信息"></a>一、简述信息</h1><hr>
-<ul>
-<li>体验地址：<a href="http://192.168.1.48:9123/" target="_blank" rel="noopener">http://192.168.1.48:9123/</a></li>
-<li>用户信息</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th align="center">角色</th>
-<th align="center">账号</th>
-<th align="center">密码</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">管理员</td>
-<td align="center">admin</td>
-<td align="center">admin</td>
-</tr>
-<tr>
-<td align="center">工程师</td>
-<td align="center">engineer</td>
-<td align="center">archer</td>
-</tr>
-<tr>
-<td align="center">审核人</td>
-<td align="center">auditor</td>
-<td align="center">archer</td>
-</tr>
-<tr>
-<td align="center">DBA</td>
-<td align="center">dba</td>
-<td align="center">auditor</td>
-</tr>
-</tbody></table>
-<ul>
-<li>docker 地址分别如下<pre class="line-numbers language-html"><code class="language-html">registry.cn-beijing.aliyuncs.com/hooyh_public/inception
-registry.cn-beijing.aliyuncs.com/hooyh_public/archer<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-</li>
-</ul>
-<h1 id="二、安装docker以及启动inception、MySQL和archer"><a href="#二、安装docker以及启动inception、MySQL和archer" class="headerlink" title="二、安装docker以及启动inception、MySQL和archer"></a>二、安装docker以及启动inception、MySQL和archer</h1><hr>
+                <h1 id="配置要求"><a href="#配置要求" class="headerlink" title="配置要求"></a>配置要求</h1><hr>
+<p>对于 Kubernetes 初学者，推荐在阿里云采购如下配置：（您也可以使用自己的虚拟机、私有云等您最容易获得的 Linux 环境） </p>
 <ol>
-<li>安装</li>
+<li><p>3台 2核4G 的ECS（突发性能实例 t5 ecs.t5-c1m2.large或同等配置，单台约 0.4元/小时，停机时不收费）</p>
+</li>
+<li><p>Cent OS 7.6安装后的软件版本为</p>
+<ol>
+<li>Kubernetes v1.15.3</li>
+<li>calico 3.8.2</li>
+<li>nginx-ingress 1.5.3</li>
+<li>Docker 18.09.7</li>
 </ol>
-<pre class="line-numbers language-bash"><code class="language-bash">yum <span class="token function">install</span> -y yum-utils device-mapper-persistent-data lvm2
-yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
-yum makecache fast
-yum -y <span class="token function">install</span> docker-ce
-<span class="token comment" spellcheck="true">#启动服务并设置开机启动</span>
-systemctl <span class="token function">enable</span> docker <span class="token operator">&amp;&amp;</span> systemctl start docker
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<ol start="2">
-<li>pull所需镜像</li>
+</li>
 </ol>
-<pre class="line-numbers language-bash"><code class="language-bash">docker pull registry.cn-beijing.aliyuncs.com/hooyh_public/archer
-docker pull registry.cn-beijing.aliyuncs.com/hooyh_public/inception
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>下载完之后docker images查看镜像</p>
-<p><img src="img/image001.png" alt="avatar"></p>
-<ol start="3">
-<li>创建配置文件/etc/inc.cnf</li>
-</ol>
-<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">cat</span> <span class="token operator">>></span>/etc/inc.cnf<span class="token operator">&lt;&lt;</span><span class="token string">EOF
-[inception]
-general_log=1
-general_log_file=inception.log
-port=6669
-socket=/tmp/inc.socket
-character-set-client-handshake=0
-character-set-server=utf8
-#备份库信息
-inception_remote_system_password=123456
-inception_remote_system_user=root
-inception_remote_backup_port=3306
-inception_remote_backup_host=mysql
-inception_support_charset=utf8,utf8mb4
-inception_enable_nullable=0
-inception_check_primary_key=1
-inception_check_column_comment=1
-inception_check_table_comment=1
-inception_osc_on=OFF
-inception_osc_bin_dir=/usr/bin
-inception_osc_min_table_size=1
-inception_osc_chunk_time=0.1
-inception_enable_blob_type=1
-inception_check_column_default_value=1
-EOF</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<ol start="4">
-<li>启动inception</li>
-</ol>
-<p>指定配置文件和端口</p>
-<pre class="line-numbers language-bash"><code class="language-bash">docker run --name inception -v ~/data/inception/inc.cnf:/etc/inc.cnf -p 6669:6669 -dti registry.cn-beijing.aliyuncs.com/hooyh_public/inception
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<ol start="5">
-<li>启动MySQL5.7镜像</li>
-</ol>
-<pre class="line-numbers language-bash"><code class="language-bash">docker run -d --name mysql   -p 3306:3306 -v ~/data/mysql:/var/lib/mysql:rw  -e MYSQL_ROOT_PASSWORD<span class="token operator">=</span>123456 -d mysql:5.7.22
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<ol start="6">
-<li>配置archer</li>
-</ol>
-<p>安装完毕之后  创建django初始化的settings.py<br>红色标注为需要根据自身服务器修改的地方   如果出现报错 注意配置中间是否有多余空行</p>
-<p><a href="https://github.com/Hooyh110/DevOps/blob/master/mysql/Automation-operation/archer/settings.py" target="_blank" rel="noopener">settings.py</a></p>
-<ol start="7">
-<li>创建一个archer_github数据库</li>
-</ol>
-<p>我用的编码格式为 utf8mb4_bin</p>
-<pre class="line-numbers language-mysql"><code class="language-mysql">CREATE DATABASE `archer_github` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><img src="img/image002.png" alt="avatar"></p>
-<p>不创建数据库初始化会报如下错误</p>
-<p><img src="img/image003.png" alt="avatar"></p>
-<p>在mysql中执行如下sql否则回滚sql时 会提示inception账号的一系列问题哦</p>
-<pre class="line-numbers language-mysql"><code class="language-mysql">grant all privileges on *.* to 'inception'@'%' identified by 'inception' with grant option;
-flush privileges;
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p><img src="img/image004.png" alt="avatar"></p>
-<p>创建完数据库之后运行容器</p>
-<pre class="line-numbers language-bash"><code class="language-bash">docker run --name archer -e NGINX_PORT<span class="token operator">=</span>9123 -p 9123:9123 --link mysql:mysql --link inception:inception -dti registry.cn-beijing.aliyuncs.com/hooyh_public /archer
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<ol start="8">
-<li>进入archer容器执行初始化命令</li>
-</ol>
-<pre class="line-numbers language-bash"><code class="language-bash">docker <span class="token function">exec</span> -ti archer /bin/bash
-<span class="token function">cd</span> /opt/archer
-<span class="token function">source</span> /opt/venv4archer/bin/activate
+<p>如果要安装 Kubernetes 历史版本，请参考：</p>
+<blockquote>
+<p><a href="https://kuboard.cn/install/history-k8s/install-k8s-1.15.2.html" target="_blank" rel="noopener">安装 Kubernetes v1.15.2 单Master节点</a></p>
+</blockquote>
+<blockquote>
+<p><a href="https://kuboard.cn/install/history-k8s/install-k8s-1.15.1.html" target="_blank" rel="noopener">安装 Kubernetes v1.15.1 单Master节点</a></p>
+</blockquote>
+<p>安装后的拓扑图如下：下载拓扑图源文件 使用Axure RP 9.0可打开该文件</p>
+<p><img src="https://kuboard.cn/assets/img/image-20190826000521999.4e674425.png" alt="拓扑图"></p>
+<h2 id="关于二进制安装"><a href="#关于二进制安装" class="headerlink" title="关于二进制安装"></a>关于二进制安装</h2><blockquote>
+<p>网上一直流传着一种 “二进制” 安装 Kubernetes 的方法，查了许久，未曾在 kubernetes.io 官方网站上看到任何关于此安装方法的介绍，也并没有看到任何关于 “二进制” 安装的优势，唯一的解释是：</p>
+</blockquote>
+<blockquote>
+<p>由于众所周知的原因，在国内无法直接访问Google的服务。二进制包由于其下载方便、灵活定制而深受广大kubernetes使用者喜爱，成为企业部署生产环境比较流行的方式之一<br>鉴于目前已经有比较方便的办法获得 kubernetes 镜像，我将回避 二进制 安装是否更好的争论。本文采用 kubernetes.io 官方推荐的 kubeadm 工具安装 kubernetes 集群。</p>
+</blockquote>
+<h1 id="检查-centos-hostname"><a href="#检查-centos-hostname" class="headerlink" title="检查 centos / hostname"></a>检查 centos / hostname</h1><pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 在 master 节点和 worker 节点都要执行</span>
+<span class="token function">cat</span> /etc/redhat-release
+
+<span class="token comment" spellcheck="true"># 此处 hostname 的输出将会是该机器在 Kubernetes 集群中的节点名字</span>
+<span class="token comment" spellcheck="true"># 不能使用 localhost 作为节点的名字</span>
+<span class="token function">hostname</span>
+
+<span class="token comment" spellcheck="true"># 请使用 lscpu 命令，核对 CPU 信息</span>
+<span class="token comment" spellcheck="true"># Architecture: x86_64    本安装文档不支持 arm 架构</span>
+<span class="token comment" spellcheck="true"># CPU(s):       2         CPU 内核数量不能低于 2</span>
+lscpu
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="安装-docker-kubelet"><a href="#安装-docker-kubelet" class="headerlink" title="安装 docker / kubelet"></a>安装 docker / kubelet</h1><p>使用 <font color="red">root</font> 身份在所有节点执行如下代码，以安装软件：</p>
+<ul>
+<li>docker</li>
+<li>nfs-utils</li>
+<li>kubectl / kubeadm / kubelet kuai</li>
+</ul>
+<h2 id="快速安装"><a href="#快速安装" class="headerlink" title=" 快速安装"></a><font color="orange"> 快速安装</font></h2><pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 在 master 节点和 worker 节点都要执行</span>
+
+curl -sSL https://kuboard.cn/install-script/v1.15.3/install-kubelet.sh <span class="token operator">|</span> sh
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p>修改 archer/settings.py修改其中数据库的地址及账号密码否则makemigrations会报错<br><img src="img/image005.png" alt="avatar"></p>
-<p><img src="img/image006.png" alt="avatar"></p>
-<pre class="line-numbers language-bash"><code class="language-bash">python3 manage.py makemigrations sql<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><img src="img/image007.png" alt="avatar"></p>
-<pre class="line-numbers language-bash"><code class="language-bash">python3 manage.py migrate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><img src="img/image008.png" alt="avatar"></p>
-<p>创建管理员账号</p>
-<pre class="line-numbers language-bash"><code class="language-bash">python3 manage.py createsuperuser
-admin<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>创建完毕后，退出并重启该archer容器，让其用户生效<br> 查看容器状态</p>
-<p><img src="img/image009.png" alt="avatar"></p>
-<ol start="9">
-<li>关闭防火墙或添加防火墙规则访问</li>
-</ol>
-<p><font color="red"><a href="http://127.0.0.1:9123" target="_blank" rel="noopener">http://127.0.0.1:9123</a></font></p>
-<h1 id="三-、登录系统配置及验证"><a href="#三-、登录系统配置及验证" class="headerlink" title="三 、登录系统配置及验证"></a>三 、登录系统配置及验证</h1><hr>
-<ol>
-<li>发布sql工单流程</li>
-</ol>
-<p>普通用户登录<a href="http://127.0.0.1:9123" target="_blank" rel="noopener">http://127.0.0.1:9123</a></p>
-<p><img src="img/image010.png" alt="avatar"></p>
-<p>输入你要执行的sql</p>
-<p><img src="img/image011.png" alt="avatar"></p>
-<p><img src="img/image012.png" alt="avatar"></p>
-<p>审批人账号收到邮件</p>
-<p><img src="img/image013.png" alt="avatar"></p>
-<p>用审批人账号登录</p>
-<p><img src="img/image014.png" alt="avatar"></p>
-<p>审核通过</p>
-<p><img src="img/image015.png" alt="avatar"></p>
-<p><img src="img/image016.png" alt="avatar"></p>
-<p>DBA账号收到邮件</p>
-<p>用DBA账号登录</p>
-<p>执行</p>
-<p><img src="img/image017.png" alt="avatar"></p>
-<p>回滚同理</p>
-<p><img src="img/image018.png" alt="avatar"></p>
-<p><img src="img/image019.png" alt="avatar"></p>
-<ol start="2">
-<li>配置阿里云RDS</li>
-</ol>
-<p>如果需要加入阿里云RDS修改配置文件settings.py</p>
-<p><img src="img/image020.png" alt="avatar"></p>
-<p>也可以加上邮件通知</p>
-<p><img src="img/image021.png" alt="avatar"></p>
-<p>重启archer 的docker服务 就可以了</p>
-<p><img src="img/image022.png" alt="avatar"></p>
-<ol start="3">
-<li>测试回滚功能</li>
-</ol>
-<p><img src="img/image023.png" alt="avatar"></p>
-<p>审核并执行</p>
-<p><img src="img/image024.png" alt="avatar"></p>
-<p>执行成功</p>
-<p><img src="img/image025.png" alt="avatar"></p>
-<p>查看数据库中备份</p>
-<p><img src="img/image026.png" alt="avatar"></p>
-<p>提交回滚请求 需要检测之后提交</p>
-<p><img src="img/image027.png" alt="avatar"></p>
-<p><img src="img/image028.png" alt="avatar"></p>
-<p><img src="img/image029.png" alt="avatar"></p>
-<p>切换dba账户执行回滚</p>
-<p><img src="img/image030.png" alt="avatar"></p>
-<p>回滚成功</p>
-<p><img src="img/image031.png" alt="avatar"></p>
-<p>邮件也收到，只不过我为了测试邮件通知人都是自己</p>
-<p>需要修改的话直接在后台数据管理中修改</p>
-<p><img src="img/image032.png" alt="avatar"></p>
-<ol start="4">
-<li>数据库名称</li>
-</ol>
-<p>如果数据库名太长的话 会报错</p>
-<pre class="line-numbers language-html"><code class="language-html">Global environment  error
-The backup dbname 'rm-bp1570xxxfo.mysql.rds.aliyuncs.com-3306- lse_home_prod ' is too long.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p><img src="img/image033.png" alt="avatar"></p>
-<p>原因是RDS库名+端口+数据库名太长，超过了mysql 的information_schema中字段的值64</p>
-<p>所以库名不要超过11字节就不会报上述错误了(sql错误请忽略我就是拿来演示的)</p>
-<p><img src="img/image034.png" alt="avatar"></p>
-<p>要不就ping一下阿里云的RDS地址  把RDS地址换成ip即可</p>
-<p>在工单界面 也是看不到具体ip的</p>
-<p><img src="img/image035.png" alt="avatar"></p>
-<p><img src="img/image036.png" alt="avatar"></p>
-<ol start="5">
-<li><p>配置访问地址为80访问</p>
-</li>
-<li><p>再安装一个80端口的nginx  解析到docker的9123的nginx 端口</p>
-</li>
-<li><p>只需要添加下面一条设置即可</p>
-</li>
-</ol>
-<p><img src="img/image037.png" alt="avatar"></p>
-<p><img src="img/image038.png" alt="avatar"></p>
-<ol start="8">
-<li>防火墙配置</li>
-</ol>
-<p>把9123 80 3306 6669端口加入防火墙  并reload</p>
-<pre class="line-numbers language-bash"><code class="language-bash">firewall-cmd --zone<span class="token operator">=</span>public --add-port<span class="token operator">=</span>80/tcp --permanent
-firewall-cmd --zone<span class="token operator">=</span>public --add-port<span class="token operator">=</span>9123/tcp --permanent
-firewall-cmd --zone<span class="token operator">=</span>public --add-port<span class="token operator">=</span>3306/tcp --permanent
-firewall-cmd --zone<span class="token operator">=</span>public --add-port<span class="token operator">=</span>6669/tcp --permanent
-firewall-cmd --reload
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>如果你的sql 比较大，可能会报错</p>
-<p><img src="img/image039.png" alt="avatar"></p>
-<p>修改archer 容器里nginx配置中client_max_body_size 设置大一点就可以了</p>
-<p><img src="img/image040.png" alt="avatar"></p>
-<ol start="9">
-<li>配置LDAP</li>
-</ol>
-<p>加入ldap    由于之前搭建的服务器是没有介入内网ldap的  配置ldap的时候就一模一样再装了一遍</p>
-<p>ldap配置可参考<a href="https://www.cnblogs.com/chenminklutz/p/9642277.html" target="_blank" rel="noopener">https://www.cnblogs.com/chenminklutz/p/9642277.html</a><br>不过我的ou带有空格 cn带有空格所以自己重新配置了用“”把字段括起来了<br>红色框框处需要自行根据ou进行修改</p>
-<p><img src="img/image041.png" alt="avatar"></p>
-<p>可以先安装ldapsearch测试</p>
-<pre class="line-numbers language-bash"><code class="language-bash">yum <span class="token function">install</span> -y openldap-servers openldap-clients migrationtools
-ldapsearch -x -W -h  172.16.5.1 -p 389 -b <span class="token string">"dc=tiansoft,dc=com"</span> -D <span class="token string">"cn=Jiamin Xu(Hugo),ou=FTE,ou=Domain Users,dc=tiansoft,dc=com"</span>
+<h2 id="手动安装"><a href="#手动安装" class="headerlink" title="手动安装"></a>手动安装</h2><p><font color="red">请仔细研读脚本</font></p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+
+<span class="token comment" spellcheck="true"># 在 master 节点和 worker 节点都要执行</span>
+
+<span class="token comment" spellcheck="true"># 安装 docker</span>
+<span class="token comment" spellcheck="true"># 参考文档如下</span>
+<span class="token comment" spellcheck="true"># https://docs.docker.com/install/linux/docker-ce/centos/ </span>
+<span class="token comment" spellcheck="true"># https://docs.docker.com/install/linux/linux-postinstall/</span>
+
+<span class="token comment" spellcheck="true"># 卸载旧版本</span>
+yum remove -y docker \
+docker-client \
+docker-client-latest \
+docker-common \
+docker-latest \
+docker-latest-logrotate \
+docker-logrotate \
+docker-selinux \
+docker-engine-selinux \
+docker-engine
+
+<span class="token comment" spellcheck="true"># 设置 yum repository</span>
+yum <span class="token function">install</span> -y yum-utils \
+device-mapper-persistent-data \
+lvm2
+yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+
+<span class="token comment" spellcheck="true"># 安装并启动 docker</span>
+yum <span class="token function">install</span> -y docker-ce-18.09.7 docker-ce-cli-18.09.7 containerd.io
+systemctl <span class="token function">enable</span> docker
+systemctl start docker
+
+<span class="token comment" spellcheck="true"># 安装 nfs-utils</span>
+<span class="token comment" spellcheck="true"># 必须先安装 nfs-utils 才能挂载 nfs 网络存储</span>
+yum <span class="token function">install</span> -y nfs-utils
+
+<span class="token comment" spellcheck="true"># 关闭 防火墙</span>
+systemctl stop firewalld
+systemctl disable firewalld
+
+<span class="token comment" spellcheck="true"># 关闭 SeLinux</span>
+setenforce 0
+<span class="token function">sed</span> -i <span class="token string">"s/SELINUX=enforcing/SELINUX=disabled/g"</span> /etc/selinux/config
+
+<span class="token comment" spellcheck="true"># 关闭 swap</span>
+swapoff -a
+<span class="token function">yes</span> <span class="token operator">|</span> <span class="token function">cp</span> /etc/fstab /etc/fstab_bak
+<span class="token function">cat</span> /etc/fstab_bak <span class="token operator">|</span><span class="token function">grep</span> -v swap <span class="token operator">></span> /etc/fstab
+
+<span class="token comment" spellcheck="true"># 修改 /etc/sysctl.conf</span>
+<span class="token comment" spellcheck="true"># 如果有配置，则修改</span>
+<span class="token function">sed</span> -i <span class="token string">"s#^net.ipv4.ip_forward.*#net.ipv4.ip_forward=1#g"</span>  /etc/sysctl.conf
+<span class="token function">sed</span> -i <span class="token string">"s#^net.bridge.bridge-nf-call-ip6tables.*#net.bridge.bridge-nf-call-ip6tables=1#g"</span>  /etc/sysctl.conf
+<span class="token function">sed</span> -i <span class="token string">"s#^net.bridge.bridge-nf-call-iptables.*#net.bridge.bridge-nf-call-iptables=1#g"</span>  /etc/sysctl.conf
+<span class="token comment" spellcheck="true"># 可能没有，追加</span>
+<span class="token keyword">echo</span> <span class="token string">"net.ipv4.ip_forward = 1"</span> <span class="token operator">>></span> /etc/sysctl.conf
+<span class="token keyword">echo</span> <span class="token string">"net.bridge.bridge-nf-call-ip6tables = 1"</span> <span class="token operator">>></span> /etc/sysctl.conf
+<span class="token keyword">echo</span> <span class="token string">"net.bridge.bridge-nf-call-iptables = 1"</span> <span class="token operator">>></span> /etc/sysctl.conf
+<span class="token comment" spellcheck="true"># 执行命令以应用</span>
+sysctl -p
+
+<span class="token comment" spellcheck="true"># 配置K8S的yum源</span>
+<span class="token function">cat</span> <span class="token operator">&lt;&lt;</span>EOF <span class="token operator">></span> /etc/yum.repos.d/kubernetes.repo
+<span class="token punctuation">[</span>kubernetes<span class="token punctuation">]</span>
+name<span class="token operator">=</span>Kubernetes
+baseurl<span class="token operator">=</span>http://mirrors.aliyun.com/kubernetes/yum/repos/kubernetes-el7-x86_64
+enabled<span class="token operator">=</span>1
+gpgcheck<span class="token operator">=</span>0
+repo_gpgcheck<span class="token operator">=</span>0
+gpgkey<span class="token operator">=</span>http://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg
+       http://mirrors.aliyun.com/kubernetes/yum/doc/rpm-package-key.gpg
+EOF
+
+<span class="token comment" spellcheck="true"># 卸载旧版本</span>
+yum remove -y kubelet kubeadm kubectl
+
+<span class="token comment" spellcheck="true"># 安装kubelet、kubeadm、kubectl</span>
+yum <span class="token function">install</span> -y kubelet-1.15.3 kubeadm-1.15.3 kubectl-1.15.3
+
+<span class="token comment" spellcheck="true"># 修改docker Cgroup Driver为systemd</span>
+<span class="token comment" spellcheck="true"># # 将/usr/lib/systemd/system/docker.service文件中的这一行 ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock</span>
+<span class="token comment" spellcheck="true"># # 修改为 ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock --exec-opt native.cgroupdriver=systemd</span>
+<span class="token comment" spellcheck="true"># 如果不修改，在添加 worker 节点时可能会碰到如下错误</span>
+<span class="token comment" spellcheck="true"># [WARNING IsDockerSystemdCheck]: detected "cgroupfs" as the Docker cgroup driver. The recommended driver is "systemd". </span>
+<span class="token comment" spellcheck="true"># Please follow the guide at https://kubernetes.io/docs/setup/cri/</span>
+<span class="token function">sed</span> -i <span class="token string">"s#^ExecStart=/usr/bin/dockerd.*#ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock --exec-opt native.cgroupdriver=systemd#g"</span> /usr/lib/systemd/system/docker.service
+
+<span class="token comment" spellcheck="true"># 设置 docker 镜像，提高 docker 镜像下载速度和稳定性</span>
+<span class="token comment" spellcheck="true"># 如果您访问 https://hub.docker.io 速度非常稳定，亦可以跳过这个步骤</span>
+curl -sSL https://get.daocloud.io/daotools/set_mirror.sh <span class="token operator">|</span> sh -s http://f1361db2.m.daocloud.io
+
+<span class="token comment" spellcheck="true"># 重启 docker，并启动 kubelet</span>
+systemctl daemon-reload
+systemctl restart docker
+systemctl <span class="token function">enable</span> kubelet <span class="token operator">&amp;&amp;</span> systemctl start kubelet
+
+docker version
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>&emsp;如果此时执行 service status kubelet 命令，将得到 kubelet 启动失败的错误提示，请忽略此错误，因为必须完成后续步骤中 kubeadm init 的操作，kubelet 才能正常启动</p>
+<h1 id="初始化-master-节点"><a href="#初始化-master-节点" class="headerlink" title="初始化 master 节点"></a>初始化 master 节点</h1><p>以 <font color="red">root</font> 身份在 demo-master-a-1 机器上执行<br>初始化 master 节点时，如果因为中间某些步骤的配置出错，想要重新初始化 master 节点，请先执行 <font color="red">kubeadm reset </font>操作</p>
+<p>POD_SUBNET 所使用的网段不能与 master节点/worker节点 所在的网段重叠。该字段的取值为一个 CIDR 值，如果您对 CIDR 这个概念还不熟悉，请不要修改这个字段的取值 10.100.0.1/20</p>
+<h3 id="快速初始化"><a href="#快速初始化" class="headerlink" title="快速初始化"></a>快速初始化</h3><pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 只在 master 节点执行</span>
+<span class="token comment" spellcheck="true"># 替换 x.x.x.x 为 master 节点实际 IP（请使用内网 IP）</span>
+<span class="token comment" spellcheck="true"># export 命令只在当前 shell 会话中有效，开启新的 shell 窗口后，如果要继续安装过程，请重新执行此处的 export 命令</span>
+<span class="token function">export</span> MASTER_IP<span class="token operator">=</span>x.x.x.x
+<span class="token comment" spellcheck="true"># 替换 apiserver.demo 为 您想要的 dnsName (不建议使用 master 的 hostname 作为 APISERVER_NAME)</span>
+<span class="token function">export</span> APISERVER_NAME<span class="token operator">=</span>apiserver.demo
+<span class="token function">export</span> POD_SUBNET<span class="token operator">=</span>10.100.0.1/20
+<span class="token keyword">echo</span> <span class="token string">"<span class="token variable">${MASTER_IP}</span>    <span class="token variable">${APISERVER_NAME}</span>"</span> <span class="token operator">>></span> /etc/hosts
+curl -sSL https://kuboard.cn/install-script/v1.15.3/init-master.sh <span class="token operator">|</span> sh
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="手工初始化"><a href="#手工初始化" class="headerlink" title="手工初始化"></a>手工初始化</h3><pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 只在 master 节点执行</span>
+<span class="token comment" spellcheck="true"># 替换 x.x.x.x 为 master 节点实际 IP（请使用内网 IP）</span>
+<span class="token comment" spellcheck="true"># export 命令只在当前 shell 会话中有效，开启新的 shell 窗口后，如果要继续安装过程，请重新执行此处的 export 命令</span>
+<span class="token function">export</span> MASTER_IP<span class="token operator">=</span>x.x.x.x
+<span class="token comment" spellcheck="true"># 替换 apiserver.demo 为 您想要的 dnsName (不建议使用 master 的 hostname 作为 APISERVER_NAME)</span>
+<span class="token function">export</span> APISERVER_NAME<span class="token operator">=</span>apiserver.demo
+<span class="token function">export</span> POD_SUBNET<span class="token operator">=</span>10.100.0.1/20
+<span class="token keyword">echo</span> <span class="token string">"<span class="token variable">${MASTER_IP}</span>    <span class="token variable">${APISERVER_NAME}</span>"</span> <span class="token operator">>></span> /etc/hosts
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>手工初始化脚本</li>
+</ul>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+
+<span class="token comment" spellcheck="true"># 只在 master 节点执行</span>
+
+<span class="token comment" spellcheck="true"># 查看完整配置选项 https://godoc.org/k8s.io/kubernetes/cmd/kubeadm/app/apis/kubeadm/v1beta2</span>
+<span class="token function">rm</span> -f ./kubeadm-config.yaml
+<span class="token function">cat</span> <span class="token operator">&lt;&lt;</span>EOF <span class="token operator">></span> ./kubeadm-config.yaml
+apiVersion: kubeadm.k8s.io/v1beta2
+kind: ClusterConfiguration
+kubernetesVersion: v1.15.3
+imageRepository: registry.cn-hangzhou.aliyuncs.com/google_containers
+controlPlaneEndpoint: <span class="token string">"<span class="token variable">${APISERVER_NAME}</span>:6443"</span>
+networking:
+  serviceSubnet: <span class="token string">"10.96.0.0/12"</span>
+  podSubnet: <span class="token string">"<span class="token variable">${POD_SUBNET}</span>"</span>
+  dnsDomain: <span class="token string">"cluster.local"</span>
+EOF
+
+<span class="token comment" spellcheck="true"># kubeadm init</span>
+<span class="token comment" spellcheck="true"># 根据您服务器网速的情况，您需要等候 3 - 10 分钟</span>
+kubeadm init --config<span class="token operator">=</span>kubeadm-config.yaml --upload-certs
+
+<span class="token comment" spellcheck="true"># 配置 kubectl</span>
+<span class="token function">rm</span> -rf /root/.kube/
+<span class="token function">mkdir</span> /root/.kube/
+<span class="token function">cp</span> -i /etc/kubernetes/admin.conf /root/.kube/config
+
+<span class="token comment" spellcheck="true"># 安装 calico 网络插件</span>
+<span class="token comment" spellcheck="true"># 参考文档 https://docs.projectcalico.org/v3.8/getting-started/kubernetes/</span>
+<span class="token function">rm</span> -f calico.yaml
+<span class="token function">wget</span> https://docs.projectcalico.org/v3.8/manifests/calico.yaml
+<span class="token function">sed</span> -i <span class="token string">"s#192\.168\.0\.0/16#<span class="token variable">${POD_SUBNET}</span>#"</span> calico.yaml
+kubectl apply -f calico.yaml
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>检查 master 初始化结果</li>
+</ul>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 只在 master 节点执行</span>
+
+<span class="token comment" spellcheck="true"># 执行如下命令，等待 3-10 分钟，直到所有的容器组处于 Running 状态</span>
+<span class="token function">watch</span> kubectl get pod -n kube-system -o wide
+
+<span class="token comment" spellcheck="true"># 查看 master 节点初始化结果</span>
+kubectl get nodes
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="初始化-worker节点"><a href="#初始化-worker节点" class="headerlink" title="初始化 worker节点"></a>初始化 worker节点</h1><ul>
+<li>获得 join命令参数</li>
+</ul>
+<p>在 master 节点上执行</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 只在 master 节点执行</span>
+<span class="token comment" spellcheck="true"># --ttl 0 创建永久的token</span>
+kubeadm token create --ttl 0 --print-join-command
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>可获取kubeadm join 命令及参数，如下所示</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># kubeadm token create 命令的输出</span>
+kubeadm <span class="token function">join</span> apiserver.demo:6443 --token nyawlj.tnbpyckkkd7tatjs     --discovery-token-ca-cert-hash sha256:022ac5a2965466ccc1c9443403e55f56d276334e761ddeef57d1148f09549c1a
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p><img src="img/image042.png" alt="avatar"></p>
-<p>至此mysql自动化运维平台已经搭建完毕  配置方面请根据个人需求配置。</p>
+<h2 id="初始化worker"><a href="#初始化worker" class="headerlink" title="初始化worker"></a>初始化worker</h2><p>针对所有的 worker 节点执行</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 只在 worker 节点执行</span>
+<span class="token comment" spellcheck="true"># 替换 ${MASTER_IP} 为 master 节点实际 IP</span>
+<span class="token comment" spellcheck="true"># 替换 ${APISERVER_NAME} 为初始化 master 节点时所使用的 APISERVER_NAME</span>
+<span class="token keyword">echo</span> <span class="token string">"<span class="token variable">${MASTER_IP}</span>    <span class="token variable">${APISERVER_NAME}</span>"</span> <span class="token operator">>></span> /etc/hosts
+
+<span class="token comment" spellcheck="true"># 替换为 master 节点上 kubeadm token create 命令的输出</span>
+kubeadm <span class="token function">join</span> apiserver.demo:6443 --token nyawlj.tnbpyckkkd7tatjs     --discovery-token-ca-cert-hash sha256:022ac5a2965466ccc1c9443403e55f56d276334e761ddeef57d1148f09549c1a
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="检查初始化结果"><a href="#检查初始化结果" class="headerlink" title="检查初始化结果"></a>检查初始化结果</h2><pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 只在 master 节点执行</span>
+kubectl get nodes
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>输出结果如下所示：</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@demo-master-a-1 ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># kubectl get nodes</span>
+NAME     STATUS   ROLES    AGE     VERSION
+demo-master-a-1   Ready    master   5m3s    v1.15.3
+demo-worker-a-1   Ready    <span class="token operator">&lt;</span>none<span class="token operator">></span>   2m26s   v1.15.3
+demo-worker-a-2   Ready    <span class="token operator">&lt;</span>none<span class="token operator">></span>   3m56s   v1.15.3
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="移除-worker-节点"><a href="#移除-worker-节点" class="headerlink" title="移除 worker 节点"></a>移除 worker 节点</h2><p>正常情况下，您无需移除 worker 节点，如果添加到集群出错，您可以移除 worker 节点，再重新尝试添加</p>
+<ol>
+<li>在准备移除的 worker 节点上执行</li>
+</ol>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 只在 worker 节点执行</span>
+kubeadm reset
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<ol start="2">
+<li>在 master 节点 demo-master-a-1 上执行</li>
+</ol>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 只在 master 节点执行</span>
+kubectl delete node demo-worker-x-x
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>将 demo-worker-x-x 替换为要移除的 worker 节点的名字<br>worker 节点的名字可以通过在节点 demo-master-a-1 上执行 kubectl get nodes 命令获得</p>
+<h1 id="安装-Ingress-Controller"><a href="#安装-Ingress-Controller" class="headerlink" title="安装 Ingress Controller"></a>安装 Ingress Controller</h1><ol>
+<li>安装IngressController</li>
+</ol>
+<p><font color="red">注：</font>在 master 节点上执行</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 只在 master 节点执行</span>
+kubectl apply -f https://kuboard.cn/install-script/v1.15.3/nginx-ingress.yaml
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<ol start="2">
+<li>卸载IngressController<br><font color="red">注：</font>在 master 节点上执行</li>
+</ol>
+<p>只在您想选择其他 Ingress Controller 的情况下卸载</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 只在 master 节点执行</span>
+kubectl delete -f https://kuboard.cn/install-script/v1.15.3/nginx-ingress.yaml
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<ol start="3">
+<li>YML文件</li>
+</ol>
+<pre class="line-numbers language-yml"><code class="language-yml"># 如果打算用于生产环境，请参考 https://github.com/nginxinc/kubernetes-ingress/blob/v1.5.3/docs/installation.md 并根据您自己的情况做进一步定制
+
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: nginx-ingress
+
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: nginx-ingress 
+  namespace: nginx-ingress
+
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: default-server-secret
+  namespace: nginx-ingress
+type: Opaque
+data:
+  tls.crt: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUN2akNDQWFZQ0NRREFPRjl0THNhWFhEQU5CZ2txaGtpRzl3MEJBUXNGQURBaE1SOHdIUVlEVlFRRERCWk8KUjBsT1dFbHVaM0psYzNORGIyNTBjbTlzYkdWeU1CNFhEVEU0TURreE1qRTRNRE16TlZvWERUSXpNRGt4TVRFNApNRE16TlZvd0lURWZNQjBHQTFVRUF3d1dUa2RKVGxoSmJtZHlaWE56UTI5dWRISnZiR3hsY2pDQ0FTSXdEUVlKCktvWklodmNOQVFFQkJRQURnZ0VQQURDQ0FRb0NnZ0VCQUwvN2hIUEtFWGRMdjNyaUM3QlBrMTNpWkt5eTlyQ08KR2xZUXYyK2EzUDF0azIrS3YwVGF5aGRCbDRrcnNUcTZzZm8vWUk1Y2Vhbkw4WGM3U1pyQkVRYm9EN2REbWs1Qgo4eDZLS2xHWU5IWlg0Rm5UZ0VPaStlM2ptTFFxRlBSY1kzVnNPazFFeUZBL0JnWlJVbkNHZUtGeERSN0tQdGhyCmtqSXVuektURXUyaDU4Tlp0S21ScUJHdDEwcTNRYzhZT3ExM2FnbmovUWRjc0ZYYTJnMjB1K1lYZDdoZ3krZksKWk4vVUkxQUQ0YzZyM1lma1ZWUmVHd1lxQVp1WXN2V0RKbW1GNWRwdEMzN011cDBPRUxVTExSakZJOTZXNXIwSAo1TmdPc25NWFJNV1hYVlpiNWRxT3R0SmRtS3FhZ25TZ1JQQVpQN2MwQjFQU2FqYzZjNGZRVXpNQ0F3RUFBVEFOCkJna3Foa2lHOXcwQkFRc0ZBQU9DQVFFQWpLb2tRdGRPcEsrTzhibWVPc3lySmdJSXJycVFVY2ZOUitjb0hZVUoKdGhrYnhITFMzR3VBTWI5dm15VExPY2xxeC9aYzJPblEwMEJCLzlTb0swcitFZ1U2UlVrRWtWcitTTFA3NTdUWgozZWI4dmdPdEduMS9ienM3bzNBaS9kclkrcUI5Q2k1S3lPc3FHTG1US2xFaUtOYkcyR1ZyTWxjS0ZYQU80YTY3Cklnc1hzYktNbTQwV1U3cG9mcGltU1ZmaXFSdkV5YmN3N0NYODF6cFErUyt1eHRYK2VBZ3V0NHh3VlI5d2IyVXYKelhuZk9HbWhWNThDd1dIQnNKa0kxNXhaa2VUWXdSN0diaEFMSkZUUkk3dkhvQXprTWIzbjAxQjQyWjNrN3RXNQpJUDFmTlpIOFUvOWxiUHNoT21FRFZkdjF5ZytVRVJxbStGSis2R0oxeFJGcGZnPT0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=
+  tls.key: LS0tLS1CRUdJTiBSU0EgUFJJVkFURSBLRVktLS0tLQpNSUlFcEFJQkFBS0NBUUVBdi91RWM4b1JkMHUvZXVJTHNFK1RYZUprckxMMnNJNGFWaEMvYjVyYy9XMlRiNHEvClJOcktGMEdYaVN1eE9ycXgrajlnamx4NXFjdnhkenRKbXNFUkJ1Z1B0ME9hVGtIekhvb3FVWmcwZGxmZ1dkT0EKUTZMNTdlT1l0Q29VOUZ4amRXdzZUVVRJVUQ4R0JsRlNjSVo0b1hFTkhzbysyR3VTTWk2Zk1wTVM3YUhudzFtMApxWkdvRWEzWFNyZEJ6eGc2clhkcUNlUDlCMXl3VmRyYURiUzc1aGQzdUdETDU4cGszOVFqVUFQaHpxdmRoK1JWClZGNGJCaW9CbTVpeTlZTW1hWVhsMm0wTGZzeTZuUTRRdFFzdEdNVWozcGJtdlFmazJBNnljeGRFeFpkZFZsdmwKMm82MjBsMllxcHFDZEtCRThCay90elFIVTlKcU56cHpoOUJUTXdJREFRQUJBb0lCQVFDZklHbXowOHhRVmorNwpLZnZJUXQwQ0YzR2MxNld6eDhVNml4MHg4Mm15d1kxUUNlL3BzWE9LZlRxT1h1SENyUlp5TnUvZ2IvUUQ4bUFOCmxOMjRZTWl0TWRJODg5TEZoTkp3QU5OODJDeTczckM5bzVvUDlkazAvYzRIbjAzSkVYNzZ5QjgzQm9rR1FvYksKMjhMNk0rdHUzUmFqNjd6Vmc2d2szaEhrU0pXSzBwV1YrSjdrUkRWYmhDYUZhNk5nMUZNRWxhTlozVDhhUUtyQgpDUDNDeEFTdjYxWTk5TEI4KzNXWVFIK3NYaTVGM01pYVNBZ1BkQUk3WEh1dXFET1lvMU5PL0JoSGt1aVg2QnRtCnorNTZud2pZMy8yUytSRmNBc3JMTnIwMDJZZi9oY0IraVlDNzVWYmcydVd6WTY3TWdOTGQ5VW9RU3BDRkYrVm4KM0cyUnhybnhBb0dCQU40U3M0ZVlPU2huMVpQQjdhTUZsY0k2RHR2S2ErTGZTTXFyY2pOZjJlSEpZNnhubmxKdgpGenpGL2RiVWVTbWxSekR0WkdlcXZXaHFISy9iTjIyeWJhOU1WMDlRQ0JFTk5jNmtWajJTVHpUWkJVbEx4QzYrCk93Z0wyZHhKendWelU0VC84ajdHalRUN05BZVpFS2FvRHFyRG5BYWkyaW5oZU1JVWZHRXFGKzJyQW9HQkFOMVAKK0tZL0lsS3RWRzRKSklQNzBjUis3RmpyeXJpY05iWCtQVzUvOXFHaWxnY2grZ3l4b25BWlBpd2NpeDN3QVpGdwpaZC96ZFB2aTBkWEppc1BSZjRMazg5b2pCUmpiRmRmc2l5UmJYbyt3TFU4NUhRU2NGMnN5aUFPaTVBRHdVU0FkCm45YWFweUNweEFkREtERHdObit3ZFhtaTZ0OHRpSFRkK3RoVDhkaVpBb0dCQUt6Wis1bG9OOTBtYlF4VVh5YUwKMjFSUm9tMGJjcndsTmVCaWNFSmlzaEhYa2xpSVVxZ3hSZklNM2hhUVRUcklKZENFaHFsV01aV0xPb2I2NTNyZgo3aFlMSXM1ZUtka3o0aFRVdnpldm9TMHVXcm9CV2xOVHlGanIrSWhKZnZUc0hpOGdsU3FkbXgySkJhZUFVWUNXCndNdlQ4NmNLclNyNkQrZG8wS05FZzFsL0FvR0FlMkFVdHVFbFNqLzBmRzgrV3hHc1RFV1JqclRNUzRSUjhRWXQKeXdjdFA4aDZxTGxKUTRCWGxQU05rMXZLTmtOUkxIb2pZT2pCQTViYjhibXNVU1BlV09NNENoaFJ4QnlHbmR2eAphYkJDRkFwY0IvbEg4d1R0alVZYlN5T294ZGt5OEp0ek90ajJhS0FiZHd6NlArWDZDODhjZmxYVFo5MWpYL3RMCjF3TmRKS2tDZ1lCbyt0UzB5TzJ2SWFmK2UwSkN5TGhzVDQ5cTN3Zis2QWVqWGx2WDJ1VnRYejN5QTZnbXo5aCsKcDNlK2JMRUxwb3B0WFhNdUFRR0xhUkcrYlNNcjR5dERYbE5ZSndUeThXczNKY3dlSTdqZVp2b0ZpbmNvVlVIMwphdmxoTUVCRGYxSjltSDB5cDBwWUNaS2ROdHNvZEZtQktzVEtQMjJhTmtsVVhCS3gyZzR6cFE9PQotLS0tLUVORCBSU0EgUFJJVkFURSBLRVktLS0tLQo=
+
+---
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: nginx-config
+  namespace: nginx-ingress
+data:
+  server-names-hash-bucket-size: "1024"
+
+
+---
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1beta1
+metadata:
+  name: nginx-ingress
+rules:
+- apiGroups:
+  - ""
+  resources:
+  - services
+  - endpoints
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - ""
+  resources:
+  - secrets
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - ""
+  resources:
+  - configmaps
+  verbs:
+  - get
+  - list
+  - watch
+  - update
+  - create
+- apiGroups:
+  - ""
+  resources:
+  - pods
+  verbs:
+  - list
+- apiGroups:
+  - ""
+  resources:
+  - events
+  verbs:
+  - create
+  - patch
+- apiGroups:
+  - extensions
+  resources:
+  - ingresses
+  verbs:
+  - list
+  - watch
+  - get
+- apiGroups:
+  - "extensions"
+  resources:
+  - ingresses/status
+  verbs:
+  - update
+- apiGroups:
+  - k8s.nginx.org
+  resources:
+  - virtualservers
+  - virtualserverroutes
+  verbs:
+  - list
+  - watch
+  - get
+
+---
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1beta1
+metadata:
+  name: nginx-ingress
+subjects:
+- kind: ServiceAccount
+  name: nginx-ingress
+  namespace: nginx-ingress
+roleRef:
+  kind: ClusterRole
+  name: nginx-ingress
+  apiGroup: rbac.authorization.k8s.io
+
+---
+apiVersion: extensions/v1beta1
+kind: DaemonSet
+metadata:
+  name: nginx-ingress
+  namespace: nginx-ingress
+  annotations:
+    prometheus.io/scrape: "true"
+    prometheus.io/port: "9113"
+spec:
+  selector:
+    matchLabels:
+      app: nginx-ingress
+  template:
+    metadata:
+      labels:
+        app: nginx-ingress
+    spec:
+      serviceAccountName: nginx-ingress
+      containers:
+      - image: nginx/nginx-ingress:1.5.3
+        name: nginx-ingress
+        ports:
+        - name: http
+          containerPort: 80
+          hostPort: 80
+        - name: https
+          containerPort: 443
+          hostPort: 443
+        - name: prometheus
+          containerPort: 9113
+        env:
+        - name: POD_NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+        - name: POD_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
+        args:
+          - -nginx-configmaps=$(POD_NAMESPACE)/nginx-config
+          - -default-server-tls-secret=$(POD_NAMESPACE)/default-server-secret
+         #- -v=3 # Enables extensive logging. Useful for troubleshooting.
+         #- -report-ingress-status
+         #- -external-service=nginx-ingress
+         #- -enable-leader-election
+          - -enable-prometheus-metrics
+         #- -enable-custom-resources
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ol start="4">
+<li>配置域名解析</li>
+</ol>
+<p>将域名 <font color="orange">*.demo.yourdomain.com </font>解析到 demo-worker-a-2 的 IP 地址 <font color="orange">z.z.z.z</font> （也可以是 demo-worker-a-1 的地址 y.y.y.y）</p>
+<ol start="5">
+<li>验证配置</li>
+</ol>
+<p>在浏览器访问 <font color="orange">a.demo.yourdomain.com</font>，将得到 404 NotFound 错误页面</p>
+<p><font color="red">提示</font></p>
+<ul>
+<li><p>许多初学者在安装 Ingress Controller 时会碰到问题，请不要灰心，可暂时跳过 安装 Ingress Controller 这个部分，等您学完 <a href="http://www.kuboard.cn" target="_blank" rel="noopener">www.kuboard.cn</a> 上 Kubernetes 入门 以及 通过互联网访问您的应用程序 这两部分内容后，再来回顾 Ingress Controller 的安装。</p>
+</li>
+<li><p>如果您打算将 Kubernetes 用于生产环境，请参考文档 Installing Ingress Controller，完善 Ingress 的配置</p>
+</li>
+</ul>
 
             </div>
             <hr />
@@ -914,9 +1111,9 @@ ldapsearch -x -W -h  172.16.5.1 -p 389 -b <span class="token string">"dc=tiansof
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《mysql自动化运维工具》
+                    《使用 kubeadm 安装 kubernetes v1.15.3》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/mysql-zi-dong-hua-yun-wei-gong-ju/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/shi-yong-kubeadm-an-zhuang-kubernetes-v1-15-3/" property="cc:attributionName"
                rel="cc:attributionURL">
                 helen
             </a> 采用
@@ -957,7 +1154,7 @@ ldapsearch -x -W -h  172.16.5.1 -p 389 -b <span class="token string">"dc=tiansof
         repo: 'Hooyh110.github.io',
         owner: 'Hooyh110',
         admin: "Hooyh110",
-        id: 'mysql-zi-dong-hua-yun-wei-gong-ju/',
+        id: 'shi-yong-kubeadm-an-zhuang-kubernetes-v1-15-3/',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -1240,9 +1437,10 @@ ldapsearch -x -W -h  172.16.5.1 -p 389 -b <span class="token string">"dc=tiansof
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/shi-yong-kubeadm-an-zhuang-kubernetes-v1-15-3/">
                     <div class="card-image">
@@ -1260,9 +1458,9 @@ ldapsearch -x -W -h  172.16.5.1 -p 389 -b <span class="token string">"dc=tiansof
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-13
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-13
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -1275,6 +1473,7 @@ ldapsearch -x -W -h  172.16.5.1 -p 389 -b <span class="token string">"dc=tiansof
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1293,19 +1492,19 @@ ldapsearch -x -W -h  172.16.5.1 -p 389 -b <span class="token string">"dc=tiansof
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/fu-wu-qi-nao-lie/">
+                <a href="/mysql-zi-dong-hua-yun-wei-gong-ju/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="服务器脑裂">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="mysql自动化运维工具">
                         
-                        <span class="card-title">服务器脑裂</span>
+                        <span class="card-title">mysql自动化运维工具</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            脑裂
+                            利用archer配置mysql自动化运维工具
                         
                     </div>
                     <div class="publish-info">
@@ -1316,8 +1515,8 @@ ldapsearch -x -W -h  172.16.5.1 -p 389 -b <span class="token string">"dc=tiansof
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/news/" class="post-category" target="_blank">
-                                    news
+                            <a href="/categories/mysql/" class="post-category" target="_blank">
+                                    mysql
                                 </a>
                             
                             
@@ -1327,8 +1526,8 @@ ldapsearch -x -W -h  172.16.5.1 -p 389 -b <span class="token string">"dc=tiansof
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/news/" target="_blank">
-                        <span class="chip bg-color">news</span>
+                    <a href="/tags/mysql/" target="_blank">
+                        <span class="chip bg-color">mysql</span>
                     </a>
                     
                 </div>

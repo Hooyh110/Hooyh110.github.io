@@ -1,3 +1,4 @@
+http://blog.hooyuhao.club/shi-yong-kubeadm-an-zhuang-kubernetes-v1-15-3/
 http://blog.hooyuhao.club/mysql-zi-dong-hua-yun-wei-gong-ju/
 http://blog.hooyuhao.club/fu-wu-qi-nao-lie/
 http://blog.hooyuhao.club/fen-bu-shi-xi-tong-xue-beng-xiao-ying/

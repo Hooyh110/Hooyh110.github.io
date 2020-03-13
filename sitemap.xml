@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.hooyuhao.club/shi-yong-kubeadm-an-zhuang-kubernetes-v1-15-3/</loc>
+    
+    <lastmod>2020-03-13T01:25:52.239Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.hooyuhao.club/hexo-bo-ke-bian-xie/</loc>
     
     <lastmod>2020-03-13T00:49:22.838Z</lastmod>
