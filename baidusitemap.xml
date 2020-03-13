@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://blog.hooyuhao.club/hexo-bo-ke-bian-xie/</loc>
+    <lastmod>2020-03-13</lastmod>
+  </url>  <url>
     <loc>http://blog.hooyuhao.club/mysql-zi-dong-hua-yun-wei-gong-ju/</loc>
     <lastmod>2020-03-12</lastmod>
   </url>  <url>
@@ -14,9 +17,6 @@
     <lastmod>2020-03-12</lastmod>
   </url>  <url>
     <loc>http://blog.hooyuhao.club/chang-jian-error-ji-jie-jue-fang-fa/</loc>
-    <lastmod>2020-03-12</lastmod>
-  </url>  <url>
-    <loc>http://blog.hooyuhao.club/hexo-bo-ke-bian-xie/</loc>
     <lastmod>2020-03-12</lastmod>
   </url>  <url>
     <loc>http://blog.hooyuhao.club/install-gitlab-runner/</loc>
