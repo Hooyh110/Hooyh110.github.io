@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.hooyuhao.club/"/>
-  <updated>2020-03-13T01:26:23.921Z</updated>
+  <updated>2020-03-16T05:07:59.042Z</updated>
   <id>http://blog.hooyuhao.club/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>使用阿里云SDK查看ecs列表</title>
+    <link href="http://blog.hooyuhao.club/shi-yong-a-li-yun-sdk-cha-kan-ecs-lie-biao/"/>
+    <id>http://blog.hooyuhao.club/shi-yong-a-li-yun-sdk-cha-kan-ecs-lie-biao/</id>
+    <published>2020-03-16T02:17:44.000Z</published>
+    <updated>2020-03-16T05:07:59.042Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;目录结构&quot;&gt;&lt;a href=&quot;#目录结构&quot; class=&quot;headerlink&quot; title=&quot;目录结构&quot;&gt;&lt;/a&gt;&lt;font color=&quot;red&quot;&gt;目录结构&lt;/font&gt;&lt;/h3&gt;&lt;pre class=&quot;line-numbers
+        
+      
+    
+    </summary>
+    
+      <category term="Python" scheme="http://blog.hooyuhao.club/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="http://blog.hooyuhao.club/tags/Python/"/>
+    
+  </entry>
   
   <entry>
     <title>使用 kubeadm 安装 kubernetes v1.15.3</title>
