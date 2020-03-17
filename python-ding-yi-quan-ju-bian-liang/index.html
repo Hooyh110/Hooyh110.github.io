@@ -467,7 +467,7 @@ import importlib">
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    268
+                    287
                 </div>
                 
 
@@ -532,17 +532,19 @@ importlib<span class="token punctuation">.</span>reload<span class="token punctu
 <span class="token comment" spellcheck="true">#定义函数</span>
 <span class="token keyword">def</span> <span class="token function">mydict</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token comment" spellcheck="true">##读取ini文件内容</span>
+    <span class="token comment" spellcheck="true">#首先先定义一个空字典</span>
     my_dict <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
     config <span class="token operator">=</span> configparser<span class="token punctuation">.</span>ConfigParser<span class="token punctuation">(</span><span class="token punctuation">)</span>
     config<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token string">"conf/acskey.ini"</span><span class="token punctuation">)</span>
     accessKey <span class="token operator">=</span> config<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"aliyunAK"</span><span class="token punctuation">,</span> <span class="token string">"accessKey"</span><span class="token punctuation">)</span>
     accessSecret <span class="token operator">=</span> config<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"aliyunAK"</span><span class="token punctuation">,</span> <span class="token string">"accessSecret"</span><span class="token punctuation">)</span>
     region <span class="token operator">=</span> config<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"aliyunAK"</span><span class="token punctuation">,</span> <span class="token string">"region"</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true">#将key.value写入到字典中</span>
     my_dict<span class="token punctuation">[</span><span class="token string">'accessKey'</span><span class="token punctuation">]</span> <span class="token operator">=</span> accessKey
     my_dict<span class="token punctuation">[</span><span class="token string">'accessSecret'</span><span class="token punctuation">]</span> <span class="token operator">=</span> accessSecret
     my_dict<span class="token punctuation">[</span><span class="token string">'region'</span><span class="token punctuation">]</span> <span class="token operator">=</span> region
     <span class="token keyword">return</span> my_dict
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li><font color="orange">引用</font></li>
 </ul>
