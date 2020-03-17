@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.hooyuhao.club/"/>
-  <updated>2020-03-17T03:27:35.748Z</updated>
+  <updated>2020-03-17T05:41:24.673Z</updated>
   <id>http://blog.hooyuhao.club/</id>
   
   <author>
@@ -15,6 +15,59 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>python 定义全局变量</title>
+    <link href="http://blog.hooyuhao.club/python-ding-yi-quan-ju-bian-liang/"/>
+    <id>http://blog.hooyuhao.club/python-ding-yi-quan-ju-bian-liang/</id>
+    <published>2020-03-17T03:48:13.000Z</published>
+    <updated>2020-03-17T05:41:24.673Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;根据global定义全局变量&quot;&gt;&lt;a href=&quot;#根据global定义全局变量&quot; class=&quot;headerlink&quot; title=&quot;根据global定义全局变量&quot;&gt;&lt;/a&gt;&lt;font
+        
+      
+    
+    </summary>
+    
+      <category term="Python" scheme="http://blog.hooyuhao.club/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="http://blog.hooyuhao.club/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python3中Dictionary(字典)操作详解</title>
+    <link href="http://blog.hooyuhao.club/python3-zhong-dictionary-zi-dian-cao-zuo-xiang-jie/"/>
+    <id>http://blog.hooyuhao.club/python3-zhong-dictionary-zi-dian-cao-zuo-xiang-jie/</id>
+    <published>2020-03-17T03:34:48.000Z</published>
+    <updated>2020-03-17T03:47:24.020Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;在绝大部分的开发语言中与实际开发过程中，Dictionary扮演着举足轻重的角色。从我们的数据模型到服务器返回的参数到数据库的应用等等，Dictionary的身影无处不在。那么，在Python中，Dictionary是一个怎么样的数据类型呢？&lt;/p&gt;
+&lt;p&gt;在Python中
+        
+      
+    
+    </summary>
+    
+      <category term="python" scheme="http://blog.hooyuhao.club/categories/python/"/>
+    
+    
+      <category term="python" scheme="http://blog.hooyuhao.club/tags/python/"/>
+    
+  </entry>
   
   <entry>
     <title>使用阿里云SDK查看ecs列表</title>
@@ -483,32 +536,6 @@
     
     
       <category term="monitor" scheme="http://blog.hooyuhao.club/tags/monitor/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>docker-compose build seafile</title>
-    <link href="http://blog.hooyuhao.club/docker-compose-build-seafile/"/>
-    <id>http://blog.hooyuhao.club/docker-compose-build-seafile/</id>
-    <published>2020-03-09T08:34:30.000Z</published>
-    <updated>2020-03-09T10:49:39.877Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;div align=&quot;middle&quot;&gt;&lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=&quot;330&quot; height=&quot;86&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="docker" scheme="http://blog.hooyuhao.club/categories/docker/"/>
-    
-    
-      <category term="docker" scheme="http://blog.hooyuhao.club/tags/docker/"/>
     
   </entry>
   

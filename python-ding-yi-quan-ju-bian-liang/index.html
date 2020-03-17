@@ -4,11 +4,17 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="book, ECNU NLP DeepLearning AntNLP helen">
+    <meta name="keywords" content="python 定义全局变量, ECNU NLP DeepLearning AntNLP helen">
     <meta name="baidu-site-verification" content="PQuYZ68I8K">
     <meta name="google-site-verification" content="PQuYZ68I8K">
     <meta name="360-site-verification" content>
-    <meta name="description" content="book | helen的博客">
+    <meta name="description" content="根据global定义全局变量
+示例
+
+中利用global定义全局变量(accessKey、accessSecret、region)
+#libs/base.py
+# -*- coding: utf-8 -*-
+import importlib">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +22,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>book | helen的博客</title>
+    <title>python 定义全局变量 | helen的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -306,13 +312,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/27.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        book
+                        python 定义全局变量
                     </div>
                 </div>
             </div>
@@ -423,8 +429,8 @@
                     
                     <div class="article-tag">
                         
-                        <a href="/" target="_blank">
-                            <span class="chip bg-color"></span>
+                        <a href="/tags/Python/" target="_blank">
+                            <span class="chip bg-color">Python</span>
                         </a>
                         
                     </div>
@@ -435,8 +441,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                        <a href="/" class="post-category" target="_blank">
-                            
+                        <a href="/categories/Python/" class="post-category" target="_blank">
+                            Python
                         </a>
                         
                     </div>
@@ -447,7 +453,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-03-10
+                    2020-03-17
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -461,7 +467,7 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    22
+                    268
                 </div>
                 
 
@@ -484,29 +490,78 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="FlaskWeb开发实战入门-进阶与原理解析-pdf"><a href="#FlaskWeb开发实战入门-进阶与原理解析-pdf" class="headerlink" title="FlaskWeb开发实战入门_进阶与原理解析.pdf"></a>FlaskWeb开发实战入门_进阶与原理解析.pdf</h1><br>
+                <h1 id="根据global定义全局变量"><a href="#根据global定义全局变量" class="headerlink" title="根据global定义全局变量"></a><font color="blue">根据global定义全局变量</font></h1><ul>
+<li><font color="orange">示例</font></li>
+</ul>
+<p>中利用global定义全局变量(<font color="red">accessKey、accessSecret、region</font>)</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#libs/base.py</span>
+<span class="token comment" spellcheck="true"># -*- coding: utf-8 -*-</span>
+<span class="token keyword">import</span> importlib
+<span class="token keyword">import</span> configparser
+<span class="token keyword">import</span> sys
 
+<span class="token comment" spellcheck="true">#importlib.reload(sys)</span>
 
-	<div class="row">
-    <embed src="http://blog.hooyuhao.club/file/FlaskWeb开发实战入门_进阶与原理解析.pdf" width="100%" height="550" type="application/pdf">
-	</div>
+<span class="token comment" spellcheck="true">#利用configparser读取ini文件内容</span>
+config <span class="token operator">=</span> configparser<span class="token punctuation">.</span>ConfigParser<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#注：这个conf/路径不要写错</span>
+config<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token string">"conf/acskey.ini"</span><span class="token punctuation">)</span>
+<span class="token keyword">global</span> region<span class="token punctuation">,</span> accessKey<span class="token punctuation">,</span> accessSecret
+accessKey <span class="token operator">=</span> config<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"aliyunAK"</span><span class="token punctuation">,</span> <span class="token string">"accessKey"</span><span class="token punctuation">)</span>
+accessSecret <span class="token operator">=</span> config<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"aliyunAK"</span><span class="token punctuation">,</span> <span class="token string">"accessSecret"</span><span class="token punctuation">)</span>
+region <span class="token operator">=</span> config<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"aliyunAK"</span><span class="token punctuation">,</span> <span class="token string">"region"</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li><font color="orange">引用</font></li>
+</ul>
+<p><font color="red">注意：全局变量引用请使用如下方式</font></p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#声明全局变量的模块</span>
+<span class="token keyword">from</span> libs<span class="token punctuation">.</span>base <span class="token keyword">import</span> <span class="token operator">*</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p><font color="red">根据上面设置完成，程序直接引用<strong><em>变量名</em></strong>即可</font></p>
+<h1 id="根据设置函数，并调用函数中的字典"><a href="#根据设置函数，并调用函数中的字典" class="headerlink" title="根据设置函数，并调用函数中的字典"></a><font color="blue">根据设置函数，并调用函数中的字典</font></h1><ul>
+<li><font color="orange">示例</font></li>
+</ul>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#libs/acskey.py</span>
+<span class="token comment" spellcheck="true"># -*- coding: utf-8 -*-</span>
+<span class="token keyword">import</span> importlib
+<span class="token keyword">import</span> configparser
+<span class="token keyword">import</span> sys
 
-
-
-<br>
-
-
-
-<h1 id="英文思维导图-one"><a href="#英文思维导图-one" class="headerlink" title="英文思维导图_one"></a>英文思维导图_one</h1><br>
-
-
-	<div class="row">
-    <embed src="http://blog.hooyuhao.club/file/English-map.pdf" width="100%" height="550" type="application/pdf">
-	</div>
-
-
-
-<br>
+importlib<span class="token punctuation">.</span>reload<span class="token punctuation">(</span>sys<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#定义函数</span>
+<span class="token keyword">def</span> <span class="token function">mydict</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true">##读取ini文件内容</span>
+    my_dict <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    config <span class="token operator">=</span> configparser<span class="token punctuation">.</span>ConfigParser<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    config<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token string">"conf/acskey.ini"</span><span class="token punctuation">)</span>
+    accessKey <span class="token operator">=</span> config<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"aliyunAK"</span><span class="token punctuation">,</span> <span class="token string">"accessKey"</span><span class="token punctuation">)</span>
+    accessSecret <span class="token operator">=</span> config<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"aliyunAK"</span><span class="token punctuation">,</span> <span class="token string">"accessSecret"</span><span class="token punctuation">)</span>
+    region <span class="token operator">=</span> config<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"aliyunAK"</span><span class="token punctuation">,</span> <span class="token string">"region"</span><span class="token punctuation">)</span>
+    my_dict<span class="token punctuation">[</span><span class="token string">'accessKey'</span><span class="token punctuation">]</span> <span class="token operator">=</span> accessKey
+    my_dict<span class="token punctuation">[</span><span class="token string">'accessSecret'</span><span class="token punctuation">]</span> <span class="token operator">=</span> accessSecret
+    my_dict<span class="token punctuation">[</span><span class="token string">'region'</span><span class="token punctuation">]</span> <span class="token operator">=</span> region
+    <span class="token keyword">return</span> my_dict
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li><font color="orange">引用</font></li>
+</ul>
+<ol>
+<li>首先声明模块</li>
+</ol>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#声明模块</span>
+<span class="token keyword">from</span> libs<span class="token punctuation">.</span>acskey <span class="token keyword">import</span> mydict
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<ol start="2">
+<li>引用mydict中的字典，并取值</li>
+</ol>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#将mydict字典赋值给mykey</span>
+mykey <span class="token operator">=</span> mydict<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#取字典中的值(accesskey, accessSecret, region)</span>
+accessKey <span class="token operator">=</span> mykey<span class="token punctuation">[</span><span class="token string">'accessKey'</span><span class="token punctuation">]</span> 
+accessSecret <span class="token operator">=</span> mykey<span class="token punctuation">[</span><span class="token string">'accessSecret'</span><span class="token punctuation">]</span>
+region <span class="token operator">=</span> mykey<span class="token punctuation">[</span><span class="token string">'region'</span><span class="token punctuation">]</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr />
@@ -665,9 +720,9 @@
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《book》
+                    《python 定义全局变量》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/book/index.html" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/python-ding-yi-quan-ju-bian-liang/" property="cc:attributionName"
                rel="cc:attributionURL">
                 helen
             </a> 采用
@@ -708,7 +763,7 @@
         repo: 'Hooyh110.github.io',
         owner: 'Hooyh110',
         admin: "Hooyh110",
-        id: 'book/index.html',
+        id: 'python-ding-yi-quan-ju-bian-liang/',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -996,31 +1051,31 @@
                 <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/book/index.html">
+                <a href="/python-ding-yi-quan-ju-bian-liang/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/27.jpg" class="responsive-img" alt="book">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="python 定义全局变量">
                         
-                        <span class="card-title">book</span>
+                        <span class="card-title">python 定义全局变量</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            定义js.map文件只允许访问内网或者指定IP访问
+                            利用字典和global声明全局变量
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-10
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-17
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/" class="post-category" target="_blank">
-                                    
+                            <a href="/categories/Python/" class="post-category" target="_blank">
+                                    Python
                                 </a>
                             
                             
@@ -1031,8 +1086,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/" target="_blank">
-                        <span class="chip bg-color"></span>
+                    <a href="/tags/Python/" target="_blank">
+                        <span class="chip bg-color">Python</span>
                     </a>
                     
                 </div>
@@ -1043,46 +1098,45 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="fa fa-dot-circle-o"></i>
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/book/index.html">
+                <a href="/python3-zhong-dictionary-zi-dian-cao-zuo-xiang-jie/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/27.jpg" class="responsive-img" alt="book">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="python3中Dictionary(字典)操作详解">
                         
-                        <span class="card-title">book</span>
+                        <span class="card-title">python3中Dictionary(字典)操作详解</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            定义js.map文件只允许访问内网或者指定IP访问
+                            在Python中，Dictionary是一种可变的容器类型。
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-10
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-17
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/" class="post-category" target="_blank">
-                                    
+                            <a href="/categories/python/" class="post-category" target="_blank">
+                                    python
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/" target="_blank">
-                        <span class="chip bg-color"></span>
+                    <a href="/tags/python/" target="_blank">
+                        <span class="chip bg-color">python</span>
                     </a>
                     
                 </div>
@@ -1229,6 +1283,13 @@
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
     <footer class="page-footer bg-color">
     <div class="container row center-align">

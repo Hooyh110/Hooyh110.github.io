@@ -4,11 +4,11 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="book, ECNU NLP DeepLearning AntNLP helen">
+    <meta name="keywords" content="python3中Dictionary(字典)操作详解, ECNU NLP DeepLearning AntNLP helen">
     <meta name="baidu-site-verification" content="PQuYZ68I8K">
     <meta name="google-site-verification" content="PQuYZ68I8K">
     <meta name="360-site-verification" content>
-    <meta name="description" content="book | helen的博客">
+    <meta name="description" content="在绝大部分的开发语言中与实际开发过程中，Dictionary扮演着举足轻重的角色。从我们的数据模型到服务器返回的参数到数据库的应用等等，Dictionary的身影无处不在。那么，在Python中，Dictionary是一个怎么样的数据类型呢">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +16,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>book | helen的博客</title>
+    <title>python3中Dictionary(字典)操作详解 | helen的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -306,13 +306,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/27.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        book
+                        python3中Dictionary(字典)操作详解
                     </div>
                 </div>
             </div>
@@ -423,8 +423,8 @@
                     
                     <div class="article-tag">
                         
-                        <a href="/" target="_blank">
-                            <span class="chip bg-color"></span>
+                        <a href="/tags/python/" target="_blank">
+                            <span class="chip bg-color">python</span>
                         </a>
                         
                     </div>
@@ -435,8 +435,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                        <a href="/" class="post-category" target="_blank">
-                            
+                        <a href="/categories/python/" class="post-category" target="_blank">
+                            python
                         </a>
                         
                     </div>
@@ -447,7 +447,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-03-10
+                    2020-03-17
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -461,14 +461,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    22
+                    1.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    5 分
                 </div>
                 
                 
@@ -484,29 +484,105 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="FlaskWeb开发实战入门-进阶与原理解析-pdf"><a href="#FlaskWeb开发实战入门-进阶与原理解析-pdf" class="headerlink" title="FlaskWeb开发实战入门_进阶与原理解析.pdf"></a>FlaskWeb开发实战入门_进阶与原理解析.pdf</h1><br>
-
-
-	<div class="row">
-    <embed src="http://blog.hooyuhao.club/file/FlaskWeb开发实战入门_进阶与原理解析.pdf" width="100%" height="550" type="application/pdf">
-	</div>
-
-
-
-<br>
-
-
-
-<h1 id="英文思维导图-one"><a href="#英文思维导图-one" class="headerlink" title="英文思维导图_one"></a>英文思维导图_one</h1><br>
-
-
-	<div class="row">
-    <embed src="http://blog.hooyuhao.club/file/English-map.pdf" width="100%" height="550" type="application/pdf">
-	</div>
-
-
-
-<br>
+                <p>在绝大部分的开发语言中与实际开发过程中，Dictionary扮演着举足轻重的角色。从我们的数据模型到服务器返回的参数到数据库的应用等等，Dictionary的身影无处不在。那么，在Python中，Dictionary是一个怎么样的数据类型呢？</p>
+<p>在Python中，Dictionary是一种可变的容器类型。所谓容器类型，就是我们放置数据的地方。不同于List的有序、操作时对数据类型统一性的要求较严格，Dictionary是一种可变的、不限存储对象、无序的数据模型。</p>
+<p>在Dictionary的数据模型中，主要是以Key（键）和Value（值）的组合来储存数据的。Key与Value一一对应，且Key不可重复。我们可以用字符串、数字、元组等类型来充当Key（这单较之其他语言如OC，增加了许多可拓展性），可以以任意的对象来充当Value的角色。 那么Dictionary，是如何创建的呢？</p>
+<ul>
+<li><strong>Dictionary的创建</strong></li>
+</ul>
+<p>创建一个Dictionary，我们主要可以用以下几种方法：</p>
+<ul>
+<li><strong>直接按照数据格式</strong></li>
+</ul>
+<pre class="line-numbers language-python"><code class="language-python">my_dict <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'name'</span><span class="token punctuation">:</span><span class="token string">'drink'</span><span class="token punctuation">,</span> <span class="token string">'age'</span><span class="token punctuation">:</span><span class="token number">28</span><span class="token punctuation">,</span> <span class="token string">'location'</span><span class="token punctuation">:</span><span class="token string">'厦门'</span><span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>Dictionary是以大括号{}括起来、里边填充键值对群、键值对中以”:“分格、键在前值在后、键值对以逗号分格的一种数据类型。所以当我们在写一些静态常用的Dictionary的时候，常常可以直接按照数据格式的方式来创造。</p>
+<ul>
+<li><strong>通过动态值来创建Dictionary</strong></li>
+</ul>
+<pre class="line-numbers language-python"><code class="language-python">my_dict <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+name <span class="token operator">=</span> <span class="token string">'drink'</span>
+age <span class="token operator">=</span> <span class="token number">28</span>
+location <span class="token operator">=</span> <span class="token string">'厦门'</span>
+my_dict<span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span> <span class="token operator">=</span> name
+my_dict<span class="token punctuation">[</span><span class="token string">'age'</span><span class="token punctuation">]</span> <span class="token operator">=</span> age
+my_dict<span class="token punctuation">[</span><span class="token string">'location'</span><span class="token punctuation">]</span> <span class="token operator">=</span> location
+<span class="token comment" spellcheck="true"># my_dict = {'name':'drink', 'age':28, 'location':'厦门'}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>我们可以通过先创建一个空Dictionary，然后往后面一一填入我们需要的数据的方式来动态创建。这种创建方式，常常会用在一些我们事先并不知道返回结果的场景中，如服务器返回数据。当我们获得这些返回结果的时候，再一一向Dictionary中添加既可以。</p>
+<ul>
+<li><strong>通过系统的dict()方法</strong></li>
+</ul>
+<pre class="line-numbers language-python"><code class="language-python">my_dict  <span class="token operator">=</span> dict<span class="token punctuation">(</span>name <span class="token operator">=</span> <span class="token string">'drink'</span><span class="token punctuation">,</span> age <span class="token operator">=</span> <span class="token number">28</span><span class="token punctuation">,</span> location <span class="token operator">=</span> <span class="token string">'Xiamen'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># my_dict = {'name':'drink', 'age':28, 'location':'厦门'}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>dict()这个方法是一个动态参数的方法，意思是它不会去限制我们传入的限制类型和个数，然后会以变量名去充当键值对中的键，以变量的值去充当键值对中的值。这种方法创建Dictionary语法简单而且简洁明了、不易出错。</p>
+<p>注意：使用这个方法的时候，键必须都是字符串才行，否则系统抛异常。</p>
+<ul>
+<li><strong>通过键值元素表</strong></li>
+</ul>
+<pre class="line-numbers language-python"><code class="language-python">my_dict <span class="token operator">=</span> dict<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">(</span><span class="token string">''</span>name<span class="token string">', '</span>drink<span class="token string">'), ('</span>age<span class="token string">', 28), ('</span>location<span class="token string">', '</span>厦门'<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># my_dict = {'name':'drink', 'age':28, 'location':'厦门'}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>这种方法，是往dict()方法中，传入一个List类型数据，List类型数据的元素都是由包含两个元素的元组来组成。系统会取List中每个元组来生成一个键值对，以元组的第一个元素来充当Dictionary的键，第二个元素来充当Dictionary的值。</p>
+<ul>
+<li><strong>通过赋予默认值</strong></li>
+</ul>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">from</span> collections <span class="token keyword">import</span> defaultdict
+my_dict <span class="token operator">=</span> defaultdict<span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token keyword">lambda</span><span class="token punctuation">:</span><span class="token string">'dafault_value'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>my_dict<span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true"># 'nothing'</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>my_dict<span class="token punctuation">)</span>            <span class="token comment" spellcheck="true"># defaultdict(&lt;function __main__.&lt;lambda>()>, {'name': 'nothing'})</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>通过赋予默认值的方法来创建的话，首先要为工程导入collections库中的defaultdict文件。然后在初始化Dictionary的时候，就对字典设置默认值。这样当添加的键值对中，没有被赋予值的话，就会被赋予默认值。</p>
+<ul>
+<li><strong>通过Key获取Value</strong></li>
+</ul>
+<pre class="line-numbers language-python"><code class="language-python">my_dict <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'name'</span><span class="token punctuation">:</span><span class="token string">'drink'</span><span class="token punctuation">,</span> <span class="token string">'age'</span><span class="token punctuation">:</span><span class="token number">28</span><span class="token punctuation">,</span> <span class="token string">'location'</span><span class="token punctuation">:</span><span class="token string">'厦门'</span><span class="token punctuation">}</span>
+my_dict<span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span>          <span class="token comment" spellcheck="true"># drink</span>
+my_dict<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'age'</span><span class="token punctuation">)</span>       <span class="token comment" spellcheck="true"># 28</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>Dictionary取值主要用两种方法，第一种是直接在Dictionary名后加[]，并在[]中填入要查询的Key；第二种是使用.get()方法获取，传的参数就是所要查询的key</p>
+<ul>
+<li><strong>修改Dictionary里的值</strong></li>
+</ul>
+<pre class="line-numbers language-python"><code class="language-python">my_dict <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'name'</span><span class="token punctuation">:</span><span class="token string">'drink'</span><span class="token punctuation">,</span> <span class="token string">'age'</span><span class="token punctuation">:</span><span class="token number">28</span><span class="token punctuation">,</span> <span class="token string">'location'</span><span class="token punctuation">:</span><span class="token string">'厦门'</span><span class="token punctuation">}</span>
+my_dict<span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'louis'</span>    <span class="token comment" spellcheck="true"># my_dict = {'name':'louis', 'age':28, 'location':'厦门'}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>修改Dictionary中值的方法，其实和上述创建Dictionary的第二种方法一样（严格来说，是向Dictionary中添加值的方法）。直接在Dictionary变量名后添加[]，并在[]中填入要修改的值。当值存在的时候，就会修改成要修改的值。当值不存在的时候，就会向Dictionary中添加一堆新的键值对。</p>
+<ul>
+<li><strong>删除Dictionary里的值</strong></li>
+</ul>
+<pre class="line-numbers language-python"><code class="language-python">my_dict <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'name'</span><span class="token punctuation">:</span><span class="token string">'drink'</span><span class="token punctuation">,</span> <span class="token string">'age'</span><span class="token punctuation">:</span><span class="token number">28</span><span class="token punctuation">,</span> <span class="token string">'location'</span><span class="token punctuation">:</span><span class="token string">'厦门'</span><span class="token punctuation">}</span>
+<span class="token keyword">del</span> my_dict<span class="token punctuation">[</span><span class="token string">'age'</span><span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true"># my_dict = {'name':'drink', 'location':'厦门'}</span>
+my_dict<span class="token punctuation">.</span>clear<span class="token punctuation">(</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true"># 清空Dictionary内所有键值对</span>
+<span class="token keyword">del</span> my_dict        <span class="token comment" spellcheck="true"># 删除Dictionary变量</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>删除Dictionary值的时候，只需要在变量名前加上del命令，然后再变量后添加[]，并在[]中填入所要删除键值对的Key即可。</p>
+<p>如果在变量名前添加del命令，但是没有传参数也没有()的话，会将Dictionary变量直接删除，整个Dictionary都将不再存在。</p>
+<p>当要清空Dictionary中的所有键值对的时候，可以使用clear方法。在变量名后调用clear方法，会将Dictionary中的所有键值对清除。</p>
+<p><font color="red">Dictionary的注意事项</font></p>
+<p>不允许同一个键出现两次。如果对同一个键添加多次的话，Dictionary中只会保留一个键，并保留最后一次添加的值<br>键必须是不可变的，所以可以用所有的不可变数据类型充当键，如：Nunber、String、Tuple。不能使用List、Set、Dictionary当键，因为他们是可变数据类型<br>Dictionary内置函数与方法</p>
+<ul>
+<li><strong>内置函数</strong></li>
+</ul>
+<pre class="line-numbers language-python"><code class="language-python">cmp<span class="token punctuation">(</span>dict1<span class="token punctuation">,</span> dict2<span class="token punctuation">)</span>      <span class="token comment" spellcheck="true">#比较两个字典元素。</span>
+len<span class="token punctuation">(</span>dict<span class="token punctuation">)</span>              <span class="token comment" spellcheck="true">#计算字典元素个数，即键的总数。</span>
+str<span class="token punctuation">(</span>dict<span class="token punctuation">)</span>              <span class="token comment" spellcheck="true">#输出字典可打印的字符串表示。</span>
+type<span class="token punctuation">(</span>variable<span class="token punctuation">)</span>         <span class="token comment" spellcheck="true">#返回输入的变量类型，如果变量是字典就返回字典类型。 </span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li><strong>内置方法</strong></li>
+</ul>
+<pre class="line-numbers language-python"><code class="language-python">dict<span class="token punctuation">.</span>copy<span class="token punctuation">(</span><span class="token punctuation">)</span>                            <span class="token comment" spellcheck="true"># 返回一个字典的浅复制</span>
+dict<span class="token punctuation">.</span>fromkeys<span class="token punctuation">(</span><span class="token punctuation">)</span>                        <span class="token comment" spellcheck="true"># 创建一个新字典，以序列seq中元素做字典的键，val为字典所有键对应的初始值</span>
+dict<span class="token punctuation">.</span>has_key<span class="token punctuation">(</span><span class="token punctuation">)</span>                         <span class="token comment" spellcheck="true"># 如果键在字典dict里返回true，否则返回false</span>
+dict<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span>                           <span class="token comment" spellcheck="true"># 以列表返回可遍历的(键, 值) 元组数组</span>
+dict<span class="token punctuation">.</span>keys<span class="token punctuation">(</span><span class="token punctuation">)</span>                            <span class="token comment" spellcheck="true"># 以列表返回一个字典所有的键</span>
+dict<span class="token punctuation">.</span>setdefault<span class="token punctuation">(</span>key<span class="token punctuation">,</span> defalut <span class="token operator">=</span> None<span class="token punctuation">)</span>   <span class="token comment" spellcheck="true"># 和get()类似, 但如果键不已经存在于字典中，将会添加键并将值设为default</span>
+dict<span class="token punctuation">.</span>update<span class="token punctuation">(</span>dict2<span class="token punctuation">)</span>                     <span class="token comment" spellcheck="true"># 把字典dict2的键值对更新到dict里</span>
+dict<span class="token punctuation">.</span>values<span class="token punctuation">(</span><span class="token punctuation">)</span>                          <span class="token comment" spellcheck="true"># 以列表返回字典中的所有值</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr />
@@ -665,9 +741,9 @@
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《book》
+                    《python3中Dictionary(字典)操作详解》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/book/index.html" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/python3-zhong-dictionary-zi-dian-cao-zuo-xiang-jie/" property="cc:attributionName"
                rel="cc:attributionURL">
                 helen
             </a> 采用
@@ -708,7 +784,7 @@
         repo: 'Hooyh110.github.io',
         owner: 'Hooyh110',
         admin: "Hooyh110",
-        id: 'book/index.html',
+        id: 'python3-zhong-dictionary-zi-dian-cao-zuo-xiang-jie/',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -991,48 +1067,46 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
-            </div>
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/book/index.html">
+                <a href="/python-ding-yi-quan-ju-bian-liang/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/27.jpg" class="responsive-img" alt="book">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="python 定义全局变量">
                         
-                        <span class="card-title">book</span>
+                        <span class="card-title">python 定义全局变量</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            定义js.map文件只允许访问内网或者指定IP访问
+                            利用字典和global声明全局变量
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-10
-                            </span>
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-17
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/" class="post-category" target="_blank">
-                                    
+                            <a href="/categories/Python/" class="post-category" target="_blank">
+                                    Python
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/" target="_blank">
-                        <span class="chip bg-color"></span>
+                    <a href="/tags/Python/" target="_blank">
+                        <span class="chip bg-color">Python</span>
                     </a>
                     
                 </div>
@@ -1043,46 +1117,45 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="fa fa-dot-circle-o"></i>
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/book/index.html">
+                <a href="/shi-yong-a-li-yun-sdk-cha-kan-ecs-lie-biao/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/27.jpg" class="responsive-img" alt="book">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="使用阿里云SDK查看ecs列表">
                         
-                        <span class="card-title">book</span>
+                        <span class="card-title">使用阿里云SDK查看ecs列表</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            定义js.map文件只允许访问内网或者指定IP访问
+                            利用阿里云SDK查看当前运行的ecs列表
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-10
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-16
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/" class="post-category" target="_blank">
-                                    
+                            <a href="/categories/Python/" class="post-category" target="_blank">
+                                    Python
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/" target="_blank">
-                        <span class="chip bg-color"></span>
+                    <a href="/tags/Python/" target="_blank">
+                        <span class="chip bg-color">Python</span>
                     </a>
                     
                 </div>
@@ -1229,6 +1302,13 @@
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
     <footer class="page-footer bg-color">
     <div class="container row center-align">

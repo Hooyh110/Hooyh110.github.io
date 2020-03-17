@@ -1,3 +1,5 @@
+http://blog.hooyuhao.club/python-ding-yi-quan-ju-bian-liang/
+http://blog.hooyuhao.club/python3-zhong-dictionary-zi-dian-cao-zuo-xiang-jie/
 http://blog.hooyuhao.club/shi-yong-a-li-yun-sdk-cha-kan-ecs-lie-biao/
 http://blog.hooyuhao.club/shi-yong-kubeadm-an-zhuang-kubernetes-v1-15-3/
 http://blog.hooyuhao.club/mysql-zi-dong-hua-yun-wei-gong-ju/
