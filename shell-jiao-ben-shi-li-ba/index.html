@@ -465,14 +465,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.4k
+                    2.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    7 分
+                    12 分
                 </div>
                 
                 
@@ -767,6 +767,81 @@ jar_path<span class="token operator">=</span><span class="token variable">${GIT_
 <span class="token keyword">else</span>
     <span class="token keyword">echo</span> -e <span class="token string">"===========Deploy Error============="</span>
 <span class="token keyword">fi</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="【脚本103】利用shell脚本监控verdaccio服务"><a href="#【脚本103】利用shell脚本监控verdaccio服务" class="headerlink" title="【脚本103】利用shell脚本监控verdaccio服务"></a>【脚本103】利用shell脚本监控verdaccio服务</h1><p>我们在公司内部通过verdaccio创建了私有npm仓库，但是verdaccio不太稳定，每周都可能会挂掉一次两次的，在网上也没有找到好的解决方法。随着挂掉次数越来越多，痛定思痛，决定写个脚本主动监控verdaccio并在其挂掉以后自动重启。</p>
+<h2 id="判断服务是否正常运行"><a href="#判断服务是否正常运行" class="headerlink" title="判断服务是否正常运行"></a>判断服务是否正常运行</h2><p>怎么判断verdaccio是否正常正常呢？如果是我肉眼判断的话，我直接打开verdaccio的主页，比如<strong><a href="http://example:4873" target="_blank" rel="noopener">http://example:4873</a></strong>，如果能看到页面内容则说明服务正常，如果看到”无法访问次网站“等字样则说明服务挂掉了。为了实现自动化的监控和重启，我们必须通过脚本程序来做，在此我们可以通过curl命令来获取<strong><a href="http://example:4873" target="_blank" rel="noopener">http://example:4873</a></strong>页面的响应码，如果返回200则说明服务正常，否则服务挂掉了。我们使用curl命令的参数-I只显示响应头。然后通过判断响应头中是否包含HTTP/1.1 200 OK字样来检查服务是否正常。因此就有了以下程序：</p>
+<pre class="line-numbers language-bash"><code class="language-bash">header<span class="token operator">=</span><span class="token variable"><span class="token variable">`</span>curl -I http://example:4873<span class="token variable">`</span></span>
+<span class="token keyword">if</span> <span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token variable">$header</span> <span class="token operator">=</span>~ <span class="token string">'HTTP/1.1 200 OK'</span> <span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+    <span class="token keyword">echo</span> <span class="token string">'ok'</span>
+<span class="token keyword">else</span>
+    <span class="token keyword">echo</span> <span class="token string">'not ok'</span>
+<span class="token keyword">fi</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>通过以上代码我们就可以监控服务是否正常了，我们再来拓展一下思路，其实我们还可以通过检查verdaccio服务进程是否存在来判断verdaccio服务正常与否。怎么判断进程是否存在呢？这里不再详细介绍，请参考一下代码：</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 查询有几个进程占用了`4873`端口</span>
+count<span class="token operator">=</span><span class="token variable"><span class="token variable">`</span><span class="token function">lsof</span> -ti :4873 <span class="token operator">|</span> <span class="token function">wc</span> -l<span class="token variable">`</span></span>
+<span class="token keyword">if</span> <span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token variable">$count</span> -ne 0 <span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+    <span class="token keyword">echo</span> <span class="token string">'ok'</span>
+<span class="token keyword">else</span>
+    <span class="token keyword">echo</span> <span class="token string">'not ok'</span>
+<span class="token keyword">fi</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>第二种方案不如第一种直观，我仍然把它写出来主要是提醒各位多多思考，不要拘泥于某一种方案。接下来我们仍然采用第一种更加直观的方案继续进行。</p>
+<h2 id="服务挂了以后自动重启"><a href="#服务挂了以后自动重启" class="headerlink" title="服务挂了以后自动重启"></a>服务挂了以后自动重启</h2><p>在上一节中我们已经能够检查服务是否正常了，在这一节中我们要实现的是自动重启服务，这个就非常简单了，想想我们是怎么启动verdaccio的，嗯，我们是在控制台中输入一下命令，nohup verdaccio &amp;，其中nohup让命令永远执行下去，即使用户退出也没有关系，&amp;让程序在后台运行。两者结合起来就可以程序永久地在后台运行。</p>
+<pre class="line-numbers language-bash"><code class="language-bash">header<span class="token operator">=</span><span class="token variable"><span class="token variable">`</span>curl -I http://example:4873<span class="token variable">`</span></span>
+<span class="token keyword">if</span> <span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token variable">$header</span> <span class="token operator">=</span>~ <span class="token string">'HTTP/1.1 200 OK'</span> <span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+    <span class="token keyword">echo</span> <span class="token string">'ok'</span><span class="token punctuation">;</span>
+<span class="token keyword">else</span>
+    <span class="token comment" spellcheck="true"># 重启服务</span>
+    <span class="token function">nohup</span> verdaccio <span class="token operator">&amp;</span>
+<span class="token keyword">fi</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="定期监控服务运行状况"><a href="#定期监控服务运行状况" class="headerlink" title="定期监控服务运行状况"></a>定期监控服务运行状况</h2><p>通过前面两个步骤我们已经写出一个脚本，它会检查服务是否正常运行，如果服务挂掉了就会重启。这还是这个检查工作是一次性的，需要我们不停地执行脚本。当然可以通过crontab命令（以后再介绍）实现，不过在这里我们将通过写一个死循环逻辑来实现每隔一段时间来检查服务是否正常运行。</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token keyword">while</span> <span class="token boolean">true</span>
+<span class="token keyword">do</span>
+    header<span class="token operator">=</span><span class="token variable"><span class="token variable">`</span>curl -I http://example:4873<span class="token variable">`</span></span>
+    <span class="token keyword">if</span> <span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token variable">$header</span> <span class="token operator">=</span>~ <span class="token string">'HTTP/1.1 200 OK'</span> <span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+        <span class="token keyword">echo</span> <span class="token string">'ok'</span><span class="token punctuation">;</span>
+    <span class="token keyword">else</span>
+        <span class="token comment" spellcheck="true"># 重启服务</span>
+        <span class="token function">nohup</span> verdaccio <span class="token operator">&amp;</span>
+    <span class="token keyword">fi</span>
+    <span class="token comment" spellcheck="true"># 每个10秒检查一次</span>
+    <span class="token function">sleep</span> 10s
+<span class="token keyword">done</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>sleep命令会让程序暂停一段时间，很适合用在循环方式运行的监控脚本中，它有一个参数表示要暂停的时间，时间单位可以是s秒，m分钟，h小时和d天。默认为秒。我们也可以传入小数0.1s来实现毫秒级的睡眠，但是sleep命令只能保证10ms的睡眠，如果你对时间精度要求特别高的话，sleep命令就无能为力了。</p>
+<h2 id="重启服务以后记录日志"><a href="#重启服务以后记录日志" class="headerlink" title="重启服务以后记录日志"></a>重启服务以后记录日志</h2><p>当服务挂了以后除了重启以外，还需要将重启行为记入到日志文件中，方便以后我们查看什么时候服务被重启了，最终代码如下：</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/sh</span>
+
+<span class="token comment" spellcheck="true"># 获取脚本目录</span>
+shell_folder<span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token function">cd</span> `dirname $0`<span class="token punctuation">;</span> <span class="token function">pwd</span><span class="token variable">)</span></span>
+
+<span class="token keyword">while</span> <span class="token boolean">true</span>
+<span class="token keyword">do</span>
+    header<span class="token operator">=</span><span class="token variable"><span class="token variable">`</span>curl -I http://example:4873<span class="token variable">`</span></span>
+    <span class="token keyword">if</span> <span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token variable">$header</span> <span class="token operator">=</span>~ <span class="token string">'HTTP/1.1 200 OK'</span> <span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+        <span class="token keyword">echo</span> <span class="token string">'ok'</span><span class="token punctuation">;</span>
+    <span class="token keyword">else</span>
+        <span class="token comment" spellcheck="true"># 重启服务并记录日志</span>
+        <span class="token function">nohup</span> verdaccio <span class="token operator">&amp;</span>
+        <span class="token keyword">echo</span> <span class="token variable"><span class="token variable">`</span><span class="token function">date</span> +%Y-%m-%d\ %H:%M:%S<span class="token variable">`</span></span> <span class="token string">"restart"</span> <span class="token operator">>></span> <span class="token variable">$shell_folder</span>/verdaccio.restart.log
+    <span class="token keyword">fi</span>
+    <span class="token comment" spellcheck="true"># 每个10秒检查一次</span>
+    <span class="token function">sleep</span> 10s
+<span class="token keyword">done</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>执行命令<strong>nohup sh verdaccio.sh &amp;</strong>就启动了一个守护进程，实现了每隔10秒检查一次服务是否运行正常，如果挂掉就会重启的功能，并且还会记录到日志中。</p>
+<p>如果你是在Ubuntu服务器上运行该命令，可能会遇到这个错误[[: not found，这是因为sh只是一个符号链接，最终指向是一个叫做dash的程序，自Ubuntu 6.10以后，系统的默认<strong>shell /bin/sh</strong>被改成了<strong>dash</strong>。<strong>dash(the Debian Almquist shell)</strong> 是一个比bash小很多但仍兼容POSIX标准的shell，它占用的磁盘空间更少，执行shell脚本比bash更快，依赖的库文件更少，当然，在功能上无法与bash相比。所以在Ubuntu上我们需要指定使用bash，即<strong>nohup bash verdaccio.sh &amp;</strong>。</p>
+<h2 id="如何取消服务自动重启"><a href="#如何取消服务自动重启" class="headerlink" title="如何取消服务自动重启"></a>如何取消服务自动重启</h2><p>如果有一天，你想关闭verdaccio服务，守护进程就会检测到该服务挂掉，并自动重启该服务。导致你想关闭该服务也不行了。所以我们首先要先关闭守护进程，如何关闭呢？我们可以使用jobs命令查看守护进程ID，然后杀掉该进程。</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">jobs</span> -l
+<span class="token function">kill</span> -9 <span class="token operator">&lt;</span>id<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>针对verdaccio的特殊方案</p>
+<p>其实verdaccio是用Node写的，因此可以通过pm2让其达到自动重启的功能，命令如下：</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 启动</span>
+pm2 start <span class="token function">which</span> verdaccio 
+<span class="token comment" spellcheck="true"># 停止</span>
+pm2 stop <span class="token function">which</span> verdaccio 
+<span class="token comment" spellcheck="true"># 查看日志</span>
+pm2 show verdaccio
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr />
@@ -1503,7 +1578,7 @@ jar_path<span class="token operator">=</span><span class="token variable">${GIT_
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">34.6k</span>
+            <span class="white-color">36.1k</span>
             
 
             <br>
