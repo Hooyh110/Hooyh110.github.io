@@ -8,10 +8,9 @@
     <meta name="baidu-site-verification" content="PQuYZ68I8K">
     <meta name="google-site-verification" content="PQuYZ68I8K">
     <meta name="360-site-verification" content>
-    <meta name="description" content="#【脚本25】找规律打印数字
-请详细查看如下几个数字的规律，并使用shell脚本输出后面的十个数字。
+    <meta name="description" content="【脚本25】找规律打印数字请详细查看如下几个数字的规律，并使用shell脚本输出后面的十个数字。
 10 31 53 77 105 141 …….试题解析：我想大多数人都会去比较这些数字的差值：
-10  31  53  77  105  ">
+10  31  53  77  105  14">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -487,8 +486,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>#【脚本25】找规律打印数字</p>
-<p>请详细查看如下几个数字的规律，并使用shell脚本输出后面的十个数字。</p>
+                <h1 id="【脚本25】找规律打印数字"><a href="#【脚本25】找规律打印数字" class="headerlink" title="【脚本25】找规律打印数字"></a>【脚本25】找规律打印数字</h1><p>请详细查看如下几个数字的规律，并使用shell脚本输出后面的十个数字。</p>
 <p>10 31 53 77 105 141 …….<br>试题解析：<br>我想大多数人都会去比较这些数字的差值：</p>
 <p>10  31  53  77  105  141<br>21   22   24   28   36<br>但是这个差值看，并没有什么规律，而我们再仔细看的时候，发现这个差值的差值是有规律的：</p>
 <p>10  31  53  77  105  141<br>21   22   24   28   36<br>1      2     4     8</p>
@@ -505,8 +503,7 @@ m<span class="token operator">=</span>10
  <span class="token keyword">echo</span> <span class="token variable">$m</span>
  x<span class="token operator">=</span>$<span class="token punctuation">[</span><span class="token variable">$x</span>+<span class="token variable">$j</span><span class="token punctuation">]</span>
 <span class="token keyword">done</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>#【脚本26】统计普通用户</p>
-<p>写个shell，看看你的Linux系统中是否有自定义用户（普通用户），若是有，一共有几个？</p>
+<h1 id="【脚本26】统计普通用户"><a href="#【脚本26】统计普通用户" class="headerlink" title="【脚本26】统计普通用户"></a>【脚本26】统计普通用户</h1><p>写个shell，看看你的Linux系统中是否有自定义用户（普通用户），若是有，一共有几个？</p>
 <p>假设所有普通用户都是uid大于1000的</p>
 <ul>
 <li>脚本实现：</li>
@@ -519,8 +516,7 @@ m<span class="token operator">=</span>10
  <span class="token keyword">else</span>
      <span class="token keyword">echo</span> <span class="token string">"No common users."</span>
  <span class="token keyword">fi</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>#【脚本27】监控磁盘使用率</p>
-<p>写一个shell脚本，检测所有磁盘分区使用率和inode使用率并记录到以当天日期为命名的日志文件里，当发现某个分区容量或者inode使用量大于85%时，发邮件通知你自己。</p>
+<h1 id="【脚本27】监控磁盘使用率"><a href="#【脚本27】监控磁盘使用率" class="headerlink" title="【脚本27】监控磁盘使用率"></a>【脚本27】监控磁盘使用率</h1><p>写一个shell脚本，检测所有磁盘分区使用率和inode使用率并记录到以当天日期为命名的日志文件里，当发现某个分区容量或者inode使用量大于85%时，发邮件通知你自己。</p>
 <ul>
 <li><p>思路：<br>就是先df -h 然后过滤出已使用的那一列，然后再想办法过滤出百分比的整数部分，然后和85去比较，同理，inode也是一样的思路。</p>
 </li>
@@ -564,8 +560,7 @@ log<span class="token operator">=</span>/var/log/disk/<span class="token variabl
 </ul>
 <p>df -h、df -i 记录磁盘分区使用率和inode使用率，date +%F 日志名格式<br>取出使用率(第5列)百分比序列，for循环逐一与85比较，大于85则记录到新文件里，当for循环结束后，汇总超过85的一并发送邮件(邮箱服务因未搭建，发送本地root账户)。<br>此脚本正确运行前提：</p>
 <p>该系统没有逻辑卷的情况下使用，因为逻辑卷df -h、df -i 时，使用率百分比是在第4列，而不是第5列。如有逻辑卷，则会漏统计逻辑卷使用情况。</p>
-<p>#【脚本28】获取文件列表</p>
-<p>有一台服务器作为web应用，有一个目录（/data/web/attachment）不定时地会被用户上传新的文件，但是不知道什么时候会上传。所以，需要我们每5分钟做一次检测是否有新文件生成。</p>
+<h1 id="【脚本28】获取文件列表"><a href="#【脚本28】获取文件列表" class="headerlink" title="【脚本28】获取文件列表"></a>【脚本28】获取文件列表</h1><p>有一台服务器作为web应用，有一个目录（/data/web/attachment）不定时地会被用户上传新的文件，但是不知道什么时候会上传。所以，需要我们每5分钟做一次检测是否有新文件生成。</p>
 <p>请写一个shell脚本去完成检测。检测完成后若是有新文件，还需要将新文件的列表输出到一个按年、月、日、时、分为名字的日志里。请不要想的太复杂，核心命令只有一个 find /data/web/attachment -mmin -5</p>
 <ul>
 <li><p>思路：<br>每5分钟检测一次，那肯定需要有一个计划任务，每5分钟去执行一次。脚本检测的时候，就是使用find命令查找5分钟内有过更新的文件，若是有更新，那这个命令会输出东西，否则是没有输出的。固，我们可以把输出结果的行数作为比较对象，看看它是否大于0。</p>
@@ -582,14 +577,12 @@ n<span class="token operator">=</span><span class="token variable">`</span></spa
     /bin/mv /tmp/newf.txt /tmp/<span class="token variable">$d</span>
 
 <span class="token keyword">fi</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>#【脚本29】统计常用命令</p>
-<p>写一个shell脚本来看看你使用最多的命令是哪些，列出你最常用的命令top10。</p>
+<h1 id="【脚本29】统计常用命令"><a href="#【脚本29】统计常用命令" class="headerlink" title="【脚本29】统计常用命令"></a>【脚本29】统计常用命令</h1><p>写一个shell脚本来看看你使用最多的命令是哪些，列出你最常用的命令top10。</p>
 <p>思路：我们要用到一个文件就是.bash_history，然后再去sort、uniq，剩下的就不用我多说了吧。很简单一个shell。</p>
 <p>一条命令即可：</p>
 <pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">sort</span> /root/.bash_history <span class="token operator">|</span><span class="token function">uniq</span> -c <span class="token operator">|</span><span class="token function">sort</span> -nr <span class="token operator">|</span><span class="token function">head</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>#【脚本30】统计日志大小</p>
-<p>假如我们需要每小时都去执行你写的脚本。在脚本中实现这样的功能，当时间是0点和12点时，需要将目录/data/log/下的文件全部清空，注意只能清空文件内容而不能删除文件。而其他时间只需要统计一下每个文件的大小，一个文件一行，输出到一个按日期和时间为名字的日志里。 需要考虑/data/log/目录下的二级、三级、… 等子目录里面的文件。</p>
+<h1 id="【脚本30】统计日志大小"><a href="#【脚本30】统计日志大小" class="headerlink" title="【脚本30】统计日志大小"></a>【脚本30】统计日志大小</h1><p>假如我们需要每小时都去执行你写的脚本。在脚本中实现这样的功能，当时间是0点和12点时，需要将目录/data/log/下的文件全部清空，注意只能清空文件内容而不能删除文件。而其他时间只需要统计一下每个文件的大小，一个文件一行，输出到一个按日期和时间为名字的日志里。 需要考虑/data/log/目录下的二级、三级、… 等子目录里面的文件。</p>
 <ul>
 <li>实现代码：</li>
 </ul>
@@ -608,8 +601,7 @@ d<span class="token operator">=</span><span class="token variable"><span class="
     <span class="token function">du</span> -sh <span class="token variable">$log</span> <span class="token operator">>></span>/tmp/log_size/<span class="token variable">$d</span>
     <span class="token keyword">fi</span>
 <span class="token keyword">done</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>#【脚本31】统计数字并求和</p>
-<p>计算文档a.txt中每一行中出现的数字个数并且要计算一下整个文档中一共出现了几个数字。例如a.txt内容如下：</p>
+<h1 id="【脚本31】统计数字并求和"><a href="#【脚本31】统计数字并求和" class="headerlink" title="【脚本31】统计数字并求和"></a>【脚本31】统计数字并求和</h1><p>计算文档a.txt中每一行中出现的数字个数并且要计算一下整个文档中一共出现了几个数字。例如a.txt内容如下：</p>
 <p>12aa*lkjskdj<br>alskdflkskdjflkjj</p>
 <p>我们脚本名字为 ncount.sh, 运行它时：</p>
 <pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">bash</span> ncount.sh a.txt
@@ -633,8 +625,7 @@ sum<span class="token operator">=</span>0
 <span class="token keyword">done</span>
 
 <span class="token keyword">echo</span> <span class="token function">sum</span> is <span class="token variable">$sum</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>#【脚本32】检测文件改动</p>
-<p>有两台Linux服务器A和B，假如A可以直接ssh到B，不用输入密码。A和B都有一个目录叫做/data/web/ 这下面有很多文件，当然我们不知道具体有几层子目录，假若之前A和B上该目录下的文件都是一模一样的。但现在不确定是否一致了。固需要我们写一个脚本实现这样的功能，检测A机器和B机器/data/web/目录下文件的异同，我们以A机器上的文件作为标准。比如，假若B机器少了一个a.txt文件，那我们应该能够检测出来，或者B机器上的b.txt文件有过改动，我们也应该能够检测出来（B机器上多了文件我们不用考虑）。</p>
+<h1 id="【脚本32】检测文件改动"><a href="#【脚本32】检测文件改动" class="headerlink" title="【脚本32】检测文件改动"></a>【脚本32】检测文件改动</h1><p>有两台Linux服务器A和B，假如A可以直接ssh到B，不用输入密码。A和B都有一个目录叫做/data/web/ 这下面有很多文件，当然我们不知道具体有几层子目录，假若之前A和B上该目录下的文件都是一模一样的。但现在不确定是否一致了。固需要我们写一个脚本实现这样的功能，检测A机器和B机器/data/web/目录下文件的异同，我们以A机器上的文件作为标准。比如，假若B机器少了一个a.txt文件，那我们应该能够检测出来，或者B机器上的b.txt文件有过改动，我们也应该能够检测出来（B机器上多了文件我们不用考虑）。</p>
 <ul>
 <li>提示：</li>
 </ul>
@@ -664,8 +655,7 @@ B_ip<span class="token operator">=</span>192.168.0.100
         <span class="token keyword">echo</span> <span class="token string">"<span class="token variable">$f</span> deleted. "</span>
     <span class="token keyword">fi</span>
 <span class="token keyword">done</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>#【脚本33】统计网卡流量</p>
-<p>写一个脚本,检测你的网络流量，并记录到一个日志里。需要按照如下格式，并且一分钟统计一次（只需要统计外网网卡，假设网卡名字为eth0)：</p>
+<h1 id="【脚本33】统计网卡流量"><a href="#【脚本33】统计网卡流量" class="headerlink" title="【脚本33】统计网卡流量"></a>【脚本33】统计网卡流量</h1><p>写一个脚本,检测你的网络流量，并记录到一个日志里。需要按照如下格式，并且一分钟统计一次（只需要统计外网网卡，假设网卡名字为eth0)：</p>
 <p>2017-08-04 01:11<br>eth0 input: 1000bps<br>eth0 output : 200000bps</p>
 <p>################<br>2017-08-04 01:12<br>eth0 input: 1000bps<br>eth0 output : 200000bps</p>
 <p><strong>提示：</strong>使用sar -n DEV 1 59 这样可以统计一分钟的平均网卡流量，只需要最后面的平均值。另外，注意换算一下，1byt=8bit</p>
@@ -688,8 +678,7 @@ B_ip<span class="token operator">=</span>192.168.0.100
     <span class="token operator">>></span> <span class="token variable">$LOG_FILE</span>
     <span class="token keyword">echo</span> <span class="token string">"#####################"</span> <span class="token operator">>></span> <span class="token variable">$LOG_FILE</span>
 <span class="token keyword">done</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>#【脚本34】系统-批量杀进程</p>
-<p>今天发现网站访问超级慢，top看如下：</p>
+<h1 id="【脚本34】系统-批量杀进程"><a href="#【脚本34】系统-批量杀进程" class="headerlink" title="【脚本34】系统-批量杀进程"></a>【脚本34】系统-批量杀进程</h1><p>今天发现网站访问超级慢，top看如下：</p>
 <img src="img/1.png">
 
 
@@ -701,8 +690,7 @@ B_ip<span class="token operator">=</span>192.168.0.100
 <p>命令如下：</p>
 <pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">ps</span> aux <span class="token operator">|</span><span class="token function">grep</span> clearmem.sh <span class="token operator">|</span><span class="token function">grep</span> -v <span class="token function">grep</span><span class="token operator">|</span><span class="token function">awk</span> <span class="token string">'{print <span class="token variable">$2</span>}'</span><span class="token operator">|</span><span class="token function">xargs</span> <span class="token function">kill</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>#【脚本35】判断是否开启80端口</p>
-<p>写一个脚本判断你的Linux服务器里是否开启web服务？（监听80端口）如果开启了，请判断出跑的是什么服务，是httpd呢还是nginx又或者是其他的什么？</p>
+<h1 id="【脚本35】判断是否开启80端口"><a href="#【脚本35】判断是否开启80端口" class="headerlink" title="【脚本35】判断是否开启80端口"></a>【脚本35】判断是否开启80端口</h1><p>写一个脚本判断你的Linux服务器里是否开启web服务？（监听80端口）如果开启了，请判断出跑的是什么服务，是httpd呢还是nginx又或者是其他的什么？</p>
 <ul>
 <li>实现代码：</li>
 </ul>
@@ -724,8 +712,7 @@ B_ip<span class="token operator">=</span>192.168.0.100
        <span class="token keyword">echo</span> <span class="token string">"other server."</span>
    <span class="token punctuation">;</span><span class="token punctuation">;</span> 
 esac<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>#【脚本36】监控mysql服务</p>
-<p>假设，当前MySQL服务的root密码为123456，写脚本检测MySQL服务是否正常（比如，可以正常进入mysql执行show processlist），并检测一下当前的MySQL服务是主还是从，如果是从，请判断它的主从服务是否异常。如果是主，则不需要做什么。</p>
+<h1 id="【脚本36】监控mysql服务"><a href="#【脚本36】监控mysql服务" class="headerlink" title="【脚本36】监控mysql服务"></a>【脚本36】监控mysql服务</h1><p>假设，当前MySQL服务的root密码为123456，写脚本检测MySQL服务是否正常（比如，可以正常进入mysql执行show processlist），并检测一下当前的MySQL服务是主还是从，如果是从，请判断它的主从服务是否异常。如果是主，则不需要做什么。</p>
 <ul>
 <li>实现代码：</li>
 </ul>
@@ -755,8 +742,7 @@ n<span class="token operator">=</span>`wc -l /tmp/mysql_log.err<span class="toke
         <span class="token keyword">fi</span>
     <span class="token keyword">fi</span>
 <span class="token keyword">fi</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>#【脚本37】带选项的用户脚本</p>
-<ul>
+<h1 id="【脚本37】带选项的用户脚本"><a href="#【脚本37】带选项的用户脚本" class="headerlink" title="【脚本37】带选项的用户脚本"></a>【脚本37】带选项的用户脚本</h1><ul>
 <li>要求如下：</li>
 </ul>
 <p>只支持三个选项 ‘–del’ ‘–add’ –help输入其他选项报错。<br>使用‘–add’需要验证用户名是否存在，存在则反馈存在。且不添加。 不存在则创建该用户，切&gt;添加与该用户名相同的密码。并且反馈。<br>使用‘–del’ 需要验证用户名是否存在，存在则删除用户及其家目录。不存在则反馈该用户不存&gt;在。<br>–help 选项反馈出使用方法<br>支持以，分隔 一次删除多个或者添加多个用户。<br>能用echo $? 检测脚本执行情况 成功删除或者添加为0,报错信息为其他数字。<br>能以，分割。一次性添加或者 删除多个用户。 例如 adddel.sh –add user1,user2,user3…….<br>不允许存在明显bug。</p>
@@ -821,8 +807,7 @@ n<span class="token operator">=</span>`wc -l /tmp/mysql_log.err<span class="toke
         <span class="token keyword">exit</span> 1
         <span class="token punctuation">;</span><span class="token punctuation">;</span>
 esac<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>#【脚本38】被3整除</p>
-<p>写一个脚本： 计算100以内所有能被3整除的正整数的和</p>
+<h1 id="【脚本38】被3整除"><a href="#【脚本38】被3整除" class="headerlink" title="【脚本38】被3整除"></a>【脚本38】被3整除</h1><p>写一个脚本： 计算100以内所有能被3整除的正整数的和</p>
 <ul>
 <li>代码参考：</li>
 </ul>
@@ -835,8 +820,7 @@ sum<span class="token operator">=</span>0
 <span class="token keyword">done</span>
 
 <span class="token keyword">echo</span> <span class="token string">"sum:<span class="token variable">$sum</span>"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>#【脚本39】脚本传参</p>
-<p>使用传参的方法写个脚本，实现加减乘除的功能。例如： sh a.sh 1 2，这样会分别计算加、减、乘、除的结果。</p>
+<h1 id="【脚本39】脚本传参"><a href="#【脚本39】脚本传参" class="headerlink" title="【脚本39】脚本传参"></a>【脚本39】脚本传参</h1><p>使用传参的方法写个脚本，实现加减乘除的功能。例如： sh a.sh 1 2，这样会分别计算加、减、乘、除的结果。</p>
 <ul>
 <li>要求：</li>
 </ul>
@@ -912,8 +896,7 @@ is_int <span class="token variable">$2</span>
 minus <span class="token variable">$1</span> <span class="token variable">$2</span>
 mult <span class="token variable">$1</span> <span class="token variable">$2</span>
 div <span class="token variable">$1</span> <span class="token variable">$2</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>#【脚本40】用户交互脚本</p>
-<p>写一个脚本，执行后，打印一行提示“Please input a number:”，要求用户输入数值，然后打印出该数值，然后再次要求用户输入数值。直到用户输入”end”停止。</p>
+<h1 id="【脚本40】用户交互脚本"><a href="#【脚本40】用户交互脚本" class="headerlink" title="【脚本40】用户交互脚本"></a>【脚本40】用户交互脚本</h1><p>写一个脚本，执行后，打印一行提示“Please input a number:”，要求用户输入数值，然后打印出该数值，然后再次要求用户输入数值。直到用户输入”end”停止。</p>
 <ul>
 <li>代码参考：</li>
 </ul>
@@ -1667,7 +1650,7 @@ div <span class="token variable">$1</span> <span class="token variable">$2</span
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">34.8k</span>
+            <span class="white-color">34.6k</span>
             
 
             <br>

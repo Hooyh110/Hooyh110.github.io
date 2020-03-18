@@ -8,12 +8,11 @@
     <meta name="baidu-site-verification" content="PQuYZ68I8K">
     <meta name="google-site-verification" content="PQuYZ68I8K">
     <meta name="360-site-verification" content>
-    <meta name="description" content="#【脚本41】获取ip
-提示用户输入网卡的名字，然后我们用脚本输出网卡的ip。 看似简单，但是需要考虑多个方面，比如我们输入的不符合网卡名字的规范，怎么应对。名字符合规范，但是根本就没有这个网卡有怎么应对。
+    <meta name="description" content="【脚本41】获取ip提示用户输入网卡的名字，然后我们用脚本输出网卡的ip。 看似简单，但是需要考虑多个方面，比如我们输入的不符合网卡名字的规范，怎么应对。名字符合规范，但是根本就没有这个网卡有怎么应对。
 
 代码参考：
 
-#!/bin/b">
+#!/bin/bas">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -489,8 +488,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>#【脚本41】获取ip</p>
-<p>提示用户输入网卡的名字，然后我们用脚本输出网卡的ip。 看似简单，但是需要考虑多个方面，比如我们输入的不符合网卡名字的规范，怎么应对。名字符合规范，但是根本就没有这个网卡有怎么应对。</p>
+                <h1 id="【脚本41】获取ip"><a href="#【脚本41】获取ip" class="headerlink" title="【脚本41】获取ip"></a>【脚本41】获取ip</h1><p>提示用户输入网卡的名字，然后我们用脚本输出网卡的ip。 看似简单，但是需要考虑多个方面，比如我们输入的不符合网卡名字的规范，怎么应对。名字符合规范，但是根本就没有这个网卡有怎么应对。</p>
 <ul>
 <li>代码参考：</li>
 </ul>
@@ -528,8 +526,7 @@ myip<span class="token operator">=</span><span class="token variable"><span clas
 <span class="token keyword">else</span>
     <span class="token keyword">echo</span> <span class="token string">"你的网卡IP地址是<span class="token variable">$myip</span>"</span>
 <span class="token keyword">fi</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>#【脚本42】列出子目录</p>
-<ul>
+<h1 id="【脚本42】列出子目录"><a href="#【脚本42】列出子目录" class="headerlink" title="【脚本42】列出子目录"></a>【脚本42】列出子目录</h1><ul>
 <li><p>脚本的功能：<br>脚本可以带参数也可以不带，参数可以有多个，每个参数必须是一个目录，脚本检查参数个数，若等于0，则列出当前目录本身；否则，显示每个参数包含的子目录。</p>
 </li>
 <li><p>参考代码：</p>
@@ -551,8 +548,7 @@ myip<span class="token operator">=</span><span class="token variable"><span clas
 <li>标注：</li>
 </ul>
 <p>你可能会对${!a}有疑问，这里是一个特殊用法，在shell中，$1为第一个参数，$2为第二个参数，以此类推，那么这里的数字要是一个变量如何表示呢？比如n=3,我想取第三个参数，能否写成 $$n？ shell中是不支持的，那怎么办？ 就用脚本中的这种方法：  a=$n, echo ${!a}</p>
-<p>#【脚本43】下载文件</p>
-<p>创建一个函数，能接受两个参数：</p>
+<h1 id="【脚本43】下载文件"><a href="#【脚本43】下载文件" class="headerlink" title="【脚本43】下载文件"></a>【脚本43】下载文件</h1><p>创建一个函数，能接受两个参数：</p>
 <p>第一个参数为URL，即可下载的文件；第二个参数为目录，即下载后保存的位置；<br>如果用户给的目录不存在，则提示用户是否创建；如果创建就继续执行，否则，函数返回一个51的错误值给调用脚本；<br>如果给的目录存在，则下载文件；下载命令执行结束后测试文件下载成功与否；如果成功，则&gt;返回0给调用脚本，否则，返回52给调用脚本；<br>提示，在函数中返回错误值给调用脚本，使用return</p>
 <ul>
 <li>参考代码：</li>
@@ -574,8 +570,7 @@ n<span class="token operator">=</span><span class="token variable"><span class="
 <span class="token keyword">else</span>
     <span class="token keyword">exit</span> 52
 <span class="token keyword">fi</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>#【脚本44】猜数字</p>
-<p>写一个猜数字脚本，当用户输入的数字和预设数字（随机生成一个小于100的数字）一样时，直接退出，否则让用户一直输入，并且提示用户的数字比预设数字大或者小。</p>
+<h1 id="【脚本44】猜数字"><a href="#【脚本44】猜数字" class="headerlink" title="【脚本44】猜数字"></a>【脚本44】猜数字</h1><p>写一个猜数字脚本，当用户输入的数字和预设数字（随机生成一个小于100的数字）一样时，直接退出，否则让用户一直输入，并且提示用户的数字比预设数字大或者小。</p>
 <ul>
 <li>参考代码：</li>
 </ul>
@@ -599,8 +594,7 @@ n1<span class="token operator">=</span>$<span class="token punctuation">[</span>
 <span class="token keyword">done</span>
 <span class="token keyword">echo</span> <span class="token string">"You are right."</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>#【脚本45】抽签脚本</p>
-<ol>
+<h1 id="【脚本45】抽签脚本"><a href="#【脚本45】抽签脚本" class="headerlink" title="【脚本45】抽签脚本"></a>【脚本45】抽签脚本</h1><ol>
 <li>写一个脚本执行后，输入名字，产生随机数01-99之间的数字。</li>
 <li>如果相同的名字重复输入，抓到的数字还是第一次抓取的结果，</li>
 <li>前面已经抓到的数字，下次不能在出现相同数字。</li>
@@ -639,8 +633,7 @@ n1<span class="token operator">=</span>$<span class="token punctuation">[</span>
   <span class="token keyword">fi</span>
 <span class="token keyword">done</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>#【脚本46】打印只有一个数字的行</p>
-<p>如题，把一个文本文档中只有一个数字的行给打印出来。</p>
+<h1 id="【脚本46】打印只有一个数字的行"><a href="#【脚本46】打印只有一个数字的行" class="headerlink" title="【脚本46】打印只有一个数字的行"></a>【脚本46】打印只有一个数字的行</h1><p>如题，把一个文本文档中只有一个数字的行给打印出来。</p>
 <ul>
 <li>参考代码：</li>
 </ul>
@@ -654,8 +647,7 @@ line<span class="token operator">=</span>`wc -l <span class="token variable">$f<
         <span class="token function">sed</span> -n <span class="token string">"<span class="token variable">$l</span>"</span>p <span class="token variable">$f</span>
      <span class="token keyword">fi</span>
 <span class="token keyword">done</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>#【脚本47】日志归档</p>
-<p>类似于日志切割，系统有个logrotate程序，可以完成归档。但现在我们要自己写一个shell脚本实现归档。</p>
+<h1 id="【脚本47】日志归档"><a href="#【脚本47】日志归档" class="headerlink" title="【脚本47】日志归档"></a>【脚本47】日志归档</h1><p>类似于日志切割，系统有个logrotate程序，可以完成归档。但现在我们要自己写一个shell脚本实现归档。</p>
 <ul>
 <li><p>举例：<br>假如服务的输出日志是1.log，我要求每天归档一个，1.log第二天就变成1.log.1，第三天1.log.2, 第四天 1.log.3 一直到1.log.5</p>
 </li>
@@ -681,8 +673,7 @@ line<span class="token operator">=</span>`wc -l <span class="token variable">$f<
 
 e_df /data/1.log.1
 <span class="token function">mv</span> /data/1.log  /data/1.log.1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>#【脚本48】找出活动ip</p>
-<p>写一个shell脚本，把192.168.0.0/24网段在线的ip列出来。</p>
+<h1 id="【脚本48】找出活动ip"><a href="#【脚本48】找出活动ip" class="headerlink" title="【脚本48】找出活动ip"></a>【脚本48】找出活动ip</h1><p>写一个shell脚本，把192.168.0.0/24网段在线的ip列出来。</p>
 <ul>
 <li><p>思路：<br>for循环， 0.1 — 0.254 依次去ping，能通说明在线。</p>
 </li>
@@ -703,8 +694,7 @@ ips<span class="token operator">=</span><span class="token string">"192.168.1."<
     <span class="token keyword">echo</span> <span class="token string">"echo <span class="token variable">$ips</span><span class="token variable">$i</span> is not online"</span>
 <span class="token keyword">fi</span>
 <span class="token keyword">done</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>#【脚本49】检查错误</p>
-<p>写一个shell脚本，检查指定的shell脚本是否有语法错误，若有错误，首先显示错误信息，然后提示用户输入q或者Q退出脚本，输入其他内容则直接用vim打开该shell脚本。</p>
+<h1 id="【脚本49】检查错误"><a href="#【脚本49】检查错误" class="headerlink" title="【脚本49】检查错误"></a>【脚本49】检查错误</h1><p>写一个shell脚本，检查指定的shell脚本是否有语法错误，若有错误，首先显示错误信息，然后提示用户输入q或者Q退出脚本，输入其他内容则直接用vim打开该shell脚本。</p>
 <ul>
 <li><p>提醒：<br>检查shell脚本有没有语法错误的命令是 sh -n xxx.sh</p>
 </li>
@@ -733,8 +723,7 @@ sh -n <span class="token variable">$1</span> 2<span class="token operator">></sp
     <span class="token keyword">fi</span>
 
 <span class="token keyword">fi</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>#【脚本50】格式化输出</p>
-<p>输入一串随机数字，然后按千分位输出。</p>
+<h1 id="【脚本50】格式化输出"><a href="#【脚本50】格式化输出" class="headerlink" title="【脚本50】格式化输出"></a>【脚本50】格式化输出</h1><p>输入一串随机数字，然后按千分位输出。</p>
 <p>比如输入数字串为“123456789”，输出为123,456,789</p>
 <ul>
 <li>代码参考：</li>
@@ -780,8 +769,7 @@ v<span class="token operator">=</span>`echo <span class="token variable">$num</s
 <span class="token keyword">fi</span>
 
 <span class="token keyword">echo</span> <span class="token variable">$num</span><span class="token operator">|</span><span class="token function">sed</span> -r <span class="token string">'{:number;s/([0-9]+)([0-9]{3})/\1,\2/;t number}'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>#【脚本51】</p>
-<ol>
+<h1 id="【脚本51】"><a href="#【脚本51】" class="headerlink" title="【脚本51】"></a>【脚本51】</h1><ol>
 <li>编写一个名为iffile程序，它执行时判断/bin目录下date文件是否存在？</li>
 </ol>
 <ul>
@@ -811,8 +799,7 @@ h<span class="token operator">=</span><span class="token variable"><span class="
 <span class="token keyword">else</span>
     <span class="token keyword">echo</span> <span class="token string">"Good evening."</span>
 <span class="token keyword">fi</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>#【脚本52】判断用户登录</p>
-<ol>
+<h1 id="【脚本52】判断用户登录"><a href="#【脚本52】判断用户登录" class="headerlink" title="【脚本52】判断用户登录"></a>【脚本52】判断用户登录</h1><ol>
 <li>编写一个名为ifuser的程序，它执行时带用户名作为命令行参数，判断该用户是否已经在系统中登录，并给出相关信息。</li>
 </ol>
 <ul>
@@ -858,8 +845,7 @@ message
   esac
   message
 <span class="token keyword">done</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>#【脚本53】更改后缀名</p>
-<ol>
+<h1 id="【脚本53】更改后缀名"><a href="#【脚本53】更改后缀名" class="headerlink" title="【脚本53】更改后缀名"></a>【脚本53】更改后缀名</h1><ol>
 <li>编写一个名为chname的程序，将当前目录下所有的.txt文件更名为.doc文件。</li>
 </ol>
 <ul>
@@ -890,8 +876,7 @@ message
     <span class="token keyword">fi</span>
     <span class="token function">sleep</span> 300
 <span class="token keyword">done</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>#【脚本54】判断pid是否一致</p>
-<p>先普及一小段知识,我们用ps aux可以查看到进程的PID，而每个PID都会在/proc内产生。如果查看到的pid而proc内是没有的，则是进程被人修改了，这就代表你的系统很有可能已经被<em>*</em>过了。</p>
+<h1 id="【脚本54】判断pid是否一致"><a href="#【脚本54】判断pid是否一致" class="headerlink" title="【脚本54】判断pid是否一致"></a>【脚本54】判断pid是否一致</h1><p>先普及一小段知识,我们用ps aux可以查看到进程的PID，而每个PID都会在/proc内产生。如果查看到的pid而proc内是没有的，则是进程被人修改了，这就代表你的系统很有可能已经被<em>*</em>过了。</p>
 <p>请大家用上面知识编写一个shell，定期检查下自己的系统是否被人***过。</p>
 <ul>
 <li>参考代码：</li>
@@ -905,14 +890,12 @@ message
         <span class="token keyword">echo</span> <span class="token string">"<span class="token variable">$pid</span> abnormal!"</span>
     <span class="token keyword">fi</span>
 <span class="token keyword">done</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>#【脚本55】一列变三行</p>
-<p>比如1.txt内容：</p>
+<h1 id="【脚本55】一列变三行"><a href="#【脚本55】一列变三行" class="headerlink" title="【脚本55】一列变三行"></a>【脚本55】一列变三行</h1><p>比如1.txt内容：</p>
 <p>1<br>2<br>3<br>4<br>5<br>6<br>7<br>处理后应该是：</p>
 <p>1 2 3<br>4 5 6<br>7<br>可使用sed命令完成：</p>
 <pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">sed</span> <span class="token string">'N;N;s/\n/ /g'</span> 1.txt
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>#【脚本56】shell的getops</p>
-<p>写一个getinterface.sh 脚本可以接受选项[i，I]，完成下面任务：</p>
+<h1 id="【脚本56】shell的getops"><a href="#【脚本56】shell的getops" class="headerlink" title="【脚本56】shell的getops"></a>【脚本56】shell的getops</h1><p>写一个getinterface.sh 脚本可以接受选项[i，I]，完成下面任务：</p>
 <p>使用一下形式：getinterface.sh [-i interface | -I ip]<br>当用户使用-i选项时，显示指定网卡的IP地址；当用户使用-I选项时，显示其指定ip所属的网卡。</p>
 <ul>
 <li>例：<br>sh getinterface.sh -i eth0<br>sh getinterface.sh -I 192.168.0.1</li>
@@ -974,8 +957,7 @@ wrong_ip<span class="token punctuation">(</span><span class="token punctuation">
     useage
     <span class="token keyword">exit</span>
 esac<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>#【脚本57】3位随机数字</p>
-<p>写一个脚本产生随机3位的数字，并且可以根据用户的输入参数来判断输出几组。 比如，脚本名字为 number3.sh。</p>
+<h1 id="【脚本57】3位随机数字"><a href="#【脚本57】3位随机数字" class="headerlink" title="【脚本57】3位随机数字"></a>【脚本57】3位随机数字</h1><p>写一个脚本产生随机3位的数字，并且可以根据用户的输入参数来判断输出几组。 比如，脚本名字为 number3.sh。</p>
 <ul>
 <li>执行方法：</li>
 </ul>
@@ -1020,8 +1002,7 @@ get_numbers<span class="token punctuation">(</span><span class="token punctuatio
     get_numbers
 
 <span class="token keyword">fi</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>#【脚本58】检查服务</p>
-<p>先判断是否安装http和mysql，没有安装进行安装，安装了检查是否启动服务，若没有启动则需要启动服务。</p>
+<h1 id="【脚本58】检查服务"><a href="#【脚本58】检查服务" class="headerlink" title="【脚本58】检查服务"></a>【脚本58】检查服务</h1><p>先判断是否安装http和mysql，没有安装进行安装，安装了检查是否启动服务，若没有启动则需要启动服务。</p>
 <ul>
 <li><p>说明：<br>操作系统为centos6，httpd和mysql全部为rpm包安装。</p>
 </li>
@@ -1793,7 +1774,7 @@ chk_mysqld<span aria-hidden="true" class="line-numbers-rows"><span></span><span>
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">34.8k</span>
+            <span class="white-color">34.6k</span>
             
 
             <br>

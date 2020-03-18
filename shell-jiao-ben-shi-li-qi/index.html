@@ -8,10 +8,11 @@
     <meta name="baidu-site-verification" content="PQuYZ68I8K">
     <meta name="google-site-verification" content="PQuYZ68I8K">
     <meta name="360-site-verification" content>
-    <meta name="description" content="【脚本92】截取tomcat日志
-写一个截取tomcat catalina.out日志的脚本。
+    <meta name="description" content="【脚本92】截取tomcat日志写一个截取tomcat catalina.out日志的脚本。
 tomcat实例t1-t4：
-[root@server ~]# tree -L 1 /opt/TOM//opt/TOM/├── crontabs">
+[root@server ~]# tree -L 1 /opt/TOM/
+/opt/TOM/
+├── crontab">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -464,14 +465,14 @@ tomcat实例t1-t4：
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.5k
+                    2.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    13 分
+                    11 分
                 </div>
                 
                 
@@ -487,230 +488,488 @@ tomcat实例t1-t4：
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>【脚本92】截取tomcat日志</p>
-<p>写一个截取tomcat catalina.out日志的脚本。</p>
+                <h1 id="【脚本92】截取tomcat日志"><a href="#【脚本92】截取tomcat日志" class="headerlink" title="【脚本92】截取tomcat日志"></a>【脚本92】截取tomcat日志</h1><p>写一个截取tomcat catalina.out日志的脚本。</p>
 <p>tomcat实例t1-t4：</p>
-<p>[root@server ~]# tree -L 1 /opt/TOM/<br>/opt/TOM/<br>├── crontabs<br>├── t1<br>├── t2<br>├── t3<br>└── t4</p>
-<p>5 directories, 0 files<br>catalina.out日志路径：</p>
-<p>[root@server ~]# find /opt/TOM/ -name catalina.out<br>/opt/TOM/t1/logs/catalina.out<br>/opt/TOM/t3/logs/catalina.out<br>/opt/TOM/t4/logs/catalina.out<br>/opt/TOM/t2/logs/catalina.out<br>要求：</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@server ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># tree -L 1 /opt/TOM/</span>
+/opt/TOM/
+├── crontabs
+├── t1
+├── t2
+├── t3
+└── t4
+
+5 directories, 0 files<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>catalina.out日志路径：</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@server ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># find /opt/TOM/ -name catalina.out</span>
+/opt/TOM/t1/logs/catalina.out
+/opt/TOM/t3/logs/catalina.out
+/opt/TOM/t4/logs/catalina.out
+/opt/TOM/t2/logs/catalina.out<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>要求：</li>
+</ul>
 <p>这个脚本可以取tomcat实例t1-t4的日志<br>这个脚本可以自定义取日志的起始点，比如取今天早上10点之后到现在的数据<br>这个脚本可以自定义取日志的起始点和终点，比如取今天早上9点到晚上8点的数据<br>catalina.out 日志片段：</p>
-<p>Mar 29, 2016 1:52:24 PM org.apache.coyote.AbstractProtocol start<br>INFO: Starting ProtocolHandler [“http-bio-8080”]<br>Mar 29, 2016 1:52:24 PM org.apache.coyote.AbstractProtocol start<br>INFO: Starting ProtocolHandler [“ajp-bio-8009”]<br>Mar 29, 2016 1:52:24 PM org.apache.catalina.startup.Catalina start<br>INFO: Server startup in 2102 ms<br>参考代码：</p>
-<p>#!/bin/bash</p>
-<p>export LANG=en_US.UTF-8<br>export PATH=$PATH<br>IPADD=<code>/sbin/ifconfig | grep &quot;inet addr&quot; | head -1 | awk &#39;{print $2}&#39;| awk -F &#39;.&#39; &#39;{print $NF}&#39;</code><br>LOGFILE=”/opt/TOM/$1/logs/catalina.out”<br>YEAR=<code>date +%Y</code><br>DATE=<code>date +%m%d_%H%M</code><br>TOMCAT=$1<br>BEGIN_TIME=$YEAR$2<br>END_TIME=$YEAR$3</p>
-<p>##judge is  a.m.or p.m.<br>TIME_HOUR1=<code>echo ${BEGIN_TIME:9:2}</code></p>
-<p>cut_log() {<br>        N_DATE1=<code>echo $1 | sed &#39;s/_/ /g&#39;</code><br>        D_DATE1=<code>echo $2 | sed &#39;s/_/ /g&#39;</code><br>        E_DATE1=<code>echo $3 | sed &#39;s/_/ /g&#39;</code><br>        [ $4 ] &amp;&amp; N_DATE2=<code>echo $4 | sed &#39;s/_/ /g&#39;</code><br>        [ $5 ] &amp;&amp; D_DATE2=<code>echo $5 | sed &#39;s/_/ /g&#39;</code><br>        [ $6 ] &amp;&amp; E_DATE2=<code>echo $6 | sed &#39;s/_/ /g&#39;</code><br>        BEGIN=<code>grep -nE &quot;${N_DATE1}|${D_DATE1}|${E_DATE1}&quot; ${LOGFILE} | head -1 | cut -d : -f1</code><br>        [ “$N_DATE2” ] &amp;&amp; END=<code>grep -nE &quot;${N_DATE2}|${D_DATE2}|${E_DATE2}&quot; ${LOGFILE} | tail -1 | cut -d : -f1</code></p>
-<pre><code>    [ ! -z &quot;${TIME_HOUR1}&quot; ] &amp;&amp; if [ ${TIME_HOUR1} -gt 12 ] ; then
-            BEGIN1=`grep -nE &quot;${N_DATE1}|${D_DATE1}|${E_DATE1}&quot; ${LOGFILE} |grep &quot; PM &quot; |grep &quot;${E_DATE1}&quot; | head -1 | cut -d : -f1`
+<pre class="line-numbers language-log"><code class="language-log">Mar 29, 2016 1:52:24 PM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler [“http-bio-8080”]
+Mar 29, 2016 1:52:24 PM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler [“ajp-bio-8009”]
+Mar 29, 2016 1:52:24 PM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 2102 ms<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>-参考代码：</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
 
-            if [ ! -z &quot;${BEGIN1}&quot; ] ; then
-            [ &quot;${BEGIN1}&quot; -gt &quot;${BEGIN}&quot; ] ; BEGIN=${BEGIN1}
-            fi
-    fi
+<span class="token function">export</span> LANG<span class="token operator">=</span>en_US.UTF-8
+<span class="token function">export</span> PATH<span class="token operator">=</span><span class="token variable">$PATH</span>
+IPADD<span class="token operator">=</span>`/sbin/ifconfig <span class="token operator">|</span> <span class="token function">grep</span> <span class="token string">"inet addr"</span> <span class="token operator">|</span> <span class="token function">head</span> -1 <span class="token operator">|</span> <span class="token function">awk</span> <span class="token string">'{print <span class="token variable">$2</span>}'</span><span class="token operator">|</span> <span class="token function">awk</span> -F <span class="token string">'.'</span> <span class="token string">'{print <span class="token variable">$NF</span>}'</span>`
+LOGFILE<span class="token operator">=</span><span class="token string">"/opt/TOM/<span class="token variable">$1</span>/logs/catalina.out"</span>
+YEAR<span class="token operator">=</span><span class="token variable"><span class="token variable">`</span><span class="token function">date</span> +%Y<span class="token variable">`</span></span>
+DATE<span class="token operator">=</span><span class="token variable"><span class="token variable">`</span><span class="token function">date</span> +%m%d_%H%M<span class="token variable">`</span></span>
+TOMCAT<span class="token operator">=</span><span class="token variable">$1</span>
+BEGIN_TIME<span class="token operator">=</span><span class="token variable">$YEAR</span><span class="token variable">$2</span>
+END_TIME<span class="token operator">=</span><span class="token variable">$YEAR</span><span class="token variable">$3</span>
 
-    if [ &quot;$BEGIN&quot; ] &amp;&amp; [ -z &quot;$END&quot; ] ; then
-            if [ &quot;$N_DATE2&quot; ]; then
-                    echo  &quot;${END_TIME}时间点没有访问日志，请重新设置时间点.&quot;
-            else
-                    sed -n &quot;${BEGIN},[        DISCUZ_CODE_0        ]quot;p ${LOGFILE} &gt; /home/gcweb/${IPADD}_${TOMCAT}_${DATE}.log
-            fi
-    elif [ &quot;$END&quot; ];then
-            [ &quot;$BEGIN&quot; ] || BEGIN=1
-            sed -n &quot;${BEGIN},${END}&quot;p ${LOGFILE} &gt; /home/gcweb/${IPADD}_${TOMCAT}_${DATE}.log
-    else
-            [ &quot;$END_TIME&quot; != &quot;$YEAR&quot; ] &amp;&amp; echo &quot;该时段 ${BEGIN_TIME}～${END_TIME} 没有日志.&quot;
-            [ &quot;$END_TIME&quot; = &quot;$YEAR&quot; ] &amp;&amp; echo &quot;该时段 ${BEGIN_TIME}～now 没有日志.&quot;
-    fi
+<span class="token comment" spellcheck="true">##judge is  a.m.or p.m.</span>
+TIME_HOUR1<span class="token operator">=</span><span class="token variable"><span class="token variable">`</span><span class="token keyword">echo</span> $<span class="token punctuation">{</span>BEGIN_TIME:9:2<span class="token punctuation">}</span><span class="token variable">`</span></span>
 
-    if [ -s /home/gcweb/${IPADD}_${TOMCAT}_${DATE}.log ]; then
-            cd /home/gcweb  &amp;&amp;  tar -zcf ${IPADD}_${TOMCAT}_${DATE}.tar.gz ${IPADD}_${TOMCAT}_${DATE}.log
-            rm -f /home/gcweb/${IPADD}_${TOMCAT}_${DATE}.log
-            sz /home/gcweb/${IPADD}_${TOMCAT}_${DATE}.tar.gz
-            echo &quot;Success to get logs.&quot;
-            rm -f /home/gcweb/${IPADD}_${TOMCAT}_${DATE}.tar.gz
-    fi</code></pre><p>}</p>
-<p>get_time() {<br>        case “$1” in<br>                4)      </p>
-<pre><code>             N_DATE=`date -d &quot;$2&quot; +&quot;%Y-%m-%d&quot; 2&gt;/dev/null`
-             D_DATE=`date -d &quot;$2&quot; +&quot;%Y/%m/%d&quot; 2&gt;/dev/null`
-             E_DATE=`date -d &quot;$2&quot; +&quot;%h %e,_%Y&quot; 2&gt;/dev/null|sed &#39;s/ /_/g&#39;`
-             echo $N_DATE $D_DATE $E_DATE
-             ;;      
+cut_log<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        N_DATE1<span class="token operator">=</span>`echo <span class="token variable">$1</span> <span class="token operator">|</span> <span class="token function">sed</span> <span class="token string">'s/_/ /g'</span><span class="token variable"><span class="token variable">`</span>
+        D_DATE1<span class="token operator">=</span><span class="token variable">`</span></span><span class="token keyword">echo</span> <span class="token variable">$2</span> <span class="token operator">|</span> <span class="token function">sed</span> <span class="token string">'s/_/ /g'</span><span class="token variable"><span class="token variable">`</span>
+        E_DATE1<span class="token operator">=</span><span class="token variable">`</span></span><span class="token keyword">echo</span> <span class="token variable">$3</span> <span class="token operator">|</span> <span class="token function">sed</span> <span class="token string">'s/_/ /g'</span><span class="token variable"><span class="token variable">`</span>
+        <span class="token punctuation">[</span> $4 <span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> N_DATE2<span class="token operator">=</span><span class="token variable">`</span></span><span class="token keyword">echo</span> <span class="token variable">$4</span> <span class="token operator">|</span> <span class="token function">sed</span> <span class="token string">'s/_/ /g'</span><span class="token variable"><span class="token variable">`</span>
+        <span class="token punctuation">[</span> $5 <span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> D_DATE2<span class="token operator">=</span><span class="token variable">`</span></span><span class="token keyword">echo</span> <span class="token variable">$5</span> <span class="token operator">|</span> <span class="token function">sed</span> <span class="token string">'s/_/ /g'</span><span class="token variable"><span class="token variable">`</span>
+        <span class="token punctuation">[</span> $6 <span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> E_DATE2<span class="token operator">=</span><span class="token variable">`</span></span><span class="token keyword">echo</span> <span class="token variable">$6</span> <span class="token operator">|</span> <span class="token function">sed</span> <span class="token string">'s/_/ /g'</span><span class="token variable"><span class="token variable">`</span>
+        BEGIN<span class="token operator">=</span><span class="token variable">`</span></span><span class="token function">grep</span> -nE <span class="token string">"<span class="token variable">${N_DATE1}</span>|<span class="token variable">${D_DATE1}</span>|<span class="token variable">${E_DATE1}</span>"</span> <span class="token variable">${LOGFILE}</span> <span class="token operator">|</span> <span class="token function">head</span> -1 <span class="token operator">|</span> <span class="token function">cut</span> -d <span class="token keyword">:</span> -f1`
+        <span class="token punctuation">[</span> <span class="token string">"<span class="token variable">$N_DATE2</span>"</span> <span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> END<span class="token operator">=</span>`grep -nE <span class="token string">"<span class="token variable">${N_DATE2}</span>|<span class="token variable">${D_DATE2}</span>|<span class="token variable">${E_DATE2}</span>"</span> <span class="token variable">${LOGFILE}</span> <span class="token operator">|</span> <span class="token function">tail</span> -1 <span class="token operator">|</span> <span class="token function">cut</span> -d <span class="token keyword">:</span> -f1`
 
-            7)      
+        <span class="token punctuation">[</span> <span class="token operator">!</span> -z <span class="token string">"<span class="token variable">${TIME_HOUR1}</span>"</span> <span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> <span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token variable">${TIME_HOUR1}</span> -gt 12 <span class="token punctuation">]</span> <span class="token punctuation">;</span> <span class="token keyword">then</span>
+                BEGIN1<span class="token operator">=</span>`grep -nE <span class="token string">"<span class="token variable">${N_DATE1}</span>|<span class="token variable">${D_DATE1}</span>|<span class="token variable">${E_DATE1}</span>"</span> <span class="token variable">${LOGFILE}</span> <span class="token operator">|</span><span class="token function">grep</span> <span class="token string">" PM "</span> <span class="token operator">|</span><span class="token function">grep</span> <span class="token string">"<span class="token variable">${E_DATE1}</span>"</span> <span class="token operator">|</span> <span class="token function">head</span> -1 <span class="token operator">|</span> <span class="token function">cut</span> -d <span class="token keyword">:</span> -f1`
 
-             TIME=`echo $2 | awk -F&#39;_&#39; &#39;{print $1,$2}&#39;`
-             N_DATE=`date -d &quot;$TIME&quot; +&quot;%Y-%m-%d_%H&quot; 2&gt;/dev/null`
-             D_DATE=`date -d &quot;$TIME&quot; +&quot;%Y/%m/%d_%H&quot; 2&gt;/dev/null`
-             E_DATE=`date -d &quot;$TIME&quot; +&quot;%h %e,_%Y %l&quot; 2&gt;/dev/null|sed &#39;s/ /_/g&#39;`
-             echo  &quot;$N_DATE&quot;  &quot;$D_DATE&quot; &quot;$E_DATE&quot;
-            ;;
+                <span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token operator">!</span> -z <span class="token string">"<span class="token variable">${BEGIN1}</span>"</span> <span class="token punctuation">]</span> <span class="token punctuation">;</span> <span class="token keyword">then</span>
+                <span class="token punctuation">[</span> <span class="token string">"<span class="token variable">${BEGIN1}</span>"</span> -gt <span class="token string">"<span class="token variable">${BEGIN}</span>"</span> <span class="token punctuation">]</span> <span class="token punctuation">;</span> BEGIN<span class="token operator">=</span><span class="token variable">${BEGIN1}</span>
+                <span class="token keyword">fi</span>
+        <span class="token keyword">fi</span>
 
-            9)     
+        <span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token string">"<span class="token variable">$BEGIN</span>"</span> <span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">[</span> -z <span class="token string">"<span class="token variable">$END</span>"</span> <span class="token punctuation">]</span> <span class="token punctuation">;</span> <span class="token keyword">then</span>
+                <span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token string">"<span class="token variable">$N_DATE2</span>"</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+                        <span class="token keyword">echo</span>  <span class="token string">"<span class="token variable">${END_TIME}</span>时间点没有访问日志，请重新设置时间点."</span>
+                <span class="token keyword">else</span>
+                        <span class="token function">sed</span> -n <span class="token string">"<span class="token variable">${BEGIN}</span>,[        DISCUZ_CODE_0        ]quot;p <span class="token variable">${LOGFILE}</span> > /home/gcweb/<span class="token variable">${IPADD}</span>_<span class="token variable">${TOMCAT}</span>_<span class="token variable">${DATE}</span>.log
+                fi
+        elif [ "</span><span class="token variable">$END</span><span class="token string">" ];then
+                [ "</span><span class="token variable">$BEGIN</span><span class="token string">" ] || BEGIN=1
+                sed -n "</span><span class="token variable">${BEGIN}</span>,<span class="token variable">${END}</span><span class="token string">"p <span class="token variable">${LOGFILE}</span> > /home/gcweb/<span class="token variable">${IPADD}</span>_<span class="token variable">${TOMCAT}</span>_<span class="token variable">${DATE}</span>.log
+        else
+                [ "</span><span class="token variable">$END_TIME</span><span class="token string">" != "</span><span class="token variable">$YEAR</span><span class="token string">" ] &amp;&amp; echo "</span>该时段 <span class="token variable">${BEGIN_TIME}</span>～<span class="token variable">${END_TIME}</span> 没有日志.<span class="token string">"
+                [ "</span><span class="token variable">$END_TIME</span><span class="token string">" = "</span><span class="token variable">$YEAR</span><span class="token string">" ] &amp;&amp; echo "</span>该时段 <span class="token variable">${BEGIN_TIME}</span>～now 没有日志.<span class="token string">"
+        fi
 
-             TIME=`echo $2 | awk -F&#39;_&#39; &#39;{print $1,$2}&#39;`
-             N_DATE=`date -d &quot;$TIME&quot; +&quot;%Y-%m-%d_%H:%M&quot; 2&gt;/dev/null`
-             D_DATE=`date -d &quot;$TIME&quot; +&quot;%Y/%m/%d_%H:%M&quot; 2&gt;/dev/null`
-             E_DATE=`date -d &quot;$TIME&quot; +&quot;%h %e,_%Y %l:%M&quot; 2&gt;/dev/null|sed &#39;s/ /_/g&#39;`
-             echo  &quot;$N_DATE&quot; &quot;$D_DATE&quot; &quot;$E_DATE&quot;
-            ;;
+        if [ -s /home/gcweb/<span class="token variable">${IPADD}</span>_<span class="token variable">${TOMCAT}</span>_<span class="token variable">${DATE}</span>.log ]; then
+                cd /home/gcweb  &amp;&amp;  tar -zcf <span class="token variable">${IPADD}</span>_<span class="token variable">${TOMCAT}</span>_<span class="token variable">${DATE}</span>.tar.gz <span class="token variable">${IPADD}</span>_<span class="token variable">${TOMCAT}</span>_<span class="token variable">${DATE}</span>.log
+                rm -f /home/gcweb/<span class="token variable">${IPADD}</span>_<span class="token variable">${TOMCAT}</span>_<span class="token variable">${DATE}</span>.log
+                sz /home/gcweb/<span class="token variable">${IPADD}</span>_<span class="token variable">${TOMCAT}</span>_<span class="token variable">${DATE}</span>.tar.gz
+                echo "</span>Success to get logs.<span class="token string">"
+                rm -f /home/gcweb/<span class="token variable">${IPADD}</span>_<span class="token variable">${TOMCAT}</span>_<span class="token variable">${DATE}</span>.tar.gz
+        fi
+}
 
-            *)      
-             echo 1
-            ;;
-   esac</code></pre><p>}</p>
-<p>check_arguments () {</p>
-<pre><code>    if [ &quot;$1&quot; == 1 ] || [ -z  &quot;$1&quot; ] ;then
-            echo &quot;你输入时间参数的格式无法识别, usage: 0108、0108_10、0108_1020&quot;
-            exit 3
-    fi</code></pre><p>}</p>
-<p>check_tomcat () {</p>
-<pre><code>    if [ ! -s &quot;${LOGFILE}&quot; ] ;then
-      echo &quot;tomcat_name: ${TOMCAT} is not exist&quot;
-      echo &quot;you can choose:&quot;
-      /bin/ls  /home/gcweb/usr/local/
-    fi
+get_time() {
+        case "</span><span class="token variable">$1</span><span class="token string">" in
+                4)      
 
-    if [ $1 -lt 2 ] || [ ! -s &quot;${LOGFILE}&quot; ];then
-            echo &quot;usage: $0 tomcat_name {begin_time|begin_time end_time}&quot;
-            exit 2
-    fi</code></pre><p>}</p>
-<p>case “$#” in</p>
-<pre><code>0)
-    echo &quot;usage: $0 tomcat_name {begin_time|begin_time end_time}&quot;
-    exit 1
-    ;;
+                 N_DATE=`date -d "</span><span class="token variable">$2</span><span class="token string">" +"</span>%Y-%m-%d<span class="token string">" 2>/dev/null<span class="token variable"><span class="token variable">`</span>
+                 D_DATE<span class="token operator">=</span><span class="token variable">`</span></span>date -d "</span><span class="token variable">$2</span><span class="token string">" +"</span>%Y/%m/%d<span class="token string">" 2>/dev/null<span class="token variable"><span class="token variable">`</span>
+                 E_DATE<span class="token operator">=</span><span class="token variable">`</span></span>date -d "</span><span class="token variable">$2</span><span class="token string">" +"</span>%h %e,_%Y<span class="token string">" 2>/dev/null|sed 's/ /_/g'<span class="token variable"><span class="token variable">`</span>
+                 <span class="token keyword">echo</span> $N_DATE $D_DATE $E_DATE
+                 <span class="token punctuation">;</span><span class="token punctuation">;</span>      
 
-1)
-    check_tomcat $#
-    ;;
+                7<span class="token punctuation">)</span>      
 
-2)
+                 TIME<span class="token operator">=</span><span class="token variable">`</span></span>echo <span class="token variable">$2</span> | awk -F'_' '{print <span class="token variable">$1</span>,<span class="token variable">$2</span>}'<span class="token variable"><span class="token variable">`</span>
+                 N_DATE<span class="token operator">=</span><span class="token variable">`</span></span>date -d "</span><span class="token variable">$TIME</span><span class="token string">" +"</span>%Y-%m-%d_%H<span class="token string">" 2>/dev/null<span class="token variable"><span class="token variable">`</span>
+                 D_DATE<span class="token operator">=</span><span class="token variable">`</span></span>date -d "</span><span class="token variable">$TIME</span><span class="token string">" +"</span>%Y/%m/%d_%H<span class="token string">" 2>/dev/null<span class="token variable"><span class="token variable">`</span>
+                 E_DATE<span class="token operator">=</span><span class="token variable">`</span></span>date -d "</span><span class="token variable">$TIME</span><span class="token string">" +"</span>%h %e,_%Y %l<span class="token string">" 2>/dev/null|sed 's/ /_/g'`
+                 echo  "</span><span class="token variable">$N_DATE</span><span class="token string">"  "</span><span class="token variable">$D_DATE</span><span class="token string">" "</span><span class="token variable">$E_DATE</span><span class="token string">"
+                ;;
 
-    check_tomcat $#
-    len=`echo $2 | awk &#39;{print length($0)}&#39;`
-    A_DATE=$(get_time  $len $BEGIN_TIME)
-    eval  $( echo $A_DATE |awk &#39;{print &quot;N_DATE=&quot;$1,&quot;D_DATE=&quot;$2,&quot;E_DATE=&quot;$3}&#39;)
-    check_arguments &quot;${N_DATE}&quot;
-    cut_log &quot;${N_DATE}&quot; &quot;${D_DATE}&quot; &quot;${E_DATE}&quot;
-    ;;
+                9)     
 
-3)
+                 TIME=<span class="token variable"><span class="token variable">`</span><span class="token keyword">echo</span> $2 <span class="token operator">|</span> <span class="token function">awk</span> -F'_' '<span class="token punctuation">{</span>print $1,$2<span class="token punctuation">}</span>'<span class="token variable">`</span></span>
+                 N_DATE=`date -d "</span><span class="token variable">$TIME</span><span class="token string">" +"</span>%Y-%m-%d_%H:%M<span class="token string">" 2>/dev/null<span class="token variable"><span class="token variable">`</span>
+                 D_DATE<span class="token operator">=</span><span class="token variable">`</span></span>date -d "</span><span class="token variable">$TIME</span><span class="token string">" +"</span>%Y/%m/%d_%H:%M<span class="token string">" 2>/dev/null<span class="token variable"><span class="token variable">`</span>
+                 E_DATE<span class="token operator">=</span><span class="token variable">`</span></span>date -d "</span><span class="token variable">$TIME</span><span class="token string">" +"</span>%h %e,_%Y %l:%M<span class="token string">" 2>/dev/null|sed 's/ /_/g'`
+                 echo  "</span><span class="token variable">$N_DATE</span><span class="token string">" "</span><span class="token variable">$D_DATE</span><span class="token string">" "</span><span class="token variable">$E_DATE</span><span class="token string">"
+                ;;
 
-    check_tomcat $#
-    len1=`echo $2 | awk &#39;{print length($0)}&#39;`
-    len2=`echo $3 | awk &#39;{print length($0)}&#39;`
+                *)      
+                 echo 1
+                ;;
+       esac
+}
 
-    A_DATE=$(get_time ${len1}  $BEGIN_TIME)
-    eval  $( echo $A_DATE |awk &#39;{print &quot;N_DATE1=&quot;$1,&quot;D_DATE1=&quot;$2,&quot;E_DATE1=&quot;$3}&#39;)
-    check_arguments &quot;${N_DATE1}&quot;
-    A_DATE=$(get_time ${len2}  $END_TIME)
-    eval  $( echo $A_DATE |awk &#39;{print &quot;N_DATE=&quot;$1,&quot;D_DATE=&quot;$2,&quot;E_DATE=&quot;$3}&#39;)
-    check_arguments &quot;${N_DATE}&quot;
-    cut_log ${N_DATE1} ${D_DATE1} ${E_DATE1} &quot;${N_DATE}&quot; &quot;${D_DATE}&quot; &quot;${E_DATE}&quot;
-    ;;
+check_arguments () {
 
-*)
+        if [ "</span><span class="token variable">$1</span><span class="token string">" == 1 ] || [ -z  "</span><span class="token variable">$1</span><span class="token string">" ] ;then
+                echo "</span>你输入时间参数的格式无法识别, usage: 0108、0108_10、0108_1020<span class="token string">"
+                exit 3
+        fi
 
-    echo &quot;usage: $0 tomcat_name {begin_time|begin_time end_time};你使用的参数太多哦.&quot;
-    ;;</code></pre><p>esac<br>【脚本93】数组</p>
-<p>写一个脚本让用户输入多个城市的名字（可以是中文），要求不少于5个，然后把这些城市存到一个数组里，最后用for循环把它们打印出来。</p>
-<p>参考代码：</p>
-<p>#!/bin/bash  </p>
-<p>read -p “请输入至少5个城市的名字，用空格分隔:” city<br>n=<code>echo $city|awk &#39;{print NF}&#39;</code></p>
-<p>if [ $n -lt 5 ]<br>then<br>    echo “输入的城市个数至少为5”<br>    exit<br>fi</p>
-<p>name=($city)</p>
-<p>for i in ${name[@]}<br>do<br>    echo $i<br>done<br>【脚本94】批量同步代码</p>
-<p>需求背景是：</p>
+}
+
+check_tomcat () {
+
+        if [ ! -s "</span><span class="token variable">${LOGFILE}</span><span class="token string">" ] ;then
+          echo "</span>tomcat_name: <span class="token variable">${TOMCAT}</span> is not exist<span class="token string">"
+          echo "</span>you can choose:<span class="token string">"
+          /bin/ls  /home/gcweb/usr/local/
+        fi
+
+        if [ <span class="token variable">$1</span> -lt 2 ] || [ ! -s "</span><span class="token variable">${LOGFILE}</span><span class="token string">" ];then
+                echo "</span>usage: <span class="token variable">$0</span> tomcat_name <span class="token punctuation">{</span>begin_time<span class="token operator">|</span>begin_time end_time<span class="token punctuation">}</span><span class="token string">"
+                exit 2
+        fi
+}
+
+case "</span>$<span class="token comment" spellcheck="true">#" in</span>
+
+    0<span class="token punctuation">)</span>
+        <span class="token keyword">echo</span> <span class="token string">"usage: <span class="token variable">$0</span> tomcat_name {begin_time|begin_time end_time}"</span>
+        <span class="token keyword">exit</span> 1
+        <span class="token punctuation">;</span><span class="token punctuation">;</span>
+
+    1<span class="token punctuation">)</span>
+        check_tomcat $<span class="token comment" spellcheck="true">#</span>
+        <span class="token punctuation">;</span><span class="token punctuation">;</span>
+
+    2<span class="token punctuation">)</span>
+
+        check_tomcat $<span class="token comment" spellcheck="true">#</span>
+        len<span class="token operator">=</span>`echo <span class="token variable">$2</span> <span class="token operator">|</span> <span class="token function">awk</span> <span class="token string">'{print length(<span class="token variable">$0</span>)}'</span>`
+        A_DATE<span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span>get_time  $len $BEGIN_TIME<span class="token variable">)</span></span>
+        <span class="token function">eval</span>  <span class="token punctuation">$(</span> <span class="token keyword">echo</span> <span class="token variable">$A_DATE</span> <span class="token operator">|</span><span class="token function">awk</span> <span class="token string">'{print "N_DATE="<span class="token variable">$1</span>,"D_DATE="<span class="token variable">$2</span>,"E_DATE="<span class="token variable">$3</span>}'</span><span class="token punctuation">)</span>
+        check_arguments <span class="token string">"<span class="token variable">${N_DATE}</span>"</span>
+        cut_log <span class="token string">"<span class="token variable">${N_DATE}</span>"</span> <span class="token string">"<span class="token variable">${D_DATE}</span>"</span> <span class="token string">"<span class="token variable">${E_DATE}</span>"</span>
+        <span class="token punctuation">;</span><span class="token punctuation">;</span>
+
+    3<span class="token punctuation">)</span>
+
+        check_tomcat $<span class="token comment" spellcheck="true">#</span>
+        len1<span class="token operator">=</span>`echo <span class="token variable">$2</span> <span class="token operator">|</span> <span class="token function">awk</span> <span class="token string">'{print length(<span class="token variable">$0</span>)}'</span><span class="token variable"><span class="token variable">`</span>
+        len2<span class="token operator">=</span><span class="token variable">`</span></span><span class="token keyword">echo</span> <span class="token variable">$3</span> <span class="token operator">|</span> <span class="token function">awk</span> <span class="token string">'{print length(<span class="token variable">$0</span>)}'</span>`
+
+        A_DATE<span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span>get_time $<span class="token punctuation">{</span>len1<span class="token punctuation">}</span>  $BEGIN_TIME<span class="token variable">)</span></span>
+        <span class="token function">eval</span>  <span class="token punctuation">$(</span> <span class="token keyword">echo</span> <span class="token variable">$A_DATE</span> <span class="token operator">|</span><span class="token function">awk</span> <span class="token string">'{print "N_DATE1="<span class="token variable">$1</span>,"D_DATE1="<span class="token variable">$2</span>,"E_DATE1="<span class="token variable">$3</span>}'</span><span class="token punctuation">)</span>
+        check_arguments <span class="token string">"<span class="token variable">${N_DATE1}</span>"</span>
+        A_DATE<span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span>get_time $<span class="token punctuation">{</span>len2<span class="token punctuation">}</span>  $END_TIME<span class="token variable">)</span></span>
+        <span class="token function">eval</span>  <span class="token punctuation">$(</span> <span class="token keyword">echo</span> <span class="token variable">$A_DATE</span> <span class="token operator">|</span><span class="token function">awk</span> <span class="token string">'{print "N_DATE="<span class="token variable">$1</span>,"D_DATE="<span class="token variable">$2</span>,"E_DATE="<span class="token variable">$3</span>}'</span><span class="token punctuation">)</span>
+        check_arguments <span class="token string">"<span class="token variable">${N_DATE}</span>"</span>
+        cut_log <span class="token variable">${N_DATE1}</span> <span class="token variable">${D_DATE1}</span> <span class="token variable">${E_DATE1}</span> <span class="token string">"<span class="token variable">${N_DATE}</span>"</span> <span class="token string">"<span class="token variable">${D_DATE}</span>"</span> <span class="token string">"<span class="token variable">${E_DATE}</span>"</span>
+        <span class="token punctuation">;</span><span class="token punctuation">;</span>
+
+    *<span class="token punctuation">)</span>
+
+        <span class="token keyword">echo</span> <span class="token string">"usage: <span class="token variable">$0</span> tomcat_name {begin_time|begin_time end_time};你使用的参数太多哦."</span>
+        <span class="token punctuation">;</span><span class="token punctuation">;</span>
+
+esac<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="【脚本93】数组"><a href="#【脚本93】数组" class="headerlink" title="【脚本93】数组"></a>【脚本93】数组</h1><p>写一个脚本让用户输入多个城市的名字（可以是中文），要求不少于5个，然后把这些城市存到一个数组里，最后用for循环把它们打印出来。</p>
+<ul>
+<li>参考代码：</li>
+</ul>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>  
+
+<span class="token function">read</span> -p <span class="token string">"请输入至少5个城市的名字，用空格分隔:"</span> city
+n<span class="token operator">=</span>`echo <span class="token variable">$city</span><span class="token operator">|</span><span class="token function">awk</span> <span class="token string">'{print NF}'</span>`
+
+<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token variable">$n</span> -lt 5 <span class="token punctuation">]</span>
+<span class="token keyword">then</span>
+    <span class="token keyword">echo</span> <span class="token string">"输入的城市个数至少为5"</span>
+    <span class="token keyword">exit</span>
+<span class="token keyword">fi</span>
+
+name<span class="token operator">=</span><span class="token punctuation">(</span><span class="token variable">$city</span><span class="token punctuation">)</span>
+
+<span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token variable">${name[@]}</span>
+<span class="token keyword">do</span>
+    <span class="token keyword">echo</span> <span class="token variable">$i</span>
+<span class="token keyword">done</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="【脚本94】批量同步代码"><a href="#【脚本94】批量同步代码" class="headerlink" title="【脚本94】批量同步代码"></a>【脚本94】批量同步代码</h1><ul>
+<li>需求背景是：</li>
+</ul>
 <p>一个业务，有3台服务器（A，B，C）做负载均衡，由于规模太小目前并未使用专业的自动化运维工具。有新的需求时，开发同事改完代码会把变更上传到其中一台服务器A上。但是其他2台服务器也需要做相同变更。</p>
 <p>写一个shell脚本，把A服务器上的变更代码同步到B和C上。</p>
 <p>其中，你需要考虑到不需要同步的目录（假如有tmp、upload、logs、caches）</p>
-<p>参考代码：</p>
-<p>#!/bin/bash</p>
-<p>echo “该脚本将会把A机器上的/data/wwwroot/<a href="http://www.aaa.com目录同步到B,C机器上&quot;" target="_blank" rel="noopener">www.aaa.com目录同步到B,C机器上&quot;</a>;<br>read -p “是否要继续？(y|n) “</p>
-<p>rs() {<br>    rsync -azP <br>    –exclude logs <br>    –exclude upload <br>    –exclude caches <br>    –exclude tmp <br><a href="http://www.aaa.com/" target="_blank" rel="noopener">www.aaa.com/</a> $1:/data/wwwroot/<a href="http://www.aaa.com/" target="_blank" rel="noopener">www.aaa.com/</a></p>
-<p>}</p>
-<p>if [ $REPLY == ‘y’ -o $REPLY == ‘Y’ ]<br>then<br>    echo “即将同步……”<br>    sleep 2<br>    cd /data/wwwroot/<br>    rs B机器ip<br>    rs C机器ip<br>    echo “同步完成。”<br>elif [ $REPLY == ‘n’ -o $REPLY == ‘N’ ]<br>then<br>    exit 1<br>else<br>    echo “请输入字母y或者n”<br>fi<br>【脚本95】统计并发量</p>
-<p>需求背景：</p>
-<p>需要统计网站的并发量，并绘图。<br>思路：</p>
-<p>借助zabbix成图<br>通过统计访问日志每秒的日志条数来判定并发量<br>zabbix获取数据间隔30s<br>说明： 只需要写出shell脚本即可，不用关心zabbix配置。</p>
-<p>假设日志路径为：</p>
-<p>/data/logs/<a href="http://www.aaa.com_access.log" target="_blank" rel="noopener">www.aaa.com_access.log</a><br>日志格式如下：</p>
-<p>112.107.15.12 - [07/Nov/2017:09:59:01 +0800] <a href="http://www.aaa.com" target="_blank" rel="noopener">www.aaa.com</a> “/api/live.php” 200”-“ “Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0)”<br>参考代码：</p>
-<p>#!/bin/bash<br>log=/data/logs/<a href="http://www.aaa.com_access.log" target="_blank" rel="noopener">www.aaa.com_access.log</a><br>t=<code>date -d &quot;-1 second&quot; +%Y:%H:%M:%S</code></p>
-<p>#可以大概分析一下每分钟日志的量级，比如说不超过3000<br>n=tail -3000 $log |grep -c “$t”<br>echo $n<br>【脚本96】关闭服务</p>
-<p>在centos6系统里，我们可以使用ntsysv关闭不需要开机启动的服务，当然也可以使用chkconfig工具来实现。</p>
-<p>写一个shell脚本，用chkconfig工具把不常用的服务关闭。脚本需要写成交互式的，需要我们给它提供关闭的服务名字。</p>
-<p>参考代码：</p>
-<p>#!/bin/bash</p>
-<p>LANG=en<br>c=”1”</p>
-<p>while [ ! $c == “q” ]<br>do<br>    echo -e “\033[35mPlease chose a service to close from this list: \033[0m”<br>    chkconfig –list |awk ‘/3:on/ {print $1}’<br>    read -p “Which service to close: “ s<br>    chkconfig $s off<br>    service $s stop<br>    read -p  “If you want’s to quit this program, tab “q”, or tab “Ctrl c”: “ c<br>done<br>【脚本97】重启tomcat服务</p>
-<p>在生产环境中，经常遇到tomcat无法彻底关闭，也就是说用tomcat自带shutdown.sh脚本无法将java进程完全关掉。所以，需要借助shell脚本，将进程杀死，然后再启动。</p>
-<p>写一个shell脚本，实现上述功能。彻底杀死一个进程的命令是 kill -9 pid.</p>
-<p>参考代码：</p>
-<p>#!/bin/bash</p>
-<p>###功能： 重启 tomcat 进程</p>
-<p>###要求：对于tomcat中的某些应用，使用shutdown.sh是无法完全停掉所有服务的 实际操作中都需要kill掉tomcat再重启</p>
-<p>##</p>
-<h3 id="root-can-not-run-this-script"><a href="#root-can-not-run-this-script" class="headerlink" title="root can not run this script."></a>root can not run this script.</h3><p>##</p>
-<p>if [ $USER = root ]<br>then<br>        echo “root cann’t run this script!please run with other user!”<br>        exit 1<br>fi</p>
-<p>##</p>
-<h3 id="check-the-Parameter"><a href="#check-the-Parameter" class="headerlink" title="check the Parameter"></a>check the Parameter</h3><p>##</p>
-<p>if [[ $# -ne 1 ]]<br>then<br>        echo “Usage:$0 tomcatname”<br>        exit 1<br>fi</p>
-<p>##</p>
-<h3 id="only-one-process-can-run-one-time"><a href="#only-one-process-can-run-one-time" class="headerlink" title="only one process can run one time"></a>only one process can run one time</h3><p>##</p>
-<p>TMP_FILE_U=/tmp/.tmp.ps.keyword.$USER.956327.txt</p>
-<p>#echo $TMP_FILE_U<br>KEYWORD1=”$0”<br>KEYWORD2=”$1”</p>
-<h1 id="使用赋值会多fork出一个进程-所以要先重定向到一个文本-再统计"><a href="#使用赋值会多fork出一个进程-所以要先重定向到一个文本-再统计" class="headerlink" title="使用赋值会多fork出一个进程,所以要先重定向到一个文本,再统计."></a>使用赋值会多fork出一个进程,所以要先重定向到一个文本,再统计.</h1><p>ps ux |grep “$KEYWORD1”|grep “\&lt;$KEYWORD2&gt;“|grep -v “grep” &gt; $TMP_FILE_U<br>Pro_count=<code>cat $TMP_FILE_U |wc -l</code><br>if [ $Pro_count -gt 1 ]<br>then<br>        echo “An other process already running ,exit now!”<br>        exit 1<br>fi</p>
-<p>###################################################</p>
-<h1 id><a href="#" class="headerlink" title="#"></a>#</h1><h1 id="begin-of-the-script"><a href="#begin-of-the-script" class="headerlink" title="begin of the script"></a>begin of the script</h1><h1 id="-1"><a href="#-1" class="headerlink" title="#"></a>#</h1><p>###################################################</p>
-<p>##</p>
-<h3 id="set-the-Parameter"><a href="#set-the-Parameter" class="headerlink" title="set the Parameter"></a>set the Parameter</h3><p>##</p>
-<p>TOM=<code>echo $1|sed &#39;s#/##g&#39;</code><br>TOMCAT_DIRECTORY=~/usr/local/$TOM<br>STARTUP_SCRIPT=$TOMCAT_DIRECTORY/bin/startup.sh<br>TOMCAT_LOG=$TOMCAT_DIRECTORY/logs/catalina.out<br>CONF_FILE=$TOMCAT_DIRECTORY/conf/server.xml<br>TEMPFILE=/tmp/.tmpfile.x.89342.c4r3.tmp</p>
-<p>##</p>
-<h3 id="check-if-the-tomcat-directory-exist"><a href="#check-if-the-tomcat-directory-exist" class="headerlink" title="check if the tomcat directory exist"></a>check if the tomcat directory exist</h3><p>##</p>
-<p>if [ ! -d “$TOMCAT_DIRECTORY” ]<br>then<br>        echo “the tomcat \”$TOM\” not exist.check again!”<br>        exit 1<br>fi</p>
-<p>##</p>
-<h3 id="log-roteta-and-delete-log-one-week-ago"><a href="#log-roteta-and-delete-log-one-week-ago" class="headerlink" title="log roteta and delete log one week ago"></a>log roteta and delete log one week ago</h3><p>##</p>
-<p>rotate_log(){<br>TIME_FORMART=$(date +%Y%m%d%H%M%S)<br>LOG_DIR=$(dirname $TOMCAT_LOG)<br>mv $TOMCAT_LOG ${TOMCAT_LOG}_${TIME_FORMART}<br>find $LOG_DIR -type f -ctime +7 -exec rm -rf {} \;<br>}</p>
-<p>##</p>
-<h3 id="function-start-the-tomcat"><a href="#function-start-the-tomcat" class="headerlink" title="function start the tomcat"></a>function start the tomcat</h3><p>##</p>
-<p>start_tomcat()<br>{</p>
-<p>#echo start-tomcat-func<br>if [ -x  “$STARTUP_SCRIPT” ]<br>then</p>
-<pre><code>    rotate_log
-    $STARTUP_SCRIPT
-    sleep 1
-    tail -f $TOMCAT_LOG</code></pre><p>else<br>        if [ -e $STARTUP_SCRIPT ]<br>        then<br>                chmod +x $STARTUP_SCRIPT</p>
-<h1 id="echo-“permition-added-”"><a href="#echo-“permition-added-”" class="headerlink" title="echo “permition added!”"></a>echo “permition added!”</h1><pre><code>            if [ -x  &quot;$STARTUP_SCRIPT&quot; ]
-            then
+<ul>
+<li>参考代码：</li>
+</ul>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
 
-                    rotate_log
-                    $STARTUP_SCRIPT
-                    sleep 1
-                    tail -f $TOMCAT_LOG
-            else
-                    echo &quot;The script not have excute permision,Couldn&#39;t add permision to Script!&quot;
-                    exit 1
-            fi
-    else
-            echo &quot;error,the script \&quot;startup.sh\&quot; not exist!&quot;
-            exit 1
-    fi</code></pre><p>fi<br>}</p>
-<p>##</p>
-<h3 id="function-stop-the-tomcat"><a href="#function-stop-the-tomcat" class="headerlink" title="function stop the tomcat"></a>function stop the tomcat</h3><p>##</p>
-<p>stop_tomcat()<br>{<br>rm -rf $TEMPFILE<br>ps ux |grep /$TOM/ |grep -v “grep /$TOM/“|grep java &gt; $TEMPFILE<br>Pro_Count=<code>cat $TEMPFILE|wc -l</code><br>PIDS=<code>cat $TEMPFILE|awk &#39;{print $2}&#39;</code><br>rm -rf $TEMPFILE</p>
-<p>#echo $Pro_Count</p>
-<p>if [ $Pro_Count -eq 0 ]<br>then<br>        echo “The tomcat not running now!”<br>else<br>        if [ $Pro_Count -ne 1 ]<br>        then<br>                echo “The have $Pro_Count process running,killed!”<br>                kill -9 <code>echo $PIDS</code><br>                WC=<code>ps aux | grep &quot;/$TOM/&quot; | grep -v &quot;grep /$TOM/&quot; | grep java |wc -l</code><br>                [ $WC -ne 0 ] &amp;&amp; (echo “kill process failed!”;exit 1)<br>        else<br>                echo “Process killed!”<br>                kill -9 <code>echo $PIDS</code><br>                WC=<code>ps aux | grep &quot;/$TOM/&quot; | grep -v &quot;grep /$TOM/&quot; | grep java |wc -l</code><br>                [ $WC -ne 0 ] &amp;&amp; (echo “kill process failed!”;exit 1)<br>        fi<br>fi<br>}</p>
-<p>###########################</p>
-<h4 id="-2"><a href="#-2" class="headerlink" title="#"></a>#</h4><h4 id="The-main-script"><a href="#The-main-script" class="headerlink" title="The main script"></a>The main script</h4><h4 id="-3"><a href="#-3" class="headerlink" title="#"></a>#</h4><p>###########################</p>
-<p>echo -e “are you sure restart $TOM?(y or n)”<br>read ANS<br>if [ “$ANS”a != ya ]<br>then<br>   echo -e “bye! \n”<br>   exit 1<br>fi</p>
-<p>stop_tomcat<br>echo “start tomcat …”<br>sleep 2<br>start_tomcat</p>
-<h1 id="end"><a href="#end" class="headerlink" title="end"></a>end</h1><p>【脚本98】取消后缀</p>
-<p>至少用两种方法，批量把当前目录下面所有文件名后缀为.bak的后缀去掉，比如1.txt.bak去掉后为1.txt</p>
+<span class="token keyword">echo</span> <span class="token string">"该脚本将会把A机器上的/data/wwwroot/www.aaa.com目录同步到B,C机器上"</span><span class="token punctuation">;</span>
+<span class="token function">read</span> -p <span class="token string">"是否要继续？(y|n) "</span>
+
+rs<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">rsync</span> -azP \
+    --exclude logs \
+    --exclude upload \
+    --exclude caches \
+    --exclude tmp \
+www.aaa.com/ <span class="token variable">$1</span>:/data/wwwroot/www.aaa.com/
+
+<span class="token punctuation">}</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token variable">$REPLY</span> <span class="token operator">==</span> <span class="token string">'y'</span> -o <span class="token variable">$REPLY</span> <span class="token operator">==</span> <span class="token string">'Y'</span> <span class="token punctuation">]</span>
+<span class="token keyword">then</span>
+    <span class="token keyword">echo</span> <span class="token string">"即将同步……"</span>
+    <span class="token function">sleep</span> 2
+    <span class="token function">cd</span> /data/wwwroot/
+    rs B机器ip
+    rs C机器ip
+    <span class="token keyword">echo</span> <span class="token string">"同步完成。"</span>   
+<span class="token keyword">elif</span> <span class="token punctuation">[</span> <span class="token variable">$REPLY</span> <span class="token operator">==</span> <span class="token string">'n'</span> -o <span class="token variable">$REPLY</span> <span class="token operator">==</span> <span class="token string">'N'</span> <span class="token punctuation">]</span>
+<span class="token keyword">then</span>
+    <span class="token keyword">exit</span> 1
+<span class="token keyword">else</span>
+    <span class="token keyword">echo</span> <span class="token string">"请输入字母y或者n"</span>
+<span class="token keyword">fi</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="【脚本95】统计并发量"><a href="#【脚本95】统计并发量" class="headerlink" title="【脚本95】统计并发量"></a>【脚本95】统计并发量</h1><ul>
+<li>需求背景：</li>
+</ul>
+<p>需要统计网站的并发量，并绘图。</p>
+<ul>
+<li>思路：</li>
+</ul>
+<p>借助zabbix成图<br>通过统计访问日志每秒的日志条数来判定并发量<br>zabbix获取数据间隔30s</p>
+<ul>
+<li>说明：<br>只需要写出shell脚本即可，不用关心zabbix配置。</li>
+</ul>
+<p>假设日志路径为：</p>
+<pre class="line-numbers language-txt"><code class="language-txt">/data/logs/www.aaa.com_access.log <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>日志格式如下：</p>
+<pre class="line-numbers language-log"><code class="language-log">112.107.15.12 - [07/Nov/2017:09:59:01 +0800] www.aaa.com "/api/live.php" 200"-" "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0)"<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<ul>
+<li>参考代码：</li>
+</ul>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+log<span class="token operator">=</span>/data/logs/www.aaa.com_access.log
+t<span class="token operator">=</span>`date -d <span class="token string">"-1 second"</span> +%Y:%H:%M:%S`
+<span class="token comment" spellcheck="true">#可以大概分析一下每分钟日志的量级，比如说不超过3000</span>
+n<span class="token operator">=</span>tail -3000 <span class="token variable">$log</span> <span class="token operator">|</span><span class="token function">grep</span> -c <span class="token string">"<span class="token variable">$t</span>"</span>
+<span class="token keyword">echo</span> <span class="token variable">$n</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="【脚本96】关闭服务"><a href="#【脚本96】关闭服务" class="headerlink" title="【脚本96】关闭服务"></a>【脚本96】关闭服务</h1><p>在centos6系统里，我们可以使用ntsysv关闭不需要开机启动的服务，当然也可以使用chkconfig工具来实现。</p>
+<p>写一个shell脚本，用chkconfig工具把不常用的服务关闭。脚本需要写成交互式的，需要我们给它提供关闭的服务名字。</p>
+<ul>
+<li>参考代码：</li>
+</ul>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+
+LANG<span class="token operator">=</span>en
+c<span class="token operator">=</span><span class="token string">"1"</span>
+
+<span class="token keyword">while</span> <span class="token punctuation">[</span> <span class="token operator">!</span> <span class="token variable">$c</span> <span class="token operator">==</span> <span class="token string">"q"</span> <span class="token punctuation">]</span>
+<span class="token keyword">do</span>
+    <span class="token keyword">echo</span> -e <span class="token string">"\033[35mPlease chose a service to close from this list: \033[0m"</span>
+    <span class="token function">chkconfig</span> --list <span class="token operator">|</span><span class="token function">awk</span> <span class="token string">'/3:on/ {print <span class="token variable">$1</span>}'</span>
+    <span class="token function">read</span> -p <span class="token string">"Which service to close: "</span> s
+    <span class="token function">chkconfig</span> <span class="token variable">$s</span> off
+    <span class="token function">service</span> <span class="token variable">$s</span> stop
+    <span class="token function">read</span> -p  <span class="token string">"If you want's to quit this program, tab "</span>q<span class="token string">", or tab "</span>Ctrl c<span class="token string">": "</span> c
+<span class="token keyword">done</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="【脚本97】重启tomcat服务"><a href="#【脚本97】重启tomcat服务" class="headerlink" title="【脚本97】重启tomcat服务"></a>【脚本97】重启tomcat服务</h1><p>在生产环境中，经常遇到tomcat无法彻底关闭，也就是说用tomcat自带shutdown.sh脚本无法将java进程完全关掉。所以，需要借助shell脚本，将进程杀死，然后再启动。</p>
+<p>写一个shell脚本，实现上述功能。彻底杀死一个进程的命令是 kill -9 pid.</p>
+<ul>
+<li>参考代码：</li>
+</ul>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+
+<span class="token comment" spellcheck="true">###功能： 重启 tomcat 进程</span>
+<span class="token comment" spellcheck="true">###要求：对于tomcat中的某些应用，使用shutdown.sh是无法完全停掉所有服务的 实际操作中都需要kill掉tomcat再重启</span>
+<span class="token comment" spellcheck="true">##</span>
+<span class="token comment" spellcheck="true">### root can not run this script.</span>
+<span class="token comment" spellcheck="true">##</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token variable">$USER</span> <span class="token operator">=</span> root <span class="token punctuation">]</span>
+<span class="token keyword">then</span>
+        <span class="token keyword">echo</span> <span class="token string">"root cann't run this script!please run with other user!"</span>
+        <span class="token keyword">exit</span> 1
+<span class="token keyword">fi</span>
+
+<span class="token comment" spellcheck="true">##</span>
+<span class="token comment" spellcheck="true">### check the Parameter</span>
+<span class="token comment" spellcheck="true">##</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">[</span><span class="token punctuation">[</span> $<span class="token comment" spellcheck="true"># -ne 1 ]]</span>
+<span class="token keyword">then</span>
+        <span class="token keyword">echo</span> <span class="token string">"Usage:<span class="token variable">$0</span> tomcatname"</span>
+        <span class="token keyword">exit</span> 1
+<span class="token keyword">fi</span>
+
+<span class="token comment" spellcheck="true">##</span>
+<span class="token comment" spellcheck="true">### only one process can run one time</span>
+<span class="token comment" spellcheck="true">##</span>
+
+TMP_FILE_U<span class="token operator">=</span>/tmp/.tmp.ps.keyword.<span class="token variable">$USER</span>.956327.txt
+<span class="token comment" spellcheck="true">#echo $TMP_FILE_U</span>
+KEYWORD1<span class="token operator">=</span><span class="token string">"<span class="token variable">$0</span>"</span>
+KEYWORD2<span class="token operator">=</span><span class="token string">"<span class="token variable">$1</span>"</span>
+
+<span class="token comment" spellcheck="true"># 使用赋值会多fork出一个进程,所以要先重定向到一个文本,再统计.</span>
+
+<span class="token function">ps</span> ux <span class="token operator">|</span><span class="token function">grep</span> <span class="token string">"<span class="token variable">$KEYWORD1</span>"</span><span class="token operator">|</span><span class="token function">grep</span> <span class="token string">"\&lt;<span class="token variable">$KEYWORD2</span>\>"</span><span class="token operator">|</span><span class="token function">grep</span> -v <span class="token string">"grep"</span> <span class="token operator">></span> <span class="token variable">$TMP_FILE_U</span>
+Pro_count<span class="token operator">=</span><span class="token variable"><span class="token variable">`</span><span class="token function">cat</span> $TMP_FILE_U <span class="token operator">|</span><span class="token function">wc</span> -l<span class="token variable">`</span></span>
+<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token variable">$Pro_count</span> -gt 1 <span class="token punctuation">]</span>
+<span class="token keyword">then</span>
+        <span class="token keyword">echo</span> <span class="token string">"An other process already running ,exit now!"</span>
+        <span class="token keyword">exit</span> 1
+<span class="token keyword">fi</span>
+
+<span class="token comment" spellcheck="true">###################################################</span>
+<span class="token comment" spellcheck="true">#                                                 #</span>
+<span class="token comment" spellcheck="true">#               begin of the script               #</span>
+<span class="token comment" spellcheck="true">#                                                 #</span>
+<span class="token comment" spellcheck="true">###################################################</span>
+
+<span class="token comment" spellcheck="true">##</span>
+<span class="token comment" spellcheck="true">### set the Parameter</span>
+<span class="token comment" spellcheck="true">##</span>
+
+TOM<span class="token operator">=</span>`echo <span class="token variable">$1</span><span class="token operator">|</span><span class="token function">sed</span> <span class="token string">'s#/##g'</span>`
+TOMCAT_DIRECTORY<span class="token operator">=</span>~/usr/local/<span class="token variable">$TOM</span>
+STARTUP_SCRIPT<span class="token operator">=</span><span class="token variable">$TOMCAT_DIRECTORY</span>/bin/startup.sh
+TOMCAT_LOG<span class="token operator">=</span><span class="token variable">$TOMCAT_DIRECTORY</span>/logs/catalina.out
+CONF_FILE<span class="token operator">=</span><span class="token variable">$TOMCAT_DIRECTORY</span>/conf/server.xml
+TEMPFILE<span class="token operator">=</span>/tmp/.tmpfile.x.89342.c4r3.tmp
+
+<span class="token comment" spellcheck="true">##</span>
+<span class="token comment" spellcheck="true">### check if the tomcat directory exist</span>
+<span class="token comment" spellcheck="true">##</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token operator">!</span> -d <span class="token string">"<span class="token variable">$TOMCAT_DIRECTORY</span>"</span> <span class="token punctuation">]</span>
+<span class="token keyword">then</span>
+        <span class="token keyword">echo</span> <span class="token string">"the tomcat \"<span class="token variable">$TOM</span>\" not exist.check again!"</span>
+        <span class="token keyword">exit</span> 1
+<span class="token keyword">fi</span>
+
+<span class="token comment" spellcheck="true">##</span>
+<span class="token comment" spellcheck="true">### log roteta and delete log one week ago</span>
+<span class="token comment" spellcheck="true">##</span>
+
+rotate_log<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+TIME_FORMART<span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token function">date</span> +%Y%m%d%H%M%S<span class="token variable">)</span></span>
+LOG_DIR<span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token function">dirname</span> $TOMCAT_LOG<span class="token variable">)</span></span>
+<span class="token function">mv</span> <span class="token variable">$TOMCAT_LOG</span> <span class="token variable">${TOMCAT_LOG}</span>_<span class="token variable">${TIME_FORMART}</span>
+<span class="token function">find</span> <span class="token variable">$LOG_DIR</span> -type f -ctime +7 -exec <span class="token function">rm</span> -rf <span class="token punctuation">{</span><span class="token punctuation">}</span> \<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">##</span>
+<span class="token comment" spellcheck="true">### function start the tomcat</span>
+<span class="token comment" spellcheck="true">##</span>
+
+start_tomcat<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+<span class="token comment" spellcheck="true">#echo start-tomcat-func</span>
+<span class="token keyword">if</span> <span class="token punctuation">[</span> -x  <span class="token string">"<span class="token variable">$STARTUP_SCRIPT</span>"</span> <span class="token punctuation">]</span>
+<span class="token keyword">then</span>
+
+        rotate_log
+        <span class="token variable">$STARTUP_SCRIPT</span>
+        <span class="token function">sleep</span> 1
+        <span class="token function">tail</span> -f <span class="token variable">$TOMCAT_LOG</span>
+<span class="token keyword">else</span>
+        <span class="token keyword">if</span> <span class="token punctuation">[</span> -e <span class="token variable">$STARTUP_SCRIPT</span> <span class="token punctuation">]</span>
+        <span class="token keyword">then</span>
+                <span class="token function">chmod</span> +x <span class="token variable">$STARTUP_SCRIPT</span>
+<span class="token comment" spellcheck="true">#               echo "permition added!"</span>
+                <span class="token keyword">if</span> <span class="token punctuation">[</span> -x  <span class="token string">"<span class="token variable">$STARTUP_SCRIPT</span>"</span> <span class="token punctuation">]</span>
+                <span class="token keyword">then</span>
+
+                        rotate_log
+                        <span class="token variable">$STARTUP_SCRIPT</span>
+                        <span class="token function">sleep</span> 1
+                        <span class="token function">tail</span> -f <span class="token variable">$TOMCAT_LOG</span>
+                <span class="token keyword">else</span>
+                        <span class="token keyword">echo</span> <span class="token string">"The script not have excute permision,Couldn't add permision to Script!"</span>
+                        <span class="token keyword">exit</span> 1
+                <span class="token keyword">fi</span>
+        <span class="token keyword">else</span>
+                <span class="token keyword">echo</span> <span class="token string">"error,the script \"startup.sh\" not exist!"</span>
+                <span class="token keyword">exit</span> 1
+        <span class="token keyword">fi</span>
+<span class="token keyword">fi</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">##</span>
+<span class="token comment" spellcheck="true">### function stop the tomcat</span>
+<span class="token comment" spellcheck="true">##</span>
+
+stop_tomcat<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+<span class="token function">rm</span> -rf <span class="token variable">$TEMPFILE</span>
+<span class="token function">ps</span> ux <span class="token operator">|</span><span class="token function">grep</span> /<span class="token variable">$TOM</span>/ <span class="token operator">|</span><span class="token function">grep</span> -v <span class="token string">"grep /<span class="token variable">$TOM</span>/"</span><span class="token operator">|</span><span class="token function">grep</span> java <span class="token operator">></span> <span class="token variable">$TEMPFILE</span>
+Pro_Count<span class="token operator">=</span><span class="token variable"><span class="token variable">`</span><span class="token function">cat</span> $TEMPFILE<span class="token operator">|</span><span class="token function">wc</span> -l<span class="token variable">`</span></span>
+PIDS<span class="token operator">=</span>`cat <span class="token variable">$TEMPFILE</span><span class="token operator">|</span><span class="token function">awk</span> <span class="token string">'{print <span class="token variable">$2</span>}'</span>`
+<span class="token function">rm</span> -rf <span class="token variable">$TEMPFILE</span>
+<span class="token comment" spellcheck="true">#echo $Pro_Count</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token variable">$Pro_Count</span> -eq 0 <span class="token punctuation">]</span>
+<span class="token keyword">then</span>
+        <span class="token keyword">echo</span> <span class="token string">"The tomcat not running now!"</span>
+<span class="token keyword">else</span>
+        <span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token variable">$Pro_Count</span> -ne 1 <span class="token punctuation">]</span>
+        <span class="token keyword">then</span>
+                <span class="token keyword">echo</span> <span class="token string">"The have <span class="token variable">$Pro_Count</span> process running,killed!"</span>
+                <span class="token function">kill</span> -9 <span class="token variable"><span class="token variable">`</span><span class="token keyword">echo</span> $PIDS<span class="token variable">`</span></span>
+                WC<span class="token operator">=</span>`ps aux <span class="token operator">|</span> <span class="token function">grep</span> <span class="token string">"/<span class="token variable">$TOM</span>/"</span> <span class="token operator">|</span> <span class="token function">grep</span> -v <span class="token string">"grep /<span class="token variable">$TOM</span>/"</span> <span class="token operator">|</span> <span class="token function">grep</span> java <span class="token operator">|</span><span class="token function">wc</span> -l`
+                <span class="token punctuation">[</span> <span class="token variable">$WC</span> -ne 0 <span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>echo <span class="token string">"kill process failed!"</span><span class="token punctuation">;</span><span class="token keyword">exit</span> 1<span class="token punctuation">)</span>
+        <span class="token keyword">else</span>
+                <span class="token keyword">echo</span> <span class="token string">"Process killed!"</span>
+                <span class="token function">kill</span> -9 <span class="token variable"><span class="token variable">`</span><span class="token keyword">echo</span> $PIDS<span class="token variable">`</span></span>
+                WC<span class="token operator">=</span>`ps aux <span class="token operator">|</span> <span class="token function">grep</span> <span class="token string">"/<span class="token variable">$TOM</span>/"</span> <span class="token operator">|</span> <span class="token function">grep</span> -v <span class="token string">"grep /<span class="token variable">$TOM</span>/"</span> <span class="token operator">|</span> <span class="token function">grep</span> java <span class="token operator">|</span><span class="token function">wc</span> -l`
+                <span class="token punctuation">[</span> <span class="token variable">$WC</span> -ne 0 <span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>echo <span class="token string">"kill process failed!"</span><span class="token punctuation">;</span><span class="token keyword">exit</span> 1<span class="token punctuation">)</span>
+        <span class="token keyword">fi</span>
+<span class="token keyword">fi</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">###########################</span>
+<span class="token comment" spellcheck="true">####                   ####</span>
+<span class="token comment" spellcheck="true">####  The main script  ####</span>
+<span class="token comment" spellcheck="true">####                   ####</span>
+<span class="token comment" spellcheck="true">###########################</span>
+
+<span class="token keyword">echo</span> -e <span class="token string">"are you sure restart <span class="token variable">$TOM?</span>(y or n)"</span>
+<span class="token function">read</span> ANS
+<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token string">"<span class="token variable">$ANS</span>"</span>a <span class="token operator">!=</span> ya <span class="token punctuation">]</span>
+<span class="token keyword">then</span>
+   <span class="token keyword">echo</span> -e <span class="token string">"bye! \n"</span>
+   <span class="token keyword">exit</span> 1
+<span class="token keyword">fi</span>
+
+stop_tomcat
+<span class="token keyword">echo</span> <span class="token string">"start tomcat ..."</span>
+<span class="token function">sleep</span> 2
+start_tomcat
+<span class="token comment" spellcheck="true"># end</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="【脚本98】取消后缀"><a href="#【脚本98】取消后缀" class="headerlink" title="【脚本98】取消后缀"></a>【脚本98】取消后缀</h1><p>至少用两种方法，批量把当前目录下面所有文件名后缀为.bak的后缀去掉，比如1.txt.bak去掉后为1.txt</p>
 <p>假设取消的后缀为.bak</p>
-<p>方法一：</p>
-<p>#!/bin/bash</p>
-<p>for i in <code>ls *.bak</code><br>do<br>    mv $i <code>echo $i|sed &#39;s/\.bak//g&#39;</code><br>done<br>方法二：</p>
-<p>#!/bin/bash</p>
-<p>for i in <code>ls *.bak</code><br>do<br>    newname=<code>echo $i|awk -F &#39;.bak&#39; &#39;{print $1}&#39;</code><br>    mv $i $newname<br>done</p>
+<ul>
+<li>方法一：</li>
+</ul>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+
+<span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token variable"><span class="token variable">`</span><span class="token function">ls</span> *.bak<span class="token variable">`</span></span>
+<span class="token keyword">do</span> 
+    <span class="token function">mv</span> <span class="token variable">$i</span> `echo <span class="token variable">$i</span><span class="token operator">|</span><span class="token function">sed</span> <span class="token string">'s/\.bak//g'</span>`
+<span class="token keyword">done</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>方法二：</li>
+</ul>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+
+<span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token variable"><span class="token variable">`</span><span class="token function">ls</span> *.bak<span class="token variable">`</span></span>
+<span class="token keyword">do</span> 
+    newname<span class="token operator">=</span>`echo <span class="token variable">$i</span><span class="token operator">|</span><span class="token function">awk</span> -F <span class="token string">'.bak'</span> <span class="token string">'{print <span class="token variable">$1</span>}'</span>` 
+    <span class="token function">mv</span> <span class="token variable">$i</span> <span class="token variable">$newname</span>
+<span class="token keyword">done</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr />
@@ -1445,7 +1704,7 @@ tomcat实例t1-t4：
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">34.8k</span>
+            <span class="white-color">34.6k</span>
             
 
             <br>

@@ -8,8 +8,7 @@
     <meta name="baidu-site-verification" content="PQuYZ68I8K">
     <meta name="google-site-verification" content="PQuYZ68I8K">
     <meta name="360-site-verification" content>
-    <meta name="description" content="#【脚本59】判断日期是否合法
-用shell脚本判断输入的日期是否合法。就是判断日期是都是真实的日期，比如20170110就是合法日期，20171332就不合法
+    <meta name="description" content="【脚本59】判断日期是否合法用shell脚本判断输入的日期是否合法。就是判断日期是都是真实的日期，比如20170110就是合法日期，20171332就不合法
 
 参考代码：
 
@@ -17,7 +16,7 @@
 
 #check date
 
-if [ ">
+if [ $#">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -493,8 +492,7 @@ if [ ">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>#【脚本59】判断日期是否合法</p>
-<p>用shell脚本判断输入的日期是否合法。就是判断日期是都是真实的日期，比如20170110就是合法日期，20171332就不合法</p>
+                <h1 id="【脚本59】判断日期是否合法"><a href="#【脚本59】判断日期是否合法" class="headerlink" title="【脚本59】判断日期是否合法"></a>【脚本59】判断日期是否合法</h1><p>用shell脚本判断输入的日期是否合法。就是判断日期是都是真实的日期，比如20170110就是合法日期，20171332就不合法</p>
 <ul>
 <li>参考代码：</li>
 </ul>
@@ -532,8 +530,7 @@ day<span class="token operator">=</span><span class="token variable">${datem:6:2
     <span class="token keyword">echo</span> <span class="token string">"Error: Please input a wright date."</span>
     <span class="token keyword">exit</span> 1
 <span class="token keyword">fi</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>#【脚本60】监控网卡</p>
-<ol>
+<h1 id="【脚本60】监控网卡"><a href="#【脚本60】监控网卡" class="headerlink" title="【脚本60】监控网卡"></a>【脚本60】监控网卡</h1><ol>
 <li>每10分钟检测一次指定网卡的流量</li>
 <li>如果流量为0，则重启网卡</li>
 </ol>
@@ -551,8 +548,7 @@ n2<span class="token operator">=</span><span class="token variable">`</span></sp
     <span class="token function">ifup</span> eth0
 <span class="token keyword">fi</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>然后写个cron，10分钟执行一次</p>
-<p>#【脚本61】监控web可用性</p>
-<p>写一个shell脚本，通过curl -I 返回的状态码来判定所访问的网站是否正常。比如，当状态码为200时，才算正常。</p>
+<h1 id="【脚本61】监控web可用性"><a href="#【脚本61】监控web可用性" class="headerlink" title="【脚本61】监控web可用性"></a>【脚本61】监控web可用性</h1><p>写一个shell脚本，通过curl -I 返回的状态码来判定所访问的网站是否正常。比如，当状态码为200时，才算正常。</p>
 <ul>
 <li>参考代码：</li>
 </ul>
@@ -565,8 +561,7 @@ sta<span class="token operator">=</span>`curl -I <span class="token variable">$u
 <span class="token keyword">then</span>
     python /usr/local/sbin/mail.py xxx@qq.com <span class="token string">"<span class="token variable">$url</span> down."</span> <span class="token string">"<span class="token variable">$url</span> down"</span>
 <span class="token keyword">fi</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>#【脚本62】文件打包</p>
-<ul>
+<h1 id="【脚本62】文件打包"><a href="#【脚本62】文件打包" class="headerlink" title="【脚本62】文件打包"></a>【脚本62】文件打包</h1><ul>
 <li><p>需求：<br>将用户家目录（考虑到执行脚本的用户可能是普通用户也可能是root）下面小于5KB的文件打包成tar.gz的压缩包，并以当前日期为文件名前缀，例如今天打包的文件为2017-09-15.tar.gz。</p>
 </li>
 <li><p>参考代码：</p>
@@ -577,8 +572,7 @@ sta<span class="token operator">=</span>`curl -I <span class="token variable">$u
 t<span class="token operator">=</span><span class="token variable"><span class="token variable">`</span><span class="token function">date</span> +%F<span class="token variable">`</span></span>
 <span class="token function">cd</span> <span class="token variable">$HOME</span>
 <span class="token function">tar</span> czf <span class="token variable">$t</span>.tar.gz <span class="token variable"><span class="token variable">`</span><span class="token function">find</span> <span class="token keyword">.</span> -type f -size -5k<span class="token variable">`</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>#【脚本63】端口解封</p>
-<p>一个小伙伴提到一个问题，他不小心用iptables规则把sshd端口22给封掉了，结果不能远程登陆，要想解决这问题，还要去机房，登陆真机去删除这规则。 问题来了，要写个监控脚本，监控iptables规则是否封掉了22端口，如果封掉了，给打开。 写好脚本，放到任务计划里，每分钟执行一次。</p>
+<h1 id="【脚本63】端口解封"><a href="#【脚本63】端口解封" class="headerlink" title="【脚本63】端口解封"></a>【脚本63】端口解封</h1><p>一个小伙伴提到一个问题，他不小心用iptables规则把sshd端口22给封掉了，结果不能远程登陆，要想解决这问题，还要去机房，登陆真机去删除这规则。 问题来了，要写个监控脚本，监控iptables规则是否封掉了22端口，如果封掉了，给打开。 写好脚本，放到任务计划里，每分钟执行一次。</p>
 <ul>
 <li>参考代码：</li>
 </ul>
@@ -592,8 +586,7 @@ i<span class="token operator">=</span>`cat /tmp/drop.txt<span class="token opera
     /sbin/iptables -I INPUT 1 -p tcp --dport 22 -j ACCEPT
 <span class="token keyword">fi</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>#【脚本64】统计分析日志</p>
-<p>已知nginx访问的日志文件在/usr/local/nginx/logs/access.log内</p>
+<h1 id="【脚本64】统计分析日志"><a href="#【脚本64】统计分析日志" class="headerlink" title="【脚本64】统计分析日志"></a>【脚本64】统计分析日志</h1><p>已知nginx访问的日志文件在/usr/local/nginx/logs/access.log内</p>
 <p>请统计下早上10点到12点 来访ip最多的是哪个?</p>
 <ul>
 <li>日志样例：</li>
@@ -604,8 +597,7 @@ i<span class="token operator">=</span>`cat /tmp/drop.txt<span class="token opera
 <p>实现这个需求使用如下命令即可：</p>
 <pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">grep</span> <span class="token string">'15/Sep/2017:1[0-2]:[0-5][0-9]:'</span> /usr/local/nginx/logs/access.log<span class="token operator">|</span><span class="token function">awk</span> <span class="token string">'{print <span class="token variable">$1</span>}'</span><span class="token operator">|</span><span class="token function">sort</span> -n<span class="token operator">|</span><span class="token function">uniq</span> -c <span class="token operator">|</span><span class="token function">sort</span> -n<span class="token operator">|</span><span class="token function">tail</span> -n1
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>#【脚本65】打印数字</p>
-<p>写一个shell脚本。提示你输入一个暂停的数字，然后从1打印到该数字。然后询问是否继续。继续的话在输入个在数字 接着打印。不继续退出。</p>
+<h1 id="【脚本65】打印数字"><a href="#【脚本65】打印数字" class="headerlink" title="【脚本65】打印数字"></a>【脚本65】打印数字</h1><p>写一个shell脚本。提示你输入一个暂停的数字，然后从1打印到该数字。然后询问是否继续。继续的话在输入个在数字 接着打印。不继续退出。</p>
 <ul>
 <li><p>例：<br>如果输入的是5，打印1 2 3 4 5 然后继续 输入15 然后打印 6 7 …14 15 依此类推。</p>
 </li>
@@ -636,8 +628,7 @@ i<span class="token operator">=</span>`cat /tmp/drop.txt<span class="token opera
 <span class="token keyword">else</span>
         <span class="token keyword">exit</span>
 <span class="token keyword">fi</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>#【脚本66】给文档增加内容</p>
-<p>在文本文档1.txt第5行（假设文件行数大于5）后面增加如下内容：</p>
+<h1 id="【脚本66】给文档增加内容"><a href="#【脚本66】给文档增加内容" class="headerlink" title="【脚本66】给文档增加内容"></a>【脚本66】给文档增加内容</h1><p>在文本文档1.txt第5行（假设文件行数大于5）后面增加如下内容：</p>
 <pre class="line-numbers language-log"><code class="language-log"># This is a test file.
 
 # Test insert line into this file.
@@ -647,8 +638,7 @@ i<span class="token operator">=</span>`cat /tmp/drop.txt<span class="token opera
 </ul>
 <pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">sed</span> -i <span class="token string">"5a # This is a test file.\n# Test insert line into this file."</span> 1.txt
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>#【脚本67】备份etc下面文件</p>
-<p>设计一个shell程序，在每月第一天备份并压缩/etc目录的所有内容，存放在/root/bak目录里，且文件名为如下形式”yymmdd_etc.tar.gz”，yy为年，mm为月，dd为日。</p>
+<h1 id="【脚本67】备份etc下面文件"><a href="#【脚本67】备份etc下面文件" class="headerlink" title="【脚本67】备份etc下面文件"></a>【脚本67】备份etc下面文件</h1><p>设计一个shell程序，在每月第一天备份并压缩/etc目录的所有内容，存放在/root/bak目录里，且文件名为如下形式”yymmdd_etc.tar.gz”，yy为年，mm为月，dd为日。</p>
 <ul>
 <li>参考代码：</li>
 </ul>
@@ -665,13 +655,11 @@ d<span class="token operator">=</span><span class="token variable"><span class="
     <span class="token function">cd</span> /etc/
     <span class="token function">tar</span> czf  /root/bak/<span class="token variable">$prefix_etc</span>.tar.gz ./
 <span class="token keyword">fi</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>#【脚本68】计算单词重复次数</p>
-<p>将文件内所有的单词的重复次数计算出来，只需要列出重复次数最多的10个单词。</p>
+<h1 id="【脚本68】计算单词重复次数"><a href="#【脚本68】计算单词重复次数" class="headerlink" title="【脚本68】计算单词重复次数"></a>【脚本68】计算单词重复次数</h1><p>将文件内所有的单词的重复次数计算出来，只需要列出重复次数最多的10个单词。</p>
 <p>假设文档名字叫做a.txt，使用如下命令即可：</p>
 <pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">sed</span> <span class="token string">'s/[^a-zA-Z]/ /g'</span> a.txt<span class="token operator">|</span><span class="token function">xargs</span> -n1 <span class="token operator">|</span><span class="token function">sort</span> <span class="token operator">|</span><span class="token function">uniq</span> -c <span class="token operator">|</span><span class="token function">sort</span> -nr <span class="token operator">|</span><span class="token function">head</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>#【脚本69】成员分组</p>
-<ul>
+<h1 id="【脚本69】成员分组"><a href="#【脚本69】成员分组" class="headerlink" title="【脚本69】成员分组"></a>【脚本69】成员分组</h1><ul>
 <li>需求<br>把所有的成员平均得分成若干个小组。这里，我会提供一个人员列表，比如成员有50人，需要分成7个小组，要求随机性，每次和每次分组的结构应该不一致。</li>
 </ul>
 <p>假设成员列表文件为members.txt</p>
@@ -765,8 +753,7 @@ ini_min<span class="token operator">=</span>1
     <span class="token function">cat</span> n_<span class="token variable">$i</span>.txt
     <span class="token keyword">echo</span>
 <span class="token keyword">done</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>#【脚本70】shell中的小数</p>
-<p>有一组式子如下：<br>a=0.5<br>b=3<br>c=a*b<br>求c的值</p>
+<h1 id="【脚本70】shell中的小数"><a href="#【脚本70】shell中的小数" class="headerlink" title="【脚本70】shell中的小数"></a>【脚本70】shell中的小数</h1><p>有一组式子如下：<br>a=0.5<br>b=3<br>c=a*b<br>求c的值</p>
 <ul>
 <li>参考代码：</li>
 </ul>
@@ -775,8 +762,7 @@ a<span class="token operator">=</span>0.5
 b<span class="token operator">=</span>3
 c<span class="token operator">=</span>`echo <span class="token string">"scale=1;<span class="token variable">$a*</span><span class="token variable">$b</span>"</span><span class="token operator">|</span>bc`
 <span class="token keyword">echo</span> <span class="token variable">$c</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>#【脚本71】a.txt有b.txt没有</p>
-<p>有两个文件a.txt和b.txt，需求是，把a.txt中有的并且b.txt中没有的行找出来，并写入到c.txt，然后计算c.txt文件的行数。</p>
+<h1 id="【脚本71】a-txt有b-txt没有"><a href="#【脚本71】a-txt有b-txt没有" class="headerlink" title="【脚本71】a.txt有b.txt没有"></a>【脚本71】a.txt有b.txt没有</h1><p>有两个文件a.txt和b.txt，需求是，把a.txt中有的并且b.txt中没有的行找出来，并写入到c.txt，然后计算c.txt文件的行数。</p>
 <ul>
 <li>参考代码：</li>
 </ul>
@@ -795,14 +781,12 @@ n<span class="token operator">=</span>`wc -l a.txt<span class="token operator">|
 <span class="token function">wc</span> -l c.txt<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>或者用grep实现</p>
 <pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">grep</span> -vwf b.txt a.txt <span class="token operator">></span> c.txt； <span class="token function">wc</span> -l c.txt<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>#【脚本72】杀死进程</p>
-<p>把当前用户下所有进程名字中含有”java”的进程关闭。</p>
+<h1 id="【脚本72】杀死进程"><a href="#【脚本72】杀死进程" class="headerlink" title="【脚本72】杀死进程"></a>【脚本72】杀死进程</h1><p>把当前用户下所有进程名字中含有”java”的进程关闭。</p>
 <ul>
 <li>参考答案：</li>
 </ul>
 <pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">ps</span> -u <span class="token variable">$USER</span> <span class="token operator">|</span><span class="token function">awk</span> <span class="token string">'<span class="token variable">$NF</span> ~ /java/ {print <span class="token variable">$1</span>}'</span><span class="token operator">|</span><span class="token function">xargs</span> <span class="token function">kill</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>#【脚本73】备份数据表</p>
-<p>用shell实现，以并发进程的形式将mysql数据库所有的表备份到当前目录，并把所有的表压缩到一个压缩包文件里。</p>
+<h1 id="【脚本73】备份数据表"><a href="#【脚本73】备份数据表" class="headerlink" title="【脚本73】备份数据表"></a>【脚本73】备份数据表</h1><p>用shell实现，以并发进程的形式将mysql数据库所有的表备份到当前目录，并把所有的表压缩到一个压缩包文件里。</p>
 <p>假设数据库名字为mydb，用户名为zero，密码为passwd。</p>
 <ul>
 <li><p>提示：<br>在shell中加上&amp;可以将命令丢到后台，从而可以同时执行多条命令达到并发的效果。</p>
@@ -818,8 +802,7 @@ pre<span class="token operator">=</span><span class="token variable"><span class
 <span class="token keyword">done</span>
 <span class="token function">tar</span> czf <span class="token variable">$pre</span>.tar.gz *.sql 
 <span class="token function">rm</span> -f *.sql<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>#【脚本74】监控节点</p>
-<p>一个网站，使用了cdn，全国各地有几十个节点。需要你写一个shell脚本来监控各个节点是否正常。</p>
+<h1 id="【脚本74】监控节点"><a href="#【脚本74】监控节点" class="headerlink" title="【脚本74】监控节点"></a>【脚本74】监控节点</h1><p>一个网站，使用了cdn，全国各地有几十个节点。需要你写一个shell脚本来监控各个节点是否正常。</p>
 <ul>
 <li>假如：</li>
 </ul>
@@ -845,8 +828,7 @@ curl -x <span class="token variable">$s_ip</span>:80 <span class="token variable
         <span class="token keyword">echo</span> <span class="token string">"node <span class="token variable">$ip</span> sth wrong."</span>
     <span class="token keyword">fi</span>
 <span class="token keyword">done</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>#【脚本75】破解字符串</p>
-<p>已知下面的字符串是通过RANDOM随机数变量md5sum|cut-c 1-8截取后的结果，请破解这些字符串对应的md5sum前的RANDOM对应数字？</p>
+<h1 id="【脚本75】破解字符串"><a href="#【脚本75】破解字符串" class="headerlink" title="【脚本75】破解字符串"></a>【脚本75】破解字符串</h1><p>已知下面的字符串是通过RANDOM随机数变量md5sum|cut-c 1-8截取后的结果，请破解这些字符串对应的md5sum前的RANDOM对应数字？</p>
 <p>21029299<br>00205d1c<br>a3da1677<br>1f6d12dd<br>890684ba</p>
 <p>-解题思路：<br>通过每次传递一个参数的方式，来实现依次破解，$RANDOM的范围为0-32767。</p>
 <ul>
@@ -862,8 +844,7 @@ curl -x <span class="token variable">$s_ip</span>:80 <span class="token variable
             <span class="token keyword">break</span>
         <span class="token keyword">fi</span>
 <span class="token keyword">done</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>#【脚本76】判断cpu厂商</p>
-<ul>
+<h1 id="【脚本76】判断cpu厂商"><a href="#【脚本76】判断cpu厂商" class="headerlink" title="【脚本76】判断cpu厂商"></a>【脚本76】判断cpu厂商</h1><ul>
 <li>写一个脚本：</li>
 </ul>
 <p>判断当前主机的CPU生产商，其信息在/proc/cpuinfo文件中vendor id一行中。<br>如果其生产商为AuthenticAMD，就显示其为AMD公司；<br>如果其生产商为GenuineIntel，就显示其为Intel公司；<br>否则，就说其为非主流公司。</p>
@@ -1616,7 +1597,7 @@ m<span class="token operator">=</span>`cat /proc/cpuinfo <span class="token oper
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">34.8k</span>
+            <span class="white-color">34.6k</span>
             
 
             <br>

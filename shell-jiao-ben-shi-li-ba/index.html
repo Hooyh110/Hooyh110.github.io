@@ -8,12 +8,11 @@
     <meta name="baidu-site-verification" content="PQuYZ68I8K">
     <meta name="google-site-verification" content="PQuYZ68I8K">
     <meta name="360-site-verification" content>
-    <meta name="description" content="#【脚本99】域名到期提醒
-写一个shell脚本，查询指定域名的过期时间，并在到期前一周，每天发一封提醒邮件。
+    <meta name="description" content="【脚本99】域名到期提醒写一个shell脚本，查询指定域名的过期时间，并在到期前一周，每天发一封提醒邮件。
 
 思路：大家可以在linux下使用命令“whois 域名”，如”whois xxx.com”，来获取该域名的一些信息。
 
-提示：">
+提示：wh">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -489,8 +488,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>#【脚本99】域名到期提醒</p>
-<p>写一个shell脚本，查询指定域名的过期时间，并在到期前一周，每天发一封提醒邮件。</p>
+                <h1 id="【脚本99】域名到期提醒"><a href="#【脚本99】域名到期提醒" class="headerlink" title="【脚本99】域名到期提醒"></a>【脚本99】域名到期提醒</h1><p>写一个shell脚本，查询指定域名的过期时间，并在到期前一周，每天发一封提醒邮件。</p>
 <ul>
 <li><p>思路：<br>大家可以在linux下使用命令“whois 域名”，如”whois xxx.com”，来获取该域名的一些信息。</p>
 </li>
@@ -525,8 +523,7 @@ notify<span class="token punctuation">(</span><span class="token punctuation">)<
 
 is_install_whois
 notify xxx.com<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>#【脚本100】自动增加公钥</p>
-<p>写一个shell脚本，当我们执行时，提示要输入对方的ip和root密码，然后可以自动把本机的公钥增加到对方机器上，从而实现密钥认证。</p>
+<h1 id="【脚本100】自动增加公钥"><a href="#【脚本100】自动增加公钥" class="headerlink" title="【脚本100】自动增加公钥"></a>【脚本100】自动增加公钥</h1><p>写一个shell脚本，当我们执行时，提示要输入对方的ip和root密码，然后可以自动把本机的公钥增加到对方机器上，从而实现密钥认证。</p>
 <ul>
 <li>参考代码：</li>
 </ul>
@@ -625,8 +622,7 @@ EOF</span>
 check_ok
 /usr/bin/expect /usr/local/sbin/rsync_keys/rsync.expect <span class="token variable">$ip</span> <span class="token variable">$password</span>
 <span class="token keyword">echo</span> <span class="token string">"OK,this script is successful. ssh <span class="token variable">$ip</span>  to test it"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>#【脚本101】自动封/解封ip</p>
-<ul>
+<h1 id="【脚本101】自动封-解封ip"><a href="#【脚本101】自动封-解封ip" class="headerlink" title="【脚本101】自动封/解封ip"></a>【脚本101】自动封/解封ip</h1><ul>
 <li>需求背景：</li>
 </ul>
 <p>discuz论坛，每天有很多注册机注册的用户，然后发垃圾广告帖子。虽然使用了一些插件但没有效果。分析访问日志，发现有几个ip访问量特别大，所以想到可以写个shell脚本，通过分析访问日志，把访问量大的ip直接封掉。</p>
@@ -685,8 +681,7 @@ d3<span class="token operator">=</span><span class="token variable"><span class=
         <span class="token keyword">echo</span> <span class="token string">"<span class="token variable">$d4</span> <span class="token variable">$ip</span> block"</span> <span class="token operator">>></span><span class="token variable">$tmpdir</span>/block.ip
     <span class="token keyword">done</span>
 <span class="token keyword">fi</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>#【脚本102】单机部署SpringBoot项目</p>
-<p>有一台测试服务器，经常需要部署SpringBoot项目，手动部署太麻烦，于是写了个部署脚本</p>
+<h1 id="【脚本102】单机部署SpringBoot项目"><a href="#【脚本102】单机部署SpringBoot项目" class="headerlink" title="【脚本102】单机部署SpringBoot项目"></a>【脚本102】单机部署SpringBoot项目</h1><p>有一台测试服务器，经常需要部署SpringBoot项目，手动部署太麻烦，于是写了个部署脚本</p>
 <ul>
 <li>脚本代码：</li>
 </ul>
@@ -1508,7 +1503,7 @@ jar_path<span class="token operator">=</span><span class="token variable">${GIT_
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">34.8k</span>
+            <span class="white-color">34.6k</span>
             
 
             <br>

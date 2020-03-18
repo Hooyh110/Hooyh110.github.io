@@ -8,11 +8,10 @@
     <meta name="baidu-site-verification" content="PQuYZ68I8K">
     <meta name="google-site-verification" content="PQuYZ68I8K">
     <meta name="360-site-verification" content>
-    <meta name="description" content="#【脚本12】批量更改文件名
-需求：
+    <meta name="description" content="【脚本12】批量更改文件名需求：
 找到/123目录下所有后缀名为.txt的文件批量修改.txt为.txt.bak把所有.bak文件打包压缩为123.tar.gz批量还原文件的名字，即把增加的.bak再删除代码：
 #!/bin/bash
-">
+no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -488,8 +487,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>#【脚本12】批量更改文件名</p>
-<p>需求：</p>
+                <h1 id="【脚本12】批量更改文件名"><a href="#【脚本12】批量更改文件名" class="headerlink" title="【脚本12】批量更改文件名"></a>【脚本12】批量更改文件名</h1><p>需求：</p>
 <p>找到/123目录下所有后缀名为.txt的文件<br>批量修改.txt为.txt.bak<br>把所有.bak文件打包压缩为123.tar.gz<br>批量还原文件的名字，即把增加的.bak再删除<br>代码：</p>
 <pre class="line-numbers language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
 now<span class="token operator">=</span><span class="token variable"><span class="token variable">`</span><span class="token function">date</span> +%F_%T<span class="token variable">`</span></span>
@@ -511,8 +509,7 @@ now<span class="token operator">=</span><span class="token variable"><span class
   name<span class="token operator">=</span>`echo <span class="token variable">$txt</span> <span class="token operator">|</span><span class="token function">awk</span> -F <span class="token string">'.'</span> <span class="token string">'{OFS="."} {print <span class="token variable">$1</span>,<span class="token variable">$2</span>}'</span>`
   <span class="token function">mv</span> <span class="token variable">$txt</span> <span class="token variable">$name</span>
 <span class="token keyword">done</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>#【脚本13】监控80端口</p>
-<p>需求：<br>写一个脚本，判断本机的80端口（假如服务为httpd）是否开启着，如果开启着什么都不做，如果发现端口不存在，那么重启一下httpd服务，并发邮件通知你自己。脚本写好后，可以每一分钟执行一次，也可以写一个死循环的脚本，30s检测一次。<br>发邮件的脚本参考【脚本11】的示例代码。<br>代码：</p>
+<h1 id="【脚本13】监控80端口"><a href="#【脚本13】监控80端口" class="headerlink" title="【脚本13】监控80端口"></a>【脚本13】监控80端口</h1><p>需求：<br>写一个脚本，判断本机的80端口（假如服务为httpd）是否开启着，如果开启着什么都不做，如果发现端口不存在，那么重启一下httpd服务，并发邮件通知你自己。脚本写好后，可以每一分钟执行一次，也可以写一个死循环的脚本，30s检测一次。<br>发邮件的脚本参考【脚本11】的示例代码。<br>代码：</p>
 <pre class="line-numbers language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
 email<span class="token operator">=</span><span class="token string">"user@example.com"</span>
 <span class="token keyword">if</span> <span class="token function">netstat</span> -lntp <span class="token operator">|</span><span class="token function">grep</span> <span class="token string">':80'</span> <span class="token operator">|</span><span class="token function">grep</span> <span class="token string">'httpd'</span>
@@ -534,8 +531,7 @@ email<span class="token operator">=</span><span class="token string">"user@examp
       python mail.py  <span class="token variable">$mail</span> <span class="token string">'apache_start_error'</span> <span class="token variable"><span class="token variable">`</span><span class="token function">cat</span> /tmp/apache_start.err<span class="token variable">`</span></span>
    <span class="token keyword">fi</span>
 <span class="token keyword">fi</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>#【脚本14】备份数据库</p>
-<p>需求：</p>
+<h1 id="【脚本14】备份数据库"><a href="#【脚本14】备份数据库" class="headerlink" title="【脚本14】备份数据库"></a>【脚本14】备份数据库</h1><p>需求：</p>
 <p>设计一个shell脚本来备份数据库，首先在本地服务器上保存一份数据，然后再远程拷贝一份，本地保存一周的数据，远程保存一个月。</p>
 <p>假定，我们知道mysql root账号的密码，要备份的库为discuz，本地备份目录为/bak/mysql, 远程服务器ip为192.168.123.30，远程提供了一个rsync服务，备份的地址是 192.168.123.30::backup . 写完脚本后，需要加入到cron中，每天凌晨3点执行。<br>脚本代码：</p>
 <pre class="line-numbers language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
@@ -557,8 +553,7 @@ mysqldump -uroot -p<span class="token variable">$passwd</span> --default-charact
 <span class="token keyword">echo</span> <span class="token string">"mysql backup end at <span class="token variable"><span class="token variable">`</span><span class="token function">date</span> +%F %T<span class="token variable">`</span></span>."</span>
 然后加入cron
 0 3 * * * /bin/bash /usr/local/sbin/mysqlbak.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>#【脚本15】自动重启php-fpm服务</p>
-<p>服务器上跑的是LNMP环境，近期总是有502现象。502为网站访问的状态码，200正常，502错误是nginx最为普通的错误状态码。由于502只是暂时的，并且只要一重启php-fpm服务则502消失，但不重启的话，则会一直持续很长时间。所以有必要写一个监控脚本，监控访问日志的状态码，一旦发生502，则自动重启一下php-fpm。</p>
+<h1 id="【脚本15】自动重启php-fpm服务"><a href="#【脚本15】自动重启php-fpm服务" class="headerlink" title="【脚本15】自动重启php-fpm服务"></a>【脚本15】自动重启php-fpm服务</h1><p>服务器上跑的是LNMP环境，近期总是有502现象。502为网站访问的状态码，200正常，502错误是nginx最为普通的错误状态码。由于502只是暂时的，并且只要一重启php-fpm服务则502消失，但不重启的话，则会一直持续很长时间。所以有必要写一个监控脚本，监控访问日志的状态码，一旦发生502，则自动重启一下php-fpm。</p>
 <p>我们设定：</p>
 <p>access_log /data/log/access.log<br>脚本死循环，每10s检测一次（假设每10s钟的日志条数为300左右）<br>重启php-fpm的方法是 /etc/init.d/php-fpm restart<br>脚本代码：</p>
 <pre class="line-numbers language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
@@ -583,8 +578,7 @@ N<span class="token operator">=</span>10
    <span class="token keyword">fi</span>
    sleep<span class="token punctuation">(</span>10<span class="token punctuation">)</span>
 <span class="token keyword">done</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>#【脚本16】文本替换</p>
-<p>将memcached里的数据导出到文件中，然后再导入memcached里却发现数据过期了，这是因为导出的数据是带有一个时间戳的，这个时间戳就是该条数据过期的时间点，如果当前时间已经超过该时间戳，那么是导入不进去的。不过可以修改文件中的时间戳来保证导入时数据的有效期。可以写一个简单的脚本批量替换这些文件中的时间戳：</p>
+<h1 id="【脚本16】文本替换"><a href="#【脚本16】文本替换" class="headerlink" title="【脚本16】文本替换"></a>【脚本16】文本替换</h1><p>将memcached里的数据导出到文件中，然后再导入memcached里却发现数据过期了，这是因为导出的数据是带有一个时间戳的，这个时间戳就是该条数据过期的时间点，如果当前时间已经超过该时间戳，那么是导入不进去的。不过可以修改文件中的时间戳来保证导入时数据的有效期。可以写一个简单的脚本批量替换这些文件中的时间戳：</p>
 <pre class="line-numbers language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
 hour<span class="token operator">=</span>`date -d <span class="token string">"+1 hour"</span> +%s`  <span class="token comment" spellcheck="true"># 一个小时之后的时间戳</span>
 data_time<span class="token operator">=</span>`cat data.txt <span class="token operator">|</span><span class="token function">grep</span> add <span class="token operator">|</span><span class="token function">awk</span> <span class="token string">'{print <span class="token variable">$4</span>}'</span> <span class="token operator">|</span><span class="token function">sort</span> -n <span class="token operator">|</span>uniq`
@@ -592,8 +586,7 @@ data_time<span class="token operator">=</span>`cat data.txt <span class="token o
 <span class="token keyword">do</span>
    <span class="token function">sed</span> -i <span class="token string">"s/<span class="token variable">$i</span>/<span class="token variable">$hour</span>/g"</span> <span class="token variable"><span class="token variable">`</span><span class="token function">grep</span> $i -rl /root/data.txt<span class="token variable">`</span></span>
 <span class="token keyword">done</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>#【脚本17】启动容器</p>
-<p>docker每次关闭都会连带着将运行中的容器关闭，所以每次启动docker后都需要逐个去启动容器，很麻烦，由于是实验用的虚拟机不是线上的机器，所以就直接写了一个很简单的循环来启动容器：</p>
+<h1 id="【脚本17】启动容器"><a href="#【脚本17】启动容器" class="headerlink" title="【脚本17】启动容器"></a>【脚本17】启动容器</h1><p>docker每次关闭都会连带着将运行中的容器关闭，所以每次启动docker后都需要逐个去启动容器，很麻烦，由于是实验用的虚拟机不是线上的机器，所以就直接写了一个很简单的循环来启动容器：</p>
 <pre class="line-numbers language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
 /usr/bin/systemctl start docker
 
@@ -601,8 +594,7 @@ data_time<span class="token operator">=</span>`cat data.txt <span class="token o
 <span class="token keyword">do</span>
   /usr/bin/docker start <span class="token variable">$i</span>
 <span class="token keyword">done</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>#【脚本18】删除文本中的字母</p>
-<p>要求：把一个文本文档的前5行中包含字母的行删除掉，同时把6到10行中的全部字母删除掉。</p>
+<h1 id="【脚本18】删除文本中的字母"><a href="#【脚本18】删除文本中的字母" class="headerlink" title="【脚本18】删除文本中的字母"></a>【脚本18】删除文本中的字母</h1><p>要求：把一个文本文档的前5行中包含字母的行删除掉，同时把6到10行中的全部字母删除掉。</p>
 <p>参考答案：假设文本名字叫做1.txt，并且文本行数大于10，脚本如下：</p>
 <pre class="line-numbers language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
 
@@ -635,8 +627,7 @@ rows<span class="token operator">=</span>`wc -l 1.txt <span class="token operato
 <span class="token keyword">done</span>
 
 <span class="token comment" spellcheck="true">##若想把更改内容写入到1.txt，还需要把以上内容重定向到一个文本中，然后删除1.txt，再把刚刚重定向的文件更名为1.txt</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>#【脚本19】查找字母数小于6的单词</p>
-<p>用shell打印下面这句话中字母数小于6的单词。<br>Bash also interprets a number of multi-character options.</p>
+<h1 id="【脚本19】查找字母数小于6的单词"><a href="#【脚本19】查找字母数小于6的单词" class="headerlink" title="【脚本19】查找字母数小于6的单词"></a>【脚本19】查找字母数小于6的单词</h1><p>用shell打印下面这句话中字母数小于6的单词。<br>Bash also interprets a number of multi-character options.</p>
 <ul>
 <li>脚本如下：</li>
 </ul>
@@ -649,8 +640,7 @@ rows<span class="token operator">=</span>`wc -l 1.txt <span class="token operato
      <span class="token keyword">echo</span> <span class="token variable">$s</span>
   <span class="token keyword">fi</span>
 <span class="token keyword">done</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>#【脚本20】输入数字执行对应命令</p>
-<p>写一个脚本实现如下功能： 输入一个数字，然后运行对应的一个命令。显示命令如下：</p>
+<h1 id="【脚本20】输入数字执行对应命令"><a href="#【脚本20】输入数字执行对应命令" class="headerlink" title="【脚本20】输入数字执行对应命令"></a>【脚本20】输入数字执行对应命令</h1><p>写一个脚本实现如下功能： 输入一个数字，然后运行对应的一个命令。显示命令如下：</p>
 <p>cmd meau* 1—date 2–ls 3–who 4–pwd<br>当输入1时，会运行date, 输入2时运行ls, 依此类推。</p>
 <p>实现脚本如下：</p>
 <pre class="line-numbers language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
@@ -674,8 +664,7 @@ rows<span class="token operator">=</span>`wc -l 1.txt <span class="token operato
       <span class="token keyword">echo</span> <span class="token string">"Please input a number: 1-4"</span>
    <span class="token punctuation">;</span><span class="token punctuation">;</span>
 esac<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>#【脚本21】批量创建用户并设置密码</p>
-<p>用shell脚本实现如下需求：<br>添加user_00 – user_09 10个用户，并且给他们设置一个随机密码，密码要求10位包含大小写字母以及数字，注意需要把每个用户的密码记录到一个日志文件里。</p>
+<h1 id="【脚本21】批量创建用户并设置密码"><a href="#【脚本21】批量创建用户并设置密码" class="headerlink" title="【脚本21】批量创建用户并设置密码"></a>【脚本21】批量创建用户并设置密码</h1><p>用shell脚本实现如下需求：<br>添加user_00 – user_09 10个用户，并且给他们设置一个随机密码，密码要求10位包含大小写字母以及数字，注意需要把每个用户的密码记录到一个日志文件里。</p>
 <ul>
 <li>提示：</li>
 </ul>
@@ -702,7 +691,7 @@ esac<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span
 <p>  fi<br>}</p>
 <p>while :<br>do<br>  t_n=<code>ps -C httpd --no-heading |wc -l</code><br>  if [ $t_n -ge 500 ]<br>  then<br>     /usr/local/apache2/bin/apachectl restart<br>     if [ $? -ne 0 ]<br>     then<br>        check_service<br>     fi<br>     sleep 60<br>     t_n=<code>ps -C httpd --no-heading |wc -l</code><br>     if [ $t_n -ge 500]<br>     then<br>        python mail.py “<a href="mailto:123@qq.com" target="_blank" rel="noopener">123@qq.com</a>“ “httpd service somth wrong” “the httpd process is budy.”<br>        exit<br>     fi<br>  fi<br>  sleep 10<br>done</p>
 <pre><code>
-#【脚本23】封ip
+# 【脚本23】封ip
 
 - 需求： 
 根据web服务器上的访问日志，把一些请求量非常高的ip给拒绝掉！
@@ -765,8 +754,7 @@ then
    block
 else
    block
-fi</code></pre><p>#【脚本24】部署前端项目</p>
-<p>最近做了一个web前端的项目，需要编写一个脚本完成项目的上线。</p>
+fi</code></pre><h1 id="【脚本24】部署前端项目"><a href="#【脚本24】部署前端项目" class="headerlink" title="【脚本24】部署前端项目"></a>【脚本24】部署前端项目</h1><p>最近做了一个web前端的项目，需要编写一个脚本完成项目的上线。</p>
 <ul>
 <li>脚本实现如下：</li>
 </ul>
@@ -1569,7 +1557,7 @@ DEST_PATH<span class="token operator">=</span>/product/frontend/    <span class=
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">34.8k</span>
+            <span class="white-color">34.6k</span>
             
 
             <br>
