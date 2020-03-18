@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.hooyuhao.club/"/>
-  <updated>2020-03-17T05:47:26.617Z</updated>
+  <updated>2020-03-18T02:24:38.924Z</updated>
   <id>http://blog.hooyuhao.club/</id>
   
   <author>
@@ -15,6 +15,233 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>shell脚本实例(八)</title>
+    <link href="http://blog.hooyuhao.club/shell-jiao-ben-shi-li-ba/"/>
+    <id>http://blog.hooyuhao.club/shell-jiao-ben-shi-li-ba/</id>
+    <published>2020-03-18T02:22:35.000Z</published>
+    <updated>2020-03-18T02:24:38.924Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;#【脚本99】域名到期提醒&lt;/p&gt;
+&lt;p&gt;写一个shell脚本，查询指定域名的过期时间，并在到期前一周，每天发一封提醒邮件。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;思路：&lt;br&gt;大家可以在linux下使用命令“whois 域名”，如”whois
+        
+      
+    
+    </summary>
+    
+      <category term="shell" scheme="http://blog.hooyuhao.club/categories/shell/"/>
+    
+    
+      <category term="shell" scheme="http://blog.hooyuhao.club/tags/shell/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>shell脚本实例(七)</title>
+    <link href="http://blog.hooyuhao.club/shell-jiao-ben-shi-li-qi/"/>
+    <id>http://blog.hooyuhao.club/shell-jiao-ben-shi-li-qi/</id>
+    <published>2020-03-18T02:17:47.000Z</published>
+    <updated>2020-03-18T02:18:16.176Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;【脚本92】截取tomcat日志&lt;/p&gt;
+&lt;p&gt;写一个截取tomcat catalina.out日志的脚本。&lt;/p&gt;
+&lt;p&gt;tomcat实例t1-t4：&lt;/p&gt;
+&lt;p&gt;[root@server ~]# tree -L 1
+        
+      
+    
+    </summary>
+    
+      <category term="shell" scheme="http://blog.hooyuhao.club/categories/shell/"/>
+    
+    
+      <category term="shell" scheme="http://blog.hooyuhao.club/tags/shell/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>shell脚本实例(六)</title>
+    <link href="http://blog.hooyuhao.club/shell-jiao-ben-shi-li-liu/"/>
+    <id>http://blog.hooyuhao.club/shell-jiao-ben-shi-li-liu/</id>
+    <published>2020-03-18T01:50:39.000Z</published>
+    <updated>2020-03-18T02:16:59.005Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;【脚本77】监控cpu使用率&quot;&gt;&lt;a href=&quot;#【脚本77】监控cpu使用率&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="shell" scheme="http://blog.hooyuhao.club/categories/shell/"/>
+    
+    
+      <category term="shell" scheme="http://blog.hooyuhao.club/tags/shell/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>shell脚本实例(五)</title>
+    <link href="http://blog.hooyuhao.club/shell-jiao-ben-shi-li-wu/"/>
+    <id>http://blog.hooyuhao.club/shell-jiao-ben-shi-li-wu/</id>
+    <published>2020-03-18T01:30:28.000Z</published>
+    <updated>2020-03-18T02:07:27.696Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;#【脚本59】判断日期是否合法&lt;/p&gt;
+&lt;p&gt;用shell脚本判断输入的日期是否合法。就是判断日期是都是真实的日期，比如20170110就是合法日期，20171332就不合法&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;参考代码：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre
+        
+      
+    
+    </summary>
+    
+      <category term="shell" scheme="http://blog.hooyuhao.club/categories/shell/"/>
+    
+    
+      <category term="shell" scheme="http://blog.hooyuhao.club/tags/shell/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>shell脚本实例(四)</title>
+    <link href="http://blog.hooyuhao.club/shell-jiao-ben-shi-li-si/"/>
+    <id>http://blog.hooyuhao.club/shell-jiao-ben-shi-li-si/</id>
+    <published>2020-03-18T01:30:22.000Z</published>
+    <updated>2020-03-18T01:59:52.584Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;#【脚本41】获取ip&lt;/p&gt;
+&lt;p&gt;提示用户输入网卡的名字，然后我们用脚本输出网卡的ip。
+        
+      
+    
+    </summary>
+    
+      <category term="shell" scheme="http://blog.hooyuhao.club/categories/shell/"/>
+    
+    
+      <category term="shell" scheme="http://blog.hooyuhao.club/tags/shell/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>shell脚本实例(三)</title>
+    <link href="http://blog.hooyuhao.club/shell-jiao-ben-shi-li-san/"/>
+    <id>http://blog.hooyuhao.club/shell-jiao-ben-shi-li-san/</id>
+    <published>2020-03-18T01:30:17.000Z</published>
+    <updated>2020-03-18T01:49:28.592Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;#【脚本25】找规律打印数字&lt;/p&gt;
+&lt;p&gt;请详细查看如下几个数字的规律，并使用shell脚本输出后面的十个数字。&lt;/p&gt;
+&lt;p&gt;10 31 53 77 105 141 …….&lt;br&gt;试题解析：&lt;br&gt;我想大多数人都会去比较这些数字的差值：&lt;/p&gt;
+&lt;p&gt;10  31 
+        
+      
+    
+    </summary>
+    
+      <category term="shell" scheme="http://blog.hooyuhao.club/categories/shell/"/>
+    
+    
+      <category term="shell" scheme="http://blog.hooyuhao.club/tags/shell/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>shell脚本实例(二)</title>
+    <link href="http://blog.hooyuhao.club/shell-jiao-ben-shi-li-er/"/>
+    <id>http://blog.hooyuhao.club/shell-jiao-ben-shi-li-er/</id>
+    <published>2020-03-18T01:29:58.000Z</published>
+    <updated>2020-03-18T01:38:48.600Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;#【脚本12】批量更改文件名&lt;/p&gt;
+&lt;p&gt;需求：&lt;/p&gt;
+&lt;p&gt;找到/123目录下所有后缀名为.txt的文件&lt;br&gt;批量修改.txt为.txt.bak&lt;br&gt;把所有.bak文件打包压缩为123.tar.gz&lt;br&gt;批量还原文件的名字，即把增加的.bak再删除&lt;br&gt;代码：
+        
+      
+    
+    </summary>
+    
+      <category term="shell" scheme="http://blog.hooyuhao.club/categories/shell/"/>
+    
+    
+      <category term="shell" scheme="http://blog.hooyuhao.club/tags/shell/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>shell脚本实例(一)</title>
+    <link href="http://blog.hooyuhao.club/shell-jiao-ben-shi-li/"/>
+    <id>http://blog.hooyuhao.club/shell-jiao-ben-shi-li/</id>
+    <published>2020-03-18T01:20:03.000Z</published>
+    <updated>2020-03-18T01:29:33.236Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;#【脚本1】打印形状&lt;/p&gt;
+&lt;p&gt;打印等腰三角形、直角三角形、倒直角三角形、菱形&lt;/p&gt;
+&lt;pre class=&quot;line-numbers language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token
+        
+      
+    
+    </summary>
+    
+      <category term="shell" scheme="http://blog.hooyuhao.club/categories/shell/"/>
+    
+    
+      <category term="shell" scheme="http://blog.hooyuhao.club/tags/shell/"/>
+    
+  </entry>
   
   <entry>
     <title>python 定义全局变量</title>
@@ -323,219 +550,6 @@
     
     
       <category term="docker" scheme="http://blog.hooyuhao.club/tags/docker/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>shell ls 输出显示1列</title>
-    <link href="http://blog.hooyuhao.club/shell-ls-shu-chu-xian-shi-1-lie/"/>
-    <id>http://blog.hooyuhao.club/shell-ls-shu-chu-xian-shi-1-lie/</id>
-    <published>2020-03-11T08:55:40.000Z</published>
-    <updated>2020-03-11T09:14:36.989Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;linux-shell-ls-1-列显示文件&quot;&gt;&lt;a href=&quot;#linux-shell-ls-1-列显示文件&quot; class=&quot;headerlink&quot; title=&quot;linux shell ls -1 列显示文件&quot;&gt;&lt;/a&gt;&lt;font face=&quot;黑体&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="shell" scheme="http://blog.hooyuhao.club/categories/shell/"/>
-    
-    
-      <category term="shell" scheme="http://blog.hooyuhao.club/tags/shell/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>docker容器日志清理</title>
-    <link href="http://blog.hooyuhao.club/docker-rong-qi-ri-zhi-qing-li/"/>
-    <id>http://blog.hooyuhao.club/docker-rong-qi-ri-zhi-qing-li/</id>
-    <published>2020-03-11T01:15:01.000Z</published>
-    <updated>2020-03-11T02:45:10.211Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;font face=&quot;黑体&quot; color=&quot;green&quot; size=&quot;6&quot;&gt;设置一个容器服务的日志大小上限&lt;/font&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;在启动容器的时候增加一个参数设置该容器的日志大小，及日志驱动&lt;/p&gt;
-&lt;p&gt;
-        
-      
-    
-    </summary>
-    
-      <category term="docker" scheme="http://blog.hooyuhao.club/categories/docker/"/>
-    
-    
-      <category term="docker" scheme="http://blog.hooyuhao.club/tags/docker/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>python install cmdb</title>
-    <link href="http://blog.hooyuhao.club/python-install-cmdb/"/>
-    <id>http://blog.hooyuhao.club/python-install-cmdb/</id>
-    <published>2020-03-09T16:44:34.000Z</published>
-    <updated>2020-03-10T00:52:18.348Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;利用Python 安装部署cmdb&lt;/p&gt;
-&lt;pre class=&quot;line-numbers language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="Python" scheme="http://blog.hooyuhao.club/categories/Python/"/>
-    
-    
-      <category term="Python" scheme="http://blog.hooyuhao.club/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>解决docker 容器内访问宿主机“No route to host”的问题</title>
-    <link href="http://blog.hooyuhao.club/jie-jue-docker-rong-qi-nei-fang-wen-su-zhu-ji-no-route-to-host-de-wen-ti/"/>
-    <id>http://blog.hooyuhao.club/jie-jue-docker-rong-qi-nei-fang-wen-su-zhu-ji-no-route-to-host-de-wen-ti/</id>
-    <published>2020-03-09T15:11:41.000Z</published>
-    <updated>2020-03-09T15:13:33.708Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;解决docker-容器内访问宿主机“No-route-to-host”的问题&quot;&gt;&lt;a href=&quot;#解决docker-容器内访问宿主机“No-route-to-host”的问题&quot; class=&quot;headerlink&quot; title=&quot;解决docker
-        
-      
-    
-    </summary>
-    
-      <category term="docker" scheme="http://blog.hooyuhao.club/categories/docker/"/>
-    
-    
-      <category term="docker" scheme="http://blog.hooyuhao.club/tags/docker/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>定义js.map文件只允许内网或者指定IP访问</title>
-    <link href="http://blog.hooyuhao.club/ding-yi-js-map-wen-jian-zhi-yun-xu-nei-wang-huo-zhe-zhi-ding-ip-fang-wen/"/>
-    <id>http://blog.hooyuhao.club/ding-yi-js-map-wen-jian-zhi-yun-xu-nei-wang-huo-zhe-zhi-ding-ip-fang-wen/</id>
-    <published>2020-03-09T14:52:54.000Z</published>
-    <updated>2020-03-11T11:55:40.862Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h4 id=&quot;案例配置：&quot;&gt;&lt;a href=&quot;#案例配置：&quot; class=&quot;headerlink&quot; title=&quot;案例配置：&quot;&gt;&lt;/a&gt;案例配置：&lt;/h4&gt;&lt;pre class=&quot;line-numbers language-nginx&quot;&gt;&lt;code
-        
-      
-    
-    </summary>
-    
-      <category term="nginx" scheme="http://blog.hooyuhao.club/categories/nginx/"/>
-    
-    
-      <category term="nginx" scheme="http://blog.hooyuhao.club/tags/nginx/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>bat脚本编写</title>
-    <link href="http://blog.hooyuhao.club/bat-jiao-ben-bian-xie/"/>
-    <id>http://blog.hooyuhao.club/bat-jiao-ben-bian-xie/</id>
-    <published>2020-03-09T13:10:40.000Z</published>
-    <updated>2020-03-09T13:12:17.792Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;强制获取管理员运行权限&quot;&gt;&lt;a href=&quot;#强制获取管理员运行权限&quot; class=&quot;headerlink&quot; title=&quot;强制获取管理员运行权限&quot;&gt;&lt;/a&gt;强制获取管理员运行权限&lt;/h1&gt;&lt;pre&gt;&lt;code&gt;%1 mshta
-        
-      
-    
-    </summary>
-    
-      <category term="Windows" scheme="http://blog.hooyuhao.club/categories/Windows/"/>
-    
-    
-      <category term="Windows" scheme="http://blog.hooyuhao.club/tags/Windows/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>docker run -m指定内存大小不生效</title>
-    <link href="http://blog.hooyuhao.club/docker-run-m-zhi-ding-nei-cun-da-xiao-bu-sheng-xiao/"/>
-    <id>http://blog.hooyuhao.club/docker-run-m-zhi-ding-nei-cun-da-xiao-bu-sheng-xiao/</id>
-    <published>2020-03-09T10:55:26.000Z</published>
-    <updated>2020-03-09T10:58:03.892Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;pre&gt;&lt;code&gt;GRUB_CMDLINE_LINUX=&amp;quot;crashkernel=auto rd.lvm.lv=centos/root rd.lvm.lv=centos/swap rhgb quiet&amp;quot;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;执行docker
-        
-      
-    
-    </summary>
-    
-      <category term="docker" scheme="http://blog.hooyuhao.club/categories/docker/"/>
-    
-    
-      <category term="docker" scheme="http://blog.hooyuhao.club/tags/docker/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>利用普罗米修斯监控ecs</title>
-    <link href="http://blog.hooyuhao.club/li-yong-pu-luo-mi-xiu-si-jian-kong-ecs/"/>
-    <id>http://blog.hooyuhao.club/li-yong-pu-luo-mi-xiu-si-jian-kong-ecs/</id>
-    <published>2020-03-09T10:02:02.000Z</published>
-    <updated>2020-03-09T10:45:21.440Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;div align=&quot;middle&quot;&gt;&lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=&quot;330&quot; height=&quot;86&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="monitor" scheme="http://blog.hooyuhao.club/categories/monitor/"/>
-    
-    
-      <category term="monitor" scheme="http://blog.hooyuhao.club/tags/monitor/"/>
     
   </entry>
   

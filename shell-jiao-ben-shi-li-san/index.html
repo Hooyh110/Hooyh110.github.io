@@ -1,0 +1,1867 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="shell脚本实例(三), ECNU NLP DeepLearning AntNLP helen">
+    <meta name="baidu-site-verification" content="PQuYZ68I8K">
+    <meta name="google-site-verification" content="PQuYZ68I8K">
+    <meta name="360-site-verification" content>
+    <meta name="description" content="#【脚本25】找规律打印数字
+请详细查看如下几个数字的规律，并使用shell脚本输出后面的十个数字。
+10 31 53 77 105 141 …….试题解析：我想大多数人都会去比较这些数字的差值：
+10  31  53  77  105  ">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>shell脚本实例(三) | helen的博客</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+    <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?46e79e71af0709a5b9106bf20cecc493";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+<body>
+
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">helen的博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <span>归档</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <span>友情链接</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/contact" class="waves-effect waves-light">
+            
+            <span>留言板</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/book" class="waves-effect waves-light">
+            
+            <span>Book</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">helen的博客</div>
+        <div class="logo-desc">
+            
+            南开大学 | 计算机科学与技术 | 高级运维
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-link"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-link"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-link"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-link"></i>
+                
+                归档
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-link"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-link"></i>
+                
+                友情链接
+            </a>
+        </li>
+        
+        <li>
+            <a href="/contact" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-link"></i>
+                
+                留言板
+            </a>
+        </li>
+        
+        <li>
+            <a href="/book" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-link"></i>
+                
+                Book
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/Hooyh110" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/Hooyh110" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        shell脚本实例(三)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 20px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                        <a href="/tags/shell/" target="_blank">
+                            <span class="chip bg-color">shell</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                        <a href="/categories/shell/" class="post-category" target="_blank">
+                            shell
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-03-18
+                </div>
+
+                <div class="post-author info-break-policy">
+                    <i class="fa fa-user-o fa-fw"></i>作者:&nbsp;&nbsp;
+                    
+                    helen
+                    
+                </div>
+
+                
+                
+                <div class="info-break-policy">
+                    <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    3.3k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    14 分
+                </div>
+                
+                
+
+                
+                <div id="busuanzi_container_page_pv" class="info-break-policy">
+                    <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                    <span id="busuanzi_value_page_pv"></span>
+                </div>
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>#【脚本25】找规律打印数字</p>
+<p>请详细查看如下几个数字的规律，并使用shell脚本输出后面的十个数字。</p>
+<p>10 31 53 77 105 141 …….<br>试题解析：<br>我想大多数人都会去比较这些数字的差值：</p>
+<p>10  31  53  77  105  141<br>21   22   24   28   36<br>但是这个差值看，并没有什么规律，而我们再仔细看的时候，发现这个差值的差值是有规律的：</p>
+<p>10  31  53  77  105  141<br>21   22   24   28   36<br>1      2     4     8</p>
+<ul>
+<li>脚本实现：</li>
+</ul>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token shebang important">#! /bin/bash</span>
+x<span class="token operator">=</span>21
+m<span class="token operator">=</span>10
+<span class="token keyword">echo</span> <span class="token variable">$m</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token variable"><span class="token variable">`</span><span class="token function">seq</span> 0 14<span class="token variable">`</span></span><span class="token punctuation">;</span> <span class="token keyword">do</span>
+ j<span class="token operator">=</span>$<span class="token punctuation">[</span>2**<span class="token variable">$i</span><span class="token punctuation">]</span>
+ m<span class="token operator">=</span>$<span class="token punctuation">[</span><span class="token variable">$m</span>+<span class="token variable">$x</span><span class="token punctuation">]</span>
+ <span class="token keyword">echo</span> <span class="token variable">$m</span>
+ x<span class="token operator">=</span>$<span class="token punctuation">[</span><span class="token variable">$x</span>+<span class="token variable">$j</span><span class="token punctuation">]</span>
+<span class="token keyword">done</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>#【脚本26】统计普通用户</p>
+<p>写个shell，看看你的Linux系统中是否有自定义用户（普通用户），若是有，一共有几个？</p>
+<p>假设所有普通用户都是uid大于1000的</p>
+<ul>
+<li>脚本实现：</li>
+</ul>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+ n<span class="token operator">=</span>`awk -F <span class="token string">':'</span> <span class="token string">'<span class="token variable">$3</span>>1000'</span> /etc/passwd<span class="token operator">|</span><span class="token function">wc</span> -l`
+ <span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token variable">$n</span> -gt 0 <span class="token punctuation">]</span>
+ <span class="token keyword">then</span>
+     <span class="token keyword">echo</span> <span class="token string">"There are <span class="token variable">$n</span> common users."</span>
+ <span class="token keyword">else</span>
+     <span class="token keyword">echo</span> <span class="token string">"No common users."</span>
+ <span class="token keyword">fi</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>#【脚本27】监控磁盘使用率</p>
+<p>写一个shell脚本，检测所有磁盘分区使用率和inode使用率并记录到以当天日期为命名的日志文件里，当发现某个分区容量或者inode使用量大于85%时，发邮件通知你自己。</p>
+<ul>
+<li><p>思路：<br>就是先df -h 然后过滤出已使用的那一列，然后再想办法过滤出百分比的整数部分，然后和85去比较，同理，inode也是一样的思路。</p>
+</li>
+<li><p>实现代码：</p>
+</li>
+</ul>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+<span class="token comment" spellcheck="true">## This script is for record Filesystem Use%,IUse% everyday and send alert mail when % is more than 85%.</span>
+
+log<span class="token operator">=</span>/var/log/disk/<span class="token variable"><span class="token variable">`</span><span class="token function">date</span> +%F<span class="token variable">`</span></span>.log
+<span class="token function">date</span> +<span class="token string">'%F %T'</span> <span class="token operator">></span> <span class="token variable">$log</span>
+<span class="token function">df</span> -h <span class="token operator">>></span> <span class="token variable">$log</span>
+<span class="token keyword">echo</span> <span class="token operator">>></span> <span class="token variable">$log</span>
+<span class="token function">df</span> -i <span class="token operator">>></span> <span class="token variable">$log</span>
+
+<span class="token keyword">for</span> i <span class="token keyword">in</span> `df -h<span class="token operator">|</span><span class="token function">grep</span> -v <span class="token string">'Use%'</span><span class="token operator">|</span><span class="token function">sed</span> <span class="token string">'s/%//'</span><span class="token operator">|</span><span class="token function">awk</span> <span class="token string">'{print <span class="token variable">$5</span>}'</span><span class="token variable"><span class="token variable">`</span><span class="token punctuation">;</span> <span class="token keyword">do</span>
+    <span class="token keyword">if</span> <span class="token punctuation">[</span> $i -gt 85 <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+        use<span class="token operator">=</span><span class="token variable">`</span></span><span class="token function">df</span> -h<span class="token operator">|</span><span class="token function">grep</span> -v <span class="token string">'Use%'</span><span class="token operator">|</span><span class="token function">sed</span> <span class="token string">'s/%//'</span><span class="token operator">|</span><span class="token function">awk</span> <span class="token string">'<span class="token variable">$5</span>=='</span><span class="token variable">$i</span><span class="token string">' {print <span class="token variable">$1</span>,<span class="token variable">$5</span>}'</span>`
+        <span class="token keyword">echo</span> <span class="token string">"<span class="token variable">$use</span>"</span> <span class="token operator">>></span> use
+    <span class="token keyword">fi</span>
+<span class="token keyword">done</span>
+<span class="token keyword">if</span> <span class="token punctuation">[</span> -e use <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+
+   <span class="token comment" spellcheck="true">##这里可以使用咱们之前介绍的mail.py发邮件</span>
+    mail -s <span class="token string">"Filesystem Use% check"</span> root@localhost <span class="token operator">&lt;</span> use
+    <span class="token function">rm</span> -rf use
+<span class="token keyword">fi</span>
+
+<span class="token keyword">for</span> j <span class="token keyword">in</span> `df -i<span class="token operator">|</span><span class="token function">grep</span> -v <span class="token string">'IUse%'</span><span class="token operator">|</span><span class="token function">sed</span> <span class="token string">'s/%//'</span><span class="token operator">|</span><span class="token function">awk</span> <span class="token string">'{print <span class="token variable">$5</span>}'</span><span class="token variable"><span class="token variable">`</span><span class="token punctuation">;</span> <span class="token keyword">do</span>
+    <span class="token keyword">if</span> <span class="token punctuation">[</span> $j -gt 85 <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+        iuse<span class="token operator">=</span><span class="token variable">`</span></span><span class="token function">df</span> -i<span class="token operator">|</span><span class="token function">grep</span> -v <span class="token string">'IUse%'</span><span class="token operator">|</span><span class="token function">sed</span> <span class="token string">'s/%//'</span><span class="token operator">|</span><span class="token function">awk</span> <span class="token string">'<span class="token variable">$5</span>=='</span><span class="token variable">$j</span><span class="token string">' {print <span class="token variable">$1</span>,<span class="token variable">$5</span>}'</span>`
+        <span class="token keyword">echo</span> <span class="token string">"<span class="token variable">$iuse</span>"</span> <span class="token operator">>></span> iuse
+    <span class="token keyword">fi</span>
+<span class="token keyword">done</span>
+<span class="token keyword">if</span> <span class="token punctuation">[</span> -e iuse <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+    mail -s <span class="token string">"Filesystem IUse% check"</span> root@localhost <span class="token operator">&lt;</span> iuse
+    <span class="token function">rm</span> -rf iuse
+<span class="token keyword">fi</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>思路：</li>
+</ul>
+<p>df -h、df -i 记录磁盘分区使用率和inode使用率，date +%F 日志名格式<br>取出使用率(第5列)百分比序列，for循环逐一与85比较，大于85则记录到新文件里，当for循环结束后，汇总超过85的一并发送邮件(邮箱服务因未搭建，发送本地root账户)。<br>此脚本正确运行前提：</p>
+<p>该系统没有逻辑卷的情况下使用，因为逻辑卷df -h、df -i 时，使用率百分比是在第4列，而不是第5列。如有逻辑卷，则会漏统计逻辑卷使用情况。</p>
+<p>#【脚本28】获取文件列表</p>
+<p>有一台服务器作为web应用，有一个目录（/data/web/attachment）不定时地会被用户上传新的文件，但是不知道什么时候会上传。所以，需要我们每5分钟做一次检测是否有新文件生成。</p>
+<p>请写一个shell脚本去完成检测。检测完成后若是有新文件，还需要将新文件的列表输出到一个按年、月、日、时、分为名字的日志里。请不要想的太复杂，核心命令只有一个 find /data/web/attachment -mmin -5</p>
+<ul>
+<li><p>思路：<br>每5分钟检测一次，那肯定需要有一个计划任务，每5分钟去执行一次。脚本检测的时候，就是使用find命令查找5分钟内有过更新的文件，若是有更新，那这个命令会输出东西，否则是没有输出的。固，我们可以把输出结果的行数作为比较对象，看看它是否大于0。</p>
+</li>
+<li><p>实现代码：</p>
+</li>
+</ul>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+d<span class="token operator">=</span>`date -d <span class="token string">"-5 min"</span> +%Y%m%d%H%M<span class="token variable"><span class="token variable">`</span>
+basedir<span class="token operator">=</span>/data/web/attachment
+<span class="token function">find</span> $basedir/ -type f  -mmin -5 <span class="token operator">></span> /tmp/newf.txt
+n<span class="token operator">=</span><span class="token variable">`</span></span><span class="token function">wc</span> -l /tmp/newf.txt`
+<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token variable">$n</span> -gt 0 <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+    /bin/mv /tmp/newf.txt /tmp/<span class="token variable">$d</span>
+
+<span class="token keyword">fi</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>#【脚本29】统计常用命令</p>
+<p>写一个shell脚本来看看你使用最多的命令是哪些，列出你最常用的命令top10。</p>
+<p>思路：我们要用到一个文件就是.bash_history，然后再去sort、uniq，剩下的就不用我多说了吧。很简单一个shell。</p>
+<p>一条命令即可：</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">sort</span> /root/.bash_history <span class="token operator">|</span><span class="token function">uniq</span> -c <span class="token operator">|</span><span class="token function">sort</span> -nr <span class="token operator">|</span><span class="token function">head</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>#【脚本30】统计日志大小</p>
+<p>假如我们需要每小时都去执行你写的脚本。在脚本中实现这样的功能，当时间是0点和12点时，需要将目录/data/log/下的文件全部清空，注意只能清空文件内容而不能删除文件。而其他时间只需要统计一下每个文件的大小，一个文件一行，输出到一个按日期和时间为名字的日志里。 需要考虑/data/log/目录下的二级、三级、… 等子目录里面的文件。</p>
+<ul>
+<li>实现代码：</li>
+</ul>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+
+logdir<span class="token operator">=</span><span class="token string">"/data/log"</span>
+t<span class="token operator">=</span><span class="token variable"><span class="token variable">`</span><span class="token function">date</span> +%H<span class="token variable">`</span></span>
+d<span class="token operator">=</span><span class="token variable"><span class="token variable">`</span><span class="token function">date</span> +%F-%H<span class="token variable">`</span></span>
+<span class="token punctuation">[</span> -d /tmp/log_size <span class="token punctuation">]</span> <span class="token operator">||</span> <span class="token function">mkdir</span> /tmp/log_size
+<span class="token keyword">for</span> log <span class="token keyword">in</span> <span class="token variable"><span class="token variable">`</span><span class="token function">find</span> $logdir -type f<span class="token variable">`</span></span>
+<span class="token keyword">do</span>
+    <span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token variable">$t</span> <span class="token operator">==</span> <span class="token string">"0"</span> <span class="token punctuation">]</span> <span class="token operator">||</span> <span class="token punctuation">[</span> <span class="token variable">$t</span> <span class="token operator">==</span> <span class="token string">"12"</span> <span class="token punctuation">]</span>
+    <span class="token keyword">then</span>
+    <span class="token boolean">true</span> <span class="token operator">></span> <span class="token variable">$log</span>
+    <span class="token keyword">else</span>
+    <span class="token function">du</span> -sh <span class="token variable">$log</span> <span class="token operator">>></span>/tmp/log_size/<span class="token variable">$d</span>
+    <span class="token keyword">fi</span>
+<span class="token keyword">done</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>#【脚本31】统计数字并求和</p>
+<p>计算文档a.txt中每一行中出现的数字个数并且要计算一下整个文档中一共出现了几个数字。例如a.txt内容如下：</p>
+<p>12aa*lkjskdj<br>alskdflkskdjflkjj</p>
+<p>我们脚本名字为 ncount.sh, 运行它时：</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">bash</span> ncount.sh a.txt
+输入结果应该为：
+2
+0
+sum:2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>实现代码：</li>
+</ul>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+
+n<span class="token operator">=</span>`wc -l a.txt<span class="token operator">|</span><span class="token function">awk</span> <span class="token string">'{print <span class="token variable">$1</span>}'</span><span class="token variable"><span class="token variable">`</span>
+sum<span class="token operator">=</span>0
+<span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token variable">`</span></span><span class="token function">seq</span> 1 <span class="token variable">$n</span><span class="token variable"><span class="token variable">`</span>
+<span class="token keyword">do</span>
+    line<span class="token operator">=</span><span class="token variable">`</span></span><span class="token function">sed</span> -n <span class="token string">"<span class="token variable">$i</span>"</span>p a.txt<span class="token variable"><span class="token variable">`</span>
+    n_n<span class="token operator">=</span><span class="token variable">`</span></span><span class="token keyword">echo</span> -n <span class="token variable">$line</span><span class="token operator">|</span><span class="token function">sed</span> <span class="token string">'s/[^0-9]//g'</span><span class="token operator">|</span><span class="token function">wc</span> -c`
+    <span class="token keyword">echo</span> line <span class="token variable">$i</span> number: <span class="token variable">$n_n</span>
+    sum<span class="token operator">=</span>$<span class="token punctuation">[</span><span class="token variable">$sum</span>+<span class="token variable">$n_n</span><span class="token punctuation">]</span>
+<span class="token keyword">done</span>
+
+<span class="token keyword">echo</span> <span class="token function">sum</span> is <span class="token variable">$sum</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>#【脚本32】检测文件改动</p>
+<p>有两台Linux服务器A和B，假如A可以直接ssh到B，不用输入密码。A和B都有一个目录叫做/data/web/ 这下面有很多文件，当然我们不知道具体有几层子目录，假若之前A和B上该目录下的文件都是一模一样的。但现在不确定是否一致了。固需要我们写一个脚本实现这样的功能，检测A机器和B机器/data/web/目录下文件的异同，我们以A机器上的文件作为标准。比如，假若B机器少了一个a.txt文件，那我们应该能够检测出来，或者B机器上的b.txt文件有过改动，我们也应该能够检测出来（B机器上多了文件我们不用考虑）。</p>
+<ul>
+<li>提示：</li>
+</ul>
+<p>使用核心命令 md5sum a.txt 算出md5值，去和B机器上的比较。</p>
+<ul>
+<li>实现代码：</li>
+</ul>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+<span class="token comment" spellcheck="true">#假设A机器到B机器已经做了无密码登录设置</span>
+dir<span class="token operator">=</span>/data/web
+<span class="token comment" spellcheck="true">##假设B机器的IP为192.168.0.100</span>
+B_ip<span class="token operator">=</span>192.168.0.100
+<span class="token function">find</span> <span class="token variable">$dir</span> -type f <span class="token operator">|</span><span class="token function">xargs</span> md5sum <span class="token operator">></span>/tmp/md5.txt
+<span class="token function">ssh</span> <span class="token variable">$B_ip</span> <span class="token string">"find <span class="token variable">$dir</span> -type f |xargs md5sum >/tmp/md5_b.txt"</span>
+<span class="token function">scp</span> <span class="token variable">$B_ip</span>:/tmp/md5_b.txt /tmp
+<span class="token keyword">for</span> f <span class="token keyword">in</span> `awk <span class="token string">'{print <span class="token variable">$2</span>}'</span> /tmp/md5.txt`
+<span class="token keyword">do</span>
+    <span class="token keyword">if</span> <span class="token function">grep</span> -q <span class="token string">"<span class="token variable">$f</span>"</span> /tmp/md5_b.txt
+    <span class="token keyword">then</span>
+        md5_a<span class="token operator">=</span>`grep <span class="token variable">$f</span> /tmp/md5.txt<span class="token operator">|</span><span class="token function">awk</span> <span class="token string">'{print <span class="token variable">$1</span>}'</span><span class="token variable"><span class="token variable">`</span>
+        md5_b<span class="token operator">=</span><span class="token variable">`</span></span><span class="token function">grep</span> <span class="token variable">$f</span> /tmp/md5_b.txt<span class="token operator">|</span><span class="token function">awk</span> <span class="token string">'{print <span class="token variable">$1</span>}'</span>`
+        <span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token variable">$md5_a</span> <span class="token operator">!=</span> <span class="token variable">$md5_b</span> <span class="token punctuation">]</span>
+        <span class="token keyword">then</span>
+             <span class="token keyword">echo</span> <span class="token string">"<span class="token variable">$f</span> changed."</span>
+        <span class="token keyword">fi</span>
+    <span class="token keyword">else</span>
+        <span class="token keyword">echo</span> <span class="token string">"<span class="token variable">$f</span> deleted. "</span>
+    <span class="token keyword">fi</span>
+<span class="token keyword">done</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>#【脚本33】统计网卡流量</p>
+<p>写一个脚本,检测你的网络流量，并记录到一个日志里。需要按照如下格式，并且一分钟统计一次（只需要统计外网网卡，假设网卡名字为eth0)：</p>
+<p>2017-08-04 01:11<br>eth0 input: 1000bps<br>eth0 output : 200000bps</p>
+<p>################<br>2017-08-04 01:12<br>eth0 input: 1000bps<br>eth0 output : 200000bps</p>
+<p><strong>提示：</strong>使用sar -n DEV 1 59 这样可以统计一分钟的平均网卡流量，只需要最后面的平均值。另外，注意换算一下，1byt=8bit</p>
+<ul>
+<li>实现代码：</li>
+</ul>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+
+<span class="token keyword">while</span> <span class="token keyword">:</span>
+<span class="token keyword">do</span>
+    LANG<span class="token operator">=</span>en
+    DATE<span class="token operator">=</span>`date +<span class="token string">"%Y-%m-%d %H:%M"</span><span class="token variable"><span class="token variable">`</span>
+    LOG_PATH<span class="token operator">=</span>/tmp/traffic_check/<span class="token variable">`</span></span><span class="token function">date</span> +%Y%m<span class="token variable"><span class="token variable">`</span>
+    LOG_FILE<span class="token operator">=</span>$LOG_PATH/traffic_check_<span class="token variable">`</span></span><span class="token function">date</span> +%d`.log
+    <span class="token punctuation">[</span> -d <span class="token variable">$LOG_PATH</span> <span class="token punctuation">]</span> <span class="token operator">||</span> <span class="token function">mkdir</span> -p <span class="token variable">$LOG_PATH</span>
+    <span class="token keyword">echo</span> <span class="token string">" <span class="token variable">$DATE</span>"</span> <span class="token operator">>></span> <span class="token variable">$LOG_FILE</span>
+    sar -n DEV 1 59<span class="token operator">|</span><span class="token function">grep</span> Average<span class="token operator">|</span><span class="token function">grep</span> eth0 \ 
+    <span class="token operator">|</span><span class="token function">awk</span> <span class="token string">'{print "\n",<span class="token variable">$2</span>,"\t","input:",<span class="token variable">$5*1000*8</span>,"bps", \
+    "\t","\n",<span class="token variable">$2</span>,"\t","output:",<span class="token variable">$6*1000*8</span>,"bps" }'</span> \ 
+    <span class="token operator">>></span> <span class="token variable">$LOG_FILE</span>
+    <span class="token keyword">echo</span> <span class="token string">"#####################"</span> <span class="token operator">>></span> <span class="token variable">$LOG_FILE</span>
+<span class="token keyword">done</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>#【脚本34】系统-批量杀进程</p>
+<p>今天发现网站访问超级慢，top看如下：</p>
+<img src="img/1.png">
+
+
+<p>有很多sh进程，再ps查看：</p>
+<img src="img/2.png">
+
+
+<p>这个脚本，运行很慢，因为制定了cron，上一次还没有运行完，又有了新的运行任务。太多肯定会导致系统负载升高。当务之急就是先把这些在跑的给kill掉。那么我们可以使用一条命令，直接杀死所有的sh。</p>
+<p>命令如下：</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">ps</span> aux <span class="token operator">|</span><span class="token function">grep</span> clearmem.sh <span class="token operator">|</span><span class="token function">grep</span> -v <span class="token function">grep</span><span class="token operator">|</span><span class="token function">awk</span> <span class="token string">'{print <span class="token variable">$2</span>}'</span><span class="token operator">|</span><span class="token function">xargs</span> <span class="token function">kill</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>#【脚本35】判断是否开启80端口</p>
+<p>写一个脚本判断你的Linux服务器里是否开启web服务？（监听80端口）如果开启了，请判断出跑的是什么服务，是httpd呢还是nginx又或者是其他的什么？</p>
+<ul>
+<li>实现代码：</li>
+</ul>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+ port<span class="token operator">=</span><span class="token variable"><span class="token variable">`</span><span class="token function">netstat</span> -lnp <span class="token operator">|</span> <span class="token function">grep</span> 80<span class="token variable">`</span></span>
+ <span class="token keyword">if</span> <span class="token punctuation">[</span> -z <span class="token string">"port"</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+     <span class="token keyword">echo</span> <span class="token string">"not start service."</span><span class="token punctuation">;</span>
+     <span class="token keyword">exit</span><span class="token punctuation">;</span>
+ <span class="token keyword">fi</span>
+ web_server<span class="token operator">=</span>`echo <span class="token variable">$port</span> <span class="token operator">|</span> <span class="token function">awk</span> -F<span class="token string">'/'</span> <span class="token string">'{print <span class="token variable">$2</span>}'</span><span class="token operator">|</span><span class="token function">awk</span> -F <span class="token keyword">:</span> <span class="token string">'{print <span class="token variable">$1</span>}'</span>` 
+<span class="token keyword">case</span> <span class="token variable">$web_server</span> <span class="token keyword">in</span>
+   httpd <span class="token punctuation">)</span> 
+       <span class="token keyword">echo</span> <span class="token string">"apache server."</span>
+   <span class="token punctuation">;</span><span class="token punctuation">;</span>
+   nginx <span class="token punctuation">)</span>
+       <span class="token keyword">echo</span> <span class="token string">"nginx server."</span>
+   <span class="token punctuation">;</span><span class="token punctuation">;</span>
+   * <span class="token punctuation">)</span>
+       <span class="token keyword">echo</span> <span class="token string">"other server."</span>
+   <span class="token punctuation">;</span><span class="token punctuation">;</span> 
+esac<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>#【脚本36】监控mysql服务</p>
+<p>假设，当前MySQL服务的root密码为123456，写脚本检测MySQL服务是否正常（比如，可以正常进入mysql执行show processlist），并检测一下当前的MySQL服务是主还是从，如果是从，请判断它的主从服务是否异常。如果是主，则不需要做什么。</p>
+<ul>
+<li>实现代码：</li>
+</ul>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+Mysql_c<span class="token operator">=</span><span class="token string">"mysql -uroot -p123456"</span>
+<span class="token variable">$Mysql_c</span> -e <span class="token string">"show processlist"</span> <span class="token operator">></span>/tmp/mysql_pro.log 2<span class="token operator">></span>/tmp/mysql_log.err
+n<span class="token operator">=</span>`wc -l /tmp/mysql_log.err<span class="token operator">|</span><span class="token function">awk</span> <span class="token string">'{print <span class="token variable">$1</span>}'</span>`
+
+<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token variable">$n</span> -gt 0 <span class="token punctuation">]</span>
+<span class="token keyword">then</span>
+    <span class="token keyword">echo</span> <span class="token string">"mysql service sth wrong."</span>
+<span class="token keyword">else</span>
+
+    <span class="token variable">$Mysql_c</span> -e <span class="token string">"show slave status\G"</span> <span class="token operator">></span>/tmp/mysql_s.log
+    n1<span class="token operator">=</span>`wc -l /tmp/mysql_s.log<span class="token operator">|</span><span class="token function">awk</span> <span class="token string">'{print <span class="token variable">$1</span>}'</span><span class="token variable"><span class="token variable">`</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">[</span> $n1 -gt 0 <span class="token punctuation">]</span>
+    <span class="token keyword">then</span>
+        y1<span class="token operator">=</span><span class="token variable">`</span></span><span class="token function">grep</span> <span class="token string">'Slave_IO_Running:'</span> /tmp/mysql_s.log<span class="token operator">|</span><span class="token function">awk</span> -F <span class="token keyword">:</span> <span class="token string">'{print <span class="token variable">$2</span>}'</span><span class="token operator">|</span><span class="token function">sed</span> <span class="token string">'s/ //g'</span><span class="token variable"><span class="token variable">`</span>
+        y2<span class="token operator">=</span><span class="token variable">`</span></span><span class="token function">grep</span> <span class="token string">'Slave_SQL_Running:'</span> /tmp/mysql_s.log<span class="token operator">|</span><span class="token function">awk</span> -F <span class="token keyword">:</span> <span class="token string">'{print <span class="token variable">$2</span>}'</span><span class="token operator">|</span><span class="token function">sed</span> <span class="token string">'s/ //g'</span>`
+
+        <span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token variable">$y1</span> <span class="token operator">==</span> <span class="token string">"Yes"</span> <span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">[</span> <span class="token variable">$y2</span> <span class="token operator">==</span> <span class="token string">"Yes"</span> <span class="token punctuation">]</span>
+        <span class="token keyword">then</span>
+            <span class="token keyword">echo</span> <span class="token string">"slave status good."</span>
+        <span class="token keyword">else</span>
+            <span class="token keyword">echo</span> <span class="token string">"slave down."</span>
+        <span class="token keyword">fi</span>
+    <span class="token keyword">fi</span>
+<span class="token keyword">fi</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>#【脚本37】带选项的用户脚本</p>
+<ul>
+<li>要求如下：</li>
+</ul>
+<p>只支持三个选项 ‘–del’ ‘–add’ –help输入其他选项报错。<br>使用‘–add’需要验证用户名是否存在，存在则反馈存在。且不添加。 不存在则创建该用户，切&gt;添加与该用户名相同的密码。并且反馈。<br>使用‘–del’ 需要验证用户名是否存在，存在则删除用户及其家目录。不存在则反馈该用户不存&gt;在。<br>–help 选项反馈出使用方法<br>支持以，分隔 一次删除多个或者添加多个用户。<br>能用echo $? 检测脚本执行情况 成功删除或者添加为0,报错信息为其他数字。<br>能以，分割。一次性添加或者 删除多个用户。 例如 adddel.sh –add user1,user2,user3…….<br>不允许存在明显bug。</p>
+<ul>
+<li>代码参考：</li>
+</ul>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+<span class="token comment" spellcheck="true">#written by aming.</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">[</span> $<span class="token comment" spellcheck="true"># -eq 0 -o $# -gt 2 ]</span>
+<span class="token keyword">then</span>
+    <span class="token keyword">echo</span> <span class="token string">"use <span class="token variable">$0</span> --add username or <span class="token variable">$0</span> --del username or <span class="token variable">$0</span> --help."</span>
+    <span class="token keyword">exit</span> 1
+<span class="token keyword">fi</span>
+
+<span class="token keyword">case</span> <span class="token variable">$1</span> <span class="token keyword">in</span>
+    --add<span class="token punctuation">)</span>
+        n<span class="token operator">=</span>0
+        <span class="token keyword">for</span> u <span class="token keyword">in</span> `echo <span class="token variable">$2</span><span class="token operator">|</span><span class="token function">sed</span> <span class="token string">'s/,/ /g'</span>`<span class="token punctuation">;</span> <span class="token keyword">do</span>
+            <span class="token keyword">if</span> <span class="token function">awk</span> -F: <span class="token string">'{print <span class="token variable">$1</span>}'</span> /etc/passwd <span class="token operator">|</span><span class="token function">grep</span> -qw <span class="token string">"<span class="token variable">$u</span>"</span>
+            <span class="token keyword">then</span>
+               <span class="token keyword">echo</span> <span class="token string">"The user <span class="token variable">$u</span> exist."</span>
+            <span class="token keyword">else</span>
+                <span class="token function">useradd</span> <span class="token variable">$u</span>
+                <span class="token keyword">echo</span> -e <span class="token string">"<span class="token variable">$u</span>\n<span class="token variable">$u</span>"</span><span class="token operator">|</span><span class="token function">passwd</span> <span class="token variable">$u</span> <span class="token operator">></span>/dev/null 2<span class="token operator">></span><span class="token operator">&amp;</span>1
+                <span class="token keyword">echo</span> <span class="token string">"The user <span class="token variable">$u</span> added successfully."</span>
+                n<span class="token operator">=</span>$<span class="token punctuation">[</span><span class="token variable">$n</span>+1<span class="token punctuation">]</span>
+            <span class="token keyword">fi</span>
+        <span class="token keyword">done</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token variable">$n</span> -eq 0 <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+            <span class="token keyword">exit</span> 2
+        <span class="token keyword">fi</span>
+        <span class="token punctuation">;</span><span class="token punctuation">;</span>
+
+    --del<span class="token punctuation">)</span>
+        n<span class="token operator">=</span>0
+        <span class="token keyword">for</span> u <span class="token keyword">in</span> `echo <span class="token variable">$2</span><span class="token operator">|</span><span class="token function">sed</span> <span class="token string">'s/,/ /g'</span>`<span class="token punctuation">;</span> <span class="token keyword">do</span>
+            <span class="token keyword">if</span> <span class="token function">awk</span> -F: <span class="token string">'{print <span class="token variable">$1</span>}'</span> /etc/passwd<span class="token operator">|</span><span class="token function">grep</span> -qw <span class="token string">"<span class="token variable">$u</span>"</span>
+            <span class="token keyword">then</span>
+               <span class="token function">userdel</span> -r <span class="token variable">$u</span>
+                <span class="token keyword">echo</span> <span class="token string">"The user <span class="token variable">$u</span> deleted successfully."</span>
+                n<span class="token operator">=</span>$<span class="token punctuation">[</span><span class="token variable">$n</span>+1<span class="token punctuation">]</span>
+            <span class="token keyword">else</span>
+                <span class="token keyword">echo</span> <span class="token string">"The user <span class="token variable">$u</span> not exist."</span>
+            <span class="token keyword">fi</span>
+        <span class="token keyword">done</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token variable">$n</span> -eq 0 <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+                <span class="token keyword">exit</span> 3
+        <span class="token keyword">fi</span>
+        <span class="token punctuation">;</span><span class="token punctuation">;</span>
+
+    --help<span class="token punctuation">)</span>
+        <span class="token keyword">echo</span> -e <span class="token string">"--add can add user,and the passwd is the same as username.     
+    It can add multiuser such as --add user1,user2,user3..."</span>
+        <span class="token keyword">echo</span> <span class="token string">"--del cat delete user.It can delete user such as --del user1,user2,user3..."</span>
+        <span class="token punctuation">;</span><span class="token punctuation">;</span>
+
+    *<span class="token punctuation">)</span>
+        <span class="token keyword">echo</span> <span class="token string">"use <span class="token variable">$0</span> --add username or <span class="token variable">$0</span> --del username or <span class="token variable">$0</span> --help."</span>
+        <span class="token keyword">exit</span> 1
+        <span class="token punctuation">;</span><span class="token punctuation">;</span>
+esac<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>#【脚本38】被3整除</p>
+<p>写一个脚本： 计算100以内所有能被3整除的正整数的和</p>
+<ul>
+<li>代码参考：</li>
+</ul>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+sum<span class="token operator">=</span>0
+<span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token punctuation">{</span>1<span class="token punctuation">..</span>100<span class="token punctuation">}</span><span class="token punctuation">;</span><span class="token keyword">do</span>
+    <span class="token keyword">if</span> <span class="token punctuation">[</span> $<span class="token punctuation">[</span><span class="token variable">$i</span>%3<span class="token punctuation">]</span> -eq 0 <span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token keyword">then</span>
+    sum<span class="token operator">=</span>$<span class="token punctuation">[</span><span class="token variable">$i</span>+<span class="token variable">$sum</span><span class="token punctuation">]</span>
+     <span class="token keyword">fi</span>
+<span class="token keyword">done</span>
+
+<span class="token keyword">echo</span> <span class="token string">"sum:<span class="token variable">$sum</span>"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>#【脚本39】脚本传参</p>
+<p>使用传参的方法写个脚本，实现加减乘除的功能。例如： sh a.sh 1 2，这样会分别计算加、减、乘、除的结果。</p>
+<ul>
+<li>要求：</li>
+</ul>
+<p>脚本需判断提供的两个数字必须为整数<br>当做减法或者除法时，需要判断哪个数字大<br>减法时需要用大的数字减小的数字<br>除法时需要用大的数字除以小的数字，并且结果需要保留两个小数点。</p>
+<ul>
+<li>参考代码：</li>
+</ul>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">[</span> $<span class="token comment" spellcheck="true"># -ne 2 ]</span>
+<span class="token keyword">then</span>
+    <span class="token keyword">echo</span> <span class="token string">"The number of parameter is not 2, Please useage: ./<span class="token variable">$0</span> 1 2"</span>
+    <span class="token keyword">exit</span> 1
+<span class="token keyword">fi</span>
+
+is_int<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token keyword">echo</span> <span class="token string">"<span class="token variable">$1</span>"</span><span class="token operator">|</span><span class="token function">grep</span> -q <span class="token string">'[^0-9]'</span>
+    <span class="token keyword">then</span>
+    <span class="token keyword">echo</span> <span class="token string">"<span class="token variable">$1</span> is not integer number."</span>
+    <span class="token keyword">exit</span> 1
+    <span class="token keyword">fi</span>
+<span class="token punctuation">}</span>
+
+max<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token variable">$1</span> -ge <span class="token variable">$2</span> <span class="token punctuation">]</span>
+    <span class="token keyword">then</span>
+    <span class="token keyword">echo</span> <span class="token variable">$1</span>
+    <span class="token keyword">else</span>
+    <span class="token keyword">echo</span> <span class="token variable">$2</span>
+    <span class="token keyword">fi</span>
+<span class="token punctuation">}</span>
+
+min<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token variable">$1</span> -lt <span class="token variable">$2</span> <span class="token punctuation">]</span>
+    <span class="token keyword">then</span>
+    <span class="token keyword">echo</span> <span class="token variable">$1</span>
+    <span class="token keyword">else</span>
+    <span class="token keyword">echo</span> <span class="token variable">$2</span>
+    <span class="token keyword">fi</span>
+<span class="token punctuation">}</span>
+
+sum<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">echo</span> <span class="token string">"<span class="token variable">$1</span> + <span class="token variable">$2</span> = $[<span class="token variable">$1</span>+<span class="token variable">$2</span>]"</span>
+<span class="token punctuation">}</span>
+
+minus<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    big<span class="token operator">=</span><span class="token variable"><span class="token variable">`</span>max $1 $2<span class="token variable">`</span></span>
+    small<span class="token operator">=</span><span class="token variable"><span class="token variable">`</span>min $1 $2<span class="token variable">`</span></span>
+    <span class="token keyword">echo</span> <span class="token string">"<span class="token variable">$big</span> - <span class="token variable">$small</span> = $[<span class="token variable">$big</span>-<span class="token variable">$small</span>]"</span>
+<span class="token punctuation">}</span>
+
+mult<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">echo</span> <span class="token string">"<span class="token variable">$1</span> * <span class="token variable">$2</span> = $[<span class="token variable">$1*</span><span class="token variable">$2</span>]"</span>
+<span class="token punctuation">}</span>
+
+div<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    big<span class="token operator">=</span><span class="token variable"><span class="token variable">`</span>max $1 $2<span class="token variable">`</span></span>
+    small<span class="token operator">=</span><span class="token variable"><span class="token variable">`</span>min $1 $2<span class="token variable">`</span></span>
+    d<span class="token operator">=</span>`echo <span class="token string">"scale =2; <span class="token variable">$big</span> / <span class="token variable">$small</span>"</span><span class="token operator">|</span>bc`
+    <span class="token keyword">echo</span> <span class="token string">"<span class="token variable">$big</span> / <span class="token variable">$small</span> = <span class="token variable">$d</span>"</span>
+<span class="token punctuation">}</span>
+
+is_int <span class="token variable">$1</span>
+is_int <span class="token variable">$2</span>
+<span class="token function">sum</span> <span class="token variable">$1</span> <span class="token variable">$2</span>
+minus <span class="token variable">$1</span> <span class="token variable">$2</span>
+mult <span class="token variable">$1</span> <span class="token variable">$2</span>
+div <span class="token variable">$1</span> <span class="token variable">$2</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>#【脚本40】用户交互脚本</p>
+<p>写一个脚本，执行后，打印一行提示“Please input a number:”，要求用户输入数值，然后打印出该数值，然后再次要求用户输入数值。直到用户输入”end”停止。</p>
+<ul>
+<li>代码参考：</li>
+</ul>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+
+<span class="token keyword">while</span> <span class="token keyword">:</span>
+<span class="token keyword">do</span>
+ <span class="token function">read</span> -p <span class="token string">"Please input a number:(end for exit) "</span> n
+ num<span class="token operator">=</span>` <span class="token keyword">echo</span> <span class="token variable">$n</span> <span class="token operator">|</span><span class="token function">sed</span> -r <span class="token string">'s/[0-9]//g'</span><span class="token operator">|</span><span class="token function">wc</span> -c `
+ <span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token variable">$n</span> <span class="token operator">==</span> <span class="token string">"end"</span> <span class="token punctuation">]</span>
+ <span class="token keyword">then</span>
+     <span class="token keyword">exit</span>
+ <span class="token keyword">elif</span> <span class="token punctuation">[</span> <span class="token variable">$num</span> -ne 1 <span class="token punctuation">]</span>
+ <span class="token keyword">then</span>
+     <span class="token keyword">echo</span> <span class="token string">"what you input is not a number!Try again!"</span>
+ <span class="token keyword">else</span>
+     <span class="token keyword">echo</span> <span class="token string">"your input number is: <span class="token variable">$n</span>"</span>
+ <span class="token keyword">fi</span>
+<span class="token keyword">done</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+            </div>
+            <hr />
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">写作不易，客官能否打赏一杯奶茶？</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        <p class="reprint-tip">
+            <i class="fa fa-exclamation-triangle"></i>&nbsp;&nbsp;
+            <span>转载规则</span>
+        </p>
+        
+            <div class="center-align">
+                <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
+                    <img alt=""
+                         style="border-width:0"
+                         src="https://i.creativecommons.org/l/by/4.0/88x31.png"/>
+                </a>
+            </div>
+            <br/>
+            <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
+                  property="dct:title" rel="dct:type">
+                    《shell脚本实例(三)》
+                </span> 由
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/shell-jiao-ben-shi-li-san/" property="cc:attributionName"
+               rel="cc:attributionURL">
+                helen
+            </a> 采用
+            <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
+                知识共享署名 4.0 国际许可协议
+            </a>进行许可。
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+        </div>
+    </div>
+
+    
+    <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: 'e079dc0a138ca77120b1',
+        clientSecret: '94c930e89d67a2bdb146ae6554cf7f9e90ea6403',
+        repo: 'Hooyh110.github.io',
+        owner: 'Hooyh110',
+        admin: "Hooyh110",
+        id: 'shell-jiao-ben-shi-li-san/',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+    
+
+    
+
+    
+
+    
+
+    
+    <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments input[type=text],
+    #vcomments input[type=email],
+    #vcomments input[type=url],
+    #vcomments textarea {
+        box-sizing: border-box;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #42b983;
+        font-weight: 500;
+        text-decoration: underline;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div id="vcomments" class="card-content"></div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<!-- <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script> -->
+
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: '',
+        appKey: '',
+        notify: 'false' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'false' === 'true',
+        avatar: 'wavatar',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: '如果你没有GitHub账号，还可以在这里评论啦！'
+    });
+</script>
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/shell-jiao-ben-shi-li-si/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="shell脚本实例(四)">
+                        
+                        <span class="card-title">shell脚本实例(四)</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            实例脚本集合
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-18
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/shell/" class="post-category" target="_blank">
+                                    shell
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/shell/" target="_blank">
+                        <span class="chip bg-color">shell</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/shell-jiao-ben-shi-li-er/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="shell脚本实例(二)">
+                        
+                        <span class="card-title">shell脚本实例(二)</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            实用脚本集合
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-18
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/shell/" class="post-category" target="_blank">
+                                    shell
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/shell/" target="_blank">
+                        <span class="chip bg-color">shell</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: helen的博客<br />'
+            + '作者: helen<br />'
+            + '链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () { bodyElement.removeChild(newdiv); }, 200);
+    });
+</script>
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fa fa-list"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(500);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(500);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
+    <footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            &copy; 2019 helen. All Rights Reserved.
+
+            
+            &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
+            <span class="white-color">34.8k</span>
+            
+
+            <br>
+            <span id="sitetime"></span>
+
+            
+            
+            <br>
+            
+            <span id="busuanzi_container_site_pv" style='display:none'>
+                <i class="fa fa-heart-o"></i>
+                本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv" style='display:none'>
+                人次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+            </span>
+            
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/Hooyh110" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:18001101910@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="https://zhihu.com/people/helen" class="tooltipped" target="_blank" data-tooltip="访问我的知乎" data-position="top" data-delay="50">
+        <i class="fa fa-inverse">知</i>
+    </a>
+
+
+
+    <a href="https://user.qzone.qq.com/645977246" class="tooltipped" target="_blank" data-tooltip="访问我的QQ空间" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fa fa-rss"></i>
+    </a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+<!-- 不蒜子计数初始值纠正 -->
+<script>
+    $(document).ready(function () {
+
+        var int = setInterval(fixCount, 50);
+        var pvcountOffset = 80000;
+        var uvcountOffset = 20000;
+
+        function fixCount() {
+            if (document.getElementById("busuanzi_container_site_pv").style.display != "none") {
+                $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + pvcountOffset);
+                clearInterval(int);
+            }
+            if ($("#busuanzi_container_site_pv").css("display") != "none") {
+                $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + uvcountOffset); // 加上初始数据 
+                clearInterval(int);
+            }
+        }
+    });
+</script>
+
+<script language=javascript>
+    function siteTime() {
+        window.setTimeout("siteTime()", 1000);
+        var seconds = 1000;
+        var minutes = seconds * 60;
+        var hours = minutes * 60;
+        var days = hours * 24;
+        var years = days * 365;
+        var today = new Date();
+        var todayYear = today.getFullYear();
+        var todayMonth = today.getMonth() + 1;
+        var todayDate = today.getDate();
+        var todayHour = today.getHours();
+        var todayMinute = today.getMinutes();
+        var todaySecond = today.getSeconds();
+        /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+        year - 作为date对象的年份，为4位年份值
+        month - 0-11之间的整数，做为date对象的月份
+        day - 1-31之间的整数，做为date对象的天数
+        hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+        minutes - 0-59之间的整数，做为date对象的分钟数
+        seconds - 0-59之间的整数，做为date对象的秒数
+        microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+        var t1 = Date.UTC(2017, 09, 11, 00, 00, 00); //北京时间2018-2-13 00:00:00
+        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+        var diff = t2 - t1;
+        var diffYears = Math.floor(diff / years);
+        var diffDays = Math.floor((diff / days) - diffYears * 365);
+        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+        document.getElementById("sitetime").innerHTML = "本站已运行 " + diffYears + " 年 " + diffDays + " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+    }/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+    siteTime();
+</script>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <script type="text/javascript"> var OriginTitile = document.title, st; document.addEventListener("visibilitychange", function () { document.hidden ? (document.title = "welcome to helen blog", clearTimeout(st)) : (document.title = "Angel of justice", st = setTimeout(function () { document.title = OriginTitile }, 3e3)) })
+    </script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', '');
+</script>
+
+
+
+    
+    <script src="/libs/others/clicklove.js"></script>
+    
+
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    <!-- 雪花特效 -->
+    
+    <!-- 增加百度自动推送 -->
+    <script>
+    (function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+    </script>
+
+
+
+</body>
+
+</html>
