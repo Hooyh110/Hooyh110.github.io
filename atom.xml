@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.hooyuhao.club/"/>
-  <updated>2020-03-19T16:32:12.667Z</updated>
+  <updated>2020-03-19T17:50:56.420Z</updated>
   <id>http://blog.hooyuhao.club/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>nginx 配置多条件判断</title>
+    <link href="http://blog.hooyuhao.club/nginx-pei-zhi-duo-tiao-jian-pan-duan/"/>
+    <id>http://blog.hooyuhao.club/nginx-pei-zhi-duo-tiao-jian-pan-duan/</id>
+    <published>2020-03-19T16:36:37.000Z</published>
+    <updated>2020-03-19T17:50:56.420Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;一、if语句中的判断条件-nginx-介绍&quot;&gt;&lt;a href=&quot;#一、if语句中的判断条件-nginx-介绍&quot; class=&quot;headerlink&quot; title=&quot;一、if语句中的判断条件(nginx)介绍&quot;&gt;&lt;/a&gt;&lt;font
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Python检查磁盘大于80%时发送钉钉</title>
@@ -508,33 +530,6 @@
     
     
       <category term="hexo" scheme="http://blog.hooyuhao.club/tags/hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Markdown常用方法</title>
-    <link href="http://blog.hooyuhao.club/markdown-chang-yong-zi-ti-yan-se-lie-biao/"/>
-    <id>http://blog.hooyuhao.club/markdown-chang-yong-zi-ti-yan-se-lie-biao/</id>
-    <published>2020-03-11T13:12:49.000Z</published>
-    <updated>2020-03-12T10:57:46.438Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;Markdown 通过简单标记语法，使普通文本内容具有一定格式。但它本身不支持修改字体、字号与颜色等功能的。&lt;/p&gt;
-&lt;h1 id=&quot;字体设置&quot;&gt;&lt;a href=&quot;#字体设置&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="Markdown" scheme="http://blog.hooyuhao.club/categories/Markdown/"/>
-    
-    
-      <category term="Markdown" scheme="http://blog.hooyuhao.club/tags/Markdown/"/>
     
   </entry>
   

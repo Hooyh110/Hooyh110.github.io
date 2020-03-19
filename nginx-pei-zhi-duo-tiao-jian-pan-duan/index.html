@@ -4,17 +4,16 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="python 定义全局变量, ECNU NLP DeepLearning AntNLP helen">
+    <meta name="keywords" content="nginx 配置多条件判断, ECNU NLP DeepLearning AntNLP helen">
     <meta name="baidu-site-verification" content="PQuYZ68I8K">
     <meta name="google-site-verification" content="PQuYZ68I8K">
     <meta name="360-site-verification" content>
-    <meta name="description" content="根据global定义全局变量
-示例
+    <meta name="description" content="一、if语句中的判断条件(nginx)介绍1、正则表达式匹配：
+  ==:等值比较;
 
-中利用global定义全局变量(accessKey、accessSecret、region)
-#libs/base.py
-# -*- coding: utf-8 -*-
-import importlib">
+  ~：与指定正则表达式模式匹配时返回“真”，判断匹配与否时区分字符大小写；
+
+  ~*：与指定正则表达式模式匹配时返回“真”，判断匹配与否时不区分字符">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -22,7 +21,7 @@ import importlib">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>python 定义全局变量 | helen的博客</title>
+    <title>nginx 配置多条件判断 | helen的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -312,13 +311,13 @@ import importlib">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        python 定义全局变量
+                        nginx 配置多条件判断
                     </div>
                 </div>
             </div>
@@ -428,24 +427,11 @@ import importlib">
                 <div class="col s7">
                     
                     <div class="article-tag">
-                        
-                        <a href="/tags/Python/" target="_blank">
-                            <span class="chip bg-color">Python</span>
-                        </a>
-                        
+                        <span class="chip bg-color">无标签</span>
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fa fa-bookmark fa-fw icon-category"></i>
-                        
-                        <a href="/categories/Python/" class="post-category" target="_blank">
-                            Python
-                        </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -453,7 +439,7 @@ import importlib">
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-03-17
+                    2020-03-20
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -467,14 +453,14 @@ import importlib">
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    287
+                    557
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
                 
@@ -490,80 +476,81 @@ import importlib">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="根据global定义全局变量"><a href="#根据global定义全局变量" class="headerlink" title="根据global定义全局变量"></a><font color="blue">根据global定义全局变量</font></h1><ul>
-<li><font color="orange">示例</font></li>
+                <h1 id="一、if语句中的判断条件-nginx-介绍"><a href="#一、if语句中的判断条件-nginx-介绍" class="headerlink" title="一、if语句中的判断条件(nginx)介绍"></a><font color="read">一、if语句中的判断条件(nginx)介绍</font></h1><p>1、正则表达式匹配：</p>
+<pre><code>  ==:等值比较;
+
+  ~：与指定正则表达式模式匹配时返回“真”，判断匹配与否时区分字符大小写；
+
+  ~*：与指定正则表达式模式匹配时返回“真”，判断匹配与否时不区分字符大小写；
+
+  !~：与指定正则表达式模式不匹配时返回“真”，判断匹配与否时区分字符大小写；
+
+  !~*：与指定正则表达式模式不匹配时返回“真”，判断匹配与否时不区分字符大小写；</code></pre><p>2、文件及目录匹配判断：</p>
+<pre><code>  -f, !-f：判断指定的路径是否为存在且为文件；
+
+  -d, !-d：判断指定的路径是否为存在且为目录；
+
+  -e, !-e：判断指定的路径是否存在，文件或目录均可；
+
+  -x, !-x：判断指定路径的文件是否存在且可执行；</code></pre><ul>
+<li>实例(nginx return 302)：</li>
 </ul>
-<p>中利用global定义全局变量(<font color="red">accessKey、accessSecret、region</font>)</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#libs/base.py</span>
-<span class="token comment" spellcheck="true"># -*- coding: utf-8 -*-</span>
-<span class="token keyword">import</span> importlib
-<span class="token keyword">import</span> configparser
-<span class="token keyword">import</span> sys
-
-<span class="token comment" spellcheck="true">#importlib.reload(sys)</span>
-
-<span class="token comment" spellcheck="true">#利用configparser读取ini文件内容</span>
-config <span class="token operator">=</span> configparser<span class="token punctuation">.</span>ConfigParser<span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true">#注：这个conf/路径不要写错</span>
-config<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token string">"conf/acskey.ini"</span><span class="token punctuation">)</span>
-<span class="token keyword">global</span> region<span class="token punctuation">,</span> accessKey<span class="token punctuation">,</span> accessSecret
-accessKey <span class="token operator">=</span> config<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"aliyunAK"</span><span class="token punctuation">,</span> <span class="token string">"accessKey"</span><span class="token punctuation">)</span>
-accessSecret <span class="token operator">=</span> config<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"aliyunAK"</span><span class="token punctuation">,</span> <span class="token string">"accessSecret"</span><span class="token punctuation">)</span>
-region <span class="token operator">=</span> config<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"aliyunAK"</span><span class="token punctuation">,</span> <span class="token string">"region"</span><span class="token punctuation">)</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-conf"><code class="language-conf">#allow.conf
+#判断访问源IP如果不是223.223.205.*和39.*.190.*则返回302
+if ($remote_addr !~ ^39\.*\.190\.*|223\.223\.205\.*) {
+    return 302 https://app.xiongmaocar.com/mzh5/p/at_698eada2633d2b37;
+    }
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
-<li><font color="orange">引用</font></li>
+<li>实例(定义接口json返回)</li>
 </ul>
-<p><font color="red">注意：全局变量引用请使用如下方式</font></p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#声明全局变量的模块</span>
-<span class="token keyword">from</span> libs<span class="token punctuation">.</span>base <span class="token keyword">import</span> <span class="token operator">*</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p><font color="red">根据上面设置完成，程序直接引用<strong><em>变量名</em></strong>即可</font></p>
-<h1 id="根据设置函数，并调用函数中的字典"><a href="#根据设置函数，并调用函数中的字典" class="headerlink" title="根据设置函数，并调用函数中的字典"></a><font color="blue">根据设置函数，并调用函数中的字典</font></h1><ul>
-<li><font color="orange">示例</font></li>
-</ul>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#libs/acskey.py</span>
-<span class="token comment" spellcheck="true"># -*- coding: utf-8 -*-</span>
-<span class="token keyword">import</span> importlib
-<span class="token keyword">import</span> configparser
-<span class="token keyword">import</span> sys
-
-importlib<span class="token punctuation">.</span>reload<span class="token punctuation">(</span>sys<span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true">#定义函数</span>
-<span class="token keyword">def</span> <span class="token function">mydict</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token comment" spellcheck="true">##读取ini文件内容</span>
-    <span class="token comment" spellcheck="true">#首先先定义一个空字典</span>
-    my_dict <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
-    config <span class="token operator">=</span> configparser<span class="token punctuation">.</span>ConfigParser<span class="token punctuation">(</span><span class="token punctuation">)</span>
-    config<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token string">"conf/acskey.ini"</span><span class="token punctuation">)</span>
-    accessKey <span class="token operator">=</span> config<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"aliyunAK"</span><span class="token punctuation">,</span> <span class="token string">"accessKey"</span><span class="token punctuation">)</span>
-    accessSecret <span class="token operator">=</span> config<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"aliyunAK"</span><span class="token punctuation">,</span> <span class="token string">"accessSecret"</span><span class="token punctuation">)</span>
-    region <span class="token operator">=</span> config<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"aliyunAK"</span><span class="token punctuation">,</span> <span class="token string">"region"</span><span class="token punctuation">)</span>
-    <span class="token comment" spellcheck="true">#将key.value写入到字典中</span>
-    my_dict<span class="token punctuation">[</span><span class="token string">'accessKey'</span><span class="token punctuation">]</span> <span class="token operator">=</span> accessKey
-    my_dict<span class="token punctuation">[</span><span class="token string">'accessSecret'</span><span class="token punctuation">]</span> <span class="token operator">=</span> accessSecret
-    my_dict<span class="token punctuation">[</span><span class="token string">'region'</span><span class="token punctuation">]</span> <span class="token operator">=</span> region
-    <span class="token keyword">return</span> my_dict
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<ul>
-<li><font color="orange">引用</font></li>
-</ul>
-<ol>
-<li>首先声明模块</li>
-</ol>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#声明模块</span>
-<span class="token keyword">from</span> libs<span class="token punctuation">.</span>acskey <span class="token keyword">import</span> mydict
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<ol start="2">
-<li>引用mydict中的字典，并取值</li>
-</ol>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#将mydict字典赋值给mykey</span>
-mykey <span class="token operator">=</span> mydict<span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true">#取字典中的值(accesskey, accessSecret, region)</span>
-accessKey <span class="token operator">=</span> mykey<span class="token punctuation">[</span><span class="token string">'accessKey'</span><span class="token punctuation">]</span> 
-accessSecret <span class="token operator">=</span> mykey<span class="token punctuation">[</span><span class="token string">'accessSecret'</span><span class="token punctuation">]</span>
-region <span class="token operator">=</span> mykey<span class="token punctuation">[</span><span class="token string">'region'</span><span class="token punctuation">]</span>
+<pre class="line-numbers language-conf"><code class="language-conf">#json.conf
+default_type application/json;
+add_header Content-Type 'application/json;charset=utf-8';
+if ($remote_addr !~ ^39\.97\.190\.107|223\.223\.205\.85) {
+    return 200 '{"success":true,"code":500,"message":"系统正在升级，暂时无法访问，敬请谅解。","result":null}';
+}
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>实例(设置js.map不允许223.223.205.*以外的IP访问)</li>
+</ul>
+<pre class="line-numbers language-nginx"><code class="language-nginx">
+<span class="token keyword">location</span> <span class="token operator">~</span> <span class="token punctuation">.</span><span class="token operator">*</span>\<span class="token punctuation">.</span><span class="token punctuation">(</span>js<span class="token punctuation">.</span><span class="token keyword">map</span><span class="token punctuation">)</span><span class="token operator">?</span>$ <span class="token punctuation">{</span>
+        <span class="token keyword">set_real_ip_from</span> <span class="token number">223.223</span><span class="token punctuation">.</span><span class="token number">205</span><span class="token punctuation">.</span><span class="token operator">*</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">#定义可以访问的源IP</span>
+        <span class="token keyword">real_ip_header</span>    X<span class="token operator">-</span>Forwarded<span class="token operator">-</span>For<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">#表示从哪个header属性中获取真实IP</span>
+        real_ip_recursive on<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">#递归检索真实IP，若从 X-Forwarded-For 中获取，则需递归检索；若像从X-Real-IP中获取，则无需递归。</span>
+        <span class="token keyword">proxy_set_header</span> X<span class="token operator">-</span>Forwarded<span class="token operator">-</span>For <span class="token variable">$remote_addr</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">#$remote_addr 是客户端真实IP</span>
+        <span class="token comment" spellcheck="true">#判断访问源IP如果不是223.223.205.*则返回403</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$remote_addr</span> <span class="token operator">!=</span> <span class="token number">223.223</span><span class="token punctuation">.</span><span class="token number">205</span><span class="token punctuation">.</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token number">403</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token comment" spellcheck="true">#定义proxy1日志输出路径</span>
+        <span class="token keyword">access_log</span> <span class="token operator">/</span>data<span class="token operator">/</span>nginx<span class="token operator">/</span>access<span class="token operator">/</span><span class="token variable">$host</span><span class="token punctuation">.</span><span class="token keyword">proxy</span><span class="token punctuation">.</span>log proxy1<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>然后vhost调用</p>
+<pre class="line-numbers language-nginx"><code class="language-nginx">
+        <span class="token keyword">location</span> <span class="token operator">/</span>airadar<span class="token operator">/</span>api<span class="token operator">/</span> <span class="token punctuation">{</span>
+                <span class="token comment" spellcheck="true">#引用json.conf配置</span>
+                <span class="token keyword">include</span> json<span class="token punctuation">.</span>conf<span class="token punctuation">;</span>
+                <span class="token keyword">proxy_pass</span> <span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>autosaas<span class="token operator">-</span>gateway<span class="token operator">-</span>pro<span class="token punctuation">.</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token punctuation">.</span>com<span class="token punctuation">:</span><span class="token number">11001</span><span class="token operator">/</span>cpapi<span class="token operator">/</span><span class="token punctuation">;</span>
+                <span class="token keyword">proxy_redirect</span> <span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>autosaas<span class="token operator">-</span>gateway<span class="token operator">-</span>pro<span class="token punctuation">.</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token punctuation">.</span>com<span class="token punctuation">:</span><span class="token number">11001</span><span class="token operator">/</span>cpapi<span class="token operator">/</span> <span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">/</span>a<span class="token operator">*</span><span class="token operator">*</span>r<span class="token operator">/</span>api<span class="token operator">/</span><span class="token punctuation">;</span>
+                <span class="token keyword">client_max_body_size</span> 100m<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">location</span>  <span class="token operator">/</span>bo<span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span>dar<span class="token operator">/</span> <span class="token punctuation">{</span>
+                <span class="token comment" spellcheck="true">#引用allow.conf</span>
+                <span class="token keyword">include</span> <span class="token keyword">allow</span><span class="token punctuation">.</span>conf<span class="token punctuation">;</span>
+                <span class="token keyword">index</span> <span class="token keyword">index</span><span class="token punctuation">.</span>html <span class="token keyword">index</span><span class="token punctuation">.</span>htm<span class="token punctuation">;</span>
+                <span class="token keyword">alias</span> <span class="token operator">/</span>data<span class="token operator">/</span>wwwroot<span class="token operator">/</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">/</span>bo<span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span>dar<span class="token operator">/</span><span class="token punctuation">;</span>
+                <span class="token keyword">try_files</span> <span class="token variable">$uri</span> <span class="token variable">$uri</span><span class="token operator">/</span> <span class="token operator">/</span>bo<span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span>dar<span class="token operator">/</span><span class="token keyword">index</span><span class="token punctuation">.</span>html<span class="token punctuation">;</span>
+                 <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$request_filename</span> <span class="token operator">~</span> <span class="token punctuation">.</span><span class="token operator">*</span>\<span class="token punctuation">.</span><span class="token punctuation">(</span>htm<span class="token operator">|</span>html<span class="token punctuation">)</span>$<span class="token punctuation">)</span>
+                <span class="token punctuation">{</span>
+                <span class="token keyword">add_header</span> Cache<span class="token operator">-</span>Control <span class="token string">"no-cache, no-store"</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+                <span class="token comment" spellcheck="true">#引用js_map.conf</span>
+                <span class="token keyword">include</span> js_map<span class="token punctuation">.</span>conf<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr />
@@ -722,9 +709,9 @@ region <span class="token operator">=</span> mykey<span class="token punctuation
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《python 定义全局变量》
+                    《nginx 配置多条件判断》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/python-ding-yi-quan-ju-bian-liang/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/nginx-pei-zhi-duo-tiao-jian-pan-duan/" property="cc:attributionName"
                rel="cc:attributionURL">
                 helen
             </a> 采用
@@ -765,7 +752,7 @@ region <span class="token operator">=</span> mykey<span class="token punctuation
         repo: 'Hooyh110.github.io',
         owner: 'Hooyh110',
         admin: "Hooyh110",
-        id: 'python-ding-yi-quan-ju-bian-liang/',
+        id: 'nginx-pei-zhi-duo-tiao-jian-pan-duan/',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -1048,49 +1035,41 @@ region <span class="token operator">=</span> mykey<span class="token punctuation
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/shell-jiao-ben-shi-li/">
+                <a href="/nginx-pei-zhi-duo-tiao-jian-pan-duan/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="shell脚本实例(一)">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="nginx 配置多条件判断">
                         
-                        <span class="card-title">shell脚本实例(一)</span>
+                        <span class="card-title">nginx 配置多条件判断</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            实用脚本集合
+                            一、if语句中的判断条件(nginx)介绍1、正则表达式匹配：
+  ==:等值比较;
+
+  ~：与指定正则表达式模式匹配时返回“真”，判断匹配与否时区分字符大小写；
+
+  ~*：与指定正则表达式模式匹配时返回“真”，判断匹配与否时不区分字符
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-18
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-20
+                            </span>
                         <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/shell/" class="post-category" target="_blank">
-                                    shell
-                                </a>
-                            
                             
                         </span>
                     </div>
                 </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/shell/" target="_blank">
-                        <span class="chip bg-color">shell</span>
-                    </a>
-                    
-                </div>
+
                 
             </div>
         </div>
@@ -1101,31 +1080,31 @@ region <span class="token operator">=</span> mykey<span class="token punctuation
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/python3-zhong-dictionary-zi-dian-cao-zuo-xiang-jie/">
+                <a href="/python-jian-cha-ci-pan-da-yu-80-shi-fa-song-ding-ding/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="python3中Dictionary(字典)操作详解">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Python检查磁盘大于80%时发送钉钉">
                         
-                        <span class="card-title">python3中Dictionary(字典)操作详解</span>
+                        <span class="card-title">Python检查磁盘大于80%时发送钉钉</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            在Python中，Dictionary是一种可变的容器类型。
+                            利用subprocess+webhook检查磁盘空间并发送钉钉
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-17
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-20
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/python/" class="post-category" target="_blank">
-                                    python
+                            <a href="/categories/Python/" class="post-category" target="_blank">
+                                    Python
                                 </a>
                             
                             
@@ -1135,8 +1114,8 @@ region <span class="token operator">=</span> mykey<span class="token punctuation
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/python/" target="_blank">
-                        <span class="chip bg-color">python</span>
+                    <a href="/tags/Python/" target="_blank">
+                        <span class="chip bg-color">Python</span>
                     </a>
                     
                 </div>
