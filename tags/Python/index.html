@@ -332,20 +332,11 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
             <div class="tag-chips">
                 
                 
-                <a href="/tags/Python/" title="Python: 4">
+                <a href="/tags/Python/" title="Python: 5">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
                             data-tagname="Python" style="background-color: #F9EBEA;">Python
-                        <span class="tag-length">4</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/Windows/" title="Windows: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="Windows" style="background-color: #F5EEF8;">Windows
-                        <span class="tag-length">1</span>
+                        <span class="tag-length">5</span>
                     </span>
                 </a>
                 
@@ -353,7 +344,16 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 <a href="/tags/Markdown/" title="Markdown: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="Markdown" style="background-color: #D5F5E3;">Markdown
+                            data-tagname="Markdown" style="background-color: #F5EEF8;">Markdown
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/Windows/" title="Windows: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="Windows" style="background-color: #D5F5E3;">Windows
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -413,10 +413,19 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 </a>
                 
                 
+                <a href="/tags/nginx/" title="nginx: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="nginx" style="background-color: #85C1E9;">nginx
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
                 <a href="/tags/monitor/" title="monitor: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="monitor" style="background-color: #85C1E9;">monitor
+                            data-tagname="monitor" style="background-color: #F8C471;">monitor
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -425,16 +434,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 <a href="/tags/Error/" title="Error: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="Error" style="background-color: #F8C471;">Error
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/nginx/" title="nginx: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="nginx" style="background-color: #F9E79F;">nginx
+                            data-tagname="Error" style="background-color: #F9E79F;">Error
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -456,7 +456,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                         <div class="card-image tag-image">
                             
                             
-                            <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="python3中Dictionary(字典)操作详解">
+                            <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="python3中Dictionary(字典)操作详解">
                             
                             <span class="card-title">python3中Dictionary(字典)操作详解</span>
                         </div>
@@ -493,7 +493,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">36.9k</span>
+            <span class="white-color">37.2k</span>
             
 
             <br>
@@ -690,7 +690,59 @@ $(function () {
 
 </body>
 
-</html> var minutes = seconds * 60;
+</html>  </a>
+
+
+
+    <a href="https://zhihu.com/people/helen" class="tooltipped" target="_blank" data-tooltip="访问我的知乎" data-position="top" data-delay="50">
+        <i class="fa fa-inverse">知</i>
+    </a>
+
+
+
+    <a href="https://user.qzone.qq.com/645977246" class="tooltipped" target="_blank" data-tooltip="访问我的QQ空间" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fa fa-rss"></i>
+    </a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+<!-- 不蒜子计数初始值纠正 -->
+<script>
+    $(document).ready(function () {
+
+        var int = setInterval(fixCount, 50);
+        var pvcountOffset = 80000;
+        var uvcountOffset = 20000;
+
+        function fixCount() {
+            if (document.getElementById("busuanzi_container_site_pv").style.display != "none") {
+                $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + pvcountOffset);
+                clearInterval(int);
+            }
+            if ($("#busuanzi_container_site_pv").css("display") != "none") {
+                $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + uvcountOffset); // 加上初始数据 
+                clearInterval(int);
+            }
+        }
+    });
+</script>
+
+<script language=javascript>
+    function siteTime() {
+        window.setTimeout("siteTime()", 1000);
+        var seconds = 1000;
+        var minutes = seconds * 60;
         var hours = minutes * 60;
         var days = hours * 24;
         var years = days * 365;
