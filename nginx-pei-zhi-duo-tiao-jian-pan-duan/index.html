@@ -427,11 +427,24 @@
                 <div class="col s7">
                     
                     <div class="article-tag">
-                        <span class="chip bg-color">无标签</span>
+                        
+                        <a href="/tags/nginx/" target="_blank">
+                            <span class="chip bg-color">nginx</span>
+                        </a>
+                        
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                        <a href="/categories/nginx/" class="post-category" target="_blank">
+                            nginx
+                        </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -453,7 +466,7 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    557
+                    588
                 </div>
                 
 
@@ -507,10 +520,13 @@ if ($remote_addr !~ ^39\.*\.190\.*|223\.223\.205\.*) {
 <pre class="line-numbers language-conf"><code class="language-conf">#json.conf
 default_type application/json;
 add_header Content-Type 'application/json;charset=utf-8';
-if ($remote_addr !~ ^39\.97\.190\.107|223\.223\.205\.85) {
+##设置单个IP时
+#if ($remote_addr != 223.223.205.*) {
+##设置多个IP时
+if ($remote_addr !~ ^39\.*\.190\.*|223\.223\.205\.*) {
     return 200 '{"success":true,"code":500,"message":"系统正在升级，暂时无法访问，敬请谅解。","result":null}';
 }
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>实例(设置js.map不允许223.223.205.*以外的IP访问)</li>
 </ul>
@@ -521,13 +537,16 @@ if ($remote_addr !~ ^39\.97\.190\.107|223\.223\.205\.85) {
         real_ip_recursive on<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">#递归检索真实IP，若从 X-Forwarded-For 中获取，则需递归检索；若像从X-Real-IP中获取，则无需递归。</span>
         <span class="token keyword">proxy_set_header</span> X<span class="token operator">-</span>Forwarded<span class="token operator">-</span>For <span class="token variable">$remote_addr</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">#$remote_addr 是客户端真实IP</span>
         <span class="token comment" spellcheck="true">#判断访问源IP如果不是223.223.205.*则返回403</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$remote_addr</span> <span class="token operator">!=</span> <span class="token number">223.223</span><span class="token punctuation">.</span><span class="token number">205</span><span class="token punctuation">.</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">##设置单个IP</span>
+        <span class="token comment" spellcheck="true">#if ($remote_addr != 223.223.205.*) {</span>
+        <span class="token comment" spellcheck="true">##设置多个IP</span>
+        <span class="token keyword">if</span> （￥remote_addr <span class="token operator">!</span><span class="token operator">~</span> <span class="token operator">^</span><span class="token number">223</span>\<span class="token punctuation">.</span><span class="token number">223</span>\<span class="token punctuation">.</span><span class="token number">205</span>\<span class="token punctuation">.</span><span class="token operator">*</span><span class="token operator">|</span><span class="token number">39</span>\<span class="token punctuation">.</span><span class="token operator">*</span>\<span class="token punctuation">.</span><span class="token number">190</span>\<span class="token punctuation">.</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
             <span class="token keyword">return</span> <span class="token number">403</span><span class="token punctuation">;</span>
             <span class="token punctuation">}</span>
         <span class="token comment" spellcheck="true">#定义proxy1日志输出路径</span>
         <span class="token keyword">access_log</span> <span class="token operator">/</span>data<span class="token operator">/</span>nginx<span class="token operator">/</span>access<span class="token operator">/</span><span class="token variable">$host</span><span class="token punctuation">.</span><span class="token keyword">proxy</span><span class="token punctuation">.</span>log proxy1<span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>然后vhost调用</p>
 <pre class="line-numbers language-nginx"><code class="language-nginx">
         <span class="token keyword">location</span> <span class="token operator">/</span>airadar<span class="token operator">/</span>api<span class="token operator">/</span> <span class="token punctuation">{</span>
@@ -1052,12 +1071,7 @@ if ($remote_addr !~ ^39\.97\.190\.107|223\.223\.205\.85) {
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            一、if语句中的判断条件(nginx)介绍1、正则表达式匹配：
-  ==:等值比较;
-
-  ~：与指定正则表达式模式匹配时返回“真”，判断匹配与否时区分字符大小写；
-
-  ~*：与指定正则表达式模式匹配时返回“真”，判断匹配与否时不区分字符
+                            NGINX正则表达式用法
                         
                     </div>
                     <div class="publish-info">
@@ -1066,10 +1080,25 @@ if ($remote_addr !~ ^39\.97\.190\.107|223\.223\.205\.85) {
                             </span>
                         <span class="publish-author">
                             
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/nginx/" class="post-category" target="_blank">
+                                    nginx
+                                </a>
+                            
+                            
                         </span>
                     </div>
                 </div>
 
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/nginx/" target="_blank">
+                        <span class="chip bg-color">nginx</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
