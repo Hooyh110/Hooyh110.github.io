@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.hooyuhao.club/"/>
-  <updated>2020-03-18T07:15:28.361Z</updated>
+  <updated>2020-03-19T03:53:01.689Z</updated>
   <id>http://blog.hooyuhao.club/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python配置钉钉机器人发送信息</title>
+    <link href="http://blog.hooyuhao.club/python-pei-zhi-ding-ding-ji-qi-ren-fa-song-xin-xi/"/>
+    <id>http://blog.hooyuhao.club/python-pei-zhi-ding-ding-ji-qi-ren-fa-song-xin-xi/</id>
+    <published>2020-03-19T03:50:02.000Z</published>
+    <updated>2020-03-19T03:53:01.689Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;webhook&quot;&gt;&lt;a href=&quot;#webhook&quot; class=&quot;headerlink&quot; title=&quot;webhook&quot;&gt;&lt;/a&gt;webhook&lt;/h1&gt;&lt;ol&gt;
+&lt;li&gt;概述&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Webhook 是一个 API
+        
+      
+    
+    </summary>
+    
+      <category term="Python" scheme="http://blog.hooyuhao.club/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="http://blog.hooyuhao.club/tags/Python/"/>
+    
+  </entry>
   
   <entry>
     <title>shell脚本实例(八)</title>
@@ -506,32 +535,6 @@
     
     
       <category term="shell" scheme="http://blog.hooyuhao.club/tags/shell/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>install gitlab runner</title>
-    <link href="http://blog.hooyuhao.club/install-gitlab-runner/"/>
-    <id>http://blog.hooyuhao.club/install-gitlab-runner/</id>
-    <published>2020-03-11T09:15:43.000Z</published>
-    <updated>2020-03-11T15:29:30.267Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;Install-GitLab-Runner&quot;&gt;&lt;a href=&quot;#Install-GitLab-Runner&quot; class=&quot;headerlink&quot; title=&quot;Install GitLab Runner&quot;&gt;&lt;/a&gt;&lt;font face=&quot;黑体&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="docker" scheme="http://blog.hooyuhao.club/categories/docker/"/>
-    
-    
-      <category term="docker" scheme="http://blog.hooyuhao.club/tags/docker/"/>
     
   </entry>
   
