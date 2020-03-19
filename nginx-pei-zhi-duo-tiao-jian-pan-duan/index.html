@@ -508,24 +508,24 @@
   -x, !-x：判断指定路径的文件是否存在且可执行；</code></pre><ul>
 <li>实例(nginx return 302)：</li>
 </ul>
-<pre class="line-numbers language-conf"><code class="language-conf">#allow.conf
-#判断访问源IP如果不是223.223.205.*和39.*.190.*则返回302
-if ($remote_addr !~ ^39\.*\.190\.*|223\.223\.205\.*) {
-    return 302 https://app.xiongmaocar.com/mzh5/p/at_698eada2633d2b37;
-    }
+<pre class="line-numbers language-nginx"><code class="language-nginx"><span class="token comment" spellcheck="true">#allow.conf</span>
+<span class="token comment" spellcheck="true">#判断访问源IP如果不是223.223.205.*和39.*.190.*则返回302</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$remote_addr</span> <span class="token operator">!</span><span class="token operator">~</span> <span class="token operator">^</span><span class="token number">39</span>\<span class="token punctuation">.</span><span class="token operator">*</span>\<span class="token punctuation">.</span><span class="token number">190</span>\<span class="token punctuation">.</span><span class="token operator">*</span><span class="token operator">|</span><span class="token number">223</span>\<span class="token punctuation">.</span><span class="token number">223</span>\<span class="token punctuation">.</span><span class="token number">205</span>\<span class="token punctuation">.</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token number">302</span> <span class="token keyword">https</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>app<span class="token punctuation">.</span>xiongmaocar<span class="token punctuation">.</span>com<span class="token operator">/</span>mzh5<span class="token operator">/</span>p<span class="token operator">/</span>at_698eada2633d2b37<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>实例(定义接口json返回)</li>
 </ul>
-<pre class="line-numbers language-conf"><code class="language-conf">#json.conf
-default_type application/json;
-add_header Content-Type 'application/json;charset=utf-8';
-##设置单个IP时
-#if ($remote_addr != 223.223.205.*) {
-##设置多个IP时
-if ($remote_addr !~ ^39\.*\.190\.*|223\.223\.205\.*) {
-    return 200 '{"success":true,"code":500,"message":"系统正在升级，暂时无法访问，敬请谅解。","result":null}';
-}
+<pre class="line-numbers language-nginx"><code class="language-nginx"><span class="token comment" spellcheck="true">#json.conf</span>
+<span class="token keyword">default_type</span> application<span class="token operator">/</span>json<span class="token punctuation">;</span>
+<span class="token keyword">add_header</span> Content<span class="token operator">-</span>Type <span class="token string">'application/json;charset=utf-8'</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">##设置单个IP时</span>
+<span class="token comment" spellcheck="true">#if ($remote_addr != 223.223.205.*) {</span>
+<span class="token comment" spellcheck="true">##设置多个IP时</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$remote_addr</span> <span class="token operator">!</span><span class="token operator">~</span> <span class="token operator">^</span><span class="token number">39</span>\<span class="token punctuation">.</span><span class="token operator">*</span>\<span class="token punctuation">.</span><span class="token number">190</span>\<span class="token punctuation">.</span><span class="token operator">*</span><span class="token operator">|</span><span class="token number">223</span>\<span class="token punctuation">.</span><span class="token number">223</span>\<span class="token punctuation">.</span><span class="token number">205</span>\<span class="token punctuation">.</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token number">200</span> <span class="token string">'{"success":true,"code":500,"message":"系统正在升级，暂时无法访问，敬请谅解。","result":null}'</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>实例(设置js.map不允许223.223.205.*以外的IP访问)</li>
