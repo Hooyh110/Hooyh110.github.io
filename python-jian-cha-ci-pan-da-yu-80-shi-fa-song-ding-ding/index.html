@@ -469,7 +469,7 @@ from ddrob">
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    359
+                    366
                 </div>
                 
 
@@ -556,18 +556,19 @@ DIR1<span class="token operator">=</span>/var/lib/docker/volumes
 <span class="token comment" spellcheck="true">#查找当前docker正在运行的容器挂载的目录，并利用tr将换行符替换为"|",并用sed将最后一个字符("|")去掉</span>
 DF<span class="token operator">=</span>`df -h <span class="token operator">|</span> <span class="token function">grep</span> overlay <span class="token operator">|</span> <span class="token function">awk</span> <span class="token string">'{print <span class="token variable">$NF</span>}'</span> <span class="token operator">|</span> <span class="token function">awk</span> -F \/ <span class="token string">'{print <span class="token variable">$6</span>}'</span><span class="token operator">|</span> <span class="token function">tr</span> <span class="token string">"\n"</span> <span class="token string">"|"</span><span class="token operator">|</span> <span class="token function">sed</span> <span class="token string">'s/.$//'</span>`
 DB<span class="token operator">=</span>metadata.db
-<span class="token function">cd</span> <span class="token variable">$DIR</span>
-<span class="token comment" spellcheck="true">#利用（sed "s#^#$(pwd)/#"）显示文件全路径</span>
-<span class="token keyword">for</span> line <span class="token keyword">in</span> `ls <span class="token variable">$DIR</span><span class="token operator">|</span><span class="token function">grep</span> -Ev <span class="token string">"<span class="token variable">$DF</span>"</span> <span class="token operator">|</span> <span class="token function">sed</span> <span class="token string">"s#^#<span class="token variable"><span class="token variable">$(</span><span class="token function">pwd</span><span class="token variable">)</span></span>/#"</span>`
-<span class="token keyword">do</span>
-   <span class="token function">rm</span> -rf <span class="token variable">$line</span>
-<span class="token keyword">done</span>
+<span class="token comment" spellcheck="true">#删除overlay2时，要谨慎</span>
+<span class="token comment" spellcheck="true">#cd $DIR</span>
+<span class="token comment" spellcheck="true">##利用（sed "s#^#$(pwd)/#"）显示文件全路径</span>
+<span class="token comment" spellcheck="true">#for line in `ls $DIR|grep -Ev "$DF" | sed "s#^#$(pwd)/#"`</span>
+<span class="token comment" spellcheck="true">#do</span>
+<span class="token comment" spellcheck="true">#   rm -rf $line</span>
+<span class="token comment" spellcheck="true">#done</span>
 <span class="token function">cd</span> <span class="token variable">$DIR1</span>
 <span class="token keyword">for</span> line1 <span class="token keyword">in</span> `ls <span class="token variable">$DIR1</span> <span class="token operator">|</span> <span class="token function">grep</span> -Ev <span class="token string">"<span class="token variable">$DF</span>"</span><span class="token operator">|</span><span class="token function">grep</span> -v <span class="token string">"<span class="token variable">$DB</span>"</span> <span class="token operator">|</span> <span class="token function">sed</span> <span class="token string">"s#^#<span class="token variable"><span class="token variable">$(</span><span class="token function">pwd</span><span class="token variable">)</span></span>/#"</span>`
 <span class="token keyword">do</span>
    <span class="token function">rm</span> -rf <span class="token variable">$line1</span>
 <span class="token keyword">done</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr />
