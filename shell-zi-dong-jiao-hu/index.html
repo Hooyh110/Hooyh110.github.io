@@ -4,18 +4,13 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="常见error及解决方法, ECNU NLP DeepLearning AntNLP helen">
+    <meta name="keywords" content="shell 自动交互, ECNU NLP DeepLearning AntNLP helen">
     <meta name="baidu-site-verification" content="PQuYZ68I8K">
     <meta name="google-site-verification" content="PQuYZ68I8K">
     <meta name="360-site-verification" content>
-    <meta name="description" content="Python 系列： 
-使用execjs 解析抓取的网页数据时错误：Could not find an available JavaScript runtime 
-
-
-解决方法：
-
-pip3 install PyExecJS
-yum ins">
+    <meta name="description" content="shell 从命令行提示输入，和自动输入，自动交互让shell提示输入一个变量，赋值个MY_FILE_NAMEvim input.sh
+#!/bin/bash
+read -p &#34;Please input a filename1:&#34; MY_F">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -23,7 +18,7 @@ yum ins">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>常见error及解决方法 | helen的博客</title>
+    <title>shell 自动交互 | helen的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -313,13 +308,13 @@ yum ins">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        常见error及解决方法
+                        shell 自动交互
                     </div>
                 </div>
             </div>
@@ -430,8 +425,8 @@ yum ins">
                     
                     <div class="article-tag">
                         
-                        <a href="/tags/Error/" target="_blank">
-                            <span class="chip bg-color">Error</span>
+                        <a href="/tags/shell/" target="_blank">
+                            <span class="chip bg-color">shell</span>
                         </a>
                         
                     </div>
@@ -442,8 +437,8 @@ yum ins">
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                        <a href="/categories/Error/" class="post-category" target="_blank">
-                            Error
+                        <a href="/categories/shell/" class="post-category" target="_blank">
+                            shell
                         </a>
                         
                     </div>
@@ -454,7 +449,7 @@ yum ins">
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-03-12
+                    2020-03-20
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -468,7 +463,7 @@ yum ins">
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    148
+                    87
                 </div>
                 
 
@@ -491,30 +486,18 @@ yum ins">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Python-系列："><a href="#Python-系列：" class="headerlink" title="Python 系列： "></a><font color="blue">Python 系列： </font></h1><ol>
-<li>使用execjs 解析抓取的网页数据时<font color="red"><strong>错误：</strong>Could not find an available JavaScript runtime </font></li>
-</ol>
-<ul>
-<li>解决方法：</li>
-</ul>
-<pre class="line-numbers language-bash"><code class="language-bash">pip3 <span class="token function">install</span> PyExecJS
-yum <span class="token function">install</span> -y nodejs<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<h1 id="Linux-系列："><a href="#Linux-系列：" class="headerlink" title="Linux 系列： "></a><font color="blue">Linux 系列： </font></h1><h1 id="docker-系列："><a href="#docker-系列：" class="headerlink" title="docker 系列： "></a><font color="blue">docker 系列： </font></h1><h1 id="nginx-系列："><a href="#nginx-系列：" class="headerlink" title="nginx 系列： "></a><font color="blue">nginx 系列： </font></h1><h1 id="mysql-系列："><a href="#mysql-系列：" class="headerlink" title="mysql 系列： "></a><font color="blue">mysql 系列： </font></h1><ol>
-<li><p>mysql远程连接报错 <font color="red">ERROR 1129 (HY000): Host ‘192.168.7.210’ is blocked because of many connection errors; unblock with ‘mysqladmin flush-hosts’</font></p>
-<ul>
-<li><p>问题原因<br>一般<font color="Orange">max_connect_errors = 10</font>，要调高错误连接的数量</p>
-</li>
-<li><p>解决方法</p>
-</li>
-</ul>
-</li>
-</ol>
-<p>登录到要连接的数据中，进行如下配置</p>
-<pre class="line-numbers language-mysql"><code class="language-mysql">mysql> show variables like 'max_connect_errors';
-mysql> set global max_connect_errors = 1000;# 如果想长期生效，并修改my.cnf配置文件
-mysql> flush hosts;
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<h1 id="redis-系列："><a href="#redis-系列：" class="headerlink" title="redis 系列： "></a><font color="blue">redis 系列： </font></h1><h1 id="hadoop-系列："><a href="#hadoop-系列：" class="headerlink" title="hadoop 系列： "></a><font color="blue">hadoop 系列： </font></h1>
+                <h1 id="shell-从命令行提示输入，和自动输入，自动交互"><a href="#shell-从命令行提示输入，和自动输入，自动交互" class="headerlink" title="shell 从命令行提示输入，和自动输入，自动交互"></a>shell 从命令行提示输入，和自动输入，自动交互</h1><p>让shell提示输入一个变量，赋值个MY_FILE_NAME<br>vim input.sh</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+<span class="token function">read</span> -p <span class="token string">"Please input a filename1:"</span> MY_FILE_NAME1
+<span class="token function">read</span> -p <span class="token string">"Please input a filename3:"</span> MY_FILE_NAME2
+<span class="token keyword">echo</span> your input filename1<span class="token operator">=</span><span class="token string">"<span class="token variable">$MY_FILE_NAME1</span>"</span> filename2<span class="token operator">=</span><span class="token string">"<span class="token variable">$MY_FILE_NAME2</span>"</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>让上面的input.sh自动输入往下执行：</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token keyword">echo</span> -e <span class="token string">"fileA\nfileB\n"</span> <span class="token operator">|</span> ./input.sh
+1
+<span class="token comment" spellcheck="true">#输出: </span>
+your input filename1<span class="token operator">=</span>fileA filename2<span class="token operator">=</span>fileB<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
             </div>
             <hr />
 
@@ -672,9 +655,9 @@ mysql> flush hosts;
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《常见error及解决方法》
+                    《shell 自动交互》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/chang-jian-error-ji-jie-jue-fang-fa/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/shell-zi-dong-jiao-hu/" property="cc:attributionName"
                rel="cc:attributionURL">
                 helen
             </a> 采用
@@ -715,7 +698,7 @@ mysql> flush hosts;
         repo: 'Hooyh110.github.io',
         owner: 'Hooyh110',
         admin: "Hooyh110",
-        id: 'chang-jian-error-ji-jie-jue-fang-fa/',
+        id: 'shell-zi-dong-jiao-hu/',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -998,46 +981,48 @@ mysql> flush hosts;
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/fen-bu-shi-xi-tong-xue-beng-xiao-ying/">
+                <a href="/shell-zi-dong-jiao-hu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="分布式系统 - 雪崩效应">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="shell 自动交互">
                         
-                        <span class="card-title">分布式系统 - 雪崩效应</span>
+                        <span class="card-title">shell 自动交互</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            简单聊聊分布式集群雪崩现象
+                            从命令行提示输入，和自动输入，自动交互
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-12
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-20
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/news/" class="post-category" target="_blank">
-                                    news
+                            <a href="/categories/shell/" class="post-category" target="_blank">
+                                    shell
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/news/" target="_blank">
-                        <span class="chip bg-color">news</span>
+                    <a href="/tags/shell/" target="_blank">
+                        <span class="chip bg-color">shell</span>
                     </a>
                     
                 </div>
@@ -1051,31 +1036,31 @@ mysql> flush hosts;
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/hexo-bo-ke-bian-xie/">
+                <a href="/shell-duo-xing-he-bing-cheng-1-xing/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="hexo 博客编写">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="shell 多行合并成1行">
                         
-                        <span class="card-title">hexo 博客编写</span>
+                        <span class="card-title">shell 多行合并成1行</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            利用hexo 编写博客，博客中修改相关内容方法
+                            多行合并成1行
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-12
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-20
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/hexo/" class="post-category" target="_blank">
-                                    hexo
+                            <a href="/categories/shell/" class="post-category" target="_blank">
+                                    shell
                                 </a>
                             
                             
@@ -1085,8 +1070,8 @@ mysql> flush hosts;
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/hexo/" target="_blank">
-                        <span class="chip bg-color">hexo</span>
+                    <a href="/tags/shell/" target="_blank">
+                        <span class="chip bg-color">shell</span>
                     </a>
                     
                 </div>

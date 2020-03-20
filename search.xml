@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>shell 自动交互</title>
+      <link href="/shell-zi-dong-jiao-hu/"/>
+      <url>/shell-zi-dong-jiao-hu/</url>
+      
+        <content type="html"><![CDATA[<h1 id="shell-从命令行提示输入，和自动输入，自动交互"><a href="#shell-从命令行提示输入，和自动输入，自动交互" class="headerlink" title="shell 从命令行提示输入，和自动输入，自动交互"></a>shell 从命令行提示输入，和自动输入，自动交互</h1><p>让shell提示输入一个变量，赋值个MY_FILE_NAME<br>vim input.sh</p><pre class="line-numbers language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span><span class="token function">read</span> -p <span class="token string">"Please input a filename1:"</span> MY_FILE_NAME1<span class="token function">read</span> -p <span class="token string">"Please input a filename3:"</span> MY_FILE_NAME2<span class="token keyword">echo</span> your input filename1<span class="token operator">=</span><span class="token string">"<span class="token variable">$MY_FILE_NAME1</span>"</span> filename2<span class="token operator">=</span><span class="token string">"<span class="token variable">$MY_FILE_NAME2</span>"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre><p>让上面的input.sh自动输入往下执行：</p><pre class="line-numbers language-bash"><code class="language-bash"><span class="token keyword">echo</span> -e <span class="token string">"fileA\nfileB\n"</span> <span class="token operator">|</span> ./input.sh1<span class="token comment" spellcheck="true">#输出: </span>your input filename1<span class="token operator">=</span>fileA filename2<span class="token operator">=</span>fileB<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> shell </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> shell </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>shell 多行合并成1行</title>
       <link href="/shell-duo-xing-he-bing-cheng-1-xing/"/>
       <url>/shell-duo-xing-he-bing-cheng-1-xing/</url>
