@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>shell 多行合并成1行</title>
+      <link href="/shell-duo-xing-he-bing-cheng-1-xing/"/>
+      <url>/shell-duo-xing-he-bing-cheng-1-xing/</url>
+      
+        <content type="html"><![CDATA[<h1 id="多行合并为一行"><a href="#多行合并为一行" class="headerlink" title="多行合并为一行"></a>多行合并为一行</h1><p>现网中经常遇到匹配到某一关键字下的所有行合并到同一行，再次匹配到相关关键字再和下面的合并，示例如下：</p><pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># line1</span>ab<span class="token comment" spellcheck="true"># line2</span>cde<span class="token comment" spellcheck="true"># line3</span>f<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>想要变成：</p><pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># line1 a b</span><span class="token comment" spellcheck="true"># line2 c d e</span><span class="token comment" spellcheck="true"># line3 f</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><p>即：把某个”# line”打头与下一个”#line”打头之间的行合成一行(这一行包括#line)，但两个#line之间的行数是不确定的。</p><p>以下是发动群众从群里得到的解决方法（分别为sed和awk实现）：</p><pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># sed实现方法</span><span class="token function">sed</span> -n <span class="token string">'/#/{:a;N;/\n#/{P;D};s/\n//;<span class="token variable">$p</span>;ta}'</span> <span class="token function">file</span><span class="token function">sed</span> <span class="token string">':a;<span class="token variable">$!N</span>;/\n#$/!s/\n//;ta;s/#/\n#/g'</span>  <span class="token function">file</span><span class="token function">sed</span> -n <span class="token string">'1h;/#/!{1!H;<span class="token variable">$!b</span>};1!{x;s/\n//g;p}'</span> <span class="token function">file</span><span class="token comment" spellcheck="true"># awk实现方法</span><span class="token function">awk</span> <span class="token string">'{printf (/10/&amp;&amp;NR>1)?"\n"<span class="token variable">$0</span>:<span class="token variable">$0</span>}'</span>  <span class="token function">file</span><span class="token function">awk</span> <span class="token string">'/^#10/{if (n++) print ""}{printf <span class="token variable">$0</span>}'</span>  <span class="token function">file</span><span class="token function">awk</span> <span class="token string">'BEGIN{FS="\n";ORS=""};{if(<span class="token variable">$0</span> ~ /^10/ &amp;&amp; NR>1){print "\n"<span class="token variable">$0</span>;}else{print}}'</span>  <span class="token function">file</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>个人还是偏向于使用awk 方法，而且理解上也比较容易理解，sed方法理解起来感觉想当费劲。</p><p>现网需求如下：通过BMC自动化采集工具，采到当前现网某机房挂载某NAS存储的所有主机。通过grep匹配NAS机头IP，有结果输出的证明有挂载，无输出的表明当前未挂载该NAS，输出类似如下图</p><img src="img/1.png"><p>由于该机房有上千台左右的主机，输出结果还是比较多的。所以想将每台主机的结果主机名等合并到同一行，并通过二次匹配获取所有挂载的主机，这样比较方便导入excel中展示出来。</p><pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># awk '/^10/{if (n++) print ""}{printf $0}' caiji.txt |awk '{if($NF!="###"){print $0}}'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>由于所有IP都是以10开头的，这里先正则匹配所有10开头的行，如果匹配不上的，通过printf打印并继续向下匹配，匹配上的通过print实现换行。后面的二次匹配就不解释了，比较简单。</p><p>注：printf 与 print的区别是printf打印的时候是不会换行的，print打印后，默认是带有\n换行的。如果只打印一行的话，printf + \n ＝ print。</p><p>最终输出的结果类似如下：<br><img src="img/2.png"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> shell </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> shell </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>nginx 配置多条件判断</title>
       <link href="/nginx-pei-zhi-duo-tiao-jian-pan-duan/"/>
       <url>/nginx-pei-zhi-duo-tiao-jian-pan-duan/</url>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.hooyuhao.club/"/>
-  <updated>2020-03-19T18:22:47.741Z</updated>
+  <updated>2020-03-20T03:18:17.116Z</updated>
   <id>http://blog.hooyuhao.club/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>shell 多行合并成1行</title>
+    <link href="http://blog.hooyuhao.club/shell-duo-xing-he-bing-cheng-1-xing/"/>
+    <id>http://blog.hooyuhao.club/shell-duo-xing-he-bing-cheng-1-xing/</id>
+    <published>2020-03-20T03:14:15.000Z</published>
+    <updated>2020-03-20T03:18:17.116Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;多行合并为一行&quot;&gt;&lt;a href=&quot;#多行合并为一行&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="shell" scheme="http://blog.hooyuhao.club/categories/shell/"/>
+    
+    
+      <category term="shell" scheme="http://blog.hooyuhao.club/tags/shell/"/>
+    
+  </entry>
   
   <entry>
     <title>nginx 配置多条件判断</title>
@@ -508,32 +534,6 @@
     
     
       <category term="Error" scheme="http://blog.hooyuhao.club/tags/Error/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>hexo 博客编写</title>
-    <link href="http://blog.hooyuhao.club/hexo-bo-ke-bian-xie/"/>
-    <id>http://blog.hooyuhao.club/hexo-bo-ke-bian-xie/</id>
-    <published>2020-03-12T02:29:50.000Z</published>
-    <updated>2020-03-13T00:49:22.838Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;修改title显示&quot;&gt;&lt;a href=&quot;#修改title显示&quot; class=&quot;headerlink&quot; title=&quot;修改title显示&quot;&gt;&lt;/a&gt;&lt;font face=&quot;黑体&quot; color=&quot;blue&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="hexo" scheme="http://blog.hooyuhao.club/categories/hexo/"/>
-    
-    
-      <category term="hexo" scheme="http://blog.hooyuhao.club/tags/hexo/"/>
     
   </entry>
   

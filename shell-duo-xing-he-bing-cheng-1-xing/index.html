@@ -4,11 +4,23 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="bat脚本编写, ECNU NLP DeepLearning AntNLP helen">
+    <meta name="keywords" content="shell 多行合并成1行, ECNU NLP DeepLearning AntNLP helen">
     <meta name="baidu-site-verification" content="PQuYZ68I8K">
     <meta name="google-site-verification" content="PQuYZ68I8K">
     <meta name="360-site-verification" content>
-    <meta name="description" content="强制获取管理员运行权限%1 mshta vbscript:CreateObject(&amp;quot;Shell.Application&amp;quot;).ShellExecute(&amp;quot;cmd.exe&amp;quot;,&amp;quot;/c %~s0 ">
+    <meta name="description" content="多行合并为一行现网中经常遇到匹配到某一关键字下的所有行合并到同一行，再次匹配到相关关键字再和下面的合并，示例如下：
+# line1
+a
+b
+# line2
+c
+d
+e
+# line3
+f
+想要变成：
+# line1 a b
+# line2 ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +28,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>bat脚本编写 | helen的博客</title>
+    <title>shell 多行合并成1行 | helen的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -306,13 +318,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        bat脚本编写
+                        shell 多行合并成1行
                     </div>
                 </div>
             </div>
@@ -423,8 +435,8 @@
                     
                     <div class="article-tag">
                         
-                        <a href="/tags/Windows/" target="_blank">
-                            <span class="chip bg-color">Windows</span>
+                        <a href="/tags/shell/" target="_blank">
+                            <span class="chip bg-color">shell</span>
                         </a>
                         
                     </div>
@@ -435,8 +447,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                        <a href="/categories/Windows/" class="post-category" target="_blank">
-                            Windows
+                        <a href="/categories/shell/" class="post-category" target="_blank">
+                            shell
                         </a>
                         
                     </div>
@@ -447,7 +459,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-03-09
+                    2020-03-20
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -461,14 +473,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    213
+                    551
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
                 
@@ -484,29 +496,42 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="强制获取管理员运行权限"><a href="#强制获取管理员运行权限" class="headerlink" title="强制获取管理员运行权限"></a>强制获取管理员运行权限</h1><pre><code>%1 mshta vbscript:CreateObject(&quot;Shell.Application&quot;).ShellExecute(&quot;cmd.exe&quot;,&quot;/c %~s0 ::&quot;,&quot;&quot;,&quot;runas&quot;,1)(window.close)&amp;&amp;exit</code></pre><h3 id="释放IP及重新获取IP"><a href="#释放IP及重新获取IP" class="headerlink" title="释放IP及重新获取IP"></a>释放IP及重新获取IP</h3><pre class="line-numbers language-bat"><code class="language-bat">@echo off
-%1 mshta vbscript:CreateObject("Shell.Application").ShellExecute("cmd.exe","/c %~s0 ::","","runas",1)(window.close)&&exit
-echo connect release tools
-ipconfig /release
-echo connection has been released
-echo please waiting
-echo connect renew tools
-ipconfig /renew
-echo connection has been renew
-pause<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="win7-关闭防火墙"><a href="#win7-关闭防火墙" class="headerlink" title="win7 关闭防火墙"></a>win7 关闭防火墙</h3><pre class="line-numbers language-bat"><code class="language-bat">@echo off
-(net start|find "Windows Firewall" >nul)&&(net stop MpsSvc>nul&sc config MpsSvc start= disabled>nul)||((sc qc mpssvc|find /i "START_TYPE"|find /i "DISABLED">nul)||sc config MpsSvc start= disabled>nul)
-echo 完成！&pause>nul<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<h3 id="win10-关闭防火墙"><a href="#win10-关闭防火墙" class="headerlink" title="win10 关闭防火墙"></a>win10 关闭防火墙</h3><pre class="line-numbers language-bat"><code class="language-bat">@echo off
-%1 mshta vbscript:CreateObject("Shell.Application").ShellExecute("cmd.exe","/c %~s0 ::","","runas",1)(window.close)&&exit
-reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender" /v "DisableAntiSpyware" /d 1 /t REG_DWORD
-netsh firewall set opmode mode = disable
-echo 完成！&pause>nul<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>### </p>
-<pre class="line-numbers language-bat"><code class="language-bat">@echo off
-%1 mshta vbscript:CreateObject("Shell.Application").ShellExecute("cmd.exe","/c %~s0 ::","","runas",1)(window.close)&&exit
-netsh firewall set opmode mode = enable
-echo 完成！&pause>nul<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+                <h1 id="多行合并为一行"><a href="#多行合并为一行" class="headerlink" title="多行合并为一行"></a>多行合并为一行</h1><p>现网中经常遇到匹配到某一关键字下的所有行合并到同一行，再次匹配到相关关键字再和下面的合并，示例如下：</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># line1</span>
+a
+b
+<span class="token comment" spellcheck="true"># line2</span>
+c
+d
+e
+<span class="token comment" spellcheck="true"># line3</span>
+f<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>想要变成：</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># line1 a b</span>
+<span class="token comment" spellcheck="true"># line2 c d e</span>
+<span class="token comment" spellcheck="true"># line3 f</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>即：把某个”# line”打头与下一个”#line”打头之间的行合成一行(这一行包括#line)，但两个#line之间的行数是不确定的。</p>
+<p>以下是发动群众从群里得到的解决方法（分别为sed和awk实现）：</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># sed实现方法</span>
+<span class="token function">sed</span> -n <span class="token string">'/#/{:a;N;/\n#/{P;D};s/\n//;<span class="token variable">$p</span>;ta}'</span> <span class="token function">file</span>
+<span class="token function">sed</span> <span class="token string">':a;<span class="token variable">$!N</span>;/\n#$/!s/\n//;ta;s/#/\n#/g'</span>  <span class="token function">file</span>
+<span class="token function">sed</span> -n <span class="token string">'1h;/#/!{1!H;<span class="token variable">$!b</span>};1!{x;s/\n//g;p}'</span> <span class="token function">file</span>
+<span class="token comment" spellcheck="true"># awk实现方法</span>
+<span class="token function">awk</span> <span class="token string">'{printf (/10/&amp;&amp;NR>1)?"\n"<span class="token variable">$0</span>:<span class="token variable">$0</span>}'</span>  <span class="token function">file</span>
+<span class="token function">awk</span> <span class="token string">'/^#10/{if (n++) print ""}{printf <span class="token variable">$0</span>}'</span>  <span class="token function">file</span>
+<span class="token function">awk</span> <span class="token string">'BEGIN{FS="\n";ORS=""};{if(<span class="token variable">$0</span> ~ /^10/ &amp;&amp; NR>1){print "\n"<span class="token variable">$0</span>;}else{print}}'</span>  <span class="token function">file</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>个人还是偏向于使用awk 方法，而且理解上也比较容易理解，sed方法理解起来感觉想当费劲。</p>
+<p>现网需求如下：通过BMC自动化采集工具，采到当前现网某机房挂载某NAS存储的所有主机。通过grep匹配NAS机头IP，有结果输出的证明有挂载，无输出的表明当前未挂载该NAS，输出类似如下图</p>
+<img src="img/1.png">
+
+<p>由于该机房有上千台左右的主机，输出结果还是比较多的。所以想将每台主机的结果主机名等合并到同一行，并通过二次匹配获取所有挂载的主机，这样比较方便导入excel中展示出来。</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># awk '/^10/{if (n++) print ""}{printf $0}' caiji.txt |awk '{if($NF!="###"){print $0}}'</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>由于所有IP都是以10开头的，这里先正则匹配所有10开头的行，如果匹配不上的，通过printf打印并继续向下匹配，匹配上的通过print实现换行。后面的二次匹配就不解释了，比较简单。</p>
+<p>注：printf 与 print的区别是printf打印的时候是不会换行的，print打印后，默认是带有\n换行的。如果只打印一行的话，printf + \n ＝ print。</p>
+<p>最终输出的结果类似如下：<br><img src="img/2.png"></p>
 
             </div>
             <hr />
@@ -665,9 +690,9 @@ echo 完成！&pause>nul<span aria-hidden="true" class="line-numbers-rows"><span
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《bat脚本编写》
+                    《shell 多行合并成1行》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/bat-jiao-ben-bian-xie/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/shell-duo-xing-he-bing-cheng-1-xing/" property="cc:attributionName"
                rel="cc:attributionURL">
                 helen
             </a> 采用
@@ -708,7 +733,7 @@ echo 完成！&pause>nul<span aria-hidden="true" class="line-numbers-rows"><span
         repo: 'Hooyh110.github.io',
         owner: 'Hooyh110',
         admin: "Hooyh110",
-        id: 'bat-jiao-ben-bian-xie/',
+        id: 'shell-duo-xing-he-bing-cheng-1-xing/',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -991,29 +1016,80 @@ echo 完成！&pause>nul<span aria-hidden="true" class="line-numbers-rows"><span
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/ding-yi-js-map-wen-jian-zhi-yun-xu-nei-wang-huo-zhe-zhi-ding-ip-fang-wen/">
+                <a href="/shell-duo-xing-he-bing-cheng-1-xing/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="定义js.map文件只允许内网或者指定IP访问">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="shell 多行合并成1行">
                         
-                        <span class="card-title">定义js.map文件只允许内网或者指定IP访问</span>
+                        <span class="card-title">shell 多行合并成1行</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            定义js.map文件只允许访问内网或者指定IP访问
+                            多行合并成1行
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-09
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-20
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/shell/" class="post-category" target="_blank">
+                                    shell
+                                </a>
+                            
+                            
                         </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/shell/" target="_blank">
+                        <span class="chip bg-color">shell</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/nginx-pei-zhi-duo-tiao-jian-pan-duan/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="nginx 配置多条件判断">
+                        
+                        <span class="card-title">nginx 配置多条件判断</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            NGINX正则表达式用法
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-20
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -1031,55 +1107,6 @@ echo 完成！&pause>nul<span aria-hidden="true" class="line-numbers-rows"><span
                     
                     <a href="/tags/nginx/" target="_blank">
                         <span class="chip bg-color">nginx</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/docker-run-m-zhi-ding-nei-cun-da-xiao-bu-sheng-xiao/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="docker run -m指定内存大小不生效">
-                        
-                        <span class="card-title">docker run -m指定内存大小不生效</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            解决docker 指定内存大小不生效的问题
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-09
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/docker/" class="post-category" target="_blank">
-                                    docker
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/docker/" target="_blank">
-                        <span class="chip bg-color">docker</span>
                     </a>
                     
                 </div>
