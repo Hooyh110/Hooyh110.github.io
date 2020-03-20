@@ -469,7 +469,7 @@ from ddrob">
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    222
+                    359
                 </div>
                 
 
@@ -528,6 +528,7 @@ from ddrob">
                     subject <span class="token operator">=</span> <span class="token string">'gitlab-runer [WARNING] SERVER FILESYSTEM USE% OVER '</span> <span class="token operator">+</span> i <span class="token operator">+</span> <span class="token string">', PLEASE CHECK!'</span>
                     <span class="token comment" spellcheck="true">#当磁盘空间大于80%时，执行cmd2命令</span>
                     result1 <span class="token operator">=</span> run_cmd<span class="token punctuation">(</span>cmd2<span class="token punctuation">)</span>
+                    result2 <span class="token operator">=</span> run_cmd<span class="token punctuation">(</span>cmd3<span class="token punctuation">)</span>
                     <span class="token comment" spellcheck="true">#content =  cmd2 + '\n' + result1</span>
                     <span class="token comment" spellcheck="true">#result1 = result1.split('\n')</span>
                     <span class="token comment" spellcheck="true">#print(result1)</span>
@@ -543,8 +544,30 @@ from ddrob">
 <span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
     cmd1 <span class="token operator">=</span> <span class="token string">'df -h| grep -w "/"|grep -v "aliyun"'</span>
     cmd2 <span class="token operator">=</span> <span class="token string">'echo "y" | docker system prune -a'</span>
+    cmd3 <span class="token operator">=</span> <span class="token string">'bash ~/monitor/rm_disk.sh'</span>
     disk_check<span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>shell rm_disk.sh 脚本</li>
+</ul>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true">#!/usr/bin/env bash</span>
+DIR<span class="token operator">=</span>/var/lib/docker/overlay2
+DIR1<span class="token operator">=</span>/var/lib/docker/volumes
+<span class="token comment" spellcheck="true">#查找当前docker正在运行的容器挂载的目录，并利用tr将换行符替换为"|",并用sed将最后一个字符("|")去掉</span>
+DF<span class="token operator">=</span>`df -h <span class="token operator">|</span> <span class="token function">grep</span> overlay <span class="token operator">|</span> <span class="token function">awk</span> <span class="token string">'{print <span class="token variable">$NF</span>}'</span> <span class="token operator">|</span> <span class="token function">awk</span> -F \/ <span class="token string">'{print <span class="token variable">$6</span>}'</span><span class="token operator">|</span> <span class="token function">tr</span> <span class="token string">"\n"</span> <span class="token string">"|"</span><span class="token operator">|</span> <span class="token function">sed</span> <span class="token string">'s/.$//'</span>`
+DB<span class="token operator">=</span>metadata.db
+<span class="token function">cd</span> <span class="token variable">$DIR</span>
+<span class="token comment" spellcheck="true">#利用（sed "s#^#$(pwd)/#"）显示文件全路径</span>
+<span class="token keyword">for</span> line <span class="token keyword">in</span> `ls <span class="token variable">$DIR</span><span class="token operator">|</span><span class="token function">grep</span> -Ev <span class="token string">"<span class="token variable">$DF</span>"</span> <span class="token operator">|</span> <span class="token function">sed</span> <span class="token string">"s#^#<span class="token variable"><span class="token variable">$(</span><span class="token function">pwd</span><span class="token variable">)</span></span>/#"</span>`
+<span class="token keyword">do</span>
+   <span class="token function">rm</span> -rf <span class="token variable">$line</span>
+<span class="token keyword">done</span>
+<span class="token function">cd</span> <span class="token variable">$DIR1</span>
+<span class="token keyword">for</span> line1 <span class="token keyword">in</span> `ls <span class="token variable">$DIR1</span> <span class="token operator">|</span> <span class="token function">grep</span> -Ev <span class="token string">"<span class="token variable">$DF</span>"</span><span class="token operator">|</span><span class="token function">grep</span> -v <span class="token string">"<span class="token variable">$DB</span>"</span> <span class="token operator">|</span> <span class="token function">sed</span> <span class="token string">"s#^#<span class="token variable"><span class="token variable">$(</span><span class="token function">pwd</span><span class="token variable">)</span></span>/#"</span>`
+<span class="token keyword">do</span>
+   <span class="token function">rm</span> -rf <span class="token variable">$line1</span>
+<span class="token keyword">done</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr />
@@ -1279,7 +1302,7 @@ from ddrob">
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">38.4k</span>
+            <span class="white-color">38.5k</span>
             
 
             <br>
