@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.hooyuhao.club/"/>
-  <updated>2020-03-20T03:21:37.942Z</updated>
+  <updated>2020-03-21T02:08:29.119Z</updated>
   <id>http://blog.hooyuhao.club/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Docker占满磁盘空间处理方法</title>
+    <link href="http://blog.hooyuhao.club/docker-zhan-man-ci-pan-kong-jian-chu-li-fang-fa/"/>
+    <id>http://blog.hooyuhao.club/docker-zhan-man-ci-pan-kong-jian-chu-li-fang-fa/</id>
+    <published>2020-03-21T01:57:08.000Z</published>
+    <updated>2020-03-21T02:08:29.119Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;今日服务器报警磁盘空间满了，&lt;/p&gt;
+&lt;pre class=&quot;line-numbers language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token
+        
+      
+    
+    </summary>
+    
+      <category term="docker" scheme="http://blog.hooyuhao.club/categories/docker/"/>
+    
+    
+      <category term="docker" scheme="http://blog.hooyuhao.club/tags/docker/"/>
+    
+  </entry>
   
   <entry>
     <title>shell 自动交互</title>
@@ -500,33 +527,6 @@
     <updated>2020-03-12T14:50:01.281Z</updated>
     
     <summary type="html">
-    
-    </summary>
-    
-      <category term="news" scheme="http://blog.hooyuhao.club/categories/news/"/>
-    
-    
-      <category term="news" scheme="http://blog.hooyuhao.club/tags/news/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>分布式系统 - 雪崩效应</title>
-    <link href="http://blog.hooyuhao.club/fen-bu-shi-xi-tong-xue-beng-xiao-ying/"/>
-    <id>http://blog.hooyuhao.club/fen-bu-shi-xi-tong-xue-beng-xiao-ying/</id>
-    <published>2020-03-12T10:41:47.000Z</published>
-    <updated>2020-03-12T11:14:48.175Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;雪崩效应现象&quot;&gt;&lt;a href=&quot;#雪崩效应现象&quot; class=&quot;headerlink&quot; title=&quot; 雪崩效应现象&quot;&gt;&lt;/a&gt;&lt;font color=&quot;blue&quot;&gt; 雪崩效应现象&lt;/font&gt;&lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;参考资料：&lt;br&gt;   
-        
-      
     
     </summary>
     
