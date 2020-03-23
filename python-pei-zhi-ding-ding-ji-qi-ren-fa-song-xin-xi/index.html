@@ -310,7 +310,7 @@ Webhook 是一个 API 概念，并且变得越来越流行。我们能用事件�
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/25.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -465,14 +465,14 @@ Webhook 是一个 API 概念，并且变得越来越流行。我们能用事件�
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    864
+                    1.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    4 分
                 </div>
                 
                 
@@ -560,6 +560,96 @@ Webhook 是一个 API 概念，并且变得越来越流行。我们能用事件�
 
 <span class="token comment" spellcheck="true"># if __name__ == "__main__":</span>
 <span class="token comment" spellcheck="true">#     dingmessage()</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="设置机器人安全认证方式：签名"><a href="#设置机器人安全认证方式：签名" class="headerlink" title="设置机器人安全认证方式：签名"></a>设置机器人安全认证方式：签名</h3><ul>
+<li>实例代码：</li>
+</ul>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> requests
+<span class="token keyword">import</span> json
+<span class="token keyword">import</span> time
+<span class="token keyword">import</span> urllib
+<span class="token keyword">import</span> hmac
+<span class="token keyword">import</span> hashlib
+<span class="token keyword">import</span> base64
+
+webhook <span class="token operator">=</span> <span class="token string">"https://oapi.dingtalk.com/robot/send?access_token=***********"</span>
+<span class="token comment" spellcheck="true">#设置签名的方法</span>
+timestamp <span class="token operator">=</span> int<span class="token punctuation">(</span>round<span class="token punctuation">(</span>time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#签名的安全码</span>
+secret <span class="token operator">=</span> <span class="token string">'SEC8a36**************'</span>
+secret_enc <span class="token operator">=</span> secret<span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span>
+string_to_sign <span class="token operator">=</span> <span class="token string">'{}\n{}'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>timestamp<span class="token punctuation">,</span> secret<span class="token punctuation">)</span>
+string_to_sign_enc <span class="token operator">=</span> string_to_sign<span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span>
+hmac_code <span class="token operator">=</span> hmac<span class="token punctuation">.</span>new<span class="token punctuation">(</span>secret_enc<span class="token punctuation">,</span> string_to_sign_enc<span class="token punctuation">,</span> digestmod<span class="token operator">=</span>hashlib<span class="token punctuation">.</span>sha256<span class="token punctuation">)</span><span class="token punctuation">.</span>digest<span class="token punctuation">(</span><span class="token punctuation">)</span>
+sign <span class="token operator">=</span> urllib<span class="token punctuation">.</span>parse<span class="token punctuation">.</span>quote_plus<span class="token punctuation">(</span>base64<span class="token punctuation">.</span>b64encode<span class="token punctuation">(</span>hmac_code<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#字符串拼接URL</span>
+url <span class="token operator">=</span> f<span class="token string">"{webhook}&amp;timestamp={timestamp}&amp;sign={sign}"</span>
+
+<span class="token comment" spellcheck="true">#print(url)</span>
+<span class="token comment" spellcheck="true"># 请求的URL，WebHook地址</span>
+<span class="token comment" spellcheck="true">#secret = "SEC8a36416413f1b44b6aa68d6e7c43a55af405bf635592bca87f43f3424ba130b5"</span>
+
+<span class="token comment" spellcheck="true"># 构建请求头部</span>
+header <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">"Content-Type"</span><span class="token punctuation">:</span> <span class="token string">"application/json"</span><span class="token punctuation">,</span>
+    <span class="token string">"Charset"</span><span class="token punctuation">:</span> <span class="token string">"UTF-8"</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">class</span> <span class="token class-name">drobot</span><span class="token punctuation">:</span>
+
+
+    <span class="token keyword">def</span> <span class="token function">dingmessage</span><span class="token punctuation">(</span>argv<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># 构建请求数据</span>
+        <span class="token comment" spellcheck="true"># 利用sys.argv传递参数</span>
+        tex <span class="token operator">=</span> argv
+        <span class="token keyword">print</span><span class="token punctuation">(</span>tex<span class="token punctuation">)</span>
+        message <span class="token operator">=</span> <span class="token punctuation">{</span>
+
+            <span class="token string">"msgtype"</span><span class="token punctuation">:</span> <span class="token string">"text"</span><span class="token punctuation">,</span>
+            <span class="token string">"text"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                <span class="token string">"content"</span><span class="token punctuation">:</span> tex
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token string">"at"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+
+                <span class="token string">"isAtAll"</span><span class="token punctuation">:</span> <span class="token boolean">True</span>
+            <span class="token punctuation">}</span>
+
+        <span class="token punctuation">}</span>
+        <span class="token comment" spellcheck="true"># 对请求的数据进行json封装</span>
+        message_json <span class="token operator">=</span> json<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span>message<span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true"># 发送请求</span>
+        info <span class="token operator">=</span> requests<span class="token punctuation">.</span>post<span class="token punctuation">(</span>url<span class="token operator">=</span>url<span class="token punctuation">,</span> data<span class="token operator">=</span>message_json<span class="token punctuation">,</span> headers<span class="token operator">=</span>header<span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true"># 打印返回的结果</span>
+        <span class="token comment" spellcheck="true">#print(info.text)</span>
+        <span class="token keyword">pass</span>
+
+<span class="token comment" spellcheck="true"># if __name__ == "__main__":</span>
+<span class="token comment" spellcheck="true">#     dingmessage()</span>
+
+    <span class="token keyword">def</span> <span class="token function">dd_send_mark</span><span class="token punctuation">(</span>S1<span class="token operator">=</span><span class="token string">""</span><span class="token punctuation">,</span> S2<span class="token operator">=</span><span class="token string">""</span><span class="token punctuation">,</span> S3<span class="token operator">=</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># 构建请求数据</span>
+        <span class="token comment" spellcheck="true"># 利用参数传递</span>
+        message <span class="token operator">=</span> <span class="token punctuation">{</span>
+
+            <span class="token string">"msgtype"</span><span class="token punctuation">:</span> <span class="token string">"markdown"</span><span class="token punctuation">,</span>
+            <span class="token string">"markdown"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                <span class="token string">"title"</span><span class="token punctuation">:</span> <span class="token string">"%s"</span> <span class="token operator">%</span> S1<span class="token punctuation">,</span>
+                <span class="token string">"text"</span><span class="token punctuation">:</span> <span class="token string">"### %s\n"</span> <span class="token operator">%</span> S1 <span class="token operator">+</span>
+                        <span class="token string">"> #### %s\n\n\n"</span> <span class="token operator">%</span> S2 <span class="token operator">+</span>
+                        <span class="token string">"> #### %s\n"</span> <span class="token operator">%</span> S3
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token string">"at"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+
+                <span class="token string">"isAtAll"</span><span class="token punctuation">:</span> <span class="token boolean">True</span>
+            <span class="token punctuation">}</span>
+
+        <span class="token punctuation">}</span>
+        <span class="token comment" spellcheck="true"># 对请求的数据进行json封装</span>
+        message_json <span class="token operator">=</span> json<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span>message<span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true"># 发送请求</span>
+        info <span class="token operator">=</span> requests<span class="token punctuation">.</span>post<span class="token punctuation">(</span>url<span class="token operator">=</span>url<span class="token punctuation">,</span> data<span class="token operator">=</span>message_json<span class="token punctuation">,</span> headers<span class="token operator">=</span>header<span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true"># 打印返回的结果</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>info<span class="token punctuation">.</span>text<span class="token punctuation">)</span>
+        <span class="token keyword">pass</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr />
@@ -1052,7 +1142,7 @@ Webhook 是一个 API 概念，并且变得越来越流行。我们能用事件�
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="Python检查磁盘大于80%时发送钉钉">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Python检查磁盘大于80%时发送钉钉">
                         
                         <span class="card-title">Python检查磁盘大于80%时发送钉钉</span>
                     </div>
@@ -1101,7 +1191,7 @@ Webhook 是一个 API 概念，并且变得越来越流行。我们能用事件�
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="shell脚本实例(八)">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="shell脚本实例(八)">
                         
                         <span class="card-title">shell脚本实例(八)</span>
                     </div>
@@ -1294,7 +1384,7 @@ Webhook 是一个 API 概念，并且变得越来越流行。我们能用事件�
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">40.1k</span>
+            <span class="white-color">40.4k</span>
             
 
             <br>
