@@ -313,7 +313,7 @@ yum ins">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -468,7 +468,7 @@ yum ins">
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    243
+                    282
                 </div>
                 
 
@@ -527,6 +527,16 @@ yum <span class="token function">install</span> -y yum-utils <span class="token 
 mysql> set global max_connect_errors = 1000;# 如果想长期生效，并修改my.cnf配置文件
 mysql> flush hosts;
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<ol start="2">
+<li><p><font color="red">关于MySQL: errorCode 1045, state 28000 Access denied for user ‘xxx’@’localhost’ (using password YES)</font></p>
+<ul>
+<li>解决方法</li>
+</ul>
+</li>
+</ol>
+<p>执行以下SQL Script:</p>
+<pre class="line-numbers language-mysql"><code class="language-mysql">grant all privileges on *.* to 'xxx'@'%'identified by 'db password' with grant option;
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h1 id="redis-系列："><a href="#redis-系列：" class="headerlink" title="redis 系列： "></a><font color="blue">redis 系列： </font></h1><h1 id="hadoop-系列："><a href="#hadoop-系列：" class="headerlink" title="hadoop 系列： "></a><font color="blue">hadoop 系列： </font></h1>
             </div>
             <hr />
@@ -1019,7 +1029,7 @@ mysql> flush hosts;
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="分布式系统 - 雪崩效应">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="分布式系统 - 雪崩效应">
                         
                         <span class="card-title">分布式系统 - 雪崩效应</span>
                     </div>
@@ -1068,7 +1078,7 @@ mysql> flush hosts;
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="hexo 博客编写">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="hexo 博客编写">
                         
                         <span class="card-title">hexo 博客编写</span>
                     </div>
@@ -1261,7 +1271,7 @@ mysql> flush hosts;
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">40.4k</span>
+            <span class="white-color">40.5k</span>
             
 
             <br>

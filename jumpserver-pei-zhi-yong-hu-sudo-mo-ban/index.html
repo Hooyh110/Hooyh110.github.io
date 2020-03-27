@@ -4,16 +4,11 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="nginx 配置多条件判断, ECNU NLP DeepLearning AntNLP helen">
+    <meta name="keywords" content="jumpserver配置用户sudo模板, ECNU NLP DeepLearning AntNLP helen">
     <meta name="baidu-site-verification" content="PQuYZ68I8K">
     <meta name="google-site-verification" content="PQuYZ68I8K">
     <meta name="360-site-verification" content>
-    <meta name="description" content="一、if语句中的判断条件(nginx)介绍1、正则表达式匹配：
-  ==:等值比较;
-
-  ~：与指定正则表达式模式匹配时返回“真”，判断匹配与否时区分字符大小写；
-
-  ~*：与指定正则表达式模式匹配时返回“真”，判断匹配与否时不区分字符">
+    <meta name="description" content="jumpserver—sudo权限配置模板ALL,!/bin/bash,!/bin/tcsh,!/bin/su,!/usr/bin/passwd,!/usr/bin/passwd root,!/bin/vim /etc/sudoers,!/">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -21,7 +16,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>nginx 配置多条件判断 | helen的博客</title>
+    <title>jumpserver配置用户sudo模板 | helen的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -311,13 +306,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        nginx 配置多条件判断
+                        jumpserver配置用户sudo模板
                     </div>
                 </div>
             </div>
@@ -428,8 +423,8 @@
                     
                     <div class="article-tag">
                         
-                        <a href="/tags/nginx/" target="_blank">
-                            <span class="chip bg-color">nginx</span>
+                        <a href="/tags/jump/" target="_blank">
+                            <span class="chip bg-color">jump</span>
                         </a>
                         
                     </div>
@@ -440,8 +435,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                        <a href="/categories/nginx/" class="post-category" target="_blank">
-                            nginx
+                        <a href="/categories/jump/" class="post-category" target="_blank">
+                            jump
                         </a>
                         
                     </div>
@@ -452,7 +447,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-03-20
+                    2020-03-27
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -466,14 +461,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    588
+                    131
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    1 分
                 </div>
                 
                 
@@ -489,87 +484,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="一、if语句中的判断条件-nginx-介绍"><a href="#一、if语句中的判断条件-nginx-介绍" class="headerlink" title="一、if语句中的判断条件(nginx)介绍"></a><font color="red">一、if语句中的判断条件(nginx)介绍</font></h1><p>1、正则表达式匹配：</p>
-<pre><code>  ==:等值比较;
-
-  ~：与指定正则表达式模式匹配时返回“真”，判断匹配与否时区分字符大小写；
-
-  ~*：与指定正则表达式模式匹配时返回“真”，判断匹配与否时不区分字符大小写；
-
-  !~：与指定正则表达式模式不匹配时返回“真”，判断匹配与否时区分字符大小写；
-
-  !~*：与指定正则表达式模式不匹配时返回“真”，判断匹配与否时不区分字符大小写；</code></pre><p>2、文件及目录匹配判断：</p>
-<pre><code>  -f, !-f：判断指定的路径是否为存在且为文件；
-
-  -d, !-d：判断指定的路径是否为存在且为目录；
-
-  -e, !-e：判断指定的路径是否存在，文件或目录均可；
-
-  -x, !-x：判断指定路径的文件是否存在且可执行；</code></pre><ul>
-<li>实例(nginx return 302)：</li>
-</ul>
-<pre class="line-numbers language-nginx"><code class="language-nginx"><span class="token comment" spellcheck="true">#allow.conf</span>
-<span class="token comment" spellcheck="true">#判断访问源IP如果不是223.223.205.*和39.*.190.*则返回302</span>
-<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$remote_addr</span> <span class="token operator">!</span><span class="token operator">~</span> <span class="token operator">^</span><span class="token number">39</span>\<span class="token punctuation">.</span><span class="token operator">*</span>\<span class="token punctuation">.</span><span class="token number">190</span>\<span class="token punctuation">.</span><span class="token operator">*</span><span class="token operator">|</span><span class="token number">223</span>\<span class="token punctuation">.</span><span class="token number">223</span>\<span class="token punctuation">.</span><span class="token number">205</span>\<span class="token punctuation">.</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token number">302</span> <span class="token keyword">https</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>app<span class="token punctuation">.</span>xiongmaocar<span class="token punctuation">.</span>com<span class="token operator">/</span>mzh5<span class="token operator">/</span>p<span class="token operator">/</span>at_698eada2633d2b37<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<ul>
-<li>实例(定义接口json返回)</li>
-</ul>
-<pre class="line-numbers language-nginx"><code class="language-nginx"><span class="token comment" spellcheck="true">#json.conf</span>
-<span class="token keyword">default_type</span> application<span class="token operator">/</span>json<span class="token punctuation">;</span>
-<span class="token keyword">add_header</span> Content<span class="token operator">-</span>Type <span class="token string">'application/json;charset=utf-8'</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">##设置单个IP时</span>
-<span class="token comment" spellcheck="true">#if ($remote_addr != 223.223.205.*) {</span>
-<span class="token comment" spellcheck="true">##设置多个IP时</span>
-<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$remote_addr</span> <span class="token operator">!</span><span class="token operator">~</span> <span class="token operator">^</span><span class="token number">39</span>\<span class="token punctuation">.</span><span class="token operator">*</span>\<span class="token punctuation">.</span><span class="token number">190</span>\<span class="token punctuation">.</span><span class="token operator">*</span><span class="token operator">|</span><span class="token number">223</span>\<span class="token punctuation">.</span><span class="token number">223</span>\<span class="token punctuation">.</span><span class="token number">205</span>\<span class="token punctuation">.</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token number">200</span> <span class="token string">'{"success":true,"code":500,"message":"系统正在升级，暂时无法访问，敬请谅解。","result":null}'</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<ul>
-<li>实例(设置js.map不允许223.223.205.*以外的IP访问)</li>
-</ul>
-<pre class="line-numbers language-nginx"><code class="language-nginx">
-<span class="token keyword">location</span> <span class="token operator">~</span> <span class="token punctuation">.</span><span class="token operator">*</span>\<span class="token punctuation">.</span><span class="token punctuation">(</span>js<span class="token punctuation">.</span><span class="token keyword">map</span><span class="token punctuation">)</span><span class="token operator">?</span>$ <span class="token punctuation">{</span>
-        <span class="token keyword">set_real_ip_from</span> <span class="token number">223.223</span><span class="token punctuation">.</span><span class="token number">205</span><span class="token punctuation">.</span><span class="token operator">*</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">#定义可以访问的源IP</span>
-        <span class="token keyword">real_ip_header</span>    X<span class="token operator">-</span>Forwarded<span class="token operator">-</span>For<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">#表示从哪个header属性中获取真实IP</span>
-        real_ip_recursive on<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">#递归检索真实IP，若从 X-Forwarded-For 中获取，则需递归检索；若像从X-Real-IP中获取，则无需递归。</span>
-        <span class="token keyword">proxy_set_header</span> X<span class="token operator">-</span>Forwarded<span class="token operator">-</span>For <span class="token variable">$remote_addr</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">#$remote_addr 是客户端真实IP</span>
-        <span class="token comment" spellcheck="true">#判断访问源IP如果不是223.223.205.*则返回403</span>
-        <span class="token comment" spellcheck="true">##设置单个IP</span>
-        <span class="token comment" spellcheck="true">#if ($remote_addr != 223.223.205.*) {</span>
-        <span class="token comment" spellcheck="true">##设置多个IP</span>
-        <span class="token keyword">if</span> （￥remote_addr <span class="token operator">!</span><span class="token operator">~</span> <span class="token operator">^</span><span class="token number">223</span>\<span class="token punctuation">.</span><span class="token number">223</span>\<span class="token punctuation">.</span><span class="token number">205</span>\<span class="token punctuation">.</span><span class="token operator">*</span><span class="token operator">|</span><span class="token number">39</span>\<span class="token punctuation">.</span><span class="token operator">*</span>\<span class="token punctuation">.</span><span class="token number">190</span>\<span class="token punctuation">.</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">return</span> <span class="token number">403</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-        <span class="token comment" spellcheck="true">#定义proxy1日志输出路径</span>
-        <span class="token keyword">access_log</span> <span class="token operator">/</span>data<span class="token operator">/</span>nginx<span class="token operator">/</span>access<span class="token operator">/</span><span class="token variable">$host</span><span class="token punctuation">.</span><span class="token keyword">proxy</span><span class="token punctuation">.</span>log proxy1<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>然后vhost调用</p>
-<pre class="line-numbers language-nginx"><code class="language-nginx">
-        <span class="token keyword">location</span> <span class="token operator">/</span>airadar<span class="token operator">/</span>api<span class="token operator">/</span> <span class="token punctuation">{</span>
-                <span class="token comment" spellcheck="true">#引用json.conf配置</span>
-                <span class="token keyword">include</span> json<span class="token punctuation">.</span>conf<span class="token punctuation">;</span>
-                <span class="token keyword">proxy_pass</span> <span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>autosaas<span class="token operator">-</span>gateway<span class="token operator">-</span>pro<span class="token punctuation">.</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token punctuation">.</span>com<span class="token punctuation">:</span><span class="token number">11001</span><span class="token operator">/</span>cpapi<span class="token operator">/</span><span class="token punctuation">;</span>
-                <span class="token keyword">proxy_redirect</span> <span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>autosaas<span class="token operator">-</span>gateway<span class="token operator">-</span>pro<span class="token punctuation">.</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token punctuation">.</span>com<span class="token punctuation">:</span><span class="token number">11001</span><span class="token operator">/</span>cpapi<span class="token operator">/</span> <span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">/</span>a<span class="token operator">*</span><span class="token operator">*</span>r<span class="token operator">/</span>api<span class="token operator">/</span><span class="token punctuation">;</span>
-                <span class="token keyword">client_max_body_size</span> 100m<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-
-        <span class="token keyword">location</span>  <span class="token operator">/</span>bo<span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span>dar<span class="token operator">/</span> <span class="token punctuation">{</span>
-                <span class="token comment" spellcheck="true">#引用allow.conf</span>
-                <span class="token keyword">include</span> <span class="token keyword">allow</span><span class="token punctuation">.</span>conf<span class="token punctuation">;</span>
-                <span class="token keyword">index</span> <span class="token keyword">index</span><span class="token punctuation">.</span>html <span class="token keyword">index</span><span class="token punctuation">.</span>htm<span class="token punctuation">;</span>
-                <span class="token keyword">alias</span> <span class="token operator">/</span>data<span class="token operator">/</span>wwwroot<span class="token operator">/</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">/</span>bo<span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span>dar<span class="token operator">/</span><span class="token punctuation">;</span>
-                <span class="token keyword">try_files</span> <span class="token variable">$uri</span> <span class="token variable">$uri</span><span class="token operator">/</span> <span class="token operator">/</span>bo<span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span>dar<span class="token operator">/</span><span class="token keyword">index</span><span class="token punctuation">.</span>html<span class="token punctuation">;</span>
-                 <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$request_filename</span> <span class="token operator">~</span> <span class="token punctuation">.</span><span class="token operator">*</span>\<span class="token punctuation">.</span><span class="token punctuation">(</span>htm<span class="token operator">|</span>html<span class="token punctuation">)</span>$<span class="token punctuation">)</span>
-                <span class="token punctuation">{</span>
-                <span class="token keyword">add_header</span> Cache<span class="token operator">-</span>Control <span class="token string">"no-cache, no-store"</span><span class="token punctuation">;</span>
-                <span class="token punctuation">}</span>
-                <span class="token comment" spellcheck="true">#引用js_map.conf</span>
-                <span class="token keyword">include</span> js_map<span class="token punctuation">.</span>conf<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+                <h1 id="jumpserver—sudo权限配置模板"><a href="#jumpserver—sudo权限配置模板" class="headerlink" title="jumpserver—sudo权限配置模板"></a>jumpserver—sudo权限配置模板</h1><pre class="line-numbers language-txt"><code class="language-txt">ALL,!/bin/bash,!/bin/tcsh,!/bin/su,!/usr/bin/passwd,!/usr/bin/passwd root,!/bin/vim /etc/sudoers,!/usr/bin/vim /etc/sudoers,!/usr/sbin/visudo,!/usr/bin/sudo -i,!/bin/bi /etc/ssh/*,!/bin/chmod 777 /etc/*,!/bin/chmod 777 *,!/bin/chmod 777,!/bin/chmod -R 777 *,!/bin/rm /*,!/bin/rm /,!/bin/rm -rf /,!/bin/rm -rf /*,!/bin/rm /etc,!/bin/rm -r /etc,!/bin/rm -rf /etc,!/bin/rm /etc/*,!/bin/rm -r /etc/*,!/bin/rm -rf /etc/*,!/bin/rm /root,!/bin/rm -r /root,!/bin/rm -rf /root,!/bin/rm /root/*,!/bin/rm -r /root/*,!/bin/rm -rf /root/*,!/bin/rm /bin,!/bin/rm -r /bin,!/bin/rm -rf /bin,!/bin/rm /bin/*,!/bin/rm -r /bin/*,!/bin/rm -rf /bin/*<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
             </div>
             <hr />
@@ -728,9 +643,9 @@
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《nginx 配置多条件判断》
+                    《jumpserver配置用户sudo模板》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/nginx-pei-zhi-duo-tiao-jian-pan-duan/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/jumpserver-pei-zhi-yong-hu-sudo-mo-ban/" property="cc:attributionName"
                rel="cc:attributionURL">
                 helen
             </a> 采用
@@ -771,7 +686,7 @@
         repo: 'Hooyh110.github.io',
         owner: 'Hooyh110',
         admin: "Hooyh110",
-        id: 'nginx-pei-zhi-duo-tiao-jian-pan-duan/',
+        id: 'jumpserver-pei-zhi-yong-hu-sudo-mo-ban/',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -1054,46 +969,48 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/shell-duo-xing-he-bing-cheng-1-xing/">
+                <a href="/jumpserver-pei-zhi-yong-hu-sudo-mo-ban/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="shell 多行合并成1行">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="jumpserver配置用户sudo模板">
                         
-                        <span class="card-title">shell 多行合并成1行</span>
+                        <span class="card-title">jumpserver配置用户sudo模板</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            多行合并成1行
+                            jumpserver用户配置sudo权限
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-20
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-27
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/shell/" class="post-category" target="_blank">
-                                    shell
+                            <a href="/categories/jump/" class="post-category" target="_blank">
+                                    jump
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/shell/" target="_blank">
-                        <span class="chip bg-color">shell</span>
+                    <a href="/tags/jump/" target="_blank">
+                        <span class="chip bg-color">jump</span>
                     </a>
                     
                 </div>
@@ -1107,31 +1024,31 @@
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/python-jian-cha-ci-pan-da-yu-80-shi-fa-song-ding-ding/">
+                <a href="/docker-zhan-man-ci-pan-kong-jian-chu-li-fang-fa/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Python检查磁盘大于80%时发送钉钉">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Docker占满磁盘空间处理方法">
                         
-                        <span class="card-title">Python检查磁盘大于80%时发送钉钉</span>
+                        <span class="card-title">Docker占满磁盘空间处理方法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            利用subprocess+webhook检查磁盘空间并发送钉钉
+                            docker占满磁盘空间的几个处理方法
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-20
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-21
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Python/" class="post-category" target="_blank">
-                                    Python
+                            <a href="/categories/docker/" class="post-category" target="_blank">
+                                    docker
                                 </a>
                             
                             
@@ -1141,8 +1058,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Python/" target="_blank">
-                        <span class="chip bg-color">Python</span>
+                    <a href="/tags/docker/" target="_blank">
+                        <span class="chip bg-color">docker</span>
                     </a>
                     
                 </div>

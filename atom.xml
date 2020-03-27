@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.hooyuhao.club/"/>
-  <updated>2020-03-21T02:10:31.529Z</updated>
+  <updated>2020-03-27T03:08:18.024Z</updated>
   <id>http://blog.hooyuhao.club/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>jumpserver配置用户sudo模板</title>
+    <link href="http://blog.hooyuhao.club/jumpserver-pei-zhi-yong-hu-sudo-mo-ban/"/>
+    <id>http://blog.hooyuhao.club/jumpserver-pei-zhi-yong-hu-sudo-mo-ban/</id>
+    <published>2020-03-27T03:06:22.000Z</published>
+    <updated>2020-03-27T03:08:18.024Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;jumpserver—sudo权限配置模板&quot;&gt;&lt;a href=&quot;#jumpserver—sudo权限配置模板&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="jump" scheme="http://blog.hooyuhao.club/categories/jump/"/>
+    
+    
+      <category term="jump" scheme="http://blog.hooyuhao.club/tags/jump/"/>
+    
+  </entry>
   
   <entry>
     <title>Docker占满磁盘空间处理方法</title>
@@ -152,7 +178,7 @@
     <link href="http://blog.hooyuhao.club/python-pei-zhi-ding-ding-ji-qi-ren-fa-song-xin-xi/"/>
     <id>http://blog.hooyuhao.club/python-pei-zhi-ding-ding-ji-qi-ren-fa-song-xin-xi/</id>
     <published>2020-03-19T03:50:02.000Z</published>
-    <updated>2020-03-23T10:42:09.445Z</updated>
+    <updated>2020-03-23T10:50:23.299Z</updated>
     
     <summary type="html">
     
@@ -516,24 +542,6 @@
     
     
       <category term="mysql" scheme="http://blog.hooyuhao.club/tags/mysql/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>服务器脑裂</title>
-    <link href="http://blog.hooyuhao.club/fu-wu-qi-nao-lie/"/>
-    <id>http://blog.hooyuhao.club/fu-wu-qi-nao-lie/</id>
-    <published>2020-03-12T11:18:39.000Z</published>
-    <updated>2020-03-12T14:50:01.281Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-      <category term="news" scheme="http://blog.hooyuhao.club/categories/news/"/>
-    
-    
-      <category term="news" scheme="http://blog.hooyuhao.club/tags/news/"/>
     
   </entry>
   
