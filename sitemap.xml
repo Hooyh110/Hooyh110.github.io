@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.hooyuhao.club/openvpn-bu-shu/</loc>
+    
+    <lastmod>2020-04-04T11:38:03.771Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.hooyuhao.club/mysql-zi-dong-hua-yun-wei-gong-ju/</loc>
+    
+    <lastmod>2020-03-31T08:01:37.362Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.hooyuhao.club/jumpserver-pei-zhi-yong-hu-sudo-mo-ban/</loc>
     
-    <lastmod>2020-03-27T03:08:18.024Z</lastmod>
+    <lastmod>2020-03-27T03:43:18.354Z</lastmod>
     
   </url>
   
@@ -145,13 +159,6 @@
     <loc>http://blog.hooyuhao.club/hexo-bo-ke-bian-xie/</loc>
     
     <lastmod>2020-03-13T00:49:22.838Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.hooyuhao.club/mysql-zi-dong-hua-yun-wei-gong-ju/</loc>
-    
-    <lastmod>2020-03-12T15:38:19.622Z</lastmod>
     
   </url>
   

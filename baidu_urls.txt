@@ -1,3 +1,4 @@
+http://blog.hooyuhao.club/openvpn-bu-shu/
 http://blog.hooyuhao.club/jumpserver-pei-zhi-yong-hu-sudo-mo-ban/
 http://blog.hooyuhao.club/docker-zhan-man-ci-pan-kong-jian-chu-li-fang-fa/
 http://blog.hooyuhao.club/shell-zi-dong-jiao-hu/

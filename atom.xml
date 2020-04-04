@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.hooyuhao.club/"/>
-  <updated>2020-03-27T03:08:18.024Z</updated>
+  <updated>2020-04-04T11:38:03.771Z</updated>
   <id>http://blog.hooyuhao.club/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>openvpn部署</title>
+    <link href="http://blog.hooyuhao.club/openvpn-bu-shu/"/>
+    <id>http://blog.hooyuhao.club/openvpn-bu-shu/</id>
+    <published>2020-04-04T10:45:11.000Z</published>
+    <updated>2020-04-04T11:38:03.771Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;openVPN-server端安装方法&quot;&gt;&lt;a href=&quot;#openVPN-server端安装方法&quot; class=&quot;headerlink&quot; title=&quot;openVPN server端安装方法&quot;&gt;&lt;/a&gt;openVPN
+        
+      
+    
+    </summary>
+    
+      <category term="vpn" scheme="http://blog.hooyuhao.club/categories/vpn/"/>
+    
+    
+      <category term="vpn" scheme="http://blog.hooyuhao.club/tags/vpn/"/>
+    
+  </entry>
+  
+  <entry>
     <title>jumpserver配置用户sudo模板</title>
     <link href="http://blog.hooyuhao.club/jumpserver-pei-zhi-yong-hu-sudo-mo-ban/"/>
     <id>http://blog.hooyuhao.club/jumpserver-pei-zhi-yong-hu-sudo-mo-ban/</id>
     <published>2020-03-27T03:06:22.000Z</published>
-    <updated>2020-03-27T03:08:18.024Z</updated>
+    <updated>2020-03-27T03:43:18.354Z</updated>
     
     <summary type="html">
     
@@ -514,34 +540,6 @@
     
     
       <category term="docker" scheme="http://blog.hooyuhao.club/tags/docker/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>mysql自动化运维工具</title>
-    <link href="http://blog.hooyuhao.club/mysql-zi-dong-hua-yun-wei-gong-ju/"/>
-    <id>http://blog.hooyuhao.club/mysql-zi-dong-hua-yun-wei-gong-ju/</id>
-    <published>2020-03-12T14:19:55.000Z</published>
-    <updated>2020-03-12T15:38:19.622Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;一、简述信息&quot;&gt;&lt;a href=&quot;#一、简述信息&quot; class=&quot;headerlink&quot; title=&quot;一、简述信息&quot;&gt;&lt;/a&gt;一、简述信息&lt;/h1&gt;&lt;hr&gt;
-&lt;ul&gt;
-&lt;li&gt;体验地址：&lt;a href=&quot;http://192.168.1.48:9123/&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="mysql" scheme="http://blog.hooyuhao.club/categories/mysql/"/>
-    
-    
-      <category term="mysql" scheme="http://blog.hooyuhao.club/tags/mysql/"/>
     
   </entry>
   
