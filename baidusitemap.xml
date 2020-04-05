@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://blog.hooyuhao.club/jenkins-li-yong-pipeline-gou-jian-ci-cd/</loc>
+    <lastmod>2020-04-05</lastmod>
+  </url>  <url>
+    <loc>http://blog.hooyuhao.club/markdown-chang-yong-zi-ti-yan-se-lie-biao/</loc>
+    <lastmod>2020-04-04</lastmod>
+  </url>  <url>
     <loc>http://blog.hooyuhao.club/openvpn-bu-shu/</loc>
     <lastmod>2020-04-04</lastmod>
   </url>  <url>
@@ -74,9 +80,6 @@
     <lastmod>2020-03-12</lastmod>
   </url>  <url>
     <loc>http://blog.hooyuhao.club/fen-bu-shi-xi-tong-xue-beng-xiao-ying/</loc>
-    <lastmod>2020-03-12</lastmod>
-  </url>  <url>
-    <loc>http://blog.hooyuhao.club/markdown-chang-yong-zi-ti-yan-se-lie-biao/</loc>
     <lastmod>2020-03-12</lastmod>
   </url>  <url>
     <loc>http://blog.hooyuhao.club/install-gitlab-runner/</loc>

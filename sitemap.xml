@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.hooyuhao.club/jenkins-li-yong-pipeline-gou-jian-ci-cd/</loc>
+    
+    <lastmod>2020-04-05T13:54:52.721Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.hooyuhao.club/markdown-chang-yong-zi-ti-yan-se-lie-biao/</loc>
+    
+    <lastmod>2020-04-04T13:59:35.333Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.hooyuhao.club/openvpn-bu-shu/</loc>
     
     <lastmod>2020-04-04T13:16:53.689Z</lastmod>
@@ -173,13 +187,6 @@
     <loc>http://blog.hooyuhao.club/fen-bu-shi-xi-tong-xue-beng-xiao-ying/</loc>
     
     <lastmod>2020-03-12T11:14:48.175Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.hooyuhao.club/markdown-chang-yong-zi-ti-yan-se-lie-biao/</loc>
-    
-    <lastmod>2020-03-12T10:57:46.438Z</lastmod>
     
   </url>
   

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.hooyuhao.club/"/>
-  <updated>2020-04-04T13:16:53.689Z</updated>
+  <updated>2020-04-05T13:54:52.721Z</updated>
   <id>http://blog.hooyuhao.club/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>jenkins利用pipeline构建CI/CD</title>
+    <link href="http://blog.hooyuhao.club/jenkins-li-yong-pipeline-gou-jian-ci-cd/"/>
+    <id>http://blog.hooyuhao.club/jenkins-li-yong-pipeline-gou-jian-ci-cd/</id>
+    <published>2020-04-04T13:19:17.000Z</published>
+    <updated>2020-04-05T13:54:52.721Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;基于-Jenkins-的-CI-CD-一&quot;&gt;&lt;a href=&quot;#基于-Jenkins-的-CI-CD-一&quot; class=&quot;headerlink&quot; title=&quot;基于 Jenkins 的 CI/CD (一)&quot;&gt;&lt;/a&gt;基于 Jenkins 的 CI/CD
+        
+      
+    
+    </summary>
+    
+      <category term="DevOps" scheme="http://blog.hooyuhao.club/categories/DevOps/"/>
+    
+    
+      <category term="DevOps" scheme="http://blog.hooyuhao.club/tags/DevOps/"/>
+    
+  </entry>
   
   <entry>
     <title>openvpn部署</title>
@@ -513,33 +539,6 @@
     
     
       <category term="Python" scheme="http://blog.hooyuhao.club/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>使用 kubeadm 安装 kubernetes v1.15.3</title>
-    <link href="http://blog.hooyuhao.club/shi-yong-kubeadm-an-zhuang-kubernetes-v1-15-3/"/>
-    <id>http://blog.hooyuhao.club/shi-yong-kubeadm-an-zhuang-kubernetes-v1-15-3/</id>
-    <published>2020-03-13T01:02:01.000Z</published>
-    <updated>2020-03-13T01:26:23.921Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;配置要求&quot;&gt;&lt;a href=&quot;#配置要求&quot; class=&quot;headerlink&quot; title=&quot;配置要求&quot;&gt;&lt;/a&gt;配置要求&lt;/h1&gt;&lt;hr&gt;
-&lt;p&gt;对于 Kubernetes 初学者，推荐在阿里云采购如下配置：（您也可以使用自己的虚拟机、私有云等您最容易获得的
-        
-      
-    
-    </summary>
-    
-      <category term="docker" scheme="http://blog.hooyuhao.club/categories/docker/"/>
-    
-    
-      <category term="docker" scheme="http://blog.hooyuhao.club/tags/docker/"/>
     
   </entry>
   
