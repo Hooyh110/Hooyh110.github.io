@@ -467,14 +467,14 @@ podTemplate(label: &#39;jnlp-slave&#39;, cloud: &#39;kubernetes&#39;)
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    263
+                    458
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
                 
@@ -552,6 +552,59 @@ podTemplate(label: &#39;jnlp-slave&#39;, cloud: &#39;kubernetes&#39;)
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>pipeline （利用kubectl set 命令直接修改镜像版本）</li>
+</ul>
+<pre class="line-numbers language-bash"><code class="language-bash">podTemplate<span class="token punctuation">(</span>label: <span class="token string">'jnlp-slave'</span>, cloud: <span class="token string">'kubernetes'</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    node <span class="token punctuation">(</span><span class="token string">'jnlp-slave'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        stage<span class="token punctuation">(</span><span class="token string">'git-npm'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            sh <span class="token string">''</span><span class="token string">'
+            mkdir -p /root/.ssh
+            cp -r /kubectl/.ssh/id_rsa /root/.ssh/
+            chmod 0600 /root/.ssh/id_rsa
+            echo "StrictHostKeyChecking no">>/etc/ssh/ssh_config
+            echo "UserKnownHostsFile /dev/null" >>/etc/ssh/ssh_config
+            git clone -b <span class="token variable">$branch</span> <span class="token variable">$gitURL</span>
+            cd <span class="token variable">$PROJECT_NAME</span>
+            npm install
+            npm run build
+            '</span><span class="token string">''</span>
+        <span class="token punctuation">}</span>
+        stage<span class="token punctuation">(</span><span class="token string">'docker_build'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+       withCredentials<span class="token punctuation">(</span><span class="token punctuation">[</span>usernamePassword<span class="token punctuation">(</span>credentialsId: <span class="token string">'074faeca-f34f-43ba-9807-b988044123c5'</span>, passwordVariable: <span class="token string">'PASSWORD'</span>, usernameVariable: <span class="token string">'USERNAME'</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+         sh <span class="token string">"docker login hub.kce.ksyun.com -u <span class="token variable">$USERNAME</span> -p <span class="token variable">$PASSWORD</span>"</span>
+        <span class="token punctuation">}</span>
+
+            sh <span class="token string">''</span><span class="token string">'
+            cd <span class="token variable">$PROJECT_NAME</span>
+            tar zcvf dist.tar.gz dist
+            cd kubernetes
+            mv ../dist.tar.gz ./
+            TAG=<span class="token variable"><span class="token variable">$(</span><span class="token function">date</span> +%y%m%d%H%M<span class="token variable">)</span></span>
+            docker build -t <span class="token variable">$DOCKER_IMG</span>/<span class="token variable">${PROJECT_NAME}</span>:<span class="token variable">$TAG</span> -f Dockerfile .
+            docker push <span class="token variable">$DOCKER_IMG</span>/<span class="token variable">${PROJECT_NAME}</span>:<span class="token variable">$TAG</span>
+            echo "y"| docker system prune -a
+            echo "推送镜像到金山云仓库成功"
+
+            echo "开始development"
+
+            if [ <span class="token variable">$ENV</span> = pre ];
+            then
+                cp -r /kubectl/operation/.kube /root/
+                echo "is pre"
+            else
+                echo "RUN DOCKER FAIL"
+            fi
+
+            cp /kubectl/kubectl /usr/local/bin/
+            kubectl set image deployment/<span class="token variable">${PROJECT_NAME_PRE}</span> <span class="token variable">${PROJECT_NAME_PRE}</span>=DOCKER_IMG/<span class="token variable">${PROJECT_NAME}</span>:<span class="token variable">$TAG</span>
+            sleep 10s
+            kubectl get all -n default | grep <span class="token variable">${PROJECT_NAME_PRE}</span>
+            '</span><span class="token string">''</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr />
@@ -1294,7 +1347,7 @@ podTemplate(label: 'jnlp-slave', cloud: 'kubernetes')
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">44.3k</span>
+            <span class="white-color">44.5k</span>
             
 
             <br>
