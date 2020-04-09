@@ -4,7 +4,7 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="jenkins利用pipeline构建K8S应用-示例(一), ECNU NLP DeepLearning AntNLP helen">
+    <meta name="keywords" content="jenkins利用pipeline构建CI/CD-示例(二), ECNU NLP DeepLearning AntNLP helen">
     <meta name="baidu-site-verification" content="PQuYZ68I8K">
     <meta name="google-site-verification" content="PQuYZ68I8K">
     <meta name="360-site-verification" content>
@@ -22,7 +22,7 @@ podTemplate(label: &#39;jnlp-slave&#39;, cloud: &#39;kubernetes&#39;)
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>jenkins利用pipeline构建K8S应用-示例(一) | helen的博客</title>
+    <title>jenkins利用pipeline构建CI/CD-示例(二) | helen的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -312,13 +312,13 @@ podTemplate(label: &#39;jnlp-slave&#39;, cloud: &#39;kubernetes&#39;)
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        jenkins利用pipeline构建K8S应用-示例(一)
+                        jenkins利用pipeline构建CI/CD-示例(二)
                     </div>
                 </div>
             </div>
@@ -467,14 +467,14 @@ podTemplate(label: &#39;jnlp-slave&#39;, cloud: &#39;kubernetes&#39;)
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    923
+                    703
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    4 分
                 </div>
                 
                 
@@ -528,12 +528,15 @@ podTemplate(label: &#39;jnlp-slave&#39;, cloud: &#39;kubernetes&#39;)
 
             <span class="token keyword">echo</span> <span class="token string">"开始development"</span>
 
-            <span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token variable">$ENV</span> <span class="token operator">=</span> pre <span class="token punctuation">]</span><span class="token punctuation">;</span>
-            <span class="token keyword">then</span>
+            <span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token variable">$ENV</span> <span class="token operator">=</span> gaea <span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token keyword">then</span>
+                <span class="token function">cp</span> -r /kubectl/gaea/.kube /root/
+                <span class="token keyword">echo</span> <span class="token string">"is gaea"</span>
+            <span class="token keyword">elif</span> <span class="token punctuation">[</span> <span class="token variable">$ENV</span> <span class="token operator">=</span> prod <span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token keyword">then</span>
+                <span class="token function">cp</span> -r /kubectl/prod/.kube /root/
+                <span class="token keyword">echo</span> <span class="token string">"is prod"</span>
+            <span class="token keyword">else</span>
                 <span class="token function">cp</span> -r /kubectl/pre/.kube /root/
                 <span class="token keyword">echo</span> <span class="token string">"is pre"</span>
-            <span class="token keyword">else</span>
-                <span class="token keyword">echo</span> <span class="token string">"RUN DOCKER FAIL"</span>
             <span class="token keyword">fi</span>
 
             <span class="token function">cp</span> /kubectl/kubectl /usr/local/bin/
@@ -551,7 +554,100 @@ podTemplate(label: &#39;jnlp-slave&#39;, cloud: &#39;kubernetes&#39;)
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>yaml模板</li>
+</ul>
+<pre class="line-numbers language-yaml"><code class="language-yaml"><span class="token punctuation">---</span>
+<span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> <span class="token string">"extensions/v1beta1"</span>
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> <span class="token string">"Deployment"</span>
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">labels</span><span class="token punctuation">:</span>
+    <span class="token key atrule">ksyun-app</span><span class="token punctuation">:</span> <span class="token string">"project_name"</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> <span class="token string">"project_name"</span>
+  <span class="token key atrule">namespace</span><span class="token punctuation">:</span> <span class="token string">"default"</span>
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">minReadySeconds</span><span class="token punctuation">:</span> <span class="token number">38</span>
+  <span class="token key atrule">progressDeadlineSeconds</span><span class="token punctuation">:</span> <span class="token number">2147483647</span>
+  <span class="token key atrule">replicas</span><span class="token punctuation">:</span> <span class="token number">2</span>
+  <span class="token key atrule">revisionHistoryLimit</span><span class="token punctuation">:</span> <span class="token number">2147483647</span>
+  <span class="token key atrule">selector</span><span class="token punctuation">:</span>
+    <span class="token key atrule">matchLabels</span><span class="token punctuation">:</span>
+      <span class="token key atrule">ksyun-app</span><span class="token punctuation">:</span> <span class="token string">"project_name"</span>
+  <span class="token key atrule">strategy</span><span class="token punctuation">:</span>
+    <span class="token key atrule">rollingUpdate</span><span class="token punctuation">:</span>
+      <span class="token key atrule">maxSurge</span><span class="token punctuation">:</span> <span class="token number">1</span>
+      <span class="token key atrule">maxUnavailable</span><span class="token punctuation">:</span> <span class="token number">1</span>
+    <span class="token key atrule">type</span><span class="token punctuation">:</span> <span class="token string">"RollingUpdate"</span>
+  <span class="token key atrule">template</span><span class="token punctuation">:</span>
+    <span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+      <span class="token key atrule">labels</span><span class="token punctuation">:</span>
+        <span class="token key atrule">ksyun-app</span><span class="token punctuation">:</span> <span class="token string">"project_name"</span>
+    <span class="token key atrule">spec</span><span class="token punctuation">:</span>
+      <span class="token key atrule">containers</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">image</span><span class="token punctuation">:</span> <span class="token string">"IMG_NAME:IMG_TAG"</span>
+        <span class="token key atrule">imagePullPolicy</span><span class="token punctuation">:</span> <span class="token string">"Always"</span>
+        <span class="token key atrule">securityContext</span><span class="token punctuation">:</span>
+          <span class="token key atrule">runAsUser</span><span class="token punctuation">:</span> <span class="token number">0       </span><span class="token comment" spellcheck="true">#设置以ROOT用户运行容器</span>
+          <span class="token key atrule">privileged</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+        <span class="token key atrule">livenessProbe</span><span class="token punctuation">:</span>
+          <span class="token key atrule">failureThreshold</span><span class="token punctuation">:</span> <span class="token number">3</span>
+          <span class="token key atrule">initialDelaySeconds</span><span class="token punctuation">:</span> <span class="token number">35</span>
+          <span class="token key atrule">periodSeconds</span><span class="token punctuation">:</span> <span class="token number">20</span>
+          <span class="token key atrule">successThreshold</span><span class="token punctuation">:</span> <span class="token number">1</span>
+          <span class="token key atrule">tcpSocket</span><span class="token punctuation">:</span>
+            <span class="token key atrule">port</span><span class="token punctuation">:</span> _port_
+          <span class="token key atrule">timeoutSeconds</span><span class="token punctuation">:</span> <span class="token number">20</span>
+        <span class="token key atrule">name</span><span class="token punctuation">:</span> <span class="token string">"project_name"</span>
+        <span class="token key atrule">readinessProbe</span><span class="token punctuation">:</span>
+          <span class="token key atrule">failureThreshold</span><span class="token punctuation">:</span> <span class="token number">3</span>
+          <span class="token key atrule">initialDelaySeconds</span><span class="token punctuation">:</span> <span class="token number">30</span>
+          <span class="token key atrule">periodSeconds</span><span class="token punctuation">:</span> <span class="token number">20</span>
+          <span class="token key atrule">successThreshold</span><span class="token punctuation">:</span> <span class="token number">1</span>
+          <span class="token key atrule">tcpSocket</span><span class="token punctuation">:</span>
+            <span class="token key atrule">port</span><span class="token punctuation">:</span> _port_
+          <span class="token key atrule">timeoutSeconds</span><span class="token punctuation">:</span> <span class="token number">20</span>
+        <span class="token key atrule">name</span><span class="token punctuation">:</span> <span class="token string">"project_name"</span>
+        <span class="token key atrule">resources</span><span class="token punctuation">:</span>
+          <span class="token key atrule">limits</span><span class="token punctuation">:</span>
+            <span class="token key atrule">cpu</span><span class="token punctuation">:</span> <span class="token string">"1"</span>
+            <span class="token key atrule">memory</span><span class="token punctuation">:</span> <span class="token string">"2Gi"</span>
+          <span class="token key atrule">requests</span><span class="token punctuation">:</span>
+            <span class="token key atrule">cpu</span><span class="token punctuation">:</span> <span class="token string">"1"</span>
+            <span class="token key atrule">memory</span><span class="token punctuation">:</span> <span class="token string">"2Gi"</span>
+        <span class="token key atrule">terminationMessagePath</span><span class="token punctuation">:</span> <span class="token string">"/dev/termination-log"</span>
+        <span class="token key atrule">terminationMessagePolicy</span><span class="token punctuation">:</span> <span class="token string">"File"</span>
+      <span class="token key atrule">dnsPolicy</span><span class="token punctuation">:</span> <span class="token string">"ClusterFirst"</span>
+      <span class="token key atrule">imagePullSecrets</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> <span class="token string">"ksyunregistrykey"</span>
+      <span class="token key atrule">restartPolicy</span><span class="token punctuation">:</span> <span class="token string">"Always"</span>
+      <span class="token key atrule">schedulerName</span><span class="token punctuation">:</span> <span class="token string">"default-scheduler"</span>
+      <span class="token key atrule">securityContext</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+      <span class="token key atrule">terminationGracePeriodSeconds</span><span class="token punctuation">:</span> <span class="token number">30</span>
+<span class="token punctuation">---</span>
+<span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> <span class="token string">"v1"</span>
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> <span class="token string">"Service"</span>
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">annotations</span><span class="token punctuation">:</span>
+      <span class="token comment" spellcheck="true"># 配置绑定SLB</span>
+    <span class="token key atrule">service.beta.kubernetes.io/ksc-loadbalancer-id</span><span class="token punctuation">:</span> <span class="token string">"57b2321e-3adf-420f-842c-353939a691d3"</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> <span class="token string">"project_name"</span>
+  <span class="token key atrule">namespace</span><span class="token punctuation">:</span> <span class="token string">"default"</span>
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">externalTrafficPolicy</span><span class="token punctuation">:</span> <span class="token string">"Cluster"</span>
+  <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> <span class="token key atrule">port</span><span class="token punctuation">:</span> _port_
+    <span class="token key atrule">protocol</span><span class="token punctuation">:</span> <span class="token string">"TCP"</span>
+    <span class="token key atrule">targetPort</span><span class="token punctuation">:</span> _port_
+  <span class="token key atrule">selector</span><span class="token punctuation">:</span>
+    <span class="token key atrule">ksyun-app</span><span class="token punctuation">:</span> <span class="token string">"project_name"</span>
+  <span class="token key atrule">sessionAffinity</span><span class="token punctuation">:</span> <span class="token string">"None"</span>
+  <span class="token key atrule">type</span><span class="token punctuation">:</span> <span class="token string">"LoadBalancer"</span>
+<span class="token key atrule">status</span><span class="token punctuation">:</span>
+  <span class="token key atrule">loadBalancer</span><span class="token punctuation">:</span>
+    <span class="token key atrule">ingress</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true"># SLB的IP地址</span>
+    <span class="token punctuation">-</span> <span class="token key atrule">ip</span><span class="token punctuation">:</span> <span class="token string">"172.31.252.11"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>pipeline （利用kubectl set 命令直接修改镜像版本）</li>
 </ul>
@@ -589,12 +685,15 @@ podTemplate(label: &#39;jnlp-slave&#39;, cloud: &#39;kubernetes&#39;)
 
             echo "开始development"
 
-            if [ <span class="token variable">$ENV</span> = pre ];
-            then
+            if [ <span class="token variable">$ENV</span> = gaea ];then
+                cp -r /kubectl/gaea/.kube /root/
+                echo "is gaea"
+            elif [ <span class="token variable">$ENV</span> = prod ];then
+                cp -r /kubectl/prod/.kube /root/
+                echo "is prod"
+            else
                 cp -r /kubectl/pre/.kube /root/
                 echo "is pre"
-            else
-                echo "RUN DOCKER FAIL"
             fi
 
             cp /kubectl/kubectl /usr/local/bin/
@@ -604,128 +703,20 @@ podTemplate(label: &#39;jnlp-slave&#39;, cloud: &#39;kubernetes&#39;)
             '</span><span class="token string">''</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span>
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="Java-后端"><a href="#Java-后端" class="headerlink" title="Java 后端"></a>Java 后端</h1><p><img src="img/2.png" alt="Jenkins全局传参配置"></p>
 <ul>
 <li>pipeline(根据k8s的yaml进行配置）</li>
 </ul>
-<pre class="line-numbers language-bash"><code class="language-bash">podTemplate<span class="token punctuation">(</span>label: <span class="token string">'jnlp-slave'</span>, cloud: <span class="token string">'kubernetes'</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-    node <span class="token punctuation">(</span><span class="token string">'jnlp-slave'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        stage<span class="token punctuation">(</span><span class="token string">'git-maven'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            sh <span class="token string">''</span><span class="token string">'
-            export MAVEN_HOME=/maven
-            export PATH=<span class="token variable">$MAVEN_HOME</span>/bin:<span class="token variable">$PATH</span>
-            '</span><span class="token string">''</span>
-            sh <span class="token string">''</span><span class="token string">'
-            mkdir -p /root/.ssh
-            cp -r /kubectl/.ssh/id_rsa /root/.ssh/
-            chmod 0600 /root/.ssh/id_rsa
-            git clone -b <span class="token variable">$branch</span> <span class="token variable">$gitURL</span>
-            cd <span class="token variable">$PROJECT_NAME</span>
-            /maven/bin/mvn clean install -Dmaven.test.skip=true
-            ls *
-            '</span><span class="token string">''</span>
-        <span class="token punctuation">}</span>
-        stage<span class="token punctuation">(</span><span class="token string">'docker_build'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-       withCredentials<span class="token punctuation">(</span><span class="token punctuation">[</span>usernamePassword<span class="token punctuation">(</span>credentialsId: <span class="token string">'074faeca-f34f-43ba-9807-b988044123c5'</span>, passwordVariable: <span class="token string">'PASSWORD'</span>, usernameVariable: <span class="token string">'USERNAME'</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-         sh <span class="token string">"docker login hub.kce.ksyun.com -u <span class="token variable">$USERNAME</span> -p <span class="token variable">$PASSWORD</span>"</span>
-        <span class="token punctuation">}</span>
-
-            sh <span class="token string">''</span>'
-
-            <span class="token function">cd</span> <span class="token variable">$PROJECT_NAME</span>
-            <span class="token function">cd</span> kubernetes
-            <span class="token function">mv</span> <span class="token punctuation">..</span>/aiot-build-device-service/target/aiot-build-device-service-1.0-SNAPSHOT.jar ./
-            TAG<span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token function">date</span> +%y%m%d%H%M<span class="token variable">)</span></span>
-            docker build -t <span class="token variable">${PROJECT_NAME}</span><span class="token keyword">:</span><span class="token variable">$TAG</span> <span class="token keyword">.</span>
-            docker tag <span class="token variable">${PROJECT_NAME}</span><span class="token keyword">:</span><span class="token variable">$TAG</span> <span class="token variable">$DOCKER_IMG</span>/<span class="token variable">${PROJECT_NAME}</span><span class="token keyword">:</span><span class="token variable">$TAG</span>
-            docker push <span class="token variable">$DOCKER_IMG</span>/<span class="token variable">${PROJECT_NAME}</span><span class="token keyword">:</span><span class="token variable">$TAG</span>
-            <span class="token keyword">echo</span> <span class="token string">"y"</span><span class="token operator">|</span> docker system prune -a
-            <span class="token keyword">echo</span> <span class="token string">"推送镜像到金山云仓库成功"</span>
-
-            <span class="token keyword">echo</span> <span class="token string">"开始development"</span>
-
-            <span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token variable">$ENV</span> <span class="token operator">=</span> pre <span class="token punctuation">]</span><span class="token punctuation">;</span>
-            <span class="token keyword">then</span>
-                <span class="token function">cp</span> -r /kubectl/pre/.kube /root/
-                <span class="token keyword">echo</span> <span class="token string">"is pre"</span>
-            <span class="token keyword">else</span>
-                <span class="token keyword">echo</span> <span class="token string">"RUN DOCKER FAIL"</span>
-            <span class="token keyword">fi</span>
-
-            <span class="token function">cp</span> /kubectl/kubectl /usr/local/bin/
-            <span class="token function">cp</span> -r /kubectl/yaml ./
-            <span class="token keyword">echo</span> <span class="token string">"#cp -rf /kubectl/service/service.yaml ./yaml/#"</span>
-            <span class="token function">sed</span> -i <span class="token string">"s#IMG_NAME:IMG_TAG#<span class="token variable">${DOCKER_IMG}</span>/<span class="token variable">${PROJECT_NAME}</span>:<span class="token variable">$TAG#g</span>"</span> yaml/*
-            <span class="token function">sed</span> -i <span class="token string">"s#project_name#<span class="token variable">${PROJECT_NAME}</span>-pre#g"</span> yaml/*
-            <span class="token function">sed</span> -i <span class="token string">"s#_port_#<span class="token variable">${PORT}</span>#g"</span> yaml/*
-            <span class="token function">sed</span> -i <span class="token string">"s#ENV#<span class="token variable">$ENV#g</span>"</span> yaml/*
-            number<span class="token operator">=</span><span class="token punctuation">$(</span>kubectl get pods -n default <span class="token operator">|</span> <span class="token function">awk</span> <span class="token string">'{print <span class="token variable">$1</span>}'</span> <span class="token operator">|</span> <span class="token function">grep</span> <span class="token variable">${PROJECT_NAME}</span><span class="token operator">|</span><span class="token function">wc</span> -l<span class="token punctuation">)</span>
-            <span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token variable">$number</span> <span class="token operator">!=</span> 0 <span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token keyword">then</span> kubectl delete -f ./yaml <span class="token operator">&amp;&amp;</span> kubectl create -f ./yaml <span class="token punctuation">;</span><span class="token keyword">else</span> kubectl create -f ./yaml <span class="token punctuation">;</span><span class="token keyword">fi</span>
-            <span class="token function">sleep</span> 60s
-            kubectl get all -n default <span class="token operator">|</span> <span class="token function">grep</span> <span class="token variable">${PROJECT_NAME}</span>
-            <span class="token string">''</span>'
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash">
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <ul>
 <li>pipeline(根据k8s的kubectl进行配置）</li>
 </ul>
-<pre class="line-numbers language-bash"><code class="language-bash">podTemplate<span class="token punctuation">(</span>label: <span class="token string">'jnlp-slave'</span>, cloud: <span class="token string">'kubernetes'</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-    node <span class="token punctuation">(</span><span class="token string">'jnlp-slave'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        stage<span class="token punctuation">(</span><span class="token string">'git-maven'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            sh <span class="token string">''</span><span class="token string">'
-            export MAVEN_HOME=/maven
-            export PATH=<span class="token variable">$MAVEN_HOME</span>/bin:<span class="token variable">$PATH</span>
-            '</span><span class="token string">''</span>
-            sh <span class="token string">''</span><span class="token string">'
-            mkdir -p /root/.ssh
-            cp -r /kubectl/.ssh/id_rsa /root/.ssh/
-            chmod 0600 /root/.ssh/id_rsa
-            git clone -b <span class="token variable">$branch</span> <span class="token variable">$gitURL</span>
-            cd <span class="token variable">$PROJECT_NAME</span>
-            /maven/bin/mvn clean install -Dmaven.test.skip=true
-            ls *
-            '</span><span class="token string">''</span>
-        <span class="token punctuation">}</span>
-        stage<span class="token punctuation">(</span><span class="token string">'docker_build'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-       withCredentials<span class="token punctuation">(</span><span class="token punctuation">[</span>usernamePassword<span class="token punctuation">(</span>credentialsId: <span class="token string">'074faeca-f34f-43ba-9807-b988044123c5'</span>, passwordVariable: <span class="token string">'PASSWORD'</span>, usernameVariable: <span class="token string">'USERNAME'</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-         sh <span class="token string">"docker login hub.kce.ksyun.com -u <span class="token variable">$USERNAME</span> -p <span class="token variable">$PASSWORD</span>"</span>
-        <span class="token punctuation">}</span>
-
-            sh <span class="token string">''</span><span class="token string">'
-
-            cd <span class="token variable">$PROJECT_NAME</span>
-            cd kubernetes
-            mv ../aiot-build-device-service/target/aiot-build-device-service-1.0-SNAPSHOT.jar ./
-            TAG=<span class="token variable"><span class="token variable">$(</span><span class="token function">date</span> +%y%m%d%H%M<span class="token variable">)</span></span>
-            docker build -t <span class="token variable">$DOCKER_IMG</span>/<span class="token variable">${PROJECT_NAME}</span>:<span class="token variable">$TAG</span> .
-            docker push <span class="token variable">$DOCKER_IMG</span>/<span class="token variable">${PROJECT_NAME}</span>:<span class="token variable">$TAG</span>
-            echo "y"| docker system prune -a
-            echo "推送镜像到金山云仓库成功"
-
-            echo "开始development"
-
-            if [ <span class="token variable">$ENV</span> = pre ];
-            then
-                cp -r /kubectl/pre/.kube /root/
-                echo "is pre"
-            else
-                echo "RUN DOCKER FAIL"
-            fi
-
-            cp /kubectl/kubectl /usr/local/bin/
-            kubectl set image deployment/<span class="token variable">${PROJECT_NAME_PRE}</span> -n default <span class="token variable">${PROJECT_NAME_PRE}</span>=<span class="token variable">${DOCKER_IMG}</span>/<span class="token variable">${PROJECT_NAME}</span>:<span class="token variable">$TAG</span>
-            sleep 60s
-            kubectl get all -n default | grep <span class="token variable">${PROJECT_NAME}</span>
-            '</span><span class="token string">''</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash">
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
             </div>
             <hr />
@@ -884,9 +875,9 @@ podTemplate(label: &#39;jnlp-slave&#39;, cloud: &#39;kubernetes&#39;)
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《jenkins利用pipeline构建K8S应用-示例(一)》
+                    《jenkins利用pipeline构建CI/CD-示例(二)》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/jenkins-li-yong-pipeline-gou-jian-ci-cd-shi-li/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/jenkins-li-yong-pipeline-gou-jian-ci-cd-shi-li-er/" property="cc:attributionName"
                rel="cc:attributionURL">
                 helen
             </a> 采用
@@ -927,7 +918,7 @@ podTemplate(label: &#39;jnlp-slave&#39;, cloud: &#39;kubernetes&#39;)
         repo: 'Hooyh110.github.io',
         owner: 'Hooyh110',
         admin: "Hooyh110",
-        id: 'jenkins-li-yong-pipeline-gou-jian-ci-cd-shi-li/',
+        id: 'jenkins-li-yong-pipeline-gou-jian-ci-cd-shi-li-er/',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -1210,9 +1201,10 @@ podTemplate(label: &#39;jnlp-slave&#39;, cloud: &#39;kubernetes&#39;)
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/jenkins-li-yong-pipeline-gou-jian-ci-cd-shi-li-er/">
                     <div class="card-image">
@@ -1230,9 +1222,9 @@ podTemplate(label: &#39;jnlp-slave&#39;, cloud: &#39;kubernetes&#39;)
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-04-09
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-04-09
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -1245,6 +1237,7 @@ podTemplate(label: &#39;jnlp-slave&#39;, cloud: &#39;kubernetes&#39;)
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1263,24 +1256,30 @@ podTemplate(label: &#39;jnlp-slave&#39;, cloud: &#39;kubernetes&#39;)
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/jenkins-li-yong-pipeline-gou-jian-ci-cd/">
+                <a href="/jenkins-li-yong-pipeline-gou-jian-ci-cd-shi-li/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/27.jpg" class="responsive-img" alt="jenkins利用pipeline构建CI/CD">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="jenkins利用pipeline构建K8S应用-示例(一)">
                         
-                        <span class="card-title">jenkins利用pipeline构建CI/CD</span>
+                        <span class="card-title">jenkins利用pipeline构建K8S应用-示例(一)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            利用pipeline构建CI/CD
+                            nodejs前端项目
+
+pipeline配置（根据k8s的yaml进行配置）
+
+podTemplate(label: 'jnlp-slave', cloud: 'kubernetes')
+{
+    node ('jnlp-slave') 
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-04-04
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-04-09
                             </span>
                         <span class="publish-author">
                             

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.hooyuhao.club/"/>
-  <updated>2020-04-09T12:52:27.359Z</updated>
+  <updated>2020-04-09T13:03:36.039Z</updated>
   <id>http://blog.hooyuhao.club/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>jenkins利用pipeline构建K8S应用-示例</title>
+    <title>jenkins利用pipeline构建CI/CD-示例(二)</title>
+    <link href="http://blog.hooyuhao.club/jenkins-li-yong-pipeline-gou-jian-ci-cd-shi-li-er/"/>
+    <id>http://blog.hooyuhao.club/jenkins-li-yong-pipeline-gou-jian-ci-cd-shi-li-er/</id>
+    <published>2020-04-09T12:55:38.000Z</published>
+    <updated>2020-04-09T13:03:36.039Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;nodejs前端项目&quot;&gt;&lt;a href=&quot;#nodejs前端项目&quot; class=&quot;headerlink&quot; title=&quot;nodejs前端项目&quot;&gt;&lt;/a&gt;nodejs前端项目&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;img/1.png&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="DevOps" scheme="http://blog.hooyuhao.club/categories/DevOps/"/>
+    
+    
+      <category term="DevOps" scheme="http://blog.hooyuhao.club/tags/DevOps/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>jenkins利用pipeline构建K8S应用-示例(一)</title>
     <link href="http://blog.hooyuhao.club/jenkins-li-yong-pipeline-gou-jian-ci-cd-shi-li/"/>
     <id>http://blog.hooyuhao.club/jenkins-li-yong-pipeline-gou-jian-ci-cd-shi-li/</id>
     <published>2020-04-09T11:57:57.000Z</published>
-    <updated>2020-04-09T12:52:27.359Z</updated>
+    <updated>2020-04-09T12:55:16.741Z</updated>
     
     <summary type="html">
     
@@ -512,33 +538,6 @@
     
     
       <category term="Python" scheme="http://blog.hooyuhao.club/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>python3中Dictionary(字典)操作详解</title>
-    <link href="http://blog.hooyuhao.club/python3-zhong-dictionary-zi-dian-cao-zuo-xiang-jie/"/>
-    <id>http://blog.hooyuhao.club/python3-zhong-dictionary-zi-dian-cao-zuo-xiang-jie/</id>
-    <published>2020-03-17T03:34:48.000Z</published>
-    <updated>2020-03-17T03:47:24.020Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;在绝大部分的开发语言中与实际开发过程中，Dictionary扮演着举足轻重的角色。从我们的数据模型到服务器返回的参数到数据库的应用等等，Dictionary的身影无处不在。那么，在Python中，Dictionary是一个怎么样的数据类型呢？&lt;/p&gt;
-&lt;p&gt;在Python中
-        
-      
-    
-    </summary>
-    
-      <category term="python" scheme="http://blog.hooyuhao.club/categories/python/"/>
-    
-    
-      <category term="python" scheme="http://blog.hooyuhao.club/tags/python/"/>
     
   </entry>
   
