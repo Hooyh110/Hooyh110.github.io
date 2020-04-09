@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.hooyuhao.club/"/>
-  <updated>2020-04-05T14:03:12.953Z</updated>
+  <updated>2020-04-09T12:01:08.221Z</updated>
   <id>http://blog.hooyuhao.club/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>jenkins利用pipeline构建K8S应用-示例</title>
+    <link href="http://blog.hooyuhao.club/jenkins-li-yong-pipeline-gou-jian-ci-cd-shi-li/"/>
+    <id>http://blog.hooyuhao.club/jenkins-li-yong-pipeline-gou-jian-ci-cd-shi-li/</id>
+    <published>2020-04-09T11:57:57.000Z</published>
+    <updated>2020-04-09T12:01:08.221Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;nodejs前端项目&quot;&gt;&lt;a href=&quot;#nodejs前端项目&quot; class=&quot;headerlink&quot; title=&quot;nodejs前端项目&quot;&gt;&lt;/a&gt;nodejs前端项目&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;img/1.png&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="DevOps" scheme="http://blog.hooyuhao.club/categories/DevOps/"/>
+    
+    
+      <category term="DevOps" scheme="http://blog.hooyuhao.club/tags/DevOps/"/>
+    
+  </entry>
+  
+  <entry>
     <title>jenkins利用pipeline构建CI/CD</title>
     <link href="http://blog.hooyuhao.club/jenkins-li-yong-pipeline-gou-jian-ci-cd/"/>
     <id>http://blog.hooyuhao.club/jenkins-li-yong-pipeline-gou-jian-ci-cd/</id>
     <published>2020-04-04T13:19:17.000Z</published>
-    <updated>2020-04-05T14:03:12.953Z</updated>
+    <updated>2020-04-05T14:08:59.026Z</updated>
     
     <summary type="html">
     
@@ -513,32 +539,6 @@
     
     
       <category term="python" scheme="http://blog.hooyuhao.club/tags/python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>使用阿里云SDK查看ecs列表</title>
-    <link href="http://blog.hooyuhao.club/shi-yong-a-li-yun-sdk-cha-kan-ecs-lie-biao/"/>
-    <id>http://blog.hooyuhao.club/shi-yong-a-li-yun-sdk-cha-kan-ecs-lie-biao/</id>
-    <published>2020-03-16T02:17:44.000Z</published>
-    <updated>2020-03-17T03:27:35.748Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;目录结构&quot;&gt;&lt;a href=&quot;#目录结构&quot; class=&quot;headerlink&quot; title=&quot;目录结构&quot;&gt;&lt;/a&gt;&lt;font color=&quot;red&quot;&gt;目录结构&lt;/font&gt;&lt;/h3&gt;&lt;pre class=&quot;line-numbers
-        
-      
-    
-    </summary>
-    
-      <category term="Python" scheme="http://blog.hooyuhao.club/categories/Python/"/>
-    
-    
-      <category term="Python" scheme="http://blog.hooyuhao.club/tags/Python/"/>
     
   </entry>
   
