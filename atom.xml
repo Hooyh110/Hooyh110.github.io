@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.hooyuhao.club/"/>
-  <updated>2020-04-09T13:03:36.039Z</updated>
+  <updated>2020-04-10T09:34:55.696Z</updated>
   <id>http://blog.hooyuhao.club/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Debian安装最新版nodejs及npm</title>
+    <link href="http://blog.hooyuhao.club/debian-an-zhuang-zui-xin-ban-nodejs-ji-npm/"/>
+    <id>http://blog.hooyuhao.club/debian-an-zhuang-zui-xin-ban-nodejs-ji-npm/</id>
+    <published>2020-04-10T09:33:24.000Z</published>
+    <updated>2020-04-10T09:34:55.696Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot; title=&quot;安装&quot;&gt;&lt;/a&gt;安装&lt;/h1&gt;&lt;pre&gt;&lt;code&gt;#先删除原有版本
+apt-get remove  nodejs npm -y
+        
+      
+    
+    </summary>
+    
+      <category term="Debian" scheme="http://blog.hooyuhao.club/categories/Debian/"/>
+    
+    
+      <category term="Debian" scheme="http://blog.hooyuhao.club/tags/Debian/"/>
+    
+  </entry>
   
   <entry>
     <title>jenkins利用pipeline构建CI/CD-示例(二)</title>
@@ -512,32 +539,6 @@
     
     
       <category term="shell" scheme="http://blog.hooyuhao.club/tags/shell/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>python 定义全局变量</title>
-    <link href="http://blog.hooyuhao.club/python-ding-yi-quan-ju-bian-liang/"/>
-    <id>http://blog.hooyuhao.club/python-ding-yi-quan-ju-bian-liang/</id>
-    <published>2020-03-17T03:48:13.000Z</published>
-    <updated>2020-03-17T05:47:26.617Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;根据global定义全局变量&quot;&gt;&lt;a href=&quot;#根据global定义全局变量&quot; class=&quot;headerlink&quot; title=&quot;根据global定义全局变量&quot;&gt;&lt;/a&gt;&lt;font
-        
-      
-    
-    </summary>
-    
-      <category term="Python" scheme="http://blog.hooyuhao.club/categories/Python/"/>
-    
-    
-      <category term="Python" scheme="http://blog.hooyuhao.club/tags/Python/"/>
     
   </entry>
   
