@@ -313,7 +313,7 @@ yum ins">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -468,7 +468,7 @@ yum ins">
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    282
+                    443
                 </div>
                 
 
@@ -512,7 +512,18 @@ yum <span class="token function">install</span> -y nodejs<span aria-hidden="true
 <pre class="line-numbers language-bash"><code class="language-bash">yum remove docker-ce -y 
 yum <span class="token function">install</span> -y yum-utils <span class="token operator">&amp;&amp;</span> yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo <span class="token operator">&amp;&amp;</span> yum <span class="token function">install</span> -y docker-ce <span class="token operator">&amp;&amp;</span> systemctl restart docker <span class="token operator">&amp;&amp;</span> systemctl <span class="token function">enable</span> docker
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<h1 id="nginx-系列："><a href="#nginx-系列：" class="headerlink" title="nginx 系列： "></a><font color="blue">nginx 系列： </font></h1><h1 id="mysql-系列："><a href="#mysql-系列：" class="headerlink" title="mysql 系列： "></a><font color="blue">mysql 系列： </font></h1><ol>
+<h1 id="nginx-系列："><a href="#nginx-系列：" class="headerlink" title="nginx 系列： "></a><font color="blue">nginx 系列： </font></h1><ol>
+<li><p>nginx会去掉带有下划线的Header键值</p>
+<p> 在本地可以获取前端header传的参数，但是部署到服务器获取的就是null（服务器地址用nginx做了代理）</p>
+</li>
+</ol>
+<ul>
+<li><p>原因：<br>  nginx对header name的字符做了限制，默认 underscores_in_headers 为off，表示如果header name中包含下划线，则忽略掉，部署后就获取不到。</p>
+</li>
+<li><p>解决：<br>  在header里不要用 “_” 下划线，可以用驼峰命名或者其他的符号（如减号-）代替。nginx默认忽略掉下划线可能有些原因。<br>  在nginx里的 nginx.conf文件中配置http的部分添加 ： <font color="Orange"> underscores_in_headers on;（默认值是off)</font></p>
+</li>
+</ul>
+<h1 id="mysql-系列："><a href="#mysql-系列：" class="headerlink" title="mysql 系列： "></a><font color="blue">mysql 系列： </font></h1><ol>
 <li><p>mysql远程连接报错 <font color="red">ERROR 1129 (HY000): Host ‘192.168.7.210’ is blocked because of many connection errors; unblock with ‘mysqladmin flush-hosts’</font></p>
 <ul>
 <li><p>问题原因<br>一般<font color="Orange">max_connect_errors = 10</font>，要调高错误连接的数量</p>
@@ -1029,7 +1040,7 @@ mysql> flush hosts;
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="分布式系统 - 雪崩效应">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="分布式系统 - 雪崩效应">
                         
                         <span class="card-title">分布式系统 - 雪崩效应</span>
                     </div>
@@ -1078,7 +1089,7 @@ mysql> flush hosts;
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="hexo 博客编写">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="hexo 博客编写">
                         
                         <span class="card-title">hexo 博客编写</span>
                     </div>
@@ -1271,7 +1282,7 @@ mysql> flush hosts;
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">45.7k</span>
+            <span class="white-color">45.9k</span>
             
 
             <br>

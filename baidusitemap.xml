@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://blog.hooyuhao.club/chang-jian-error-ji-jie-jue-fang-fa/</loc>
+    <lastmod>2020-04-10</lastmod>
+  </url>  <url>
     <loc>http://blog.hooyuhao.club/jenkins-li-yong-pipeline-gou-jian-ci-cd-shi-li-er/</loc>
     <lastmod>2020-04-09</lastmod>
   </url>  <url>
@@ -21,9 +24,6 @@
   </url>  <url>
     <loc>http://blog.hooyuhao.club/jumpserver-pei-zhi-yong-hu-sudo-mo-ban/</loc>
     <lastmod>2020-03-27</lastmod>
-  </url>  <url>
-    <loc>http://blog.hooyuhao.club/chang-jian-error-ji-jie-jue-fang-fa/</loc>
-    <lastmod>2020-03-24</lastmod>
   </url>  <url>
     <loc>http://blog.hooyuhao.club/python-pei-zhi-ding-ding-ji-qi-ren-fa-song-xin-xi/</loc>
     <lastmod>2020-03-23</lastmod>
