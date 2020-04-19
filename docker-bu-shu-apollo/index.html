@@ -4,11 +4,12 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="jumpserver配置用户sudo模板, ECNU NLP DeepLearning AntNLP helen">
+    <meta name="keywords" content="docker部署Apollo, ECNU NLP DeepLearning AntNLP helen">
     <meta name="baidu-site-verification" content="PQuYZ68I8K">
     <meta name="google-site-verification" content="PQuYZ68I8K">
     <meta name="360-site-verification" content>
-    <meta name="description" content="jumpserver—sudo权限配置模板ALL,!/bin/bash,!/bin/tcsh,!/bin/su,!/usr/bin/passwd,!/usr/bin/passwd root,!/bin/vim /etc/sudoers,!/">
+    <meta name="description" content="前言apollo的详细介绍我就不在这里多说了，官网上https://github.com/ctripcorp/apollo 已经说的非常明白了，我就不在这班门弄斧了，还不了解的小伙伴可以去官网上去了解下。
+本篇文章只是记录我在使用docke">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +17,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>jumpserver配置用户sudo模板 | helen的博客</title>
+    <title>docker部署Apollo | helen的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -306,13 +307,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/24.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        jumpserver配置用户sudo模板
+                        docker部署Apollo
                     </div>
                 </div>
             </div>
@@ -423,8 +424,8 @@
                     
                     <div class="article-tag">
                         
-                        <a href="/tags/jump/" target="_blank">
-                            <span class="chip bg-color">jump</span>
+                        <a href="/tags/DevOps/" target="_blank">
+                            <span class="chip bg-color">DevOps</span>
                         </a>
                         
                     </div>
@@ -435,8 +436,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                        <a href="/categories/jump/" class="post-category" target="_blank">
-                            jump
+                        <a href="/categories/DevOps/" class="post-category" target="_blank">
+                            DevOps
                         </a>
                         
                     </div>
@@ -447,7 +448,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-03-27
+                    2020-04-19
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -461,14 +462,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    131
+                    1.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    7 分
                 </div>
                 
                 
@@ -484,7 +485,216 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="jumpserver—sudo权限配置模板"><a href="#jumpserver—sudo权限配置模板" class="headerlink" title="jumpserver—sudo权限配置模板"></a>jumpserver—sudo权限配置模板</h1><pre class="line-numbers language-txt"><code class="language-txt">ALL,!/bin/bash,!/bin/tcsh,!/bin/su,!/usr/bin/passwd,!/usr/bin/passwd root,!/bin/vim /etc/sudoers,!/usr/bin/vim /etc/sudoers,!/usr/sbin/visudo,!/usr/bin/sudo -i,!/bin/bi /etc/ssh/*,!/bin/chmod 777 /etc/*,!/bin/chmod 777 *,!/bin/chmod 777,!/bin/chmod -R 777 *,!/bin/rm /*,!/bin/rm /,!/bin/rm -rf /,!/bin/rm -rf /*,!/bin/rm /etc,!/bin/rm -r /etc,!/bin/rm -rf /etc,!/bin/rm /etc/*,!/bin/rm -r /etc/*,!/bin/rm -rf /etc/*,!/bin/rm /root,!/bin/rm -r /root,!/bin/rm -rf /root,!/bin/rm /root/*,!/bin/rm -r /root/*,!/bin/rm -rf /root/*,!/bin/rm /bin,!/bin/rm -r /bin,!/bin/rm -rf /bin,!/bin/rm /bin/*,!/bin/rm -r /bin/*,!/bin/rm -rf /bin/*<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+                <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>apollo的详细介绍我就不在这里多说了，官网上<a href="https://github.com/ctripcorp/apollo" target="_blank" rel="noopener">https://github.com/ctripcorp/apollo</a> 已经说的非常明白了，我就不在这班门弄斧了，还不了解的小伙伴可以去官网上去了解下。</p>
+<p>本篇文章只是记录我在使用docker部署的Apollo以及其集群的方式，给大家分享出来也自我做一个记录。</p>
+<p>注意： 我是直接部署开始的，有关数据库的创建和初始化自己根据官网搞定。</p>
+<h1 id="源码编译"><a href="#源码编译" class="headerlink" title="源码编译"></a>源码编译</h1><h2 id="1-网络策略"><a href="#1-网络策略" class="headerlink" title="1. 网络策略"></a>1. 网络策略</h2><p>网络策略直接使用官网描述的就可以，具体就是分别编辑<br><font color="orange">apollo-configservice/src/main/resources/application.yml<br>apollo-adminservice/src/main/resources/application.yml</font><br>然后把需要忽略的网卡加进去。</p>
+<p>如下面这个例子就是对于apollo-configservice，把docker0和veth.*的网卡在注册到Eureka时忽略掉。</p>
+<pre class="line-numbers language-yaml"><code class="language-yaml"><span class="token key atrule">spring</span><span class="token punctuation">:</span>
+   <span class="token key atrule">application</span><span class="token punctuation">:</span>
+     <span class="token key atrule">name</span><span class="token punctuation">:</span> apollo<span class="token punctuation">-</span>configservice
+   <span class="token key atrule">profiles</span><span class="token punctuation">:</span>
+    <span class="token key atrule">active</span><span class="token punctuation">:</span> $<span class="token punctuation">{</span>apollo_profile<span class="token punctuation">}</span>
+   <span class="token key atrule">cloud</span><span class="token punctuation">:</span>
+    <span class="token key atrule">inetutils</span><span class="token punctuation">:</span>
+     <span class="token key atrule">ignoredInterfaces</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> docker0
+      <span class="token punctuation">-</span> veth.*<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>注意，对于application.yml修改时要小心，千万不要把其它信息改错了，如spring.application.name等。</p>
+<h2 id="2-动态指定注册网络"><a href="#2-动态指定注册网络" class="headerlink" title="2. 动态指定注册网络"></a>2. 动态指定注册网络</h2><p>在使用docker搭建集群是， adminservice、configservice都需要向注册中心注册地址，如果不指定注册IP，注册的是docker内部的网络，导致网络不通。</p>
+<p>在<font color="orange">apollo-configservice/src/main/resources/bootstrap.yml<br>apollo-adminservice/src/main/resources/bootstrap.yml</font><br>添加如下代码。</p>
+<pre class="line-numbers language-yaml"><code class="language-yaml"><span class="token key atrule">eureka</span><span class="token punctuation">:</span>
+ <span class="token key atrule">instance</span><span class="token punctuation">:</span>
+    <span class="token key atrule">ip-address</span><span class="token punctuation">:</span> $<span class="token punctuation">{</span>eureka.instance.ip<span class="token punctuation">-</span>address<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>这个地方取值从环境变量中取，容器外部来配置这样给部署带来了更大的灵活性。</p>
+<p>到这源码的修改已经完成，直接<font color="red">build打包</font>就可以了</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">bash</span> build.sh
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>分别到Apollo-adminservice、Apollo-configservice、Apollo-portal中的target找到三个服务的zip包。</p>
+<p>如果懒得修改，也可以直接从 <a href="https://github.com/Hooyh110/docker-apollo/releases/download/1.6.0/apollo-1.6.0.tar.gz" target="_blank" rel="noopener">https://github.com/Hooyh110/docker-apollo/releases/download/1.6.0/apollo-1.6.0.tar.gz</a>拉下我修改好的源码直接打包即可。</p>
+<h2 id="3-dockerfile编写"><a href="#3-dockerfile编写" class="headerlink" title="3. dockerfile编写"></a>3. dockerfile编写</h2><p>Apollo 的Dockerfile非常简单， 直接使用官方提供的即可。下方是adminservice示例。</p>
+<pre class="line-numbers language-yaml"><code class="language-yaml"><span class="token comment" spellcheck="true"># Dockerfile for apollo-adminservice</span>
+<span class="token comment" spellcheck="true"># Build with:</span>
+<span class="token comment" spellcheck="true"># docker build -t apollo-adminservice .</span>
+<span class="token comment" spellcheck="true"># Run with:</span>
+<span class="token comment" spellcheck="true"># docker run -p 8090:8090 -d --name apollo-adminservice apollo-adminservice</span>
+
+FROM java<span class="token punctuation">:</span>8<span class="token punctuation">-</span>jre
+MAINTAINER Louis
+
+ENV VERSION 1.5.0
+
+RUN apt<span class="token punctuation">-</span>get install unzip
+
+ADD apollo<span class="token punctuation">-</span>adminservice<span class="token punctuation">-</span>$<span class="token punctuation">{</span>VERSION<span class="token punctuation">}</span><span class="token punctuation">-</span>github.zip /apollo<span class="token punctuation">-</span>adminservice/apollo<span class="token punctuation">-</span>adminservice<span class="token punctuation">-</span>$<span class="token punctuation">{</span>VERSION<span class="token punctuation">}</span><span class="token punctuation">-</span>github.zip
+
+RUN unzip /apollo<span class="token punctuation">-</span>adminservice/apollo<span class="token punctuation">-</span>adminservice<span class="token punctuation">-</span>$<span class="token punctuation">{</span>VERSION<span class="token punctuation">}</span><span class="token punctuation">-</span>github.zip <span class="token punctuation">-</span>d /apollo<span class="token punctuation">-</span>adminservice \
+  &amp;&amp; rm <span class="token punctuation">-</span>rf /apollo<span class="token punctuation">-</span>adminservice/apollo<span class="token punctuation">-</span>adminservice<span class="token punctuation">-</span>$<span class="token punctuation">{</span>VERSION<span class="token punctuation">}</span><span class="token punctuation">-</span>github.zip \
+  &amp;&amp; sed <span class="token punctuation">-</span>i '$d' /apollo<span class="token punctuation">-</span>adminservice/scripts/startup.sh \
+  &amp;&amp; echo "tail <span class="token punctuation">-</span>f /dev/null" <span class="token punctuation">></span><span class="token punctuation">></span> /apollo<span class="token punctuation">-</span>adminservice/scripts/startup.sh
+
+EXPOSE 8090
+
+CMD <span class="token punctuation">[</span><span class="token string">"/apollo-adminservice/scripts/startup.sh"</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>需要注意的，</p>
+<p>1: version 需要根据自己打包的版本来修改<br>2: ADD zip包时修改你路径</p>
+<p>三个服务的dockerfile文件基本相同，我就不在这多说了。需要的小伙伴直接从<a href="https://github.com/Hooyh110/docker-apollo.git就可以了。" target="_blank" rel="noopener">https://github.com/Hooyh110/docker-apollo.git就可以了。</a></p>
+<h1 id="docker-compose-的编写"><a href="#docker-compose-的编写" class="headerlink" title="docker-compose 的编写"></a>docker-compose 的编写</h1><ol>
+<li>apollo-adminservice-compose.yml</li>
+</ol>
+<pre class="line-numbers language-yaml"><code class="language-yaml"><span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token string">"3"</span>
+<span class="token key atrule">services</span><span class="token punctuation">:</span>
+  <span class="token key atrule">apollo-adminservice</span><span class="token punctuation">:</span>
+    <span class="token key atrule">container_name</span><span class="token punctuation">:</span> apollo<span class="token punctuation">-</span>adminservice
+    <span class="token key atrule">build</span><span class="token punctuation">:</span> apollo<span class="token punctuation">-</span>adminservice/
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> apollo<span class="token punctuation">-</span>adminservice
+    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> 8090<span class="token punctuation">:</span><span class="token number">8090</span>
+    <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token string">"${APOLLO_LOGS_DIR}/100003172:/opt/logs/100003172"</span>
+    <span class="token key atrule">environment</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> spring_datasource_url=jdbc<span class="token punctuation">:</span>mysql<span class="token punctuation">:</span>//$<span class="token punctuation">{</span>DB_HOST<span class="token punctuation">}</span><span class="token punctuation">:</span>3306/ApolloConfigDB<span class="token punctuation">?</span>characterEncoding=utf8
+      <span class="token punctuation">-</span> spring_datasource_username=$<span class="token punctuation">{</span>DB_USER<span class="token punctuation">}</span>
+      <span class="token punctuation">-</span> spring_datasource_password=$<span class="token punctuation">{</span>DB_PASSWORD<span class="token punctuation">}</span>
+      <span class="token punctuation">-</span> eureka.instance.ip<span class="token punctuation">-</span>address=$<span class="token punctuation">{</span>EUREKA_HOST<span class="token punctuation">}</span>
+    <span class="token key atrule">restart</span><span class="token punctuation">:</span> always
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ol start="2">
+<li>apollo-configservice-compose.yml</li>
+</ol>
+<pre class="line-numbers language-yaml"><code class="language-yaml"><span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token string">"3"</span>
+<span class="token key atrule">services</span><span class="token punctuation">:</span>
+ <span class="token key atrule">apollo-configservice</span><span class="token punctuation">:</span>
+  <span class="token key atrule">container_name</span><span class="token punctuation">:</span> apollo<span class="token punctuation">-</span>configservice
+  <span class="token key atrule">build</span><span class="token punctuation">:</span> apollo<span class="token punctuation">-</span>configservice/
+  <span class="token key atrule">image</span><span class="token punctuation">:</span> apollo<span class="token punctuation">-</span>configservice
+  <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+   <span class="token punctuation">-</span> 8080<span class="token punctuation">:</span><span class="token number">8080</span>
+  <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+   <span class="token punctuation">-</span> <span class="token string">"/docker/apollo/logs/100003171:/opt/logs/100003171"</span>
+  <span class="token key atrule">environment</span><span class="token punctuation">:</span>
+   <span class="token punctuation">-</span> spring_datasource_url=jdbc<span class="token punctuation">:</span>mysql<span class="token punctuation">:</span>//127.0.0.1<span class="token punctuation">:</span>8306/ApolloConfigDB_TEST<span class="token punctuation">?</span>characterEncoding=utf8
+   <span class="token punctuation">-</span> spring_datasource_username=root
+   <span class="token punctuation">-</span> spring_datasource_password=mysql2019*
+   <span class="token punctuation">-</span> eureka.instance.ip<span class="token punctuation">-</span>address=172.11.11.11
+
+  <span class="token key atrule">restart</span><span class="token punctuation">:</span> always
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><font color="red">注意事项</font></p>
+<p>1: build: 中指定你Dockerfile文件的位置<br>2: environment 环境变量中指定你数据库的配置信息<br>3: eureka.instance.ip-address 指定注册到eureka地址，这个最好使用你物理机的内网地址。</p>
+<ol start="3">
+<li>apollo-portal-compose.yml</li>
+</ol>
+<pre class="line-numbers language-yaml"><code class="language-yaml"><span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token string">"3"</span>
+<span class="token key atrule">services</span><span class="token punctuation">:</span>
+  <span class="token key atrule">apollo-portal</span><span class="token punctuation">:</span>
+    <span class="token key atrule">container_name</span><span class="token punctuation">:</span> apollo<span class="token punctuation">-</span>portal
+    <span class="token key atrule">build</span><span class="token punctuation">:</span> apollo<span class="token punctuation">-</span>portal/
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> apollo<span class="token punctuation">-</span>portal
+    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> 8070<span class="token punctuation">:</span><span class="token number">8070</span>
+    <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token string">"${APOLLO_LOGS_DIR}/docker/apollo/logs/100003173:/opt/logs/100003173"</span>
+      <span class="token punctuation">-</span> <span class="token string">"${APOLLO_CONFIG}:/apollo-portal/config/apollo-env.properties"</span>
+    <span class="token key atrule">environment</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> spring_datasource_url=jdbc<span class="token punctuation">:</span>mysql<span class="token punctuation">:</span>//$<span class="token punctuation">{</span>DB_HOST<span class="token punctuation">}</span><span class="token punctuation">:</span>3306/ApolloPortalDB<span class="token punctuation">?</span>characterEncoding=utf8
+      <span class="token punctuation">-</span> spring_datasource_username=$<span class="token punctuation">{</span>DB_USER<span class="token punctuation">}</span>
+      <span class="token punctuation">-</span> spring_datasource_password=$<span class="token punctuation">{</span>DB_PASSWORD<span class="token punctuation">}</span>
+
+
+    <span class="token key atrule">restart</span><span class="token punctuation">:</span> always
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><font color="red">注意事项</font><br>1: 需要注意的和上述configservice基本相同<br>2: apollo-env.properties的文件 请看目录中config文件夹</p>
+<p> apollo-env.properties</p>
+<pre class="line-numbers language-yaml"><code class="language-yaml">local.meta=http<span class="token punctuation">:</span>//<span class="token punctuation">{</span>NODE_IP<span class="token punctuation">}</span><span class="token punctuation">:</span><span class="token number">8080</span>
+dev.meta=http<span class="token punctuation">:</span>//<span class="token punctuation">{</span>NODE_IP<span class="token punctuation">}</span><span class="token punctuation">:</span><span class="token number">8080</span>
+fat.meta=http<span class="token punctuation">:</span>//<span class="token punctuation">{</span>NODE_IP<span class="token punctuation">}</span><span class="token punctuation">:</span><span class="token number">8080</span>
+uat.meta=http<span class="token punctuation">:</span>//<span class="token punctuation">{</span>NODE_IP<span class="token punctuation">}</span><span class="token punctuation">:</span><span class="token number">8080</span>
+lpt.meta=http<span class="token punctuation">:</span>//<span class="token punctuation">{</span>NODE_IP<span class="token punctuation">}</span><span class="token punctuation">:</span><span class="token number">8080</span>
+pro.meta=http<span class="token punctuation">:</span>//<span class="token punctuation">{</span>NODE_IP<span class="token punctuation">}</span><span class="token punctuation">:</span><span class="token number">8080</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>将自己的meta地址配置上， 没有的可以直接删除。有不明白的可以去官网上了解，环境配置完后修改对应的数据库中ApolloPortalDB.ServerConfig中apollo.portal.envs 值，填上你的配置的环境。否则我们在portal管理页面只能看到默认dev环境。</p>
+<ol start="4">
+<li>完整的docker-compose.yml</li>
+</ol>
+<p>如果嫌弃一个个启动麻烦也以使用一个完整的compose来启动。</p>
+<pre class="line-numbers language-yaml"><code class="language-yaml"><span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token string">"3"</span>
+<span class="token key atrule">services</span><span class="token punctuation">:</span>
+  <span class="token key atrule">apollo-configservice</span><span class="token punctuation">:</span>
+    <span class="token key atrule">container_name</span><span class="token punctuation">:</span> apollo<span class="token punctuation">-</span>configservice
+    <span class="token key atrule">build</span><span class="token punctuation">:</span> apollo<span class="token punctuation">-</span>configservice/
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> apollo<span class="token punctuation">-</span>configservice
+    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> 8080<span class="token punctuation">:</span><span class="token number">8080</span>
+    <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token string">"${APOLLO_LOGS_DIR}/100003171:/opt/logs/100003171"</span>
+    <span class="token key atrule">environment</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> spring_datasource_url=jdbc<span class="token punctuation">:</span>mysql<span class="token punctuation">:</span>//$<span class="token punctuation">{</span>DB_HOST<span class="token punctuation">}</span><span class="token punctuation">:</span>3306/ApolloConfigDB<span class="token punctuation">?</span>characterEncoding=utf8
+      <span class="token punctuation">-</span> spring_datasource_username=$<span class="token punctuation">{</span>DB_USER<span class="token punctuation">}</span>
+      <span class="token punctuation">-</span> spring_datasource_password=$<span class="token punctuation">{</span>DB_PASSWORD<span class="token punctuation">}</span>
+      <span class="token punctuation">-</span> eureka.instance.ip<span class="token punctuation">-</span>address=$<span class="token punctuation">{</span>EUREKA_HOST<span class="token punctuation">}</span>
+    <span class="token key atrule">restart</span><span class="token punctuation">:</span> always
+
+  <span class="token key atrule">apollo-adminservice</span><span class="token punctuation">:</span>
+    <span class="token key atrule">container_name</span><span class="token punctuation">:</span> apollo<span class="token punctuation">-</span>adminservice
+    <span class="token key atrule">build</span><span class="token punctuation">:</span> apollo<span class="token punctuation">-</span>adminservice/
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> apollo<span class="token punctuation">-</span>adminservice
+    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> 8090<span class="token punctuation">:</span><span class="token number">8090</span>
+    <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token string">"${APOLLO_LOGS_DIR}/100003172:/opt/logs/100003172"</span>
+    <span class="token key atrule">environment</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> spring_datasource_url=jdbc<span class="token punctuation">:</span>mysql<span class="token punctuation">:</span>//$<span class="token punctuation">{</span>DB_HOST<span class="token punctuation">}</span><span class="token punctuation">:</span>3306/ApolloConfigDB<span class="token punctuation">?</span>characterEncoding=utf8
+      <span class="token punctuation">-</span> spring_datasource_username=$<span class="token punctuation">{</span>DB_USER<span class="token punctuation">}</span>
+      <span class="token punctuation">-</span> spring_datasource_password=$<span class="token punctuation">{</span>DB_PASSWORD<span class="token punctuation">}</span>
+      <span class="token punctuation">-</span> eureka.instance.ip<span class="token punctuation">-</span>address=$<span class="token punctuation">{</span>EUREKA_HOST<span class="token punctuation">}</span>
+    <span class="token key atrule">depends_on</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> apollo<span class="token punctuation">-</span>configservice
+
+    <span class="token key atrule">restart</span><span class="token punctuation">:</span> always
+
+  <span class="token key atrule">apollo-portal</span><span class="token punctuation">:</span>
+    <span class="token key atrule">container_name</span><span class="token punctuation">:</span> apollo<span class="token punctuation">-</span>portal
+    <span class="token key atrule">build</span><span class="token punctuation">:</span> apollo<span class="token punctuation">-</span>portal/
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> apollo<span class="token punctuation">-</span>portal
+    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> 8070<span class="token punctuation">:</span><span class="token number">8070</span>
+    <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token string">"${APOLLO_LOGS_DIR}/100003173:/opt/logs/100003173"</span>
+      <span class="token punctuation">-</span> <span class="token string">"${APOLLO_CONFIG}:/apollo-portal/config/apollo-env.properties"</span>
+    <span class="token key atrule">environment</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> spring_datasource_url=jdbc<span class="token punctuation">:</span>mysql<span class="token punctuation">:</span>//$<span class="token punctuation">{</span>DB_HOST<span class="token punctuation">}</span><span class="token punctuation">:</span>3306/ApolloPortalDB<span class="token punctuation">?</span>characterEncoding=utf8
+      <span class="token punctuation">-</span> spring_datasource_username=$<span class="token punctuation">{</span>DB_USER<span class="token punctuation">}</span>
+      <span class="token punctuation">-</span> spring_datasource_password=$<span class="token punctuation">{</span>DB_PASSWORD<span class="token punctuation">}</span>
+    <span class="token key atrule">depends_on</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> apollo<span class="token punctuation">-</span>adminservice
+    <span class="token key atrule">restart</span><span class="token punctuation">:</span> always
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>注意： 需要修改的地方和单个基本相同。</p>
+<h1 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h1><p>修改.env 文件</p>
+<pre class="line-numbers language-txt"><code class="language-txt">DB_HOST=172.*.*.136
+DB_USER=apollo
+DB_PASSWORD=********
+EUREKA_HOST=172.*.*.147
+META_HOST=172.*.*.147
+APOLLO_LOGS_DIR=/docker/apollo/logs
+APOLLO_CONFIG=/opt/docker-apollo1.6.0/docker-apollo/apollo-portal/config/apollo-env.properties
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><font color="red">特别注意： 启动前最好先修改ApolloConfigDB数据库中 ServerConfig中的eureka.service.url值，改为具体是所部署节点的IP</font></p>
+<pre><code>docker-compose -f apollo-compose.yml up --build -d
+</code></pre><p>到这docker部署Apoll基本搞定，如有小伙伴需要完整的docker部署文件请移步<a href="https://github.com/Hooyh110/docker-apollo.git" target="_blank" rel="noopener">https://github.com/Hooyh110/docker-apollo.git</a></p>
+<h1 id="集群的搭建"><a href="#集群的搭建" class="headerlink" title="集群的搭建"></a>集群的搭建</h1><p>Apollo集群的搭建非常简单，只需要修改两个地方就可以了，我们就以正式环境(pro)来说明，<br>在pro环境我们搭建了两套adminservice、configservice,数据库都是同一个ApolloConfigDB，</p>
+<p>1:将ServerConfig中的eureka.service.url值eureka连接信息两个都写上用逗号分隔：<a href="http://IP-1:port/eureka,http://IP-2:port/eureka" target="_blank" rel="noopener">http://IP-1:port/eureka,http://IP-2:port/eureka</a></p>
+<p>2:修改apollo-env.properties中对应环境的连接信息如： pro.meta=<a href="http://IP-1:port,http://IP-2:port" target="_blank" rel="noopener">http://IP-1:port,http://IP-2:port</a> 地址用逗号分隔就可以了。</p>
+<p>之后重启服务就搞定了。</p>
+<p>最后强调，adminservice、configservice 需要每个环境单独部署，包括数据库。portal只需要部署一套就可以了。</p>
+<p>OK! 完成，上述是指个人搭建记录，希望对你有帮助，如果不对的地方欢迎指正。</p>
+<p>修改后的源码地址：<a href="https://github.com/Hooyh110/docker-apollo/releases/download/1.6.0/apollo-1.6.0.tar.gz" target="_blank" rel="noopener">https://github.com/Hooyh110/docker-apollo/releases/download/1.6.0/apollo-1.6.0.tar.gz</a></p>
+<p>整理好的Docker-Apollo:<a href="https://github.com/Hooyh110/docker-apollo.git" target="_blank" rel="noopener">https://github.com/Hooyh110/docker-apollo.git</a></p>
+<p>以上就是本文的全部内容，希望对大家的学习有所帮助，也希望大家多多支持我们。</p>
 
             </div>
             <hr />
@@ -643,9 +853,9 @@
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《jumpserver配置用户sudo模板》
+                    《docker部署Apollo》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/jumpserver-pei-zhi-yong-hu-sudo-mo-ban/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/docker-bu-shu-apollo/" property="cc:attributionName"
                rel="cc:attributionURL">
                 helen
             </a> 采用
@@ -686,7 +896,7 @@
         repo: 'Hooyh110.github.io',
         owner: 'Hooyh110',
         admin: "Hooyh110",
-        id: 'jumpserver-pei-zhi-yong-hu-sudo-mo-ban/',
+        id: 'docker-bu-shu-apollo/',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -969,46 +1179,49 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/openvpn-bu-shu/">
+                <a href="/docker-bu-shu-apollo/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="openvpn部署">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="docker部署Apollo">
                         
-                        <span class="card-title">openvpn部署</span>
+                        <span class="card-title">docker部署Apollo</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            企业级别VPN配置部署
+                            前言apollo的详细介绍我就不在这里多说了，官网上https://github.com/ctripcorp/apollo 已经说的非常明白了，我就不在这班门弄斧了，还不了解的小伙伴可以去官网上去了解下。
+本篇文章只是记录我在使用docke
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-04-04
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-04-19
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/vpn/" class="post-category" target="_blank">
-                                    vpn
+                            <a href="/categories/DevOps/" class="post-category" target="_blank">
+                                    DevOps
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/vpn/" target="_blank">
-                        <span class="chip bg-color">vpn</span>
+                    <a href="/tags/DevOps/" target="_blank">
+                        <span class="chip bg-color">DevOps</span>
                     </a>
                     
                 </div>
@@ -1022,31 +1235,31 @@
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/docker-zhan-man-ci-pan-kong-jian-chu-li-fang-fa/">
+                <a href="/debian-an-zhuang-zui-xin-ban-nodejs-ji-npm/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/24.jpg" class="responsive-img" alt="Docker占满磁盘空间处理方法">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Debian安装最新版nodejs及npm">
                         
-                        <span class="card-title">Docker占满磁盘空间处理方法</span>
+                        <span class="card-title">Debian安装最新版nodejs及npm</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            docker占满磁盘空间的几个处理方法
+                            利用yarn安装nodejs
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-21
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-04-10
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/docker/" class="post-category" target="_blank">
-                                    docker
+                            <a href="/categories/Debian/" class="post-category" target="_blank">
+                                    Debian
                                 </a>
                             
                             
@@ -1056,8 +1269,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/docker/" target="_blank">
-                        <span class="chip bg-color">docker</span>
+                    <a href="/tags/Debian/" target="_blank">
+                        <span class="chip bg-color">Debian</span>
                     </a>
                     
                 </div>

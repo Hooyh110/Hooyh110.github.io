@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.hooyuhao.club/"/>
-  <updated>2020-04-10T09:34:55.696Z</updated>
+  <updated>2020-04-19T10:00:07.933Z</updated>
   <id>http://blog.hooyuhao.club/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>docker部署Apollo</title>
+    <link href="http://blog.hooyuhao.club/docker-bu-shu-apollo/"/>
+    <id>http://blog.hooyuhao.club/docker-bu-shu-apollo/</id>
+    <published>2020-04-19T07:58:58.000Z</published>
+    <updated>2020-04-19T10:00:07.933Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;apollo的详细介绍我就不在这里多说了，官网上&lt;a href=&quot;https://github.com/ctripcorp/apollo&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="DevOps" scheme="http://blog.hooyuhao.club/categories/DevOps/"/>
+    
+    
+      <category term="DevOps" scheme="http://blog.hooyuhao.club/tags/DevOps/"/>
+    
+  </entry>
   
   <entry>
     <title>Debian安装最新版nodejs及npm</title>
@@ -48,7 +74,7 @@ apt-get remove  nodejs npm -y
     <link href="http://blog.hooyuhao.club/jenkins-li-yong-pipeline-gou-jian-ci-cd-shi-li-er/"/>
     <id>http://blog.hooyuhao.club/jenkins-li-yong-pipeline-gou-jian-ci-cd-shi-li-er/</id>
     <published>2020-04-09T12:55:38.000Z</published>
-    <updated>2020-04-09T13:03:36.039Z</updated>
+    <updated>2020-04-10T10:02:37.248Z</updated>
     
     <summary type="html">
     
@@ -503,33 +529,6 @@ apt-get remove  nodejs npm -y
         
         
           &lt;h1 id=&quot;【脚本12】批量更改文件名&quot;&gt;&lt;a href=&quot;#【脚本12】批量更改文件名&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="shell" scheme="http://blog.hooyuhao.club/categories/shell/"/>
-    
-    
-      <category term="shell" scheme="http://blog.hooyuhao.club/tags/shell/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>shell脚本实例(一)</title>
-    <link href="http://blog.hooyuhao.club/shell-jiao-ben-shi-li/"/>
-    <id>http://blog.hooyuhao.club/shell-jiao-ben-shi-li/</id>
-    <published>2020-03-18T01:20:03.000Z</published>
-    <updated>2020-03-18T02:31:41.428Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;【脚本1】打印形状&quot;&gt;&lt;a href=&quot;#【脚本1】打印形状&quot; class=&quot;headerlink&quot; title=&quot;【脚本1】打印形状&quot;&gt;&lt;/a&gt;【脚本1】打印形状&lt;/h1&gt;&lt;p&gt;打印等腰三角形、直角三角形、倒直角三角形、菱形&lt;/p&gt;
-&lt;pre
         
       
     
