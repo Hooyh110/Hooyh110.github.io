@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.hooyuhao.club/"/>
-  <updated>2020-04-19T10:00:07.933Z</updated>
+  <updated>2020-06-05T07:07:36.691Z</updated>
   <id>http://blog.hooyuhao.club/</id>
   
   <author>
@@ -15,6 +15,20 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>k8s build zabbix-server</title>
+    <link href="http://blog.hooyuhao.club/k8s-build-zabbix-server/"/>
+    <id>http://blog.hooyuhao.club/k8s-build-zabbix-server/</id>
+    <published>2020-06-05T07:07:36.000Z</published>
+    <updated>2020-06-05T07:07:36.691Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>docker部署Apollo</title>
@@ -503,32 +517,6 @@ apt-get remove  nodejs npm -y
         
         
           &lt;h1 id=&quot;【脚本25】找规律打印数字&quot;&gt;&lt;a href=&quot;#【脚本25】找规律打印数字&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="shell" scheme="http://blog.hooyuhao.club/categories/shell/"/>
-    
-    
-      <category term="shell" scheme="http://blog.hooyuhao.club/tags/shell/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>shell脚本实例(二)</title>
-    <link href="http://blog.hooyuhao.club/shell-jiao-ben-shi-li-er/"/>
-    <id>http://blog.hooyuhao.club/shell-jiao-ben-shi-li-er/</id>
-    <published>2020-03-18T01:29:58.000Z</published>
-    <updated>2020-03-18T02:30:54.273Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;【脚本12】批量更改文件名&quot;&gt;&lt;a href=&quot;#【脚本12】批量更改文件名&quot; class=&quot;headerlink&quot;
         
       
     

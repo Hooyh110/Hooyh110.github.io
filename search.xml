@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>k8s build zabbix-server</title>
+      <link href="/k8s-build-zabbix-server/"/>
+      <url>/k8s-build-zabbix-server/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>docker部署Apollo</title>
       <link href="/docker-bu-shu-apollo/"/>
       <url>/docker-bu-shu-apollo/</url>
