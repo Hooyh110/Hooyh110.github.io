@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.hooyuhao.club/"/>
-  <updated>2020-06-05T08:15:36.537Z</updated>
+  <updated>2020-06-08T09:54:20.000Z</updated>
   <id>http://blog.hooyuhao.club/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://blog.hooyuhao.club/k8s-build-zabbix-server/"/>
     <id>http://blog.hooyuhao.club/k8s-build-zabbix-server/</id>
     <published>2020-06-05T07:07:36.000Z</published>
-    <updated>2020-06-05T08:15:36.537Z</updated>
+    <updated>2020-06-08T09:54:20.000Z</updated>
     
     <summary type="html">
     
@@ -47,7 +47,7 @@
     <link href="http://blog.hooyuhao.club/docker-bu-shu-apollo/"/>
     <id>http://blog.hooyuhao.club/docker-bu-shu-apollo/</id>
     <published>2020-04-19T07:58:58.000Z</published>
-    <updated>2020-04-19T10:00:07.933Z</updated>
+    <updated>2020-04-19T10:00:07.000Z</updated>
     
     <summary type="html">
     
@@ -73,7 +73,7 @@
     <link href="http://blog.hooyuhao.club/debian-an-zhuang-zui-xin-ban-nodejs-ji-npm/"/>
     <id>http://blog.hooyuhao.club/debian-an-zhuang-zui-xin-ban-nodejs-ji-npm/</id>
     <published>2020-04-10T09:33:24.000Z</published>
-    <updated>2020-04-10T09:34:55.696Z</updated>
+    <updated>2020-04-10T09:34:55.000Z</updated>
     
     <summary type="html">
     
@@ -100,7 +100,7 @@ apt-get remove  nodejs npm -y
     <link href="http://blog.hooyuhao.club/jenkins-li-yong-pipeline-gou-jian-ci-cd-shi-li-er/"/>
     <id>http://blog.hooyuhao.club/jenkins-li-yong-pipeline-gou-jian-ci-cd-shi-li-er/</id>
     <published>2020-04-09T12:55:38.000Z</published>
-    <updated>2020-04-10T10:02:37.248Z</updated>
+    <updated>2020-04-10T10:02:37.000Z</updated>
     
     <summary type="html">
     
@@ -126,7 +126,7 @@ apt-get remove  nodejs npm -y
     <link href="http://blog.hooyuhao.club/jenkins-li-yong-pipeline-gou-jian-ci-cd-shi-li/"/>
     <id>http://blog.hooyuhao.club/jenkins-li-yong-pipeline-gou-jian-ci-cd-shi-li/</id>
     <published>2020-04-09T11:57:57.000Z</published>
-    <updated>2020-04-09T12:55:16.741Z</updated>
+    <updated>2020-04-09T12:55:16.000Z</updated>
     
     <summary type="html">
     
@@ -152,7 +152,7 @@ apt-get remove  nodejs npm -y
     <link href="http://blog.hooyuhao.club/jenkins-li-yong-pipeline-gou-jian-ci-cd/"/>
     <id>http://blog.hooyuhao.club/jenkins-li-yong-pipeline-gou-jian-ci-cd/</id>
     <published>2020-04-04T13:19:17.000Z</published>
-    <updated>2020-04-05T14:08:59.026Z</updated>
+    <updated>2021-01-04T09:38:12.229Z</updated>
     
     <summary type="html">
     
@@ -178,7 +178,7 @@ apt-get remove  nodejs npm -y
     <link href="http://blog.hooyuhao.club/openvpn-bu-shu/"/>
     <id>http://blog.hooyuhao.club/openvpn-bu-shu/</id>
     <published>2020-04-04T10:45:11.000Z</published>
-    <updated>2020-04-04T13:16:53.689Z</updated>
+    <updated>2020-04-04T13:16:53.000Z</updated>
     
     <summary type="html">
     
@@ -204,7 +204,7 @@ apt-get remove  nodejs npm -y
     <link href="http://blog.hooyuhao.club/jumpserver-pei-zhi-yong-hu-sudo-mo-ban/"/>
     <id>http://blog.hooyuhao.club/jumpserver-pei-zhi-yong-hu-sudo-mo-ban/</id>
     <published>2020-03-27T03:06:22.000Z</published>
-    <updated>2020-03-27T03:43:18.354Z</updated>
+    <updated>2020-03-27T03:43:18.000Z</updated>
     
     <summary type="html">
     
@@ -230,7 +230,7 @@ apt-get remove  nodejs npm -y
     <link href="http://blog.hooyuhao.club/docker-zhan-man-ci-pan-kong-jian-chu-li-fang-fa/"/>
     <id>http://blog.hooyuhao.club/docker-zhan-man-ci-pan-kong-jian-chu-li-fang-fa/</id>
     <published>2020-03-21T01:57:08.000Z</published>
-    <updated>2020-03-21T02:10:31.529Z</updated>
+    <updated>2020-03-21T02:10:31.000Z</updated>
     
     <summary type="html">
     
@@ -257,7 +257,7 @@ apt-get remove  nodejs npm -y
     <link href="http://blog.hooyuhao.club/shell-zi-dong-jiao-hu/"/>
     <id>http://blog.hooyuhao.club/shell-zi-dong-jiao-hu/</id>
     <published>2020-03-20T03:20:00.000Z</published>
-    <updated>2020-03-20T03:21:37.942Z</updated>
+    <updated>2020-03-20T03:21:37.000Z</updated>
     
     <summary type="html">
     
@@ -283,7 +283,7 @@ apt-get remove  nodejs npm -y
     <link href="http://blog.hooyuhao.club/shell-duo-xing-he-bing-cheng-1-xing/"/>
     <id>http://blog.hooyuhao.club/shell-duo-xing-he-bing-cheng-1-xing/</id>
     <published>2020-03-20T03:14:15.000Z</published>
-    <updated>2020-03-20T03:18:17.116Z</updated>
+    <updated>2020-03-20T03:18:17.000Z</updated>
     
     <summary type="html">
     
@@ -309,7 +309,7 @@ apt-get remove  nodejs npm -y
     <link href="http://blog.hooyuhao.club/nginx-pei-zhi-duo-tiao-jian-pan-duan/"/>
     <id>http://blog.hooyuhao.club/nginx-pei-zhi-duo-tiao-jian-pan-duan/</id>
     <published>2020-03-19T16:36:37.000Z</published>
-    <updated>2020-03-19T18:22:47.741Z</updated>
+    <updated>2020-03-19T18:22:47.000Z</updated>
     
     <summary type="html">
     
@@ -335,7 +335,7 @@ apt-get remove  nodejs npm -y
     <link href="http://blog.hooyuhao.club/python-jian-cha-ci-pan-da-yu-80-shi-fa-song-ding-ding/"/>
     <id>http://blog.hooyuhao.club/python-jian-cha-ci-pan-da-yu-80-shi-fa-song-ding-ding/</id>
     <published>2020-03-19T16:23:48.000Z</published>
-    <updated>2020-03-21T01:55:06.587Z</updated>
+    <updated>2020-03-21T01:55:06.000Z</updated>
     
     <summary type="html">
     
@@ -361,7 +361,7 @@ apt-get remove  nodejs npm -y
     <link href="http://blog.hooyuhao.club/python-pei-zhi-ding-ding-ji-qi-ren-fa-song-xin-xi/"/>
     <id>http://blog.hooyuhao.club/python-pei-zhi-ding-ding-ji-qi-ren-fa-song-xin-xi/</id>
     <published>2020-03-19T03:50:02.000Z</published>
-    <updated>2020-03-23T10:50:23.299Z</updated>
+    <updated>2020-03-23T10:50:23.000Z</updated>
     
     <summary type="html">
     
@@ -390,7 +390,7 @@ apt-get remove  nodejs npm -y
     <link href="http://blog.hooyuhao.club/shell-jiao-ben-shi-li-ba/"/>
     <id>http://blog.hooyuhao.club/shell-jiao-ben-shi-li-ba/</id>
     <published>2020-03-18T02:22:35.000Z</published>
-    <updated>2020-03-18T07:15:28.361Z</updated>
+    <updated>2020-03-18T07:15:28.000Z</updated>
     
     <summary type="html">
     
@@ -416,7 +416,7 @@ apt-get remove  nodejs npm -y
     <link href="http://blog.hooyuhao.club/shell-jiao-ben-shi-li-qi/"/>
     <id>http://blog.hooyuhao.club/shell-jiao-ben-shi-li-qi/</id>
     <published>2020-03-18T02:17:47.000Z</published>
-    <updated>2020-03-18T02:32:30.430Z</updated>
+    <updated>2020-03-18T02:32:30.000Z</updated>
     
     <summary type="html">
     
@@ -442,7 +442,7 @@ apt-get remove  nodejs npm -y
     <link href="http://blog.hooyuhao.club/shell-jiao-ben-shi-li-liu/"/>
     <id>http://blog.hooyuhao.club/shell-jiao-ben-shi-li-liu/</id>
     <published>2020-03-18T01:50:39.000Z</published>
-    <updated>2020-03-18T02:32:23.150Z</updated>
+    <updated>2020-03-18T02:32:23.000Z</updated>
     
     <summary type="html">
     
@@ -468,7 +468,7 @@ apt-get remove  nodejs npm -y
     <link href="http://blog.hooyuhao.club/shell-jiao-ben-shi-li-wu/"/>
     <id>http://blog.hooyuhao.club/shell-jiao-ben-shi-li-wu/</id>
     <published>2020-03-18T01:30:28.000Z</published>
-    <updated>2020-03-18T02:32:12.911Z</updated>
+    <updated>2020-03-18T02:32:12.000Z</updated>
     
     <summary type="html">
     
@@ -494,7 +494,7 @@ apt-get remove  nodejs npm -y
     <link href="http://blog.hooyuhao.club/shell-jiao-ben-shi-li-si/"/>
     <id>http://blog.hooyuhao.club/shell-jiao-ben-shi-li-si/</id>
     <published>2020-03-18T01:30:22.000Z</published>
-    <updated>2020-03-18T02:32:03.159Z</updated>
+    <updated>2020-03-18T02:32:03.000Z</updated>
     
     <summary type="html">
     
@@ -520,7 +520,7 @@ apt-get remove  nodejs npm -y
     <link href="http://blog.hooyuhao.club/shell-jiao-ben-shi-li-san/"/>
     <id>http://blog.hooyuhao.club/shell-jiao-ben-shi-li-san/</id>
     <published>2020-03-18T01:30:17.000Z</published>
-    <updated>2020-03-18T02:31:51.727Z</updated>
+    <updated>2020-03-18T02:31:51.000Z</updated>
     
     <summary type="html">
     

@@ -309,7 +309,7 @@ apiV">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/26.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -687,6 +687,7 @@ jenkins-7f5494cd44-smn2r   1/1       Running       0          25s
 <li>我们需要安装kubernetes plugin， 点击 Manage Jenkins -&gt; Manage Plugins -&gt; Available -&gt; Kubernetes plugin 勾选安装即可。<br><img src="img/6.png" alt="kubernetes插件"></li>
 </ol>
 <p><font color="red" size="5">注意:</font><br>在准备第2步安装前,我们需要先拿到K8S集群kube/config的配置文件。至于为什么，因为我们接下来会用到</p>
+<pre class="line-numbers language-bash"><code class="language-bash">kubectl get configmap cluster-info -n kube-public -o yam<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <pre class="line-numbers language-conf"><code class="language-conf">apiVersion: v1
 clusters:
 - cluster:
@@ -1422,7 +1423,7 @@ podTemplate<span class="token punctuation">(</span>label: <span class="token str
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="jenkins利用pipeline构建K8S应用-示例(一)">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="jenkins利用pipeline构建K8S应用-示例(一)">
                         
                         <span class="card-title">jenkins利用pipeline构建K8S应用-示例(一)</span>
                     </div>
@@ -1477,7 +1478,7 @@ podTemplate(label: 'jnlp-slave', cloud: 'kubernetes')
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="openvpn部署">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="openvpn部署">
                         
                         <span class="card-title">openvpn部署</span>
                     </div>

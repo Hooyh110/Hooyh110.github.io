@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://blog.hooyuhao.club/jenkins-li-yong-pipeline-gou-jian-ci-cd/</loc>
+    <lastmod>2021-01-04</lastmod>
+  </url>  <url>
     <loc>http://blog.hooyuhao.club/k8s-build-zabbix-server/</loc>
-    <lastmod>2020-06-05</lastmod>
+    <lastmod>2020-06-08</lastmod>
   </url>  <url>
     <loc>http://blog.hooyuhao.club/docker-bu-shu-apollo/</loc>
     <lastmod>2020-04-19</lastmod>
@@ -18,9 +21,6 @@
   </url>  <url>
     <loc>http://blog.hooyuhao.club/jenkins-li-yong-pipeline-gou-jian-ci-cd-shi-li/</loc>
     <lastmod>2020-04-09</lastmod>
-  </url>  <url>
-    <loc>http://blog.hooyuhao.club/jenkins-li-yong-pipeline-gou-jian-ci-cd/</loc>
-    <lastmod>2020-04-05</lastmod>
   </url>  <url>
     <loc>http://blog.hooyuhao.club/markdown-chang-yong-zi-ti-yan-se-lie-biao/</loc>
     <lastmod>2020-04-04</lastmod>

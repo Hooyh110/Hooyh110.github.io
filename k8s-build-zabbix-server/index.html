@@ -307,7 +307,7 @@ Zabbix 使用 MySQL、Postg">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -990,7 +990,7 @@ kubectl apply -f mariadb-deploy.yaml<span aria-hidden="true" class="line-numbers
       <span class="token key atrule">securityContext</span><span class="token punctuation">:</span>
         <span class="token key atrule">privileged</span><span class="token punctuation">:</span> <span class="token boolean important">true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="普通节点安装zabbix"><a href="#普通节点安装zabbix" class="headerlink" title="普通节点安装zabbix"></a>普通节点安装zabbix</h2><pre class="line-numbers language-bash"><code class="language-bash">rpm -Uvh https://repo.zabbix.com/zabbix/4.0/rhel/7/x86_64/zabbix-release-4.0-2.el7.noarch.rpm
-yum <span class="token function">install</span> -y zabbix_agent
+yum <span class="token function">install</span> -y zabbix-agent
 <span class="token function">sed</span> -i <span class="token string">'s/127.0.0.1/172.***.***.153/g'</span> /etc/zabbix/zabbix_agentd.conf
 systemctl <span class="token function">enable</span> zabbix-agent
 systemctl start zabbix-agent<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
@@ -1487,7 +1487,7 @@ systemctl start zabbix-agent<span aria-hidden="true" class="line-numbers-rows"><
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="k8s build zabbix-server">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="k8s build zabbix-server">
                         
                         <span class="card-title">k8s build zabbix-server</span>
                     </div>
@@ -1537,7 +1537,7 @@ systemctl start zabbix-agent<span aria-hidden="true" class="line-numbers-rows"><
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="docker部署Apollo">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="docker部署Apollo">
                         
                         <span class="card-title">docker部署Apollo</span>
                     </div>
