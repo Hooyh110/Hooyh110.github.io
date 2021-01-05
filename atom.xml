@@ -5,9 +5,9 @@
   <subtitle>helen</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://blog.hooyuhao.club/"/>
+  <link href="http://blog.oldkid.top/"/>
   <updated>2020-06-08T09:54:20.000Z</updated>
-  <id>http://blog.hooyuhao.club/</id>
+  <id>http://blog.oldkid.top/</id>
   
   <author>
     <name>helen</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>k8s build zabbix-server</title>
-    <link href="http://blog.hooyuhao.club/k8s-build-zabbix-server/"/>
-    <id>http://blog.hooyuhao.club/k8s-build-zabbix-server/</id>
+    <link href="http://blog.oldkid.top/k8s-build-zabbix-server/"/>
+    <id>http://blog.oldkid.top/k8s-build-zabbix-server/</id>
     <published>2020-06-05T07:07:36.000Z</published>
     <updated>2020-06-08T09:54:20.000Z</updated>
     
@@ -35,17 +35,17 @@
     
     </summary>
     
-      <category term="docker" scheme="http://blog.hooyuhao.club/categories/docker/"/>
+      <category term="docker" scheme="http://blog.oldkid.top/categories/docker/"/>
     
     
-      <category term="docker" scheme="http://blog.hooyuhao.club/tags/docker/"/>
+      <category term="docker" scheme="http://blog.oldkid.top/tags/docker/"/>
     
   </entry>
   
   <entry>
     <title>docker部署Apollo</title>
-    <link href="http://blog.hooyuhao.club/docker-bu-shu-apollo/"/>
-    <id>http://blog.hooyuhao.club/docker-bu-shu-apollo/</id>
+    <link href="http://blog.oldkid.top/docker-bu-shu-apollo/"/>
+    <id>http://blog.oldkid.top/docker-bu-shu-apollo/</id>
     <published>2020-04-19T07:58:58.000Z</published>
     <updated>2020-04-19T10:00:07.000Z</updated>
     
@@ -61,17 +61,17 @@
     
     </summary>
     
-      <category term="DevOps" scheme="http://blog.hooyuhao.club/categories/DevOps/"/>
+      <category term="DevOps" scheme="http://blog.oldkid.top/categories/DevOps/"/>
     
     
-      <category term="DevOps" scheme="http://blog.hooyuhao.club/tags/DevOps/"/>
+      <category term="DevOps" scheme="http://blog.oldkid.top/tags/DevOps/"/>
     
   </entry>
   
   <entry>
     <title>Debian安装最新版nodejs及npm</title>
-    <link href="http://blog.hooyuhao.club/debian-an-zhuang-zui-xin-ban-nodejs-ji-npm/"/>
-    <id>http://blog.hooyuhao.club/debian-an-zhuang-zui-xin-ban-nodejs-ji-npm/</id>
+    <link href="http://blog.oldkid.top/debian-an-zhuang-zui-xin-ban-nodejs-ji-npm/"/>
+    <id>http://blog.oldkid.top/debian-an-zhuang-zui-xin-ban-nodejs-ji-npm/</id>
     <published>2020-04-10T09:33:24.000Z</published>
     <updated>2020-04-10T09:34:55.000Z</updated>
     
@@ -88,17 +88,17 @@ apt-get remove  nodejs npm -y
     
     </summary>
     
-      <category term="Debian" scheme="http://blog.hooyuhao.club/categories/Debian/"/>
+      <category term="Debian" scheme="http://blog.oldkid.top/categories/Debian/"/>
     
     
-      <category term="Debian" scheme="http://blog.hooyuhao.club/tags/Debian/"/>
+      <category term="Debian" scheme="http://blog.oldkid.top/tags/Debian/"/>
     
   </entry>
   
   <entry>
     <title>jenkins利用pipeline构建CI/CD-示例(二)</title>
-    <link href="http://blog.hooyuhao.club/jenkins-li-yong-pipeline-gou-jian-ci-cd-shi-li-er/"/>
-    <id>http://blog.hooyuhao.club/jenkins-li-yong-pipeline-gou-jian-ci-cd-shi-li-er/</id>
+    <link href="http://blog.oldkid.top/jenkins-li-yong-pipeline-gou-jian-ci-cd-shi-li-er/"/>
+    <id>http://blog.oldkid.top/jenkins-li-yong-pipeline-gou-jian-ci-cd-shi-li-er/</id>
     <published>2020-04-09T12:55:38.000Z</published>
     <updated>2020-04-10T10:02:37.000Z</updated>
     
@@ -114,17 +114,17 @@ apt-get remove  nodejs npm -y
     
     </summary>
     
-      <category term="DevOps" scheme="http://blog.hooyuhao.club/categories/DevOps/"/>
+      <category term="DevOps" scheme="http://blog.oldkid.top/categories/DevOps/"/>
     
     
-      <category term="DevOps" scheme="http://blog.hooyuhao.club/tags/DevOps/"/>
+      <category term="DevOps" scheme="http://blog.oldkid.top/tags/DevOps/"/>
     
   </entry>
   
   <entry>
     <title>jenkins利用pipeline构建K8S应用-示例(一)</title>
-    <link href="http://blog.hooyuhao.club/jenkins-li-yong-pipeline-gou-jian-ci-cd-shi-li/"/>
-    <id>http://blog.hooyuhao.club/jenkins-li-yong-pipeline-gou-jian-ci-cd-shi-li/</id>
+    <link href="http://blog.oldkid.top/jenkins-li-yong-pipeline-gou-jian-ci-cd-shi-li/"/>
+    <id>http://blog.oldkid.top/jenkins-li-yong-pipeline-gou-jian-ci-cd-shi-li/</id>
     <published>2020-04-09T11:57:57.000Z</published>
     <updated>2020-04-09T12:55:16.000Z</updated>
     
@@ -140,17 +140,17 @@ apt-get remove  nodejs npm -y
     
     </summary>
     
-      <category term="DevOps" scheme="http://blog.hooyuhao.club/categories/DevOps/"/>
+      <category term="DevOps" scheme="http://blog.oldkid.top/categories/DevOps/"/>
     
     
-      <category term="DevOps" scheme="http://blog.hooyuhao.club/tags/DevOps/"/>
+      <category term="DevOps" scheme="http://blog.oldkid.top/tags/DevOps/"/>
     
   </entry>
   
   <entry>
     <title>jenkins利用pipeline构建CI/CD</title>
-    <link href="http://blog.hooyuhao.club/jenkins-li-yong-pipeline-gou-jian-ci-cd/"/>
-    <id>http://blog.hooyuhao.club/jenkins-li-yong-pipeline-gou-jian-ci-cd/</id>
+    <link href="http://blog.oldkid.top/jenkins-li-yong-pipeline-gou-jian-ci-cd/"/>
+    <id>http://blog.oldkid.top/jenkins-li-yong-pipeline-gou-jian-ci-cd/</id>
     <published>2020-04-04T13:19:17.000Z</published>
     <updated>2021-01-04T09:38:12.229Z</updated>
     
@@ -166,17 +166,17 @@ apt-get remove  nodejs npm -y
     
     </summary>
     
-      <category term="DevOps" scheme="http://blog.hooyuhao.club/categories/DevOps/"/>
+      <category term="DevOps" scheme="http://blog.oldkid.top/categories/DevOps/"/>
     
     
-      <category term="DevOps" scheme="http://blog.hooyuhao.club/tags/DevOps/"/>
+      <category term="DevOps" scheme="http://blog.oldkid.top/tags/DevOps/"/>
     
   </entry>
   
   <entry>
     <title>openvpn部署</title>
-    <link href="http://blog.hooyuhao.club/openvpn-bu-shu/"/>
-    <id>http://blog.hooyuhao.club/openvpn-bu-shu/</id>
+    <link href="http://blog.oldkid.top/openvpn-bu-shu/"/>
+    <id>http://blog.oldkid.top/openvpn-bu-shu/</id>
     <published>2020-04-04T10:45:11.000Z</published>
     <updated>2020-04-04T13:16:53.000Z</updated>
     
@@ -192,17 +192,17 @@ apt-get remove  nodejs npm -y
     
     </summary>
     
-      <category term="vpn" scheme="http://blog.hooyuhao.club/categories/vpn/"/>
+      <category term="vpn" scheme="http://blog.oldkid.top/categories/vpn/"/>
     
     
-      <category term="vpn" scheme="http://blog.hooyuhao.club/tags/vpn/"/>
+      <category term="vpn" scheme="http://blog.oldkid.top/tags/vpn/"/>
     
   </entry>
   
   <entry>
     <title>jumpserver配置用户sudo模板</title>
-    <link href="http://blog.hooyuhao.club/jumpserver-pei-zhi-yong-hu-sudo-mo-ban/"/>
-    <id>http://blog.hooyuhao.club/jumpserver-pei-zhi-yong-hu-sudo-mo-ban/</id>
+    <link href="http://blog.oldkid.top/jumpserver-pei-zhi-yong-hu-sudo-mo-ban/"/>
+    <id>http://blog.oldkid.top/jumpserver-pei-zhi-yong-hu-sudo-mo-ban/</id>
     <published>2020-03-27T03:06:22.000Z</published>
     <updated>2020-03-27T03:43:18.000Z</updated>
     
@@ -218,17 +218,17 @@ apt-get remove  nodejs npm -y
     
     </summary>
     
-      <category term="jump" scheme="http://blog.hooyuhao.club/categories/jump/"/>
+      <category term="jump" scheme="http://blog.oldkid.top/categories/jump/"/>
     
     
-      <category term="jump" scheme="http://blog.hooyuhao.club/tags/jump/"/>
+      <category term="jump" scheme="http://blog.oldkid.top/tags/jump/"/>
     
   </entry>
   
   <entry>
     <title>Docker占满磁盘空间处理方法</title>
-    <link href="http://blog.hooyuhao.club/docker-zhan-man-ci-pan-kong-jian-chu-li-fang-fa/"/>
-    <id>http://blog.hooyuhao.club/docker-zhan-man-ci-pan-kong-jian-chu-li-fang-fa/</id>
+    <link href="http://blog.oldkid.top/docker-zhan-man-ci-pan-kong-jian-chu-li-fang-fa/"/>
+    <id>http://blog.oldkid.top/docker-zhan-man-ci-pan-kong-jian-chu-li-fang-fa/</id>
     <published>2020-03-21T01:57:08.000Z</published>
     <updated>2020-03-21T02:10:31.000Z</updated>
     
@@ -245,17 +245,17 @@ apt-get remove  nodejs npm -y
     
     </summary>
     
-      <category term="docker" scheme="http://blog.hooyuhao.club/categories/docker/"/>
+      <category term="docker" scheme="http://blog.oldkid.top/categories/docker/"/>
     
     
-      <category term="docker" scheme="http://blog.hooyuhao.club/tags/docker/"/>
+      <category term="docker" scheme="http://blog.oldkid.top/tags/docker/"/>
     
   </entry>
   
   <entry>
     <title>shell 自动交互</title>
-    <link href="http://blog.hooyuhao.club/shell-zi-dong-jiao-hu/"/>
-    <id>http://blog.hooyuhao.club/shell-zi-dong-jiao-hu/</id>
+    <link href="http://blog.oldkid.top/shell-zi-dong-jiao-hu/"/>
+    <id>http://blog.oldkid.top/shell-zi-dong-jiao-hu/</id>
     <published>2020-03-20T03:20:00.000Z</published>
     <updated>2020-03-20T03:21:37.000Z</updated>
     
@@ -271,17 +271,17 @@ apt-get remove  nodejs npm -y
     
     </summary>
     
-      <category term="shell" scheme="http://blog.hooyuhao.club/categories/shell/"/>
+      <category term="shell" scheme="http://blog.oldkid.top/categories/shell/"/>
     
     
-      <category term="shell" scheme="http://blog.hooyuhao.club/tags/shell/"/>
+      <category term="shell" scheme="http://blog.oldkid.top/tags/shell/"/>
     
   </entry>
   
   <entry>
     <title>shell 多行合并成1行</title>
-    <link href="http://blog.hooyuhao.club/shell-duo-xing-he-bing-cheng-1-xing/"/>
-    <id>http://blog.hooyuhao.club/shell-duo-xing-he-bing-cheng-1-xing/</id>
+    <link href="http://blog.oldkid.top/shell-duo-xing-he-bing-cheng-1-xing/"/>
+    <id>http://blog.oldkid.top/shell-duo-xing-he-bing-cheng-1-xing/</id>
     <published>2020-03-20T03:14:15.000Z</published>
     <updated>2020-03-20T03:18:17.000Z</updated>
     
@@ -297,17 +297,17 @@ apt-get remove  nodejs npm -y
     
     </summary>
     
-      <category term="shell" scheme="http://blog.hooyuhao.club/categories/shell/"/>
+      <category term="shell" scheme="http://blog.oldkid.top/categories/shell/"/>
     
     
-      <category term="shell" scheme="http://blog.hooyuhao.club/tags/shell/"/>
+      <category term="shell" scheme="http://blog.oldkid.top/tags/shell/"/>
     
   </entry>
   
   <entry>
     <title>nginx 配置多条件判断</title>
-    <link href="http://blog.hooyuhao.club/nginx-pei-zhi-duo-tiao-jian-pan-duan/"/>
-    <id>http://blog.hooyuhao.club/nginx-pei-zhi-duo-tiao-jian-pan-duan/</id>
+    <link href="http://blog.oldkid.top/nginx-pei-zhi-duo-tiao-jian-pan-duan/"/>
+    <id>http://blog.oldkid.top/nginx-pei-zhi-duo-tiao-jian-pan-duan/</id>
     <published>2020-03-19T16:36:37.000Z</published>
     <updated>2020-03-19T18:22:47.000Z</updated>
     
@@ -323,17 +323,17 @@ apt-get remove  nodejs npm -y
     
     </summary>
     
-      <category term="nginx" scheme="http://blog.hooyuhao.club/categories/nginx/"/>
+      <category term="nginx" scheme="http://blog.oldkid.top/categories/nginx/"/>
     
     
-      <category term="nginx" scheme="http://blog.hooyuhao.club/tags/nginx/"/>
+      <category term="nginx" scheme="http://blog.oldkid.top/tags/nginx/"/>
     
   </entry>
   
   <entry>
     <title>Python检查磁盘大于80%时发送钉钉</title>
-    <link href="http://blog.hooyuhao.club/python-jian-cha-ci-pan-da-yu-80-shi-fa-song-ding-ding/"/>
-    <id>http://blog.hooyuhao.club/python-jian-cha-ci-pan-da-yu-80-shi-fa-song-ding-ding/</id>
+    <link href="http://blog.oldkid.top/python-jian-cha-ci-pan-da-yu-80-shi-fa-song-ding-ding/"/>
+    <id>http://blog.oldkid.top/python-jian-cha-ci-pan-da-yu-80-shi-fa-song-ding-ding/</id>
     <published>2020-03-19T16:23:48.000Z</published>
     <updated>2020-03-21T01:55:06.000Z</updated>
     
@@ -349,17 +349,17 @@ apt-get remove  nodejs npm -y
     
     </summary>
     
-      <category term="Python" scheme="http://blog.hooyuhao.club/categories/Python/"/>
+      <category term="Python" scheme="http://blog.oldkid.top/categories/Python/"/>
     
     
-      <category term="Python" scheme="http://blog.hooyuhao.club/tags/Python/"/>
+      <category term="Python" scheme="http://blog.oldkid.top/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>Python配置钉钉机器人发送信息</title>
-    <link href="http://blog.hooyuhao.club/python-pei-zhi-ding-ding-ji-qi-ren-fa-song-xin-xi/"/>
-    <id>http://blog.hooyuhao.club/python-pei-zhi-ding-ding-ji-qi-ren-fa-song-xin-xi/</id>
+    <link href="http://blog.oldkid.top/python-pei-zhi-ding-ding-ji-qi-ren-fa-song-xin-xi/"/>
+    <id>http://blog.oldkid.top/python-pei-zhi-ding-ding-ji-qi-ren-fa-song-xin-xi/</id>
     <published>2020-03-19T03:50:02.000Z</published>
     <updated>2020-03-23T10:50:23.000Z</updated>
     
@@ -378,17 +378,17 @@ apt-get remove  nodejs npm -y
     
     </summary>
     
-      <category term="Python" scheme="http://blog.hooyuhao.club/categories/Python/"/>
+      <category term="Python" scheme="http://blog.oldkid.top/categories/Python/"/>
     
     
-      <category term="Python" scheme="http://blog.hooyuhao.club/tags/Python/"/>
+      <category term="Python" scheme="http://blog.oldkid.top/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>shell脚本实例(八)</title>
-    <link href="http://blog.hooyuhao.club/shell-jiao-ben-shi-li-ba/"/>
-    <id>http://blog.hooyuhao.club/shell-jiao-ben-shi-li-ba/</id>
+    <link href="http://blog.oldkid.top/shell-jiao-ben-shi-li-ba/"/>
+    <id>http://blog.oldkid.top/shell-jiao-ben-shi-li-ba/</id>
     <published>2020-03-18T02:22:35.000Z</published>
     <updated>2020-03-18T07:15:28.000Z</updated>
     
@@ -404,17 +404,17 @@ apt-get remove  nodejs npm -y
     
     </summary>
     
-      <category term="shell" scheme="http://blog.hooyuhao.club/categories/shell/"/>
+      <category term="shell" scheme="http://blog.oldkid.top/categories/shell/"/>
     
     
-      <category term="shell" scheme="http://blog.hooyuhao.club/tags/shell/"/>
+      <category term="shell" scheme="http://blog.oldkid.top/tags/shell/"/>
     
   </entry>
   
   <entry>
     <title>shell脚本实例(七)</title>
-    <link href="http://blog.hooyuhao.club/shell-jiao-ben-shi-li-qi/"/>
-    <id>http://blog.hooyuhao.club/shell-jiao-ben-shi-li-qi/</id>
+    <link href="http://blog.oldkid.top/shell-jiao-ben-shi-li-qi/"/>
+    <id>http://blog.oldkid.top/shell-jiao-ben-shi-li-qi/</id>
     <published>2020-03-18T02:17:47.000Z</published>
     <updated>2020-03-18T02:32:30.000Z</updated>
     
@@ -430,17 +430,17 @@ apt-get remove  nodejs npm -y
     
     </summary>
     
-      <category term="shell" scheme="http://blog.hooyuhao.club/categories/shell/"/>
+      <category term="shell" scheme="http://blog.oldkid.top/categories/shell/"/>
     
     
-      <category term="shell" scheme="http://blog.hooyuhao.club/tags/shell/"/>
+      <category term="shell" scheme="http://blog.oldkid.top/tags/shell/"/>
     
   </entry>
   
   <entry>
     <title>shell脚本实例(六)</title>
-    <link href="http://blog.hooyuhao.club/shell-jiao-ben-shi-li-liu/"/>
-    <id>http://blog.hooyuhao.club/shell-jiao-ben-shi-li-liu/</id>
+    <link href="http://blog.oldkid.top/shell-jiao-ben-shi-li-liu/"/>
+    <id>http://blog.oldkid.top/shell-jiao-ben-shi-li-liu/</id>
     <published>2020-03-18T01:50:39.000Z</published>
     <updated>2020-03-18T02:32:23.000Z</updated>
     
@@ -456,17 +456,17 @@ apt-get remove  nodejs npm -y
     
     </summary>
     
-      <category term="shell" scheme="http://blog.hooyuhao.club/categories/shell/"/>
+      <category term="shell" scheme="http://blog.oldkid.top/categories/shell/"/>
     
     
-      <category term="shell" scheme="http://blog.hooyuhao.club/tags/shell/"/>
+      <category term="shell" scheme="http://blog.oldkid.top/tags/shell/"/>
     
   </entry>
   
   <entry>
     <title>shell脚本实例(五)</title>
-    <link href="http://blog.hooyuhao.club/shell-jiao-ben-shi-li-wu/"/>
-    <id>http://blog.hooyuhao.club/shell-jiao-ben-shi-li-wu/</id>
+    <link href="http://blog.oldkid.top/shell-jiao-ben-shi-li-wu/"/>
+    <id>http://blog.oldkid.top/shell-jiao-ben-shi-li-wu/</id>
     <published>2020-03-18T01:30:28.000Z</published>
     <updated>2020-03-18T02:32:12.000Z</updated>
     
@@ -482,17 +482,17 @@ apt-get remove  nodejs npm -y
     
     </summary>
     
-      <category term="shell" scheme="http://blog.hooyuhao.club/categories/shell/"/>
+      <category term="shell" scheme="http://blog.oldkid.top/categories/shell/"/>
     
     
-      <category term="shell" scheme="http://blog.hooyuhao.club/tags/shell/"/>
+      <category term="shell" scheme="http://blog.oldkid.top/tags/shell/"/>
     
   </entry>
   
   <entry>
     <title>shell脚本实例(四)</title>
-    <link href="http://blog.hooyuhao.club/shell-jiao-ben-shi-li-si/"/>
-    <id>http://blog.hooyuhao.club/shell-jiao-ben-shi-li-si/</id>
+    <link href="http://blog.oldkid.top/shell-jiao-ben-shi-li-si/"/>
+    <id>http://blog.oldkid.top/shell-jiao-ben-shi-li-si/</id>
     <published>2020-03-18T01:30:22.000Z</published>
     <updated>2020-03-18T02:32:03.000Z</updated>
     
@@ -508,17 +508,17 @@ apt-get remove  nodejs npm -y
     
     </summary>
     
-      <category term="shell" scheme="http://blog.hooyuhao.club/categories/shell/"/>
+      <category term="shell" scheme="http://blog.oldkid.top/categories/shell/"/>
     
     
-      <category term="shell" scheme="http://blog.hooyuhao.club/tags/shell/"/>
+      <category term="shell" scheme="http://blog.oldkid.top/tags/shell/"/>
     
   </entry>
   
   <entry>
     <title>shell脚本实例(三)</title>
-    <link href="http://blog.hooyuhao.club/shell-jiao-ben-shi-li-san/"/>
-    <id>http://blog.hooyuhao.club/shell-jiao-ben-shi-li-san/</id>
+    <link href="http://blog.oldkid.top/shell-jiao-ben-shi-li-san/"/>
+    <id>http://blog.oldkid.top/shell-jiao-ben-shi-li-san/</id>
     <published>2020-03-18T01:30:17.000Z</published>
     <updated>2020-03-18T02:31:51.000Z</updated>
     
@@ -534,10 +534,10 @@ apt-get remove  nodejs npm -y
     
     </summary>
     
-      <category term="shell" scheme="http://blog.hooyuhao.club/categories/shell/"/>
+      <category term="shell" scheme="http://blog.oldkid.top/categories/shell/"/>
     
     
-      <category term="shell" scheme="http://blog.hooyuhao.club/tags/shell/"/>
+      <category term="shell" scheme="http://blog.oldkid.top/tags/shell/"/>
     
   </entry>
   
