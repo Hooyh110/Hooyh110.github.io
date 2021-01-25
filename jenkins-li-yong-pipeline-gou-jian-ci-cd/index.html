@@ -309,7 +309,7 @@ apiV">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -464,7 +464,7 @@ apiV">
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.8k
+                    3.9k
                 </div>
                 
 
@@ -716,7 +716,7 @@ users:
 <li><font color="red" size="3">凭据</font> 配置方法<br><img src="img/8.png" alt="k8s凭据"></li>
 </ul>
 <p><img src="img/7.png" alt="kubernetes配置"></p>
-<p>注意 namespace，我们这里填 default，然后点击Test Connection，如果出现 Connection test successful 的提示信息证明 Jenkins 已经可以和 Kubernetes 系统正常通信了，然后下方的 Jenkins URL 地址：<a href="http://10.69.67.100:8080/，这里的格式为：服务名.namespace.svc.cluster.local:8080，根据上面创建的jenkins" target="_blank" rel="noopener">http://10.69.67.100:8080/，这里的格式为：服务名.namespace.svc.cluster.local:8080，根据上面创建的jenkins</a> 的服务名填写，我这里是之前创建的名为jenkins</p>
+<p>注意 namespace，我们这里填 default，然后点击Test Connection，如果出现 Connection test successful 的提示信息证明 Jenkins 已经可以和 Kubernetes 系统正常通信了，然后下方的 Jenkins URL 地址：<a href="http://10.69.67.100:8080/，这里的格式为：服务名.namespace.svc.cluster.local:8080，根据上面创建的jenkins" target="_blank" rel="noopener">http://10.69.67.100:8080/，这里的格式为：服务名.namespace.svc.cluster.local:8080，根据上面创建的jenkins</a> 的服务名填写，我这里是之前创建的名为jenkins，为<a href="http://jenkins.jenkins:8080" target="_blank" rel="noopener">http://jenkins.jenkins:8080</a></p>
 <ol start="3">
 <li>配置 Pod Template，其实就是配置 Jenkins Slave 运行的 Pod 模板，命名空间我们同样是用 kube-ops，Labels 这里也非常重要，对于后面执行 Job 的时候需要用到该值，由于我们使用的场景是Java环境，所以我们这里使用的是<font color="orange"> registry.cn-beijing.aliyuncs.com/jenkins-k8s-pip/jnlp-slave:4.3-1-jdk11</font>这个镜像，这个镜像是在官方的 jnlp 镜像基础上定制的，加入了 kubectl 等一些实用的工具。</li>
 </ol>
@@ -1423,7 +1423,7 @@ podTemplate<span class="token punctuation">(</span>label: <span class="token str
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="jenkins利用pipeline构建K8S应用-示例(一)">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="jenkins利用pipeline构建K8S应用-示例(一)">
                         
                         <span class="card-title">jenkins利用pipeline构建K8S应用-示例(一)</span>
                     </div>
@@ -1478,7 +1478,7 @@ podTemplate(label: 'jnlp-slave', cloud: 'kubernetes')
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="openvpn部署">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="openvpn部署">
                         
                         <span class="card-title">openvpn部署</span>
                     </div>
